@@ -1,0 +1,48 @@
+---
+layout: '../layouts/Article.astro'
+title: 'Masterplan'
+---
+
+# Masterplan
+
+<p class="lead">Operately’s mission is to empower every startup to execute at the highest level.</p>
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/Xki56c55w38?si=mFb28KmcIIPNDiXh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Startup founders are innovators, not operators. They can build a good product with a small team but make fundamental mistakes when building a company.
+
+Founders are conditioned to figure things out as they go. Starting a company, as a famous saying in Silicon Valley goes, “is like jumping off a cliff and assembling an airplane on the way down.”
+
+There is no standard for execution, so startups face increasing dysfunction as they grow. As a result, talented team members cannot work at their full potential, and many startups shut down before making any impact.
+
+More than a decade after launching [Semaphore](https://semaphoreci.com) to seven-figure annual revenue without any external funding — what we, in hindsight, could’ve accomplished in half the time or less — we see that the truth is more straightforward.
+
+_**All startups need the same systems to maintain their focus and information flow.**_
+
+Today, software products used to manage work are glorified blank pieces of paper. They offer powerful tools to build rich documents. But they don’t help teams become disciplined in executing their strategy.
+
+In reality, internally developed company infrastructure — such as goal-setting systems, accountability charts, performance indicators, playbooks, etc. — grow scattered across different applications and documents.
+
+It’s hard to see if the company is investing its time in the best possible way. So even with the right strategic ingredients, amping up execution remains elusive.
+
+The best work happens in a culture of freedom and responsibility. People should be free to make decisions and take ownership of their work. To achieve this, they need clear expectations and goals while allowing them to experiment and take risks.
+
+**Operately will make the tools that enable this empowering culture accessible to every startup**.
+
+As a result:
+
+- Startups will execute in year one better than how they would by trial and error in year five.
+- Startups will avoid communication and productivity breakdowns as they grow beyond 12-20 people.
+- Team members will have the right structure to do the best work of their lives.
+
+We believe that open source not only democratizes access to resources but also fosters innovation and drives progress.
+
+We also strongly believe in the power of community and the impact it can have on building and scaling successful startups. By building in the open, we hope to build a community of founders, operators, and builders who can collaborate, share insights and best practices, and support one another in their journey toward success.
+
+### To recap, here’s our master plan:
+
+1. Build an open-source startup operating system.
+2. Build a global community of founders, builders, operators, and innovators.
+3. Build a sustainable company with commercial products and services.
+
+Our mission is to empower every startup to execute at the highest level. By helping more startups succeed, we will help unlock more human potential to make positive changes in the world.

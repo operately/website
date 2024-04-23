@@ -1,0 +1,29 @@
+---
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const {frontmatter} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+		<title>{frontmatter.title} - Operately</title>
+	</head>
+	<body>
+		<Header client:load />
+        <div class="bg-white px-6 py-16 lg:px-8">
+            <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+		        <article class="prose lg:prose-lg prose-a:text-operately-blue prose-th:bg-operately-blue-tint-1 prose-th:p-2 prose-th:pb-2 prose-td:text-left prose-th:text-left even:prose-tr:bg-gray-100">
+                    <slot />
+                </article>
+            </div>
+        </div>
+		<Footer client:load />
+	</body>
+</html>

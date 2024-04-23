@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Hero from './index/Hero.jsx';
+import Intro from './index/Intro.jsx';
+---
+
+<Layout title="Welcome to MAH DEMO.">
+	<Hero client:load />
+	<Intro client:load />
+</Layout>
