@@ -1,0 +1,62 @@
+---
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const {frontmatter} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>{frontmatter.title} Job - Operately</title>
+  </head>
+  <body>
+    <Header client:load />
+
+    <main class="max-w-5xl mx-auto p-6">
+      <div class="lg:flex lg:items-start">
+        <div class="prose mt-12 flex-1 text-black prose-h3:text-sm prose-h3:font-semibold prose-h3:uppercase prose-h3:text-stone-950 prose-h3:mt-10 prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue">
+
+          <div class="text-xs font-semibold uppercase tracking-wider my-2">
+            Join Operately
+          </div>
+
+          <slot />
+
+          <div class="border-t border-stone-200 my-4 lg:my-10"></div>
+
+          <p>Operately is an equal-opportunity employer. Consistent with our mission of serving a diverse and global audience, we value a diverse workforce and inclusive culture which reflects that. We encourage applications from all qualified individuals without regard to race, color, religion, gender, sexual orientation, gender identity or expression, age, national origin, marital status, disability, and veteran status.</p>
+
+        </div>
+
+        <div class="max-lg:border-t max-lg:pt-10 lg:border-l lg:ml-8 lg:pl-8 mt-10 lg:sticky lg:top-10">
+          <a href={frontmatter.jobUrl} class="bg-operately-blue hover:bg-operately-dark-blue text-white font-medium py-2 px-4 inline-block uppercase">Apply for this job</a>
+      
+          <div class="flex flex-col gap-4 mt-8">
+            <div>
+              <div class="text-sm font-semibold tracking-wider text-stone-950">Location</div>
+              <p>Remote</p>
+            </div>
+      
+            <div>
+              <div class="text-sm font-semibold text-stone-950">Department</div>
+              <p>{frontmatter.department}</p>
+            </div>
+      
+            <div>
+              <div class="text-sm font-semibold tracking-wider text-stone-950">Employment Type</div>
+              <p>Full-Time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer client:load />
+  </body>
+</html>

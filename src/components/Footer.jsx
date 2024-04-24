@@ -6,7 +6,7 @@ const navigation = {
       { name: 'Masterplan', href: '/masterplan' },
       { name: 'Operations Handbook', href: '/blueprint' },
       { name: 'KPI Examples', href: 'https://kpiexamples.operately.com' },
-      { name: 'Careers', href: 'https://careers.operately.com' },
+      { name: 'Jobs', href: '/jobs' },
       { name: 'Blog', href: 'https://blog.operately.com' },
     ],
     social: [

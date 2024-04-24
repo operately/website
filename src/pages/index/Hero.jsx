@@ -24,7 +24,7 @@ export default function Hero() {
                 Join the waitlist
               </a>
               <a href="/blueprint" className="text-sm font-semibold leading-6 text-gray-900">
-                Read blueprint <span aria-hidden="true">→</span>
+                Read the blueprint <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

@@ -9,7 +9,7 @@ const navigation = [
   /*{ name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
   { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },*/
+  { name: 'Company', href: '#' }*/
 ]
 
 export default function Header() {
@@ -43,6 +43,10 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <div className="flex gap-x-6 items-center">
+            <a href="/jobs"
+              className="bg-yellow-200 bg-opacity-50 px-2 py-1 rounded text-sm hover:underline">
+              We're hiring
+            </a>
             <a href="https://discord.com/invite/2ngnragJYV" className="hover:text-gray-500">
               <DiscordIcon className="h-6 w-6" />
             </a>
@@ -91,6 +95,12 @@ export default function Header() {
                     {item.name}
                   </a>
                 ))}
+                <a
+                    href="/jobs"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    We're hiring
+                  </a>
               </div>
               <div className="py-6">
                 <a
