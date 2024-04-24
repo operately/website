@@ -18,7 +18,7 @@ const {frontmatter} = Astro.props;
   <body>
     <Header client:load />
 
-    <main class="max-w-5xl mx-auto p-6">
+    <main class="max-w-5xl mx-auto p-6 mt-8 sm:mt-20">
       <div class="lg:flex lg:items-start">
         <div class="prose mt-12 flex-1 text-black prose-h3:text-sm prose-h3:font-semibold prose-h3:uppercase prose-h3:text-stone-950 prose-h3:mt-10 prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue">
 
@@ -35,7 +35,7 @@ const {frontmatter} = Astro.props;
         </div>
 
         <div class="max-lg:border-t max-lg:pt-10 lg:border-l lg:ml-8 lg:pl-8 mt-10 lg:sticky lg:top-10">
-          <a href={frontmatter.jobUrl} class="bg-operately-blue hover:bg-operately-dark-blue text-white font-medium py-2 px-4 inline-block uppercase">Apply for this job</a>
+          <a href={frontmatter.jobUrl} class="rounded-md bg-operately-blue hover:bg-operately-dark-blue text-white font-medium py-2 px-4 inline-block uppercase">Apply for this job</a>
       
           <div class="flex flex-col gap-4 mt-8">
             <div>
