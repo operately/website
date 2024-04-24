@@ -2,9 +2,13 @@
 
 This is the repository for the Operately website.
 
-Made with [Astro](https://docs.astro.build/en/getting-started/).
+Made with:
+- [Astro](https://docs.astro.build/en/getting-started/)
+- [Tailwind CSS](https://tailwindcss.com/docs/), [UI components](https://tailwindui.com/), [Typography plugin](https://github.com/tailwindlabs/tailwindcss-typography)
+- [HeroIcons](https://heroicons.com)) and [SimpleIcons](https://simpleicons.org/)
+- Intern-level knowledge of React
 
-Hosted on CloudFlare Pages. Changes to `main` are automatically deployed.
+Hosted on CloudFlare Pages. Changes to the `main` branch are automatically deployed.
 
 ## Commands
 
