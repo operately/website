@@ -1,11 +1,12 @@
 ---
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import buildFullUrl from '../utils/urlBuilder';
 
 const {frontmatter} = Astro.props;
 
-const image = frontmatter.image ? buildFullUrl(Astro, frontmatter.image) : buildFullUrl(Astro, "/social-card-summary.jpg");
+const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-summary.png";
+const socialImageUrl = new URL(imagePath, Astro.url);
+
 const twitterCardType = frontmatter.image ? 'summary_large_image' : 'summary';
 ---
 
@@ -20,11 +21,11 @@ const twitterCardType = frontmatter.image ? 'summary_large_image' : 'summary';
     {frontmatter.description? <meta name="description" content={frontmatter.description} /> <meta name="twitter:description" content={frontmatter.description} /> : null}
     <meta property="og:title" content={frontmatter.title} />
     <meta property="og:site_name" content="Operately" />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={socialImageUrl} />
     <meta name="twitter:card" content={twitterCardType} />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={frontmatter.title} />
-    <meta name="twitter:image" content={image} /> 
+    <meta name="twitter:image" content={socialImageUrl} /> 
   </head>
   <body>
     <Header client:load />

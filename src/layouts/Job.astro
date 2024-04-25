@@ -2,11 +2,9 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import buildFullUrl from '../utils/urlBuilder';
-
 const {frontmatter} = Astro.props;
 
-const socialCardImage = buildFullUrl(Astro, "/social-card-summary.jpg");
+const socialCardImage = new URL("/images/social/card-summary.png", Astro.url);
 ---
 
 <!doctype html>

@@ -8,6 +8,8 @@ interface LayoutProps {
 
 const { title, description, image, twitterCardType = 'summary' } = Astro.props as LayoutProps;
 
+const socialImageUrl = image ? new URL(image, Astro.url) : null;
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 ---
@@ -23,12 +25,12 @@ import Footer from '../components/Footer';
     {description? <meta name="description" content={description} /> : null}
     <meta property="og:title" content={title} />
     <meta property="og:site_name" content="Operately" />
-    {image ? <meta property="og:image" content={image} /> : null}
+    {socialImageUrl ? <meta property="og:image" content={socialImageUrl} /> : null}
     <meta name="twitter:card" content={twitterCardType} />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {image ? <meta name="twitter:image" content={image} /> : null}
+    {socialImageUrl ? <meta name="twitter:image" content={socialImageUrl} /> : null}
   </head>
   <body>
     <Header client:load />

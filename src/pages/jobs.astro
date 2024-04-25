@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import buildFullUrl from '../utils/urlBuilder.js';
 
-import { Image } from 'astro:assets';
 import darkoPhoto from './jobs/darko.jpg';
 import markoPhoto from './jobs/marko.jpg';
 import igorPhoto from './jobs/igor.jpg';
 
-const socialImageUrl = buildFullUrl(Astro, "/jobs/social-card.jpg");
+const socialImageUrl = new URL("/images/social/jobs.jpg", Astro.url);
 
 import { GitHubIcon, LinkedInIcon, XIcon } from '../components/Icons';
 
