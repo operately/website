@@ -4,10 +4,17 @@ import Footer from '../components/Footer';
 
 const {frontmatter} = Astro.props;
 
-const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-summary.png";
-const socialImageUrl = new URL(imagePath, Astro.url);
+let imagePath, twitterCardType;
 
-const twitterCardType = frontmatter.image ? 'summary_large_image' : 'summary';
+if (frontmatter.image) {
+  imagePath = frontmatter.image;
+  twitterCardType = 'summary_large_image';
+} else {
+  imagePath = "/images/social/card-summary.png";
+  twitterCardType = 'summary';
+}
+
+const socialImageUrl = new URL(imagePath, Astro.url);
 ---
 
 <!doctype html>
