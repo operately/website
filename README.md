@@ -1,6 +1,6 @@
 # Operately.com Website
 
-This is the repository for the Operately website.
+This is the repository for the Operately website [https://operately.com](operately.com).
 
 Made with:
 - [Astro](https://docs.astro.build/en/getting-started/)
