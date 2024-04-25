@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const { title, description, image, twitterCardType = 'summary' } = Astro.props as LayoutProps;
 
-const socialImageUrl = image ? new URL(image, Astro.url) : null;
+const socialImageUrl = image ? new URL(image, Astro.site) : null;
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
