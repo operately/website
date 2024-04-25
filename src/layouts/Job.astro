@@ -2,7 +2,11 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import buildFullUrl from '../utils/urlBuilder';
+
 const {frontmatter} = Astro.props;
+
+const socialCardImage = buildFullUrl(Astro, "/social-card-summary.jpg");
 ---
 
 <!doctype html>
@@ -14,6 +18,15 @@ const {frontmatter} = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>{frontmatter.title} Job - Operately</title>
+    <meta name="description" content="Let's build the future of startup operations." />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:site_name" content="Operately" />
+    <meta property="og:image" content={socialCardImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@operately" />
+    <meta name="twitter:title" content={frontmatter.title} />
+    <meta name="twitter:description" content="Let's build the future of startup operations." />
+    <meta name="twitter:image" content={socialCardImage} /> 
   </head>
   <body>
     <Header client:load />

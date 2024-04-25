@@ -1,19 +1,30 @@
 ---
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import buildFullUrl from '../utils/urlBuilder';
 
 const {frontmatter} = Astro.props;
+
+const image = frontmatter.image ? buildFullUrl(Astro, frontmatter.image) : buildFullUrl(Astro, "/social-card-summary.jpg");
+const twitterCardType = frontmatter.image ? 'summary_large_image' : 'summary';
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>{frontmatter.title} - Operately</title>
+    {frontmatter.description? <meta name="description" content={frontmatter.description} /> <meta name="twitter:description" content={frontmatter.description} /> : null}
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:site_name" content="Operately" />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content={twitterCardType} />
+    <meta name="twitter:site" content="@operately" />
+    <meta name="twitter:title" content={frontmatter.title} />
+    <meta name="twitter:image" content={image} /> 
   </head>
   <body>
     <Header client:load />

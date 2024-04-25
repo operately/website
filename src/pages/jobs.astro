@@ -1,16 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import buildFullUrl from '../utils/urlBuilder.js';
 
 import { Image } from 'astro:assets';
 import darkoPhoto from './jobs/darko.jpg';
 import markoPhoto from './jobs/marko.jpg';
 import igorPhoto from './jobs/igor.jpg';
 
+const socialImageUrl = buildFullUrl(Astro, "/jobs/social-card.jpg");
+
 import { GitHubIcon, LinkedInIcon, XIcon } from '../components/Icons';
 
 ---
 
-<Layout title="Jobs">
+<BaseLayout
+  title="Jobs at Operately"
+  description="Let's build the future of startup operations."
+  image={socialImageUrl}
+  twitterCardType="summary_large_image">
+
   <div class="relative isolate overflow-hidden py-48 sm:py-52">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
 

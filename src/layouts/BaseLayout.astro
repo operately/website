@@ -1,0 +1,40 @@
+---
+interface LayoutProps {
+  title: string;
+  description?: string;
+  image?: string;
+  twitterCardType?: string;
+}
+
+const { title, description, image, twitterCardType = 'summary' } = Astro.props as LayoutProps;
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>{title} - Operately</title>
+    {description? <meta name="description" content={description} /> : null}
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="Operately" />
+    {image ? <meta property="og:image" content={image} /> : null}
+    <meta name="twitter:card" content={twitterCardType} />
+    <meta name="twitter:site" content="@operately" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image ? <meta name="twitter:image" content={image} /> : null}
+  </head>
+  <body>
+    <Header client:load />
+    <main>
+      <slot />
+    </main>
+    <Footer client:load />
+  </body>
+</html>

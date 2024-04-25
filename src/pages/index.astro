@@ -1,11 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import buildFullUrl from '../utils/urlBuilder.js';
+
+const pageTitle = "The Open Source Startup Operating System";
+const pageDescription = "You don't need a COO. You need Operately. Run your projects, goals, and processes like a high performance startup.";
+
+const imageUrl = buildFullUrl(Astro, "/index/operately-social-card.png");
 
 import Hero from './index/Hero.jsx';
 import Intro from './index/Intro.jsx';
 ---
 
-<Layout title="The Open Source Startup Operating System">
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={imageUrl}
+  twitterCardType="summary_large_image">
+
   <Hero client:load />
   <Intro client:load />
 </Layout>
