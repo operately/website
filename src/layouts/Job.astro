@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const {frontmatter} = Astro.props;
 
-const socialCardImage = new URL("/images/social/card-summary.png", Astro.url);
+const socialCardImage = new URL("/images/social/jobs.jpg", Astro.url);
 ---
 
 <!doctype html>
@@ -20,7 +20,7 @@ const socialCardImage = new URL("/images/social/card-summary.png", Astro.url);
     <meta property="og:title" content={frontmatter.title} />
     <meta property="og:site_name" content="Operately" />
     <meta property="og:image" content={socialCardImage} />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={frontmatter.title} />
     <meta name="twitter:description" content="Let's build the future of startup operations." />
