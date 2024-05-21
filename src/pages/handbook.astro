@@ -1,3 +1,7 @@
+---
+const socialImageUrl = new URL( "/images/social/card-summary-large.png", Astro.site);
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,11 +14,11 @@
     <meta name="twitter:description" content="How we work at Operately" />
     <meta property="og:title" content="The Operately Employee Handbook" />
     <meta property="og:site_name" content="Operately" />
-    <meta property="og:image" content="/images/social/card-summary-large.png" />
+    <meta property="og:image" content={socialImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content="The Operately Employee Handbook" />
-    <meta name="twitter:image" content="/images/social/card-summary-large.png" />
+    <meta name="twitter:image" content={socialImageUrl} />
   </head>
   <body>
     <div class="flex min-h-full flex-col">
@@ -29,18 +33,18 @@
         <main class="flex-1 mt-4">
           <h1 class="text-4xl font-bold mb-6">The Operately Employee Handbook</h1>
           <p class="text-2xl mb-12">Everything you need to know about working at Operately.</p>
-          <a href="/playbook/ch1" class="bg-operately-blue hover:bg-operately-dark-blue text-white font-bold py-2.5 px-4 rounded-full">Start Reading →</a>
+          <a href="/handbook/getting-started/" class="bg-operately-blue hover:bg-operately-dark-blue text-white font-bold py-2.5 px-4 rounded-full">Start Reading →</a>
 
           <hr class="mt-12" />
 
           <div class="mt-4">
             <p class="text-sm uppercase">Chapter 1</p>
-            <h3 class="text-2xl"><a href="/playbook/ch1" class="underline">The first chapter</a></h3>
+            <h3 class="text-2xl"><a href="/handbook/getting-started/" class="underline">Getting Started</a></h3>
           </div>
 
           <div class="mt-8">
             <p class="text-sm uppercase">Chapter 2</p>
-            <h3 class="text-2xl"><a href="/playbook/ch2" class="underline">The Second one</a></h3>
+            <h3 class="text-2xl"><a href="/handbook/ch2/" class="underline">The Second one</a></h3>
           </div>
           
         </main>
