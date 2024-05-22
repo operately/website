@@ -46,8 +46,15 @@ const socialCardImage = new URL("/images/social/jobs.jpg", Astro.site);
         </div>
 
         <div class="max-lg:border-t max-lg:pt-10 lg:border-l lg:ml-8 lg:pl-8 mt-10 lg:sticky lg:top-10">
-          <a href={frontmatter.jobUrl} class="rounded-md bg-operately-blue hover:bg-operately-dark-blue text-white font-medium py-2 px-4 inline-block uppercase">Apply for this job</a>
-      
+          {frontmatter.active == true ? (
+
+            <a href={frontmatter.jobUrl} class="rounded-md bg-operately-blue hover:bg-operately-dark-blue text-white font-medium py-2 px-4 inline-block uppercase">Apply for this job</a>
+
+          ) : (
+            <div class="bg-yellow-100 uppercase">applications are closed</div>
+          )}
+         
+
           <div class="flex flex-col gap-4 mt-8">
             <div>
               <div class="text-sm font-semibold tracking-wider text-stone-950">Location</div>

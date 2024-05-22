@@ -9,6 +9,8 @@ const socialImageUrl = new URL("/images/social/jobs.jpg", Astro.site);
 
 import { GitHubIcon, LinkedInIcon, XIcon } from '../components/Icons';
 
+const discordUrl = import.meta.env.DISCORD_URL;
+const xUrl = import.meta.env.X_URL;
 ---
 
 <BaseLayout
@@ -46,18 +48,25 @@ import { GitHubIcon, LinkedInIcon, XIcon } from '../components/Icons';
       </dl>
 
       <div class="max-w-2xl">
+        <h2 class="mt-16 sm:mt-20 text-2xl font-semibold leading-10 bg-yellow-100">⏸️ We do not have any open positions right now</h2>
+        <p class="mt-4">Join our <a href={discordUrl} class="text-operately-blue hover:text-operately-dark-blue underline">Discord server</a> or <a href={xUrl} class="text-operately-blue hover:text-operately-dark-blue underline">follow us on X</a> to know when we start hiring again.</p>
+      </div>
+
+      <!--
+      <div class="max-w-2xl">
         <h2 class="mt-16 sm:mt-20 text-sm font-bold leading-10 text-gray-500 uppercase">Open positions</h2>
         <div class="border-y border-stone-200 py-4 flex items-center justify-between">
           <div>
-            <div class="font-bold text-lg"><a href="/jobs/software-engineer-2024q2" class="hover:underline">Software Engineer</a></div>
+            <div class="font-bold text-lg"><a href="" class="hover:underline">Job Title</a></div>
             <div class="font-medium text-stone-600">Engineering · Full-time · Fully Remote</div>
           </div>
           
           <div>
-            <a href="/jobs/software-engineer" class="rounded-md bg-blue-600 hover:bg-blue-500 text-white font-medium py-1.5 px-3 inline-block text-sm">Apply Now</a>
+            <a href="" class="rounded-md bg-blue-600 hover:bg-blue-500 text-white font-medium py-1.5 px-3 inline-block text-sm">Apply Now</a>
           </div>
         </div>
       </div>
+    -->
 
       <div class="max-w-2xl">
         <h2 class="mt-16 sm:mt-24 text-2xl font-bold leading-10 text-gray-900">You'll be in good company</h2>

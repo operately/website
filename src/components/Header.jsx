@@ -5,6 +5,10 @@ import logoImage from '../layouts/operately-logo.svg'
 
 import { DiscordIcon, GitHubIcon, XIcon } from './Icons'
 
+const discordUrl = import.meta.env.DISCORD_URL;
+const githubUrl = import.meta.env.GITHUB_URL;
+const xUrl = import.meta.env.X_URL;
+
 const navigation = [
   /*{ name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
@@ -44,17 +48,19 @@ export default function Header() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <div className="flex gap-x-6 items-center">
+              {/*
               <a href="/jobs"
                 className="bg-yellow-200 bg-opacity-50 px-2 py-1 rounded text-sm hover:underline">
                 We're hiring
               </a>
-              <a href="https://discord.com/invite/2ngnragJYV" className=" hover:text-operately-blue">
+              */}
+              <a href={discordUrl} className=" hover:text-operately-blue">
                 <DiscordIcon className="h-6 w-6" />
               </a>
-              <a href="https://github.com/operately" className="hover:text-operately-blue">
+              <a href={githubUrl} className="hover:text-operately-blue">
                 <GitHubIcon className="h-6 w-6" />
               </a>
-              <a href="https://twitter.com/operately" className="hover:text-operately-blue">
+              <a href={xUrl} className="hover:text-operately-blue">
                 <XIcon className="h-6 w-6" />
               </a>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform" className="bg-operately-blue hover:bg-operately-dark-blue text-white font-bold py-2 px-4 rounded">
