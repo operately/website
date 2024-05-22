@@ -3,6 +3,7 @@ layout: '../../layouts/Job.astro'
 title: 'Software Engineer'
 department: 'Engineering'
 jobUrl: 'https://forms.gle/4xD8vsG4BWVdA6JZA'
+active: false
 ---
 
 # Software Engineer

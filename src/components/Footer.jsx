@@ -1,5 +1,11 @@
 import { DiscordIcon, GitHubIcon, LinkedInIcon, XIcon, YouTubeIcon } from './Icons'
 
+const discordUrl = import.meta.env.DISCORD_URL;
+const githubUrl = import.meta.env.GITHUB_URL;
+const linkedinUrl = import.meta.env.LINKEDIN_URL;
+const xUrl = import.meta.env.X_URL;
+const youtubeUrl = import.meta.env.YOUTUBE_URL;
+
 const navigation = {
     main: [
       { name: 'Home', href: '/' },
@@ -12,27 +18,27 @@ const navigation = {
     social: [
       {
         name: 'Discord',
-        href: 'https://discord.com/invite/2ngnragJYV',
+        href: discordUrl,
         icon: (props) => ( DiscordIcon(props) )
       },
       {
         name: 'GitHub',
-        href: 'https://github.com/operately/operately',
+        href: githubUrl,
         icon: (props) => ( GitHubIcon(props) )
       },
       {
         name: 'LinkedIn',
-        href: 'https://www.linkedin.com/company/92810497/',
+        href: linkedinUrl,
         icon: (props) => ( LinkedInIcon(props) )
       },
       {
         name: 'X',
-        href: 'https://twitter.com/operately',
+        href: xUrl,
         icon: (props) => ( XIcon(props) )
       },
       {
         name: 'YouTube',
-        href: 'https://www.youtube.com/@operately',
+        href: youtubeUrl,
         icon: (props) => ( YouTubeIcon(props) )
       }
     ],
