@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        },
+        serif: ["PT Serif", ...defaultTheme.fontFamily.serif],
+      },
       backgroundColor: {
         'operately-blue': '#3185FF',
         'operately-dark-blue': '#024FAC',

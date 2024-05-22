@@ -1,7 +1,9 @@
 ---
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 
-const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-summary-large.png";
+const imagePath = frontmatter.image
+  ? frontmatter.image
+  : "/images/social/card-summary-large.png";
 const socialImageUrl = new URL(imagePath, Astro.site);
 ---
 
@@ -11,9 +13,23 @@ const socialImageUrl = new URL(imagePath, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- serif font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <title>{frontmatter.title} - The Operately Employee Handbook</title>
-    {frontmatter.description? <meta name="description" content={frontmatter.description} /> <meta name="twitter:description" content={frontmatter.description} /> : null}
+    {
+      frontmatter.description ? (
+        <>
+          <meta name="description" content={frontmatter.description} />
+          <meta name="twitter:description" content={frontmatter.description} />
+        </>
+      ) : null
+    }
     <meta property="og:title" content={frontmatter.title} />
     <meta property="og:site_name" content="Operately" />
     <meta property="og:image" content={socialImageUrl} />
@@ -23,18 +39,40 @@ const socialImageUrl = new URL(imagePath, Astro.site);
     <meta name="twitter:image" content={socialImageUrl} />
   </head>
   <body>
-    <div class="flex min-h-full flex-col">
-      <div class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8 mt-10">
+    <div class="flex min-h-full flex-col font-serif">
+      <div
+        class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8 mt-10"
+      >
         <aside class="sticky top-8 w-80 shrink-0 hidden sm:block">
           <header class="">
-            <p><a href="/handbook/" class="text-operately-blue hover:text-operately-dark-blue underline">The Operately Employee Handbook</a></p>
+            <p>
+              <a
+                href="/handbook/"
+                class="text-operately-blue hover:text-operately-dark-blue underline"
+                >The Operately Employee Handbook</a
+              >
+            </p>
             <h1 class="text-3xl font-bold mb-2 mt-4">{frontmatter.title}</h1>
-            
-            {frontmatter.nextChapter ? <p class="text-base text-gray-600">Next: <a href={`/handbook/${frontmatter.nextChapter}`} class="text-operately-blue hover:text-operately-dark-blue underline">{frontmatter.nextChapterTitle}</a></p> : null}
+
+            {
+              frontmatter.nextChapter ? (
+                <p class="text-base text-gray-600">
+                  Next:{" "}
+                  <a
+                    href={`/handbook/${frontmatter.nextChapter}`}
+                    class="text-operately-blue hover:text-operately-dark-blue underline"
+                  >
+                    {frontmatter.nextChapterTitle}
+                  </a>
+                </p>
+              ) : null
+            }
           </header>
         </aside>
-    
-        <main class="flex-1 mt-10 prose prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue">
+
+        <main
+          class="flex-1 mt-10 prose md:prose-lg lg:prose-xl prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue"
+        >
           <!-- Main area -->
           <slot />
         </main>
