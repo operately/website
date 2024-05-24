@@ -1,0 +1,19 @@
+.hash-symbol {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+ }
+
+h1:hover .hash-symbol,
+h2:hover .hash-symbol,
+h3:hover .hash-symbol,
+h4:hover .hash-symbol,
+h5:hover .hash-symbol,
+h6:hover .hash-symbol {
+  opacity: 1;
+}
+
+.anchor-link {
+  padding-left: 0.2em;
+  text-decoration: none;
+  color: inherit;
+}
