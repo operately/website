@@ -40,7 +40,7 @@ import '../styles/handbook.css';
     <meta name="twitter:title" content={frontmatter.title} />
     <meta name="twitter:image" content={socialImageUrl} />
   </head>
-  <body>
+  <body class="dark:bg-zinc-800">
     <div class="flex min-h-full flex-col font-serif">
       <div
         class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8 mt-10"
@@ -50,19 +50,19 @@ import '../styles/handbook.css';
             <p>
               <a
                 href="/handbook/"
-                class="text-operately-blue hover:text-operately-dark-blue underline"
+                class="text-operately-blue hover:text-operately-dark-blue dark:text-white dark:hover:text-zinc-400 underline"
                 >The Operately Employee Handbook</a
               >
             </p>
-            <h1 class="text-3xl font-bold mb-2 mt-4">{frontmatter.title}</h1>
+            <h1 class="text-3xl font-bold mb-2 mt-4 dark:text-white">{frontmatter.title}</h1>
 
             {
               frontmatter.nextChapter ? (
-                <p class="text-base text-gray-600">
+                <p class="text-base text-gray-600 dark:text-slate-400">
                   Next:{" "}
                   <a
                     href={`/handbook/${frontmatter.nextChapter}`}
-                    class="text-operately-blue hover:text-operately-dark-blue underline"
+                    class="text-operately-blue hover:text-operately-dark-blue dark:text-white dark:hover:text-zinc-400 underline"
                   >
                     {frontmatter.nextChapterTitle}
                   </a>
@@ -73,7 +73,7 @@ import '../styles/handbook.css';
         </aside>
 
         <main
-          class="flex-1 mt-10 prose md:prose-lg lg:prose-xl prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue"
+          class="flex-1 mt-10 prose md:prose-lg lg:prose-xl prose-a:text-operately-blue hover:prose-a:text-operately-dark-blue dark:prose-invert dark:prose-a:text-white dark:hover:prose-a:text-zinc-400"
         >
           <!-- Main area -->
           <slot />

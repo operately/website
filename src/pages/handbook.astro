@@ -23,7 +23,7 @@ const socialImageUrl = new URL(
     <meta name="twitter:title" content="The Operately Employee Handbook" />
     <meta name="twitter:image" content={socialImageUrl} />
   </head>
-  <body>
+  <body class="dark:bg-zinc-800">
     <div class="flex min-h-full flex-col">
       <div
         class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8 mt-10"
@@ -34,7 +34,7 @@ const socialImageUrl = new URL(
               <em
                 ><a
                   href="/"
-                  class="text-operately-blue hover:text-operately-dark-blue underline"
+                  class="text-operately-blue hover:text-operately-dark-blue dark:text-white dark:hover:text-zinc-400 underline"
                   >← Operately.com</a
                 ></em>
             </p>
@@ -42,10 +42,10 @@ const socialImageUrl = new URL(
         </aside>
 
         <main class="flex-1 mt-4 font-serif">
-          <h1 class="text-4xl font-bold mb-6">
+          <h1 class="text-4xl font-bold mb-6 dark:text-white">
             The Operately Employee Handbook
           </h1>
-          <p class="text-2xl mb-12">
+          <p class="text-2xl mb-12 dark:text-zinc-300">
             Everything you need to know about working at Operately.
           </p>
           <a
@@ -57,21 +57,21 @@ const socialImageUrl = new URL(
           <hr class="mt-12" />
 
           <div class="mt-4">
-            <p class="text-sm uppercase">Chapter 1</p>
+            <p class="text-sm uppercase dark:text-zinc-300">Chapter 1</p>
             <h3 class="text-2xl">
-              <a href="/handbook/getting-started/" class="underline"
+              <a href="/handbook/getting-started/" class="underline dark:text-zinc-100"
                 >Getting Started</a>
             </h3>
           </div>
 
           <div class="mt-8">
-            <p class="text-sm uppercase">Chapter 2</p>
+            <p class="text-sm uppercase dark:text-zinc-300">Chapter 2</p>
             <h3 class="text-2xl">
-              <a href="/handbook/ch2/" class="underline">The Second one</a>
+              <a href="/handbook/ch2/" class="underline dark:text-zinc-100">The Second one</a>
             </h3>
           </div>
 
-          <footer>
+          <footer class="dark:text-zinc-300">
             <hr class="mt-12 mb-12" />
             <p class="italic text-sm">
               Copyright © 2024 Operately DOO. All rights reserved.
