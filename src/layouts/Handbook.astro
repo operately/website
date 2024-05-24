@@ -5,6 +5,8 @@ const imagePath = frontmatter.image
   ? frontmatter.image
   : "/images/social/card-summary-large.png";
 const socialImageUrl = new URL(imagePath, Astro.site);
+
+import '../styles/handbook.css';
 ---
 
 <!doctype html>
