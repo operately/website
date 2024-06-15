@@ -13,6 +13,7 @@ const navigation = {
       { name: 'Operations Handbook', href: '/blueprint' },
       { name: 'KPI Examples', href: 'https://kpiexamples.operately.com' },
       { name: 'Jobs', href: '/jobs' },
+      { name: 'Employee Handbook', href: '/handbook' },
       { name: 'Blog', href: 'https://blog.operately.com' },
     ],
     social: [
