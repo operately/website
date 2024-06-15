@@ -26,7 +26,8 @@ export default defineConfig({
             tagName: 'span',
             properties: {className: ['hash-symbol']},
             children: [{type: 'text', value: '#'}]
-          }]
+          }],
+          test: (node) => node.tagName !== 'h1'
         }]
       ]
     })
