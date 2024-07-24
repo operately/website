@@ -1,0 +1,68 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { RssIcon } from "@heroicons/react/24/solid";
+import { getPublishedReleases } from "../utils/releases";
+
+const sortedReleases = await getPublishedReleases();
+
+const { title, description } = Astro.props;
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <slot name="head" slot="head">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Operately Releases"
+      href={new URL("/releases/rss.xml", Astro.site)}
+    />
+  </slot>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8 sm:mt-20">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <aside class="w-full lg:w-64">
+        <div class="lg:sticky lg:top-24">
+          <h2 class="text-lg font-semibold mb-4">
+            <a
+              href="/releases"
+              class="text-gray-700 hover:text-operately-blue transition-colors"
+              >All Releases</a>
+          </h2>
+          <ul class="space-y-2">
+            {
+              sortedReleases.map((release) => (
+                <li>
+                  <a
+                    href={`/releases/${release.slug}`}
+                    class="text-gray-700 hover:text-operately-blue transition-colors"
+                  >
+                    {release.data.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a
+            href="/releases/rss.xml"
+            class="mt-6 inline-block text-operately-blue hover:underline"
+          >
+            <RssIcon className="h-4 w-4 inline-block" aria-hidden="true" />
+            RSS Feed
+          </a>
+        </div>
+      </aside>
+
+      <div class="flex-1">
+        <slot />
+      </div>
+    </div>
+  </main>
+</BaseLayout>

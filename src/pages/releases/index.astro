@@ -1,0 +1,34 @@
+---
+import ReleasesLayout from '../../layouts/ReleasesLayout.astro';
+import { getPublishedReleases } from '../../utils/releases';
+
+const sortedReleases = await getPublishedReleases();
+
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<ReleasesLayout title="Operately Releases" description="All product releases and updates from Operately">
+  <h1 class="text-4xl font-bold mb-8">Operately Releases</h1>
+  {sortedReleases.map(async (release, index) => {
+    const { Content } = await release.render();
+    return (
+      <article id={release.slug} class={`mb-12 ${index !== 0 ? 'border-t border-gray-200 pt-12' : ''}`}>
+        <h2 class="text-2xl font-bold mb-2">
+          <a href={`/releases/${release.slug}`} class="text-gray-900 hover:text-operately-blue transition-colors">
+            {release.data.title}
+          </a>
+        </h2>
+        <p class="text-gray-500 mb-4">{formatDate(release.data.date)}</p>
+        <div class="prose max-w-none">
+          <Content />
+        </div>
+      </article>
+    )
+  })}
+</ReleasesLayout>

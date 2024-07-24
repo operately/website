@@ -7,6 +7,8 @@ const {frontmatter} = Astro.props;
 
 const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-summary-large.png";
 const socialImageUrl = new URL(imagePath, Astro.site);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -17,6 +19,7 @@ const socialImageUrl = new URL(imagePath, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>{frontmatter.title} - Operately</title>
+    <link rel="canonical" href={canonicalURL} />
     {frontmatter.description? <meta name="description" content={frontmatter.description} /> <meta name="twitter:description" content={frontmatter.description} /> : null}
     <meta property="og:title" content={frontmatter.title} />
     <meta property="og:site_name" content="Operately" />
@@ -24,7 +27,11 @@ const socialImageUrl = new URL(imagePath, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={frontmatter.title} />
-    <meta name="twitter:image" content={socialImageUrl} /> 
+    <meta name="twitter:image" content={socialImageUrl} />
+    <style>
+      @view-transition { navigation: auto; /* enabled! */ }
+    </style>
+    <slot name="head" />
   </head>
   <body>
     <Header client:load />

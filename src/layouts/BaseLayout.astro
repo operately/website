@@ -31,12 +31,11 @@ import Footer from '../components/Footer';
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {socialImageUrl ? <meta name="twitter:image" content={socialImageUrl} /> : null}
+    <slot name="head" />
   </head>
   <body>
     <Header client:load />
-    <main>
-      <slot />
-    </main>
+    <slot />
     <Footer client:load />
   </body>
 </html>
