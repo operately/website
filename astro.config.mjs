@@ -29,7 +29,11 @@ export default defineConfig({
           }],
           test: (node) => node.tagName !== 'h1'
         }]
-      ]
+      ],
+      shikiConfig: {
+        // available themes: https://shiki.matsu.io/themes
+        theme: 'one-dark-pro',
+      }
     })
   ]
 });
