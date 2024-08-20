@@ -67,7 +67,7 @@ function JoinWaitlist() {
 }
 
 function Install() {
-  return <a href="/blueprint" className="text-sm font-semibold leading-6 text-gray-900">
+  return <a href="/install" className="text-sm font-semibold leading-6 text-gray-900">
     5 minute self-hosted installation <span aria-hidden="true">→</span>
   </a>
 }
