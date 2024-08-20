@@ -62,12 +62,12 @@ function JoinWaitlist() {
     href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
     className="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
   >
-    Join the waitlist
+    Join the cloud waitlist
   </a>
 }
 
 function Install() {
   return <a href="/install" className="text-sm font-semibold leading-6 text-gray-900">
-    5 minute self-hosted installation <span aria-hidden="true">→</span>
+    Self-Host in 5 minutes <span aria-hidden="true">→</span>
   </a>
 }
