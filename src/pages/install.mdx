@@ -7,54 +7,57 @@ image: "/images/social/card-summary-large.jpg"
 
 # Download and Install Operately
 
+This guide walks you through downloading and installing Operately on your own infrastructure.
+
 Pre-requisites:
 
-- [Pick a server](#pick-a-server)
-- [Point a domain to your server](#point-a-domain-to-your-server)
-- [Set up mail server](#set-up-mail-server)
+- [Select a server](#select-a-server)
+- [Configure a domain for your server](#configure-a-domain-for-your-server)
+- [Install Docker and Docker Compose](#install-docker-and-docker-compose)
+- [Set up a mail server](#set-up-a-mail-server)
 
 Installation steps:
 
-- [Install Docker and Docker Compose](#install-docker-and-docker-compose)
 - [Download the latest release of Operately](#download-the-latest-release-of-operately)
 - [Configure Operately](#configure-operately)
 - [Start Operately](#start-operately)
 
 ## Pre-requisites
 
-### Pick a server
+### Select a server
 
-Pick a machine to host Operately. If you need one in the cloud, we recommend checking out 
+Choose a machine to host Operately. For cloud hosting, we recommend 
 [DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or 
-[Hetzer](https://www.hetzner.com/). 
+[Hetzner](https://www.hetzner.com/).
 
-The minimum requirements are 2GB of RAM and 1 CPU which should be enough for a team up 
-to 30 people. For larger teams, we recommend 8GB of RAM and 4 CPUs.
+Minimum requirements:
+- 2GB RAM and 1 CPU (suitable for teams up to 30 people)
+- 8GB RAM and 4 CPUs (recommended for larger teams)
 
-### Point a domain to your server
+### Configure a domain for your server
 
-Point a domain to your server. You can use a subdomain like `operately.example.com` or a
-root domain like `example.com`. You need to configure the DNS records to point to the IP
-address of your server. Make sure it's a straigth DNS pointer and not a proxy (e.g. Cloudflare proxy).
+Point a domain to your server. You can use a subdomain (e.g. `operately.example.com`) or a
+root domain (e.g. `example.com`). Configure the DNS records to point to your server's IP
+address. Make sure it's a direct DNS pointer, not a proxy (e.g. avoid Cloudflare proxy).
 
 ### Install Docker and Docker Compose
 
-Operately is a running as a set of Docker containers orchestrated by Docker Compose. To 
-install Docker and Docker Compose, follow the instructions for your operating system:
+Operately runs as a set of Docker containers orchestrated by Docker Compose.
+Install Docker and Docker Compose for your operating system:
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Docker installation guide](https://docs.docker.com/get-docker/)
+- [Docker Compose installation guide](https://docs.docker.com/compose/install/)
 
 ### Set up a mail server
 
-Operately uses SendGrid to send emails. You need to set up a SendGrid account and create an API key.
-Follow the instructions on the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+Operately uses SendGrid to send emails. Set up a SendGrid account and create an API key
+by following the instructions in the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
 
 ## Installation steps
 
 ### Download the latest release of Operately
 
-Download the latest release of Operately:
+Download and extract the latest Operately release:
 
 ```bash
 wget -q https://github.com/operately/operately/releases/latest/download/operately-single-host.tar.gz
@@ -64,26 +67,28 @@ cd operately
 
 ### Run the installation script
 
-Run the installtion script to configure Operately:
+Run the installation script to configure Operately:
 
 ```
 ./install.sh
 ```
 
-The script will build the Docker images, configure the environment, set up a Let's encrypt certificate,
-and ask you for the following information:
+The script will
+- Build the Docker images
+- Configure the environment
+- Set up a Let's encrypt certificate
+- Prompt you for the following information:
+  - *Domain*: The domain you configured for your server (e.g. `operately.example.com`)
+  - *Admin email*: The email address for receiving Let's Encrypt notifications
+  - *SendGrid API key*: The API key you created in the SendGrid dashboard
 
-- *Domain*: The domain you pointed to your server (e.g. `operately.example.com`)
-- *Admin email*: The email address of the admin who will receive notifications from Let's Encrypt
-- *SendGrid API key*: The API key you created in the SendGrid dashboard
+### Launch Operately
 
-### Start Operately
-
-Start Operately with Docker Compose:
+Start Operately using Docker Compose:
 
 ```bash
 docker compose up --wait --detach
 ```
 
-Operately should now be running on your server. You can access it by navigating to the domain you
-configured earlier (e.g. `https://operately.example.com`).
+Operately should now be running on your server. You can access it by navigating to your
+configured domain (e.g. `https://operately.example.com`).
