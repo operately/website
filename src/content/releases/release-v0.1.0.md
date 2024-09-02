@@ -54,4 +54,4 @@ many more releases to come.
 [install]: https://operately.com/install
 [waitlist]: https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform
 [discord]: https://discord.com/invite/2ngnragJYV
-[github]: https://github.com/operately/operately/issues
+[github]: https://github.com/operately/operately
