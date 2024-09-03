@@ -57,13 +57,13 @@ export default function Intro() {
                 <li className="flex gap-x-3">
                   <BriefcaseIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Projects</strong>  <span className="uppercase text-xs mr-2" aria-hidden="true">at launch</span> Standardize project management across groups with a ready-to-go structure with built-in accountability and feedback loops.
+                    <strong className="font-semibold text-gray-900">Projects</strong> Standardize project management across groups with a ready-to-go structure with built-in accountability and feedback loops.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
                   <ViewfinderCircleIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Goals</strong> <span className="uppercase text-xs mr-2" aria-hidden="true">at launch</span> Connect your long-term vision to short-term goals and all the way to daily tasks and milestones. It'll be clear if your ship is moving in the right direction and what distractions to avoid.
+                    <strong className="font-semibold text-gray-900">Goals</strong> Connect your long-term vision to short-term goals and all the way to daily tasks and milestones. It'll be clear if your ship is moving in the right direction and what distractions to avoid.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
@@ -81,12 +81,12 @@ export default function Intro() {
               </ul>
 
               <p className="mt-12">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
-                className="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Join the waitlist
-              </a>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
+                  className="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Join the cloud waitlist
+                </a>
               </p>
             </div>
           </div>
