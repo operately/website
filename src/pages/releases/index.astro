@@ -1,6 +1,7 @@
 ---
 import ReleasesLayout from '../../layouts/ReleasesLayout.astro';
 import { getPublishedReleases } from '../../utils/releases';
+import "../../styles/anchor-links.css";
 
 const sortedReleases = await getPublishedReleases();
 
