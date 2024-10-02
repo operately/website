@@ -22,10 +22,10 @@ export default function Hero({ latestRelease }) {
 
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              The missing startup operating system
+              The Startup OS You've Been Missing
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Run your projects, goals, and processes like a high performance startup.
+              Open-source company management. Projects, goals, and processes <span class="hidden lg:inline"><br /></span> in one place.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <JoinWaitlist />
