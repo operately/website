@@ -1,4 +1,6 @@
-export default function Hero() {
+import { GitHubStarButton } from '../../components/Buttons';
+
+export default function Hero({ latestRelease }) {
   return (
     <div className="bg-white">
       <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -16,14 +18,14 @@ export default function Hero() {
           </div>
 
         <div className="mx-auto max-w-2xl py-8 sm:py-16 lg:py-32">
-          <OpenSourceBadge />
+          <LatestReleaseBadge release={latestRelease} />
 
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              The missing startup operating system
+              The Startup OS You've Been Missing
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Run your projects, goals, and processes like a high performance startup.
+              Open-source company management. Projects, goals, and processes <span class="hidden lg:inline"><br /></span> in one place.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <JoinWaitlist />
@@ -49,12 +51,15 @@ export default function Hero() {
   )
 }
 
-function OpenSourceBadge() {
-  <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-    <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-      100% Open Source
+function LatestReleaseBadge({ release }) {
+  return (
+    <div className="mb-4 sm:mb-8 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+      <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        🚀 Operately {release.version} now available - <a href={`/releases/${release.slug}`} className="text-operately-blue hover:text-operately-dark-blue">See what's new →</a>
+      </div>
+      <GitHubStarButton username="operately" repo="operately" />
     </div>
-  </div>
+  );
 }
 
 function JoinWaitlist() {

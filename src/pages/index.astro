@@ -1,21 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "The Open Source Startup Operating System";
-const pageDescription = "You don't need a COO. You need Operately. Run your projects, goals, and processes like a high performance startup.";
+const pageDescription =
+  "You don't need a COO. You need Operately. Run your projects, goals, and processes like a high performance startup.";
 
-import Hero from './index/Hero.jsx';
-import Intro from './index/Intro.jsx';
+import Hero from "./index/Hero.jsx";
+import Intro from "./index/Intro.jsx";
+
+import { getLatestRelease } from "../utils/releases";
+
+const latestRelease = await getLatestRelease();
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
-  twitterCardType="summary_large_image">
-
+  twitterCardType="summary_large_image"
+>
   <main>
-    <Hero client:load />
+    <Hero client:load latestRelease={latestRelease} />
     <Intro client:load />
   </main>
-</Layout>
+</BaseLayout>
