@@ -25,7 +25,7 @@ export default function Hero({ latestRelease }) {
               The Startup OS You've Been Missing
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Open-source company management. Projects, goals, and processes <span class="hidden lg:inline"><br /></span> in one place.
+              Open-source company management. Projects, goals, and processes <span className="hidden lg:inline"><br /></span> in one place.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <JoinWaitlist />
