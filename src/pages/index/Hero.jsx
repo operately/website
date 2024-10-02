@@ -1,3 +1,5 @@
+import { GitHubStarButton } from '../../components/Buttons';
+
 export default function Hero({ latestRelease }) {
   return (
     <div className="bg-white">
@@ -51,10 +53,11 @@ export default function Hero({ latestRelease }) {
 
 function LatestReleaseBadge({ release }) {
   return (
-    <div className="mb-4 sm:mb-8 flex justify-center">
+    <div className="mb-4 sm:mb-8 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
       <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-        🚀 Operately {release.version} now available - <a href={`/releases/${release.slug}`} className="text-operately-blue hover:text-operately-dark-blue">See what's new</a>
+        🚀 Operately {release.version} now available - <a href={`/releases/${release.slug}`} className="text-operately-blue hover:text-operately-dark-blue">See what's new →</a>
       </div>
+      <GitHubStarButton username="operately" repo="operately" />
     </div>
   );
 }
