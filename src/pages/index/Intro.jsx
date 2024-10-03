@@ -1,7 +1,7 @@
 import { BriefcaseIcon, ViewfinderCircleIcon, ChartBarIcon, BookOpenIcon } from '@heroicons/react/20/solid'
 import { TargetIcon } from '../../components/Icons';
 import { Image } from 'astro:assets';
-import screenshotImage from './operately-alpha-screenshot.png';
+import screenshotImage from './operately-v2-screenshot.png';
 
 export default function Intro() {
   return (
