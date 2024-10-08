@@ -1,0 +1,9 @@
+---
+const { src, alt } = Astro.props;
+
+import { Image } from "astro:assets";
+---
+
+<div class="drop-shadow-xl rounded-xl overflow-hidden lg:-mx-32">
+  <Image src={src} alt={alt} class="rounded-lg border border-gray-300" />
+</div>

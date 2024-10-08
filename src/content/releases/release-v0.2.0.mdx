@@ -6,6 +6,9 @@ description: "TODO"
 published: true
 ---
 
+import BigImage from '../../components/BigImage.astro';
+import retrospective from './assets/v020-retrospective.png';
+
 Operately's latest release is packed with improvements designed to make your
 company’s operations smoother and more efficient. Here’s what’s new!
 
@@ -22,9 +25,7 @@ repeating mistakes and double down on what's working.
 Try it out. Open a recent project and start a retrospective. You might be 
 surprised by the insights you uncover.
 
-<div className="drop-shadow-xl rounded-xl overflow-hidden lg:-mx-32">
-  <img src="https://i.imgur.com/envGi8G.png" alt="Project Retrospective" className="rounded-lg border border-gray-300" />
-</div>
+<BigImage src={retrospective} alt="Project retrospective"/>
 
 ## Onboard and Offboard people faster
 
