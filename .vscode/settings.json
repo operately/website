@@ -1,5 +1,11 @@
 {
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "[markdown]": {
+    "editor.rulers": [80]
+  },
+  "[mdx]": {
+    "editor.rulers": [80]
+  }
 }
