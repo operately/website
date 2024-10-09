@@ -3,12 +3,11 @@
 This is the repository for the Operately website [operately.com](https://operately.com).
 
 Made with:
+
 - [Astro](https://docs.astro.build/en/getting-started/)
 - [Tailwind CSS](https://tailwindcss.com/docs/), [UI components](https://tailwindui.com/), [Typography plugin](https://github.com/tailwindlabs/tailwindcss-typography)
 - [HeroIcons](https://heroicons.com) and [SimpleIcons](https://simpleicons.org/)
 - Intern-level knowledge of React
-
-Hosted on CloudFlare Pages. Changes to the `main` branch are automatically deployed.
 
 ## Commands
 
@@ -21,6 +20,10 @@ Hosted on CloudFlare Pages. Changes to the `main` branch are automatically deplo
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Contributing
+
+See [development and contribution guide](docs/README.md).
+
 ## Want to learn more?
 
-Jump into our [Discord server](https://discord.com/invite/2ngnragJYV).
+Chat with us on [Discord](https://discord.com/invite/2ngnragJYV).
