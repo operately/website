@@ -1,0 +1,125 @@
+---
+title: "Project Retrospectives, People Management, Notification Controls, and more"
+version: "0.2"
+date: 2024-10-04
+description: "TODO"
+published: true
+---
+
+import BigImage from '../../components/BigImage.astro';
+import retrospective from './assets/v020/retrospective.png';
+import peopleManagement from './assets/v020/people-management.png';
+import projectTeamAccess from './assets/v020/project-team-access.png';
+import otherPeopleWithAccess from './assets/v020/other-people-with-access.png';
+import subscribersWidget from './assets/v020/subscribers-widget.png';
+
+
+Operately 0.2 is packed with improvements that make it easier to communicate with
+your team, manage access, and stay compliant. Let's dive in and see what's new.
+
+## Project retrospectives are now communication hubs
+
+Project retrospectives are a powerful method for learning and improving. They
+help you reflect on what went well, what didn't, and what you can do better next
+time. But they're often overlooked or done half-heartedly, especially when
+you're moving fast. That's why we've built them into Operately.
+
+In this release, retrospectives are now communication hubs. You can react to
+them, comment on them, and edit them if you're the author. This makes it easy
+to keep the conversation going openly and learn from your team's insights.
+
+<BigImage src={retrospective} alt="Project retrospective"/>
+
+## Onboard and offboard people faster
+
+The new Company Administration page puts more control at your fingertips.
+
+Company admins can now:
+- Assign manager-reporter relationships
+- Update profiles, including titles and roles
+- Add multiple people to the organization at once
+- Suspend accounts for offboarding in one click
+
+To access this page as a company admin, click on the company dropdown menu ->
+Company Admin -> Manage Team Members.
+
+<BigImage src={peopleManagement} alt="People Management" />
+
+## Manage who does what on your projects
+
+We've upgraded how Operately handles project team changes. Now it's easier to
+match people's roles to their real responsibilities.
+
+**Promoting people to champions and reviewers is now a breeze**.
+Say your lead developer Sarah steps up to manage a critical feature launch. In
+seconds, you can promote her from contributor to project champion in seconds. She gets the right access, and you keep moving.
+
+**You can add multiple people to a project at once, each with their own role**.
+For instance, if three software engineers join a project, each responsible for
+a different part of the system, you can add all three at once, assigning them
+specific responsibilities and keeping everyone in the loop.
+
+<BigImage src={projectTeamAccess} alt="Project Team Access Management" />
+
+## Security and compliance: One-click access oversight
+
+We just fixed a headache you might not even know you had: having
+a complete, unambiguous list of people who have access to your project.
+
+As a company grows, keeping track of who can access what becomes challenging.
+It's a security risk waiting to happen. And when the auditors come knocking?
+Good luck explaining, without hard evidence, that because Lana has X level of
+access to a space, she also has Y level access to a belonging project.
+
+We've made it simple:
+
+1. Go to a project -> Manage Team & Access (see screenshot above)
+2. At the bottom, click "show all"
+
+You will see all people who are not directly assigned as contributors to the
+project but can implicitly view it based on their company or space membership.
+
+<BigImage src={otherPeopleWithAccess} alt="Project access control: other people with access" />
+
+## Your inbox, your rules: New subscription controls
+
+You can now control who will receive notifications for any type of message
+you send across spaces, projects, and goals. Stay updated on the
+discussions that matter to you and tune out the ones that don't. Whether it's
+project updates, comments, or notifications, you can easily manage what shows
+up in your inbox with just a click.
+
+<BigImage src={subscribersWidget} alt="Notification subscription control widget" />
+
+---
+
+## Get started: Self-host in 5 minutes
+
+[Follow the self-hosted installation guide][install] to take Operately for
+a spin: you can install it on a small (1 CPU, 2GB) machine
+in 5 minutes.
+
+## Sign up for the cloud waiting list
+
+If you'd prefer to use Operately as a SaaS, [sign up for the cloud waiting list][waitlist].
+
+## Join the Operately community
+
+Operately is open source and available under the Apache 2.0 license.
+We're excited to build a community of early adopters and contributors.
+Here's how you can get involved and help shape the future of Operately:
+
+- [Star the repository on GitHub][github] to show your support and help us gain visibility
+- Join our [Discord server][discord] to connect with the team and other community members
+- Contribute by submitting bug reports, feature requests, or code on [GitHub][github]
+- Spread the word: Share Operately with your network of friends and colleagues
+
+We hope you enjoy using Operately as much as we enjoy building it.
+Stay tuned for our next release, scheduled for next month!
+
+&mdash; The Operately Team
+
+[install]: https://operately.com/install
+[waitlist]: https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform
+[discord]: https://discord.com/invite/2ngnragJYV
+[github]: https://github.com/operately/operately
