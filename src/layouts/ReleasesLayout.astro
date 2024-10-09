@@ -25,6 +25,8 @@ const formatDate = (date) => {
       title="Operately Releases"
       href={new URL("/releases/rss.xml", Astro.site)}
     />
+    <!-- we can't use `head` in further pages as it would override the above, hence a new slot -->
+    <slot name="head-releases" />
   </slot>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8 sm:mt-20">
