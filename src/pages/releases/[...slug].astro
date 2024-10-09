@@ -1,11 +1,12 @@
 ---
-import ReleasesLayout from '../../layouts/ReleasesLayout.astro';
-import { getPublishedReleases } from '../../utils/releases';
+import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
+import { getPublishedReleases } from "../../utils/releases";
 
 export async function getStaticPaths() {
   const releases = await getPublishedReleases();
-  return releases.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  return releases.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
@@ -13,45 +14,47 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 const formatDate = (date) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": entry.data.title,
-  "datePublished": entry.data.date.toISOString(),
-  "author": {
+  headline: entry.data.title,
+  datePublished: entry.data.date.toISOString(),
+  author: {
     "@type": "Organization",
-    "name": "Operately"
+    name: "Operately",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Operately",
-    "logo": {
+    name: "Operately",
+    logo: {
       "@type": "ImageObject",
-      "url": new URL("/images/social/card-summary.png", Astro.site)
-    }
+      url: new URL("/images/social/card-summary.png", Astro.site),
+    },
   },
-  "description": entry.data.description
+  description: entry.data.description,
 });
 ---
 
 <ReleasesLayout title={entry.data.title} description={entry.data.description}>
-  <slot name="head" slot="head">
+  <Fragment slot="head-releases">
     <meta name="author" content="Operately Team" />
     <meta name="date" content={entry.data.date.toISOString()} />
     <script type="application/ld+json" set:html={jsonLd} />
-  </slot>
+  </Fragment>
 
   <article>
     <p class="font-bold text-lg">Operately v{entry.data.version}</p>
     <div class="border-b-4 border-yellow-300 w-8 mb-8 mt-2"></div>
-    <h1 class="text-4xl font-extrabold mb-2 leading-snug">{entry.data.title}</h1>
+    <h1 class="text-4xl font-extrabold mb-2 leading-snug">
+      {entry.data.title}
+    </h1>
     <p class="text-gray-500 mb-8 text-sm">
       <time itemprop="datePublished" datetime={entry.data.date.toISOString()}>
         {formatDate(entry.data.date)}
