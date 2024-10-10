@@ -1,35 +1,83 @@
 ---
-import ReleasesLayout from '../../layouts/ReleasesLayout.astro';
-import { getPublishedReleases } from '../../utils/releases';
+import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
+import { getPublishedReleases } from "../../utils/releases";
+import { RssIcon, LinkIcon } from "@heroicons/react/24/solid";
 import "../../styles/anchor-links.css";
 
 const sortedReleases = await getPublishedReleases();
+const latestRelease = sortedReleases[0];
+const olderReleases = sortedReleases.slice(1);
 
 const formatDate = (date) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
+
+const { Content: LatestReleaseContent } = latestRelease
+  ? await latestRelease.render()
+  : { Content: null };
 ---
 
-<ReleasesLayout title="Operately Releases" description="All product releases and updates from Operately">
+<ReleasesLayout
+  title="Operately Releases"
+  description="All product releases and updates from Operately"
+>
   <h1 class="text-4xl font-bold mb-8">Operately Releases</h1>
-  {sortedReleases.map(async (release, index) => {
-    const { Content } = await release.render();
-    return (
-      <article id={release.slug} class={`mb-12 ${index !== 0 ? 'border-t border-gray-200 pt-12' : ''}`}>
-        <h2 class="text-2xl font-bold mb-2">
-          <a href={`/releases/${release.slug}`} class="text-gray-900 hover:text-operately-blue transition-colors">
-            {release.data.title}
+
+  <!-- Latest Release -->
+  {
+    latestRelease && (
+      <article id={latestRelease.slug} class="mb-12">
+        <h2 class="text-3xl font-bold mb-2">
+          <a
+            href={`/releases/${latestRelease.slug}`}
+            class="text-gray-900 hover:text-operately-blue transition-colors group inline-flex items-center"
+          >
+            {latestRelease.data.title} - v{latestRelease.data.version}
+            <LinkIcon className="h-6 w-6 ml-2 text-gray-500 group-hover:text-operately-blue transition-colors" />
           </a>
         </h2>
-        <p class="text-gray-500 mb-4">{formatDate(release.data.date)}</p>
+        <p class="text-gray-500 mb-2">{formatDate(latestRelease.data.date)}</p>
         <div class="prose max-w-none">
-          <Content />
+          {LatestReleaseContent && <LatestReleaseContent />}
         </div>
       </article>
     )
-  })}
+  }
+
+  <hr class="border-gray-300 my-8" />
+
+  <!-- Older Releases -->
+  <h3 class="text-2xl font-bold mb-4">Previous Releases</h3>
+  <ul class="space-y-2">
+    {
+      olderReleases.map((release) => (
+        <li>
+          <a
+            href={`/releases/${release.slug}`}
+            class="text-operately-blue underline hover:text-operately-dark-blue transition-colors"
+          >
+            {release.data.title} - v{release.data.version}
+          </a>
+          <span class="text-gray-500 ml-2 text-sm">
+            {formatDate(release.data.date)}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- RSS Feed Link -->
+  <div class="mt-8">
+    <a
+      href="/releases/rss.xml"
+      class="inline-block text-operately-blue hover:text-operately-dark-blue transition-colors"
+    >
+      <RssIcon className="h-4 w-4 inline-block" aria-hidden="true" />
+      RSS Feed
+    </a>
+  </div>
 </ReleasesLayout>
