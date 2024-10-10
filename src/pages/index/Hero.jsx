@@ -3,7 +3,7 @@ import { GitHubStarButton } from '../../components/Buttons';
 export default function Hero({ latestRelease }) {
   return (
     <div className="bg-white">
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate x-4 sm:px-6 pt-10 sm:pt-14 lg:px-8">
           <div
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
             aria-hidden="true"
@@ -21,13 +21,13 @@ export default function Hero({ latestRelease }) {
           <LatestReleaseBadge release={latestRelease} />
 
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               The Startup OS You've Been Missing
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-600 px-4 sm:px-0">
               Open-source company management. Projects, goals, and processes <span className="hidden lg:inline"><br /></span> in one place.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-y-4 sm:gap-y-0 gap-x-6">
               <JoinWaitlist />
               <Install />
             </div>
@@ -53,26 +53,37 @@ export default function Hero({ latestRelease }) {
 
 function LatestReleaseBadge({ release }) {
   return (
-    <div className="mb-4 sm:mb-8 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-      <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-        🚀 Operately {release.version} now available - <a href={`/releases/${release.slug}`} className="text-operately-blue hover:text-operately-dark-blue">See what's new →</a>
-      </div>
+    <div className="mb-6 sm:mb-8 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
       <GitHubStarButton username="operately" repo="operately" />
+      <div className="text-center rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        <span className="inline-flex items-center flex-wrap justify-center">
+          🚀 Operately {release.version} now available - 
+          <span className="sm:hidden"><br /></span>
+          <a href={`/releases/${release.slug}`} className="text-operately-blue hover:text-operately-dark-blue ml-1">
+            See what's new →
+          </a>
+        </span>
+      </div>
+      
     </div>
   );
 }
 
 function JoinWaitlist() {
-  return <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
-    className="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Join the cloud waitlist
-  </a>
+  return (
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
+      className="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-auto inline-block"
+    >
+      Join the cloud waitlist
+    </a>
+  )
 }
 
 function Install() {
-  return <a href="/install" className="text-sm font-semibold leading-6 text-gray-900">
-    Self-Host in 5 minutes <span aria-hidden="true">→</span>
-  </a>
+  return (
+    <a href="/install" className="text-sm font-semibold leading-6 text-gray-900">
+      Self-Host in 5 minutes <span aria-hidden="true">→</span>
+    </a>
+  )
 }
