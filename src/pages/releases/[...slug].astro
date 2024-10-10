@@ -1,16 +1,21 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
 import { getPublishedReleases } from "../../utils/releases";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export async function getStaticPaths() {
   const releases = await getPublishedReleases();
-  return releases.map((entry) => ({
+  return releases.map((entry, i) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+      prev: i < releases.length - 1 ? releases[i + 1] : null,
+      next: i > 0 ? releases[i - 1] : null,
+    },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { Content } = await entry.render();
 
 const formatDate = (date) => {
@@ -64,4 +69,42 @@ const jsonLd = JSON.stringify({
       <Content />
     </div>
   </article>
+
+  <nav
+    class="mt-12 flex justify-between items-center border-t border-gray-200 pt-6"
+  >
+    {
+      prev && (
+        <a
+          href={`/releases/${prev.slug}`}
+          class="flex items-center text-operately-blue hover:underline"
+        >
+          <ChevronLeftIcon className="h-5 w-5 mr-1" />
+          <span>
+            <div class="text-sm text-gray-500">Previous release</div>
+            <div>
+              {prev.data.title} - v{prev.data.version}
+            </div>
+          </span>
+        </a>
+      )
+    }
+    {!prev && <div />}
+    {
+      next && (
+        <a
+          href={`/releases/${next.slug}`}
+          class="flex items-center text-operately-blue hover:underline text-right"
+        >
+          <span>
+            <div class="text-sm text-gray-500">Next release</div>
+            <div>
+              {next.data.title} - v{next.data.version}
+            </div>
+          </span>
+          <ChevronRightIcon className="h-5 w-5 ml-1" />
+        </a>
+      )
+    }
+  </nav>
 </ReleasesLayout>
