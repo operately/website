@@ -26,6 +26,18 @@ export default {
         'operately-blue-tint-1': '#E3F2FF',
         'operately-blue-tint-2': '#98C9FF',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: '#3185FF',
+              '&:hover': {
+                color: '#024FAC',
+              },
+            },
+          }
+        }
+      }
     },
   },
   plugins: [
