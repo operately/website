@@ -19,9 +19,9 @@ jobs:
         username: "GitHub Bot"
         message: |
           ${{ github.event_name == 'issues' && (github.event.action == 'opened' && 'New issue opened:' || 'Issue closed:') || 'Pull request ' }}${{ github.event.action == 'closed' && 'closed:' || (github.event_name == 'pull_request' && 'opened:') }}
-
-          ${{ github.event.issue.user.login || github.event.pull_request.user.login }}:
-          **${{ github.event.issue.title || github.event.pull_request.title }}**
-          ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+          
+          **Title:** ${{ github.event.issue.title || github.event.pull_request.title }}
+          **URL:** ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+          **User:** ${{ github.event.issue.user.login || github.event.pull_request.user.login }}
           
           ${{ github.event.issue.body || github.event.pull_request.body }}
