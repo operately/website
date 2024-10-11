@@ -15,15 +15,13 @@ jobs:
       with:
         webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
         webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+        color: "#48f442"
         username: "GitHub Bot"
-        avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-        embeds: |
-          [{
-            "title": "${{ github.event_name == 'issues' && (github.event.action == 'opened' && 'New issue opened' || 'Issue closed') || 'Pull request ' }}${{ github.event.action == 'closed' && 'closed' || (github.event_name == 'pull_request' && 'opened') }}",
-            "description": "[${{ github.event.issue.title || github.event.pull_request.title }}](${{ github.event.issue.html_url || github.event.pull_request.html_url }})\n\n${{ github.event.issue.body || github.event.pull_request.body }}",
-            "color": 4886754,
-            "author": {
-              "name": "${{ github.event.issue.user.login || github.event.pull_request.user.login }}",
-              "icon_url": "${{ github.event.issue.user.avatar_url || github.event.pull_request.user.avatar_url }}"
-            }
-          }]
+        message: |
+          ${{ github.event_name == 'issues' && (github.event.action == 'opened' && 'New issue opened:' || 'Issue closed:') || 'Pull request ' }}${{ github.event.action == 'closed' && 'closed:' || (github.event_name == 'pull_request' && 'opened:') }}
+          
+          **Title:** ${{ github.event.issue.title || github.event.pull_request.title }}
+          **URL:** ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+          **User:** ${{ github.event.issue.user.login || github.event.pull_request.user.login }}
+          
+          ${{ github.event.issue.body || github.event.pull_request.body }}
