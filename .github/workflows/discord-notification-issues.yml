@@ -1,0 +1,24 @@
+name: Discord Notification for Issues
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  notify_discord:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Discord Notification
+      uses: appleboy/discord-action@master
+      with:
+        webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        color: "#48f442"
+        username: "GitHub Issue Bot"
+        message: |
+          ${{ github.event.action == 'opened' ? 'New issue opened:' : 'Issue closed:' }}
+
+          **Title:** ${{ github.event.issue.title }}
+          **URL:** ${{ github.event.issue.html_url }}
+          **User:** ${{ github.event.issue.user.login }}
+
+          ${{ github.event.issue.body }}
