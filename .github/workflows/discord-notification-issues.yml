@@ -14,9 +14,9 @@ jobs:
         webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
         webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
         color: "#48f442"
-        username: "GitHub Issue Bot"
+        username: "GitHub"
         message: |
-          ${{ github.event.action == 'opened' ? 'New issue opened:' : 'Issue closed:' }}
+          ${{ format('{0}', github.event.action == 'opened' && 'New issue opened:' || 'Issue closed:') }}
 
           **Title:** ${{ github.event.issue.title }}
           **URL:** ${{ github.event.issue.html_url }}
