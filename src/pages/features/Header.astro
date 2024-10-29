@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets";
+import Screenshot from "../index/operately-v2-screenshot.png";
+import {
+  Map,
+  UserCheck,
+  Users,
+  ArrowRightLeft,
+  LayoutTemplate,
+  RefreshCcw,
+  Target,
+} from "lucide-react";
+---
+
+<div class="py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- intro -->
+    <div class="mx-auto max-w-2xl text-center">
+      <h1
+        class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
+      >
+        What your company needs to move fast—and forward.
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Stop spreading yourself and your team too thin. Start seeing real
+        company progress. Operately brings together project, goal, and process
+        management in one tool to help your organization execute at peak
+        performance.
+      </p>
+    </div>
+  </div>
+  <!-- big screenshot / video prompt -->
+  <div class="relative overflow-hidden pt-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <Image
+        src={Screenshot}
+        alt="Operately screenshot, dashboard with goals and projects."
+        class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
+      />
+      <div class="relative" aria-hidden="true">
+        <div
+          class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- the gist -->
+  <div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
+    <dl
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16"
+    >
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <Map className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+          Visualize goals and projects.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Link company vision to team goals and projects. See exactly how daily
+          work moves the needle.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <UserCheck
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Clear ownership, clear progress.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          See who's moving what forward, without chasing for updates.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <Users
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Build shared understanding.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Show everyone how their work fits into the bigger picture.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <ArrowRightLeft
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Replace spreadsheets with workflows.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Turn static documents into living processes that grow with you.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <LayoutTemplate
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Stop reinventing how you work.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Standardize your team's rhythm with a proven structure that just
+          works—no configuration needed.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <RefreshCcw
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Learn and adapt in real time.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Never let your plans go stale. Adapt your strategy as reality unfolds.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>

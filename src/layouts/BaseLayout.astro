@@ -6,12 +6,17 @@ interface LayoutProps {
   twitterCardType?: string;
 }
 
-const { title, description, image, twitterCardType = 'summary' } = Astro.props as LayoutProps;
+const {
+  title,
+  description,
+  image,
+  twitterCardType = "summary",
+} = Astro.props as LayoutProps;
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 ---
 
 <!doctype html>
@@ -20,17 +25,25 @@ import Footer from '../components/Footer';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <title>{title} - Operately</title>
-    {description? <meta name="description" content={description} /> : null}
+    {description ? <meta name="description" content={description} /> : null}
     <meta property="og:title" content={title} />
     <meta property="og:site_name" content="Operately" />
-    {socialImageUrl ? <meta property="og:image" content={socialImageUrl} /> : null}
+    {
+      socialImageUrl ? (
+        <meta property="og:image" content={socialImageUrl} />
+      ) : null
+    }
     <meta name="twitter:card" content={twitterCardType} />
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {socialImageUrl ? <meta name="twitter:image" content={socialImageUrl} /> : null}
+    {
+      socialImageUrl ? (
+        <meta name="twitter:image" content={socialImageUrl} />
+      ) : null
+    }
     <slot name="head" />
   </head>
   <body>

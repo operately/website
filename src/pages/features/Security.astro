@@ -1,0 +1,80 @@
+---
+import { Lock, Eye, Database } from "lucide-react";
+---
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2
+        class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+      >
+        Stay secure and compliant
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Protect your company's data and work together securely. Manage work
+        access and maintain control as your organization grows.
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
+      >
+        <div class="flex flex-col">
+          <dt class="text-base font-semibold leading-7 text-gray-900">
+            <div
+              class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+            >
+              <Lock className="h-6 w-6 text-white" />
+            </div>
+            Manage access and permissions
+          </dt>
+          <dd
+            class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+          >
+            <p class="flex-auto">
+              Control access level of every space, goal, and project. So you can
+              be transparent by default but keep specific information off
+              limits.
+            </p>
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="text-base font-semibold leading-7 text-gray-900">
+            <div
+              class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+            >
+              <Eye className="h-6 w-6 text-white" />
+            </div>
+            One-click oversight
+          </dt>
+          <dd
+            class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+          >
+            <p class="flex-auto">
+              Detailed activity feeds and access lists make it easy to see who
+              is doing what and provide proof of compliance.
+            </p>
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="text-base font-semibold leading-7 text-gray-900">
+            <div
+              class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+            >
+              <Database className="h-6 w-6 text-white" />
+            </div>
+            Own your data
+          </dt>
+          <dd
+            class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+          >
+            <p class="flex-auto">
+              If you need maximum control over your data, you can self-host
+              Operately with minimal effort.
+            </p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
