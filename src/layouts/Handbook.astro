@@ -6,7 +6,7 @@ const imagePath = frontmatter.image
   : "/images/social/card-summary-large.png";
 const socialImageUrl = new URL(imagePath, Astro.site);
 
-import '../styles/anchor-links.css';
+import "../styles/anchor-links.css";
 ---
 
 <!doctype html>
@@ -24,7 +24,9 @@ import '../styles/anchor-links.css';
       rel="stylesheet"
     />
     <style>
-      @view-transition { navigation: auto; /* enabled! */ }
+      @view-transition {
+        navigation: auto; /* enabled! */
+      }
     </style>
     <title>{frontmatter.title} - The Operately Employee Handbook</title>
     {
@@ -57,7 +59,9 @@ import '../styles/anchor-links.css';
                 >The Operately Employee Handbook</a
               >
             </p>
-            <h1 class="text-3xl font-bold mb-2 mt-4 dark:text-white">{frontmatter.title}</h1>
+            <h1 class="text-3xl font-bold mb-2 mt-4 dark:text-white">
+              {frontmatter.title}
+            </h1>
 
             {
               frontmatter.nextChapter ? (
@@ -84,7 +88,7 @@ import '../styles/anchor-links.css';
           <footer>
             <hr />
             <p class="italic text-sm">
-              Copyright © 2024 Operately DOO. All rights reserved.
+              Copyright © {new Date().getFullYear()} Operately DOO. All rights reserved.
             </p>
           </footer>
         </main>
