@@ -1,7 +1,7 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
 import { getPublishedReleases } from "../../utils/releases";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export async function getStaticPaths() {
   const releases = await getPublishedReleases();
@@ -77,12 +77,12 @@ const jsonLd = JSON.stringify({
       prev && (
         <a
           href={`/releases/${prev.slug}`}
-          class="flex items-center text-operately-blue hover:underline"
+          class="flex items-center text-operately-blue "
         >
-          <ChevronLeftIcon className="h-5 w-5 mr-1" />
+          <ChevronLeft className="h-5 w-5 mr-1" />
           <span>
             <div class="text-sm text-gray-500">Previous release</div>
-            <div>
+            <div class="hover:underline">
               {prev.data.title} - v{prev.data.version}
             </div>
           </span>
@@ -94,15 +94,15 @@ const jsonLd = JSON.stringify({
       next && (
         <a
           href={`/releases/${next.slug}`}
-          class="flex items-center text-operately-blue hover:underline text-right"
+          class="flex items-center text-operately-blue text-right"
         >
           <span>
             <div class="text-sm text-gray-500">Next release</div>
-            <div>
+            <div class="hover:underline">
               {next.data.title} - v{next.data.version}
             </div>
           </span>
-          <ChevronRightIcon className="h-5 w-5 ml-1" />
+          <ChevronRight className="h-5 w-5 ml-1" />
         </a>
       )
     }
