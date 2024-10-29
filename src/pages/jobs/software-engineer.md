@@ -1,8 +1,8 @@
 ---
-layout: '../../layouts/Job.astro'
-title: 'Software Engineer'
-department: 'Engineering'
-jobUrl: 'https://forms.gle/4xD8vsG4BWVdA6JZA'
+layout: "../../layouts/Job.astro"
+title: "Software Engineer"
+department: "Engineering"
+jobUrl: "https://forms.gle/4xD8vsG4BWVdA6JZA"
 active: false
 ---
 
@@ -10,7 +10,7 @@ active: false
 
 ### Summary
 
-At Operately, we are building the future of company operations and open-source software. You would be the first software engineer to join the team. If you are passionate about the startup world and open-source software, we would love to hear from you!
+At Operately, we are building the future of company operations and open source software. You would be the first software engineer to join the team. If you are passionate about the startup world and open source software, we would love to hear from you!
 
 ### About the job
 
@@ -22,7 +22,7 @@ At Operately, we are building the future of company operations and open-source s
 
 - Develop core features of Operately from conception to deployment
 - Release production and self-hosted versions of the product
-- Collaborate with open-source developers, review and merge their code
+- Collaborate with open source developers, review and merge their code
 - Work with the founding team to discuss the UX/performance/feature set aspects of the product
 
 ### Your qualifications
@@ -36,14 +36,13 @@ At Operately, we are building the future of company operations and open-source s
 
 ### What we offer
 
-- The impact of working on an early-stage, open-source product competing in a global market
+- The impact of working on an early-stage, open source product competing in a global market
 - Learn from the team that built <a href="https://semaphoreci.com">Semaphore</a>, a platform with over 30,000 developers relying on it as their daily CI/CD platform
 - Flexible work schedule (async-first)
- - Competitive salary
+- Competitive salary
 
 ### How to know if this is the right place for you
 
 - [Read our masterplan](/masterplan) to learn more about our mission
 - Review Operately’s code on [GitHub](https://github.com/operately/operately) to assess if you would be able to understand and contribute
 - Join our [Discord server](https://discord.com/invite/2ngnragJYV) to meet and talk with us
-  
