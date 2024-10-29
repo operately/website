@@ -6,7 +6,7 @@ Made with:
 
 - [Astro](https://docs.astro.build/en/getting-started/)
 - [Tailwind CSS](https://tailwindcss.com/docs/), [UI components](https://tailwindui.com/), [Typography plugin](https://github.com/tailwindlabs/tailwindcss-typography)
-- [HeroIcons](https://heroicons.com) and [SimpleIcons](https://simpleicons.org/)
+- [Lucide icons](https://lucide.dev/icons/) and [SimpleIcons](https://simpleicons.org/)
 - Intern-level knowledge of React
 
 ## Commands
