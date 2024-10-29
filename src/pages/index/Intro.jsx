@@ -1,7 +1,11 @@
-import { BriefcaseIcon, ViewfinderCircleIcon, ChartBarIcon, BookOpenIcon } from '@heroicons/react/20/solid'
-import { TargetIcon } from '../../components/Icons';
-import { Image } from 'astro:assets';
-import screenshotImage from './operately-v2-screenshot.png';
+import {
+  FolderKanban,
+  Target,
+  ChartNoAxesCombined,
+  BookCheck,
+} from "lucide-react";
+import { Image } from "astro:assets";
+import screenshotImage from "./operately-v2-screenshot.png";
 
 export default function Intro() {
   return (
@@ -29,53 +33,104 @@ export default function Intro() {
               strokeWidth={0}
             />
           </svg>
-          <rect width="100%" height="100%" strokeWidth={0} fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+          <rect
+            width="100%"
+            height="100%"
+            strokeWidth={0}
+            fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
+          />
         </svg>
       </div>
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">You don't need a COO. You need Operately.</h2>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                You don't need a COO. You need Operately.
+              </h2>
               <p className="mt-6 text-xl leading-8 text-gray-700">
-                Running your startup with project management tools and Notion documents? Must be a massive headache. We've been there with <a href="https://semaphoreci.com" className="text-operately-blue hover:text-operately-dark-blue underline" target="_blank">Semaphore</a>. Figuring out the right systems was tough and keeping them in order, even tougher.
+                Running your startup with project management tools and Notion
+                documents? Must be a massive headache. We've been there with{" "}
+                <a
+                  href="https://semaphoreci.com"
+                  className="text-operately-blue hover:text-operately-dark-blue underline"
+                  target="_blank"
+                >
+                  Semaphore
+                </a>
+                . Figuring out the right systems was tough and keeping them in
+                order, even tougher.
               </p>
             </div>
           </div>
         </div>
         <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <img src={screenshotImage.src} alt="operately alpha screenshot" className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]" />
+          <img
+            src={screenshotImage.src}
+            alt="operately alpha screenshot"
+            className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+          />
         </div>
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
               <p>
-                Truth is, every startup needs to do the same things in order to win.
+                Truth is, every startup needs to do the same things in order to
+                win.
               </p>
 
               <ul role="list" className="mt-8 space-y-8 text-gray-600">
                 <li className="flex gap-x-3">
-                  <BriefcaseIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
+                  <FolderKanban className="mt-1 h-5 w-5 flex-none text-operately-blue" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Projects</strong> Standardize project management across groups with a ready-to-go structure with built-in accountability and feedback loops.
+                    <strong className="font-semibold text-gray-900">
+                      Projects
+                    </strong>{" "}
+                    Standardize project management across groups with a
+                    ready-to-go structure with built-in accountability and
+                    feedback loops.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
-                  <ViewfinderCircleIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
+                  <Target className="mt-1 h-5 w-5 flex-none text-operately-blue" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Goals</strong> Connect your long-term vision to short-term goals and all the way to daily tasks and milestones. It'll be clear if your ship is moving in the right direction and what distractions to avoid.
+                    <strong className="font-semibold text-gray-900">
+                      Goals
+                    </strong>{" "}
+                    Connect your long-term vision to short-term goals and all
+                    the way to daily tasks and milestones. It'll be clear if
+                    your ship is moving in the right direction and what
+                    distractions to avoid.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
-                  <ChartBarIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
+                  <ChartNoAxesCombined className="mt-1 h-5 w-5 flex-none text-operately-blue" />
                   <span>
-                    <strong className="font-semibold text-gray-900">KPIs</strong>  <span className="uppercase text-xs mr-2" aria-hidden="true">soon</span> Track your Key Performance Indicators in correlation with ongoing work. Understand your team's performance at a glance and make data-driven decisions to drive your startup forward.
+                    <strong className="font-semibold text-gray-900">
+                      KPIs
+                    </strong>{" "}
+                    <span className="uppercase text-xs mr-2" aria-hidden="true">
+                      soon
+                    </span>{" "}
+                    Track your Key Performance Indicators in correlation with
+                    ongoing work. Understand your team's performance at a glance
+                    and make data-driven decisions to drive your startup
+                    forward.
                   </span>
                 </li>
                 <li className="flex gap-x-3">
-                  <BookOpenIcon className="mt-1 h-5 w-5 flex-none text-operately-blue" aria-hidden="true" />
+                  <BookCheck className="mt-1 h-5 w-5 flex-none text-operately-blue" />
                   <span>
-                    <strong className="font-semibold text-gray-900">Playbook</strong> <span className="uppercase text-xs mr-2" aria-hidden="true">soon</span> No more dead letters. Your playbook will be made of actionable procedures connected to every role and responsibility. As a bonus, you'll get a system to onboard new team members in no time.
+                    <strong className="font-semibold text-gray-900">
+                      Playbook
+                    </strong>{" "}
+                    <span className="uppercase text-xs mr-2" aria-hidden="true">
+                      soon
+                    </span>{" "}
+                    No more dead letters. Your playbook will be made of
+                    actionable procedures connected to every role and
+                    responsibility. As a bonus, you'll get a system to onboard
+                    new team members in no time.
                   </span>
                 </li>
               </ul>
@@ -93,5 +148,5 @@ export default function Intro() {
         </div>
       </div>
     </div>
-  )
+  );
 }
