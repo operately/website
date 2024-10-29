@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.astro';
 import '../styles/anchor-links.css';
 
 const {frontmatter} = Astro.props;
@@ -42,6 +42,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </article>
             </div>
         </div>
-    <Footer client:load />
+    <Footer />
   </body>
 </html>

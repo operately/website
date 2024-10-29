@@ -17,6 +17,7 @@ const socialImageUrl = image ? new URL(image, Astro.site) : null;
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import NewFooter from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -49,6 +50,7 @@ import Footer from "../components/Footer";
   <body>
     <Header client:load />
     <slot />
-    <Footer client:load />
+    <!-- <Footer client:load /> -->
+    <NewFooter />
   </body>
 </html>
