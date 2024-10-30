@@ -1,13 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import darkoPhoto from './jobs/darko.jpg';
-import markoPhoto from './jobs/marko.jpg';
-import igorPhoto from './jobs/igor.jpg';
+import darkoPhoto from "./_jobs/darko.jpg";
+import markoPhoto from "./_jobs/marko.jpg";
+import igorPhoto from "./_jobs/igor.jpg";
 
 const socialImageUrl = new URL("/images/social/jobs.jpg", Astro.site);
 
-import { GitHubIcon, LinkedInIcon, XIcon } from '../components/Icons';
+import { GitHubIcon, LinkedInIcon, XIcon } from "../components/Icons";
 
 const discordUrl = import.meta.env.DISCORD_URL;
 const xUrl = import.meta.env.X_URL;
@@ -17,43 +17,68 @@ const xUrl = import.meta.env.X_URL;
   title="Jobs at Operately"
   description="Let's build the future of startup operations."
   image={socialImageUrl}
-  twitterCardType="summary_large_image">
-
+  twitterCardType="summary_large_image"
+>
   <main>
-  <div class="relative isolate overflow-hidden py-48 sm:py-52">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-
-      <div class="mx-auto max-w-2xl lg:mx-0">
-        <p class="text-base font-semibold leading-7 text-operately-blue">Jobs at Operately</p>
-        <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Let's build the future of startup operations</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Operately is an early-stage, commercial open source (COSS) startup. Come work with an international remote team that is on a mission to build an industry-defining product.</p>
-      </div>
-
-      <dl class="mt-8 grid grid-cols-1 gap-8 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7">Maximum impact</dt>
-          <dd class="text-2xl font-bold leading-9">Early stage</dd>
+    <div class="relative isolate overflow-hidden py-48 sm:py-52">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <p class="text-base font-semibold leading-7 text-operately-blue">
+            Jobs at Operately
+          </p>
+          <h1
+            class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+          >
+            Let's build the future of startup operations
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Operately is an early-stage, commercial open source (COSS) startup.
+            Come work with an international remote team that is on a mission to
+            build an industry-defining product.
+          </p>
         </div>
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7">Work from anywhere</dt>
-          <dd class="text-2xl font-bold leading-9">Remote</dd>
-        </div>
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7">Mindset</dt>
-          <dd class="text-2xl font-bold leading-9">Kaizen</dd>
-        </div>
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7">Open heart</dt>
-          <dd class="text-2xl font-bold leading-9">Open source</dd>
-        </div>
-      </dl>
 
-      <div class="max-w-2xl">
-        <h2 class="mt-16 sm:mt-20 text-2xl font-semibold leading-10 bg-yellow-100">⏸️ We do not have any open positions right now</h2>
-        <p class="mt-4">Join our <a href={discordUrl} class="text-operately-blue hover:text-operately-dark-blue underline">Discord server</a> or <a href={xUrl} class="text-operately-blue hover:text-operately-dark-blue underline">follow us on X</a> to know when we start hiring again.</p>
-      </div>
+        <dl
+          class="mt-8 grid grid-cols-1 gap-8 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          <div class="flex flex-col-reverse">
+            <dt class="text-base leading-7">Maximum impact</dt>
+            <dd class="text-2xl font-bold leading-9">Early stage</dd>
+          </div>
+          <div class="flex flex-col-reverse">
+            <dt class="text-base leading-7">Work from anywhere</dt>
+            <dd class="text-2xl font-bold leading-9">Remote</dd>
+          </div>
+          <div class="flex flex-col-reverse">
+            <dt class="text-base leading-7">Mindset</dt>
+            <dd class="text-2xl font-bold leading-9">Kaizen</dd>
+          </div>
+          <div class="flex flex-col-reverse">
+            <dt class="text-base leading-7">Open heart</dt>
+            <dd class="text-2xl font-bold leading-9">Open source</dd>
+          </div>
+        </dl>
 
-      <!--
+        <div class="max-w-2xl">
+          <h2
+            class="mt-16 sm:mt-20 text-2xl font-semibold leading-10 bg-yellow-100"
+          >
+            ⏸️ We do not have any open positions right now
+          </h2>
+          <p class="mt-4">
+            Join our <a
+              href={discordUrl}
+              class="text-operately-blue hover:text-operately-dark-blue underline"
+              >Discord server</a
+            > or <a
+              href={xUrl}
+              class="text-operately-blue hover:text-operately-dark-blue underline"
+              >follow us on X</a
+            > to know when we start hiring again.
+          </p>
+        </div>
+
+        <!--
       <div class="max-w-2xl">
         <h2 class="mt-16 sm:mt-20 text-sm font-bold leading-10 text-gray-500 uppercase">Open positions</h2>
         <div class="border-y border-stone-200 py-4 flex items-center justify-between">
@@ -69,86 +94,136 @@ const xUrl = import.meta.env.X_URL;
       </div>
     -->
 
-      <div class="max-w-2xl">
-        <h2 class="mt-16 sm:mt-24 text-2xl font-bold leading-10 text-gray-900">You'll be in good company</h2>
-        <p class="mt-4 text-lg leading-8 text-gray-600">Operately is founded by the people who built <a href="https://semaphoreci.com" class="text-operately-blue hover:text-operately-dark-blue underline">Semaphore</a>. We are a team of experienced engineers, product managers, and operators who are passionate about building a product that helps startups succeed.</p>
+        <div class="max-w-2xl">
+          <h2
+            class="mt-16 sm:mt-24 text-2xl font-bold leading-10 text-gray-900"
+          >
+            You'll be in good company
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-gray-600">
+            Operately is founded by the people who built <a
+              href="https://semaphoreci.com"
+              class="text-operately-blue hover:text-operately-dark-blue underline"
+              >Semaphore</a
+            >. We are a team of experienced engineers, product managers, and
+            operators who are passionate about building a product that helps
+            startups succeed.
+          </p>
 
-        <div class="flex max-md:flex-col items-center gap-20 mt-12">
-          <div class="flex flex-col items-center">
-            <img src={darkoPhoto.src} alt="darko fabijan avatar" class="w-40 h-40 rounded-full overflow-hidden" />
-            <div class="mt-4">Darko Fabijan</div>
-            <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
-            <div class="text-xs text-stone-600 mt-4">
-              <ul role="list" class="flex justify-center gap-x-6">
-                <li>
-                  <span class="sr-only">LinkedIn</span>
-                  <a class="underline hover:text-operately-blue" href="https://www.linkedin.com/in/darkofabijan/">
-                    <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <span class="sr-only">X (Twitter)</span>
-                  <a class="underline hover:text-operately-blue" href="https://twitter.com/darkofabijan">
-                    <XIcon className="h-4 w-4" aria-hidden="true" />
-                  </a> 
-                </li>
-              </ul>
+          <div class="flex max-md:flex-col items-center gap-20 mt-12">
+            <div class="flex flex-col items-center">
+              <img
+                src={darkoPhoto.src}
+                alt="darko fabijan avatar"
+                class="w-40 h-40 rounded-full overflow-hidden"
+              />
+              <div class="mt-4">Darko Fabijan</div>
+              <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
+              <div class="text-xs text-stone-600 mt-4">
+                <ul role="list" class="flex justify-center gap-x-6">
+                  <li>
+                    <span class="sr-only">LinkedIn</span>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://www.linkedin.com/in/darkofabijan/"
+                    >
+                      <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                  <li>
+                    <span class="sr-only">X (Twitter)</span>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://twitter.com/darkofabijan"
+                    >
+                      <XIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-  
-          <div class="flex flex-col items-center">
-            <img src={markoPhoto.src} alt="marko anastasov avatar" class="w-40 h-40 rounded-full overflow-hidden">
-            <div class="mt-4">Marko Anastasov</div>
-            <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
-            <div class="text-xs text-stone-600 mt-4">
-              <ul role="list" class="flex justify-center gap-x-6">
-                <li>
-                  <a class="underline hover:text-operately-blue" href="https://www.linkedin.com/in/markoa/">
-                    <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <a class="underline hover:text-operately-blue" href="https://twitter.com/markoa">
-                    <XIcon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </li>
-              </ul>
+
+            <div class="flex flex-col items-center">
+              <img
+                src={markoPhoto.src}
+                alt="marko anastasov avatar"
+                class="w-40 h-40 rounded-full overflow-hidden"
+              />
+              <div class="mt-4">Marko Anastasov</div>
+              <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
+              <div class="text-xs text-stone-600 mt-4">
+                <ul role="list" class="flex justify-center gap-x-6">
+                  <li>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://www.linkedin.com/in/markoa/"
+                    >
+                      <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://twitter.com/markoa"
+                    >
+                      <XIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-  
-          
-          <div class="flex flex-col items-center">
-            <img src={igorPhoto.src} alt="igor šarčević avatar" class="w-40 h-40 rounded-full overflow-hidden" />
-            <div class="mt-4">Igor Šarčević</div>
-            <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
-            <div class="text-xs text-stone-600 mt-4">
-              <ul role="list" class="flex justify-center gap-x-6">
-                <li>
-                  <a class="underline hover:text-operately-blue" href="https://www.linkedin.com/in/igorsarcevic/">
-                    <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </li>
-                <li>
-                  <a class="underline hover:text-operately-blue" href="https://twitter.com/igor_sarcevic">
-                    <XIcon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </li>
-              </ul>
+
+            <div class="flex flex-col items-center">
+              <img
+                src={igorPhoto.src}
+                alt="igor šarčević avatar"
+                class="w-40 h-40 rounded-full overflow-hidden"
+              />
+              <div class="mt-4">Igor Šarčević</div>
+              <div class="text-sm text-stone-600 font-bold">Co-Founder</div>
+              <div class="text-xs text-stone-600 mt-4">
+                <ul role="list" class="flex justify-center gap-x-6">
+                  <li>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://www.linkedin.com/in/igorsarcevic/"
+                    >
+                      <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="underline hover:text-operately-blue"
+                      href="https://twitter.com/igor_sarcevic"
+                    >
+                      <XIcon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="max-w-2xl">
-        <h2 class="mt-16 sm:mt-24 text-2xl font-bold leading-10 text-gray-900">Read about how we work</h2>
-        <p class="mt-4 text-lg leading-8 text-gray-600">
-          The Operately Employee Handbook is our guide on how we work and run the company. Aligned with our mission, it is open to the world.
-        </p>
-        <p class="mt-4">
-          <a href="/handbook" class="text-operately-blue hover:text-operately-dark-blue underline">Read Employee Handbook →</a>
-        </p>
+        <div class="max-w-2xl">
+          <h2
+            class="mt-16 sm:mt-24 text-2xl font-bold leading-10 text-gray-900"
+          >
+            Read about how we work
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-gray-600">
+            The Operately Employee Handbook is our guide on how we work and run
+            the company. Aligned with our mission, it is open to the world.
+          </p>
+          <p class="mt-4">
+            <a
+              href="/handbook"
+              class="text-operately-blue hover:text-operately-dark-blue underline"
+              >Read Employee Handbook →</a
+            >
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</main>
-</Layout>
+  </main>
+</BaseLayout>

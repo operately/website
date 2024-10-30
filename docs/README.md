@@ -10,6 +10,21 @@ Freewheeling document, will gain more structure as it grows.
 - Avoid doing exotic things, stick to defaults, always seek simple solutions.
 - Always verify pull requests by browsing the preview site.
 
+### Where to place partials and assets of a page
+
+Create a subdirectory that starts with an underscore `_`, followed by the name of the page.
+
+For example:
+
+```
+pages/features.astro
+pages/_features/Header.astro
+pages/_features/_ReactComponent.jsx
+pages/_features/screenshot.png
+```
+
+This prevents warnings about `Unsupported file type`.
+
 ### Working with images
 
 - Before committing new images to the repo, reduce their size with
