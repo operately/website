@@ -5,7 +5,7 @@ import {
   BookCheck,
 } from "lucide-react";
 import { Image } from "astro:assets";
-import screenshotImage from "../../assets/pages/index/operately-v2-screenshot.png";
+import screenshotImage from "./operately-v2-screenshot.png";
 
 export default function Intro() {
   return (
