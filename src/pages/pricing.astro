@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Pricing";
+const pageDescription =
+  "Beta program is now live. Get free access to all features while we gather feedback and optimize our platform.";
+
+import { Check, CalendarDays, Mail } from "lucide-react";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_imagwe"
+>
+  <main class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 class="text-base/7 font-semibold text-operately-blue">Pricing</h2>
+        <p
+          class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
+        >
+          Free during beta
+        </p>
+      </div>
+      <p
+        class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
+      >
+        We're offering complimentary access to all features while we gather
+        feedback and optimize our platform.
+      </p>
+
+      {/* Pricing plan */}
+      <div class="isolate mx-auto mt-16 grid max-w-md">
+        <div class="rounded-3xl p-8 ring-2 ring-operately-dark-blue xl:p-10">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3
+              id="tier-beta"
+              class="text-lg/8 font-semibold text-operately-blue"
+            >
+              Beta Access
+            </h3>
+            <p
+              class="rounded-full bg-operately-blue/10 px-2.5 py-1 text-xs/5 font-semibold text-operately-blue"
+            >
+              Limited time offer
+            </p>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-600">All features, fair use.</p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span class="text-4xl font-semibold tracking-tight text-gray-900"
+              >$0</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/month</span>
+          </p>
+
+          <ul
+            role="list"
+            class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10"
+          >
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Early access to all features
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Priority support
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Shape product roadmap
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Custom onboarding
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              No commitment required
+            </li>
+          </ul>
+          <a
+            href="#"
+            aria-describedby="tier-startup"
+            class="mt-6 block rounded-md bg-operately-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+          >
+            <CalendarDays className="h-5 w-5 inline-block -mt-1 mr-2" />
+            Book an intro call
+          </a>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
+            aria-describedby="tier-startup"
+            class="mt-4 block rounded-md bg-white px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 shadow-sm hover:bg-gray-50 ring-1 ring-inset ring-gray-300 transition-colors"
+          >
+            <Mail className="h-5 w-5 inline-block -mt-1 mr-2" />
+            Join waitlist
+          </a>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div class="max-w-2xl mx-auto mt-16">
+        <h2 class="text-2xl font-bold text-center mb-8">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">
+              When will paid plans be available?
+            </h3>
+            <p class="mt-2 text-gray-500">
+              We plan to introduce paid plans once we've gathered sufficient
+              feedback from our beta users and optimized our feature set.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">
+              What happens when beta ends?
+            </h3>
+            <p class="mt-2 text-gray-500">
+              Beta users will receive exclusive pricing and advanced notice
+              before any changes to their plan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
