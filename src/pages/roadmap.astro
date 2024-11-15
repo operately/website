@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Roadmap";
+const pageDescription =
+  "Operately's roadmap of upcoming features and improvements.";
+
+import { Activity, Clock } from "lucide-react";
+
+const discordUrl = import.meta.env.DISCORD_URL;
+
+const features = {
+  active: [
+    {
+      title: "Rich text documents",
+      description:
+        "Share and collaborate on documents with your team in spaces and projects.",
+    },
+    {
+      title: "Files as key resources",
+      description: "Publish and discuss relevant files in spaces and projects.",
+    },
+    {
+      title: "Draft messages",
+      description: "Save messages as drafts and publish them later.",
+    },
+    {
+      title: "Operately SaaS general availability",
+      description: "Operately will be available as a SaaS for all users.",
+    },
+  ],
+  planned: [
+    {
+      title: "Draft projects and goals",
+      description:
+        "Prepare your projects and goals in peace and publish them when ready.",
+    },
+    {
+      title: "Discussions in projects",
+      description:
+        "Replace messy email threads and chaotic chats with a dedicated message space.",
+    },
+    {
+      title: "Help documentation",
+      description: "Comprehensive help documentation and guides.",
+    },
+    {
+      title: "Full mobile responsiveness",
+      description: "Operately will look good on all devices and screen sizes.",
+    },
+    {
+      title: "KPIs",
+      description:
+        "Track and visualize your key metrics. Connect them to your projects and goals.",
+    },
+    {
+      title: "Procedures",
+      description:
+        "Document and share your standard procedures with your team as executable, repeatable steps.",
+    },
+    {
+      title: "Task management v2",
+      description: "Improved task management with more features and better UX.",
+    },
+    {
+      title: "Search",
+      description: "Find anything in Operately with a powerful search engine.",
+    },
+    {
+      title: "AI COO",
+      description: "AI-powered insights and recommendations for your business.",
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_imagwe"
+>
+  <main class="bg-white">
+    <div class="min-h-screen text-gray-900 py-16 mt-16">
+      <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-5xl font-bold text-gray-900 mb-8">Roadmap</h1>
+
+        <p class="text-lg text-gray-600 mb-12">
+          Instead of a traditional fixed roadmap, we move fast and ship often,
+          adapting our priorities as we learn. Here's what we're currently
+          focused on and committed to delivering:
+        </p>
+
+        <!-- Active Features Section -->
+        <div class="mb-16">
+          <div class="flex items-center gap-2 mb-8">
+            <Activity className="w-5 h-5 text-green-600" />
+            <h2 class="text-2xl text-gray-900">Active</h2>
+          </div>
+
+          <div class="space-y-4">
+            {
+              features.active.map((feature) => (
+                <div class="bg-white rounded-lg p-6 hover:bg-gray-50 transition shadow-sm border border-gray-200">
+                  <h3 class="text-xl text-gray-900 mb-2">{feature.title}</h3>
+                  <p class="text-gray-600">{feature.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Planned Features Section -->
+        <div class="mb-16">
+          <div class="flex items-center gap-2 mb-8">
+            <Clock className="w-5 h-5 text-orange-500" />
+            <h2 class="text-2xl text-gray-900">Planned</h2>
+          </div>
+
+          <div class="space-y-4">
+            {
+              features.planned.map((feature) => (
+                <div class="bg-white rounded-lg p-6 hover:bg-gray-50 transition shadow-sm border border-gray-200">
+                  <h3 class="text-xl text-gray-900 mb-2">{feature.title}</h3>
+                  <p class="text-gray-600">{feature.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <p class="text-lg mt-16">
+          For more detail about recent product updates see the{" "}
+          <a
+            href="/releases"
+            class="text-operately-blue underline hover:text-operately-dark-blue"
+            >Releases</a
+          >.
+        </p>
+
+        <p class="text-lg mt-4">
+          Want to suggest a feature? <a
+            href="https://github.com/operately/operately/issues/new"
+            class="text-operately-blue underline hover:text-operately-dark-blue"
+            >Post on GitHub</a
+          > or
+          <a
+            href={discordUrl}
+            class="text-operately-blue underline hover:text-operately-dark-blue"
+            >chat with us on Discord</a
+          >.
+        </p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
