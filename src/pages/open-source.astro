@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Statement from "./_open-source/statement.astro";
+import PublicChannels from "./_open-source/PublicChannels.astro";
+
+const pageTitle = "Why Open Source?";
+const pageDescription =
+  "Business software needs a reset. Operately is building a product that is sustainable, open, and transparent.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+>
+  <main class="bg-white py-24 sm:py-32">
+    <Statement />
+    <PublicChannels />
+  </main>
+</BaseLayout>
