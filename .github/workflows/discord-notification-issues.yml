@@ -18,8 +18,6 @@ jobs:
         message: |
           ${{ format('{0}', github.event.action == 'opened' && 'New issue opened:' || 'Issue closed:') }}
 
-          **Title:** ${{ github.event.issue.title }}
-          **URL:** ${{ github.event.issue.html_url }}
-          **User:** ${{ github.event.issue.user.login }}
-
-          ${{ github.event.issue.body }}
+          **${{ github.event.issue.title }}**
+          ${{ github.event.issue.html_url }}
+          by ${{ github.event.issue.user.login }}
