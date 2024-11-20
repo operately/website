@@ -28,6 +28,10 @@ const navigation = {
   ],
   company: [
     { name: "Masterplan", href: "/masterplan" },
+    {
+      name: ["Open source ", "<span style='color: red'>&#x2764;</span>"],
+      href: "/open-source",
+    },
     { name: "Jobs", href: "/jobs" },
   ],
   legal: [
@@ -135,7 +139,12 @@ const navigation = {
                       href={item.href}
                       class="text-sm/6 text-gray-600 hover:text-operately-blue"
                     >
-                      {item.name}
+                      {/* Astro syntax to safely render HTML from JSON that may contain emoji */}
+                      {Array.isArray(item.name) ? (
+                        <Fragment set:html={item.name.join("")} />
+                      ) : (
+                        item.name
+                      )}
                     </a>
                   </li>
                 ))
@@ -164,7 +173,11 @@ const navigation = {
     </div>
     <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
       <p class="text-sm/6 text-gray-600">
-        &copy; {new Date().getFullYear()} Operately doo · All rights reserved.
+        &copy; {new Date().getFullYear()} Operately doo · All rights reserved ·
+        <a
+          href="https://github.com/operately/website"
+          class="hover:text-operately-blue">Source</a
+        >
       </p>
     </div>
   </div>
