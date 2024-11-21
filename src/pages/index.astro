@@ -6,7 +6,7 @@ const pageDescription =
   "You don't need a COO. You need Operately. Run your projects, goals, and processes like a high performance startup.";
 
 import Hero from "./_index/Hero.jsx";
-import Intro from "./_index/Intro.jsx";
+import Intro from "./_index/Intro.astro";
 
 import { getLatestRelease } from "../utils/releases";
 
@@ -21,6 +21,6 @@ const latestRelease = await getLatestRelease();
 >
   <main>
     <Hero client:load latestRelease={latestRelease} />
-    <Intro client:load />
+    <Intro />
   </main>
 </BaseLayout>
