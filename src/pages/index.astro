@@ -5,8 +5,8 @@ const pageTitle = "The Open Source Startup Operating System";
 const pageDescription =
   "You don't need a COO. You need Operately. Run your projects, goals, and processes like a high performance startup.";
 
-import Hero from "./_index/Hero.jsx";
-import Intro from "./_index/Intro.jsx";
+import Hero from "./_index/Hero.astro";
+import Intro from "./_index/Intro.astro";
 
 import { getLatestRelease } from "../utils/releases";
 
@@ -20,7 +20,7 @@ const latestRelease = await getLatestRelease();
   twitterCardType="summary_large_image"
 >
   <main>
-    <Hero client:load latestRelease={latestRelease} />
-    <Intro client:load />
+    <Hero latestRelease={latestRelease} />
+    <Intro />
   </main>
 </BaseLayout>
