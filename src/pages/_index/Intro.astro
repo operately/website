@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import screenshotImage from "./operately-v3-screenshot.png";
 
-const bookaDemoUrl = import.meta.env.BOOK_A_DEMO_URL;
+const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
 ---
 
 <div
@@ -146,8 +146,8 @@ const bookaDemoUrl = import.meta.env.BOOK_A_DEMO_URL;
           <p class="mt-12">
             <a
               href={bookaDemoUrl}
-              rel="noopener noreferrer nofollow"
-              class="rounded-md bg-operately-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              rel="nofollow"
+              class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
             >
               Book a demo
             </a>

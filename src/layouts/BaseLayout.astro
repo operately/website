@@ -15,7 +15,7 @@ const {
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
 
-import Header from "../components/Header";
+import Navigation from "../components/Navigation.jsx";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -47,8 +47,13 @@ import Footer from "../components/Footer.astro";
     <slot name="head" />
   </head>
   <body>
-    <Header client:load />
-    <slot />
-    <Footer />
+    <div>
+      {
+        /* a div to wrap the content is necessary for setting the right stacking order between menu and main content */
+      }
+      <Navigation client:load />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>

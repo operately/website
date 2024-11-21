@@ -7,7 +7,7 @@ const pageDescription =
 
 import { Activity, Clock } from "lucide-react";
 
-const discordUrl = import.meta.env.DISCORD_URL;
+const discordUrl = import.meta.env.PUBLIC_DISCORD_URL;
 
 const features = {
   active: [
@@ -81,15 +81,17 @@ const features = {
   twitterCardType="summary_large_imagwe"
 >
   <main class="bg-white">
-    <div class="min-h-screen text-gray-900 py-16 mt-16">
+    <div class="min-h-screen text-gray-900 py-8 lg:py-16">
       <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-5xl font-bold text-gray-900 mb-8">Roadmap</h1>
+        <div class="prose">
+          <h1 class="">Roadmap</h1>
 
-        <p class="text-lg text-gray-600 mb-12">
-          Instead of a traditional fixed roadmap, we move fast and ship often,
-          adapting our priorities as we learn. Here's what we're currently
-          focused on and committed to delivering:
-        </p>
+          <p class="lead mb-12">
+            Instead of a traditional fixed roadmap, we move fast and ship often,
+            adapting our priorities as we learn. Here's what we're currently
+            focused on and committed to delivering:
+          </p>
+        </div>
 
         <!-- Active Features Section -->
         <div class="mb-16">
