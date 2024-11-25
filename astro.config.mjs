@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import starlight from '@astrojs/starlight';
 
 import mdx from "@astrojs/mdx";
 import rehypeSlug from "rehype-slug";
@@ -12,6 +13,19 @@ export default defineConfig({
   integrations: [
     tailwind(),
     react(),
+    starlight({
+      title: 'Operately Help Center',
+      sidebar: [
+        { label: 'Home', link: '/help' },
+        {
+          label: 'Guides',
+          items: [
+            { label: 'Getting Started', link: '/help/getting-started' },
+            // Add more sidebar items as needed
+          ],
+        },
+      ],
+    }),
     mdx({
       remarkPlugins: [],
       rehypePlugins: [
@@ -34,6 +48,6 @@ export default defineConfig({
         // available themes: https://shiki.matsu.io/themes
         theme: 'one-dark-pro',
       }
-    })
+    }),
   ]
 });
