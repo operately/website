@@ -14,13 +14,27 @@ export default defineConfig({
     tailwind(),
     react(),
     starlight({
-      title: 'Operately Help Center',
+      title: {
+        en: 'Operately Help Center',
+      },
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
+        },
+      },
+      logo: {
+        light: './src/layouts/square-logo-dense.png',
+        dark: './src/layouts/square-logo-dense-white.png',
+      },
       sidebar: [
-        { label: 'Home', link: '/help' },
         {
-          label: 'Guides',
+          label: 'Start here',
           items: [
-            { label: 'Getting Started', link: '/help/getting-started' },
+            { label: 'Introduction', link: '/help' },
+            { label: 'What is Operately?', link: '/help/what-is-operately' },
+            { label: 'Features overview', link: '/help/features-overview' },
             // Add more sidebar items as needed
           ],
         },
