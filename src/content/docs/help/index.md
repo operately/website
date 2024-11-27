@@ -11,10 +11,14 @@ This Help Center contains clear guides for using Operately's features effectivel
 
 Here you'll find step-by-step guides, practical examples, and key feature explanations to help you get the most out of the platform.
 
-Whether you're starting your first project or setting up complex workflows, we'll guide you through every step.
+Whether you're starting your first project or onboarding your team, we'll guide you through every step.
 
 ### Help us improve
 
 All our help resources are open source, and we welcome input from our community.
 
-If you find anything unclear, notice missing information, or have suggestions for improvement, please [visit our GitHub repository](https://github.com/operately/website) to share your feedback. Your insights help make these guides more helpful for everyone.
+If you find anything unclear, notice missing information, or have suggestions for improvement, please [visit the website repository](https://github.com/operately/website) to share your feedback. Your insights help make these guides more helpful for everyone.
+
+### Built in the open
+
+Operately is open source software. This means you can inspect the code, contribute features, or even self-host it for maximum control over your data. [Visit the product repository](https://github.com/operately/operately) to learn more about getting involved with development.
