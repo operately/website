@@ -17,8 +17,4 @@ Whether you're starting your first project or onboarding your team, we'll guide 
 
 All our help resources are open source, and we welcome input from our community.
 
-If you find anything unclear, notice missing information, or have suggestions for improvement, please [visit the website repository](https://github.com/operately/website) to share your feedback. Your insights help make these guides more helpful for everyone.
-
-### Built in the open
-
-Operately is open source software. This means you can inspect the code, contribute features, or even self-host it for maximum control over your data. [Visit the product repository](https://github.com/operately/operately) to learn more about getting involved with development.
+If you find anything unclear, notice missing information, or have suggestions for improvement, please [visit the GitHub repository](https://github.com/operately/website) to share your feedback. Your insights help make these guides more helpful for everyone.
