@@ -1,6 +1,7 @@
 ---
 title: What is Operately?
 description: See how Operately helps startups run better by combining projects, goals, and processes with built-in workflows.
+tableOfContents: false
 ---
 
 Most companies run their operations across multiple tools - projects in one place, goals in another, KPIs in spreadsheets, and processes scattered everywhere.
