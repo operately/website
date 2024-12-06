@@ -21,6 +21,7 @@ export default function helpCenterSidebar() {
           { label: "Overview", link: "/help" },
           { label: "What is Operately?", link: "/help/what-is-operately" },
           { label: "Features overview", link: "/help/features-overview" },
+          { label: "Quick tour", link: "/help/quick-tour" },
         ],
       },
     ],
