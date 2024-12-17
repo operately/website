@@ -45,4 +45,12 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    resolve: {
+      alias: {
+        "@": "/src",
+        "@components": "/src/components",
+      },
+    },
+  },
 });
