@@ -1,0 +1,53 @@
+---
+---
+
+<script>
+  // Find all images in the content
+  const images = document.querySelectorAll('img');
+  
+  // Create lightbox container
+  const lightbox = document.createElement('div');
+  lightbox.style.cssText = `
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    cursor: pointer;
+  `;
+  document.body.appendChild(lightbox);
+
+  // Create lightbox image
+  const lightboxImg = document.createElement('img');
+  lightboxImg.style.cssText = `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  `;
+  lightbox.appendChild(lightboxImg);
+
+  // Add click handlers to all images
+  images.forEach(img => {
+    // Only enhance content images, not logos or icons
+    if (!img.classList.contains('no-lightbox')) {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.style.display = 'block';
+      });
+    }
+  });
+
+  // Close lightbox on click
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+</script>

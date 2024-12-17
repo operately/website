@@ -14,6 +14,14 @@ export default function helpCenterSidebar() {
       light: "./src/layouts/square-logo-dense.png",
       dark: "./src/layouts/square-logo-dense-white.png",
     },
+    social: {
+      discord: "https://discord.com/invite/2ngnragJYV",
+      github: "https://github.com/operately/operately",
+      linkedin: "https://www.linkedin.com/company/operately-com",
+      "x.com": "https://x.com/operately",
+      youtube: "https://youtube.com/@operately",
+    },
+    customCss: ["./src/styles/starlight.css", "./src/styles/anchor-links.css"],
     sidebar: [
       {
         label: "Introduction",
@@ -25,6 +33,9 @@ export default function helpCenterSidebar() {
         ],
       },
     ],
-    customCss: ["./src/styles/starlight.css"],
+    editLink: {
+      baseUrl: "https://github.com/operately/website/edit/main/",
+    },
+    disable404Route: true,
   };
 }
