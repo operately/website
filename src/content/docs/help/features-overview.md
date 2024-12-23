@@ -1,6 +1,7 @@
 ---
 title: Features Overview
 description: An overview of the key features of Operately and how they help you run your company better.
+tableOfContents: false
 ---
 
 Operately brings together all the tools you need to run your company effectively. Here's what you can do with each core feature:
