@@ -1,7 +1,6 @@
 ---
 title: Welcome to Operately Help Center
 description: Learn how to use Operately with our detailed guides and practical examples for running your company's operations.
-tableOfContents: false
 ---
 
 Operately is your company's operating system - helping you run operations, align teams, and drive growth without the need for a COO.

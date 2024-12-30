@@ -32,10 +32,19 @@ export default function helpCenterSidebar() {
           { label: "Quick tour", link: "/help/quick-tour" },
         ],
       },
+      {
+        label: "Spaces",
+        items: [
+          { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
+          { label: "Create a space", link: "/help/create-space" },
+          { label: "Space access control", link: "/help/space-access-control" },
+        ],
+      },
     ],
     editLink: {
       baseUrl: "https://github.com/operately/website/edit/main/",
     },
     disable404Route: true,
+    tableOfContents: false,
   };
 }
