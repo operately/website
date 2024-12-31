@@ -1,6 +1,6 @@
 # Developing the Operately website
 
-Freewheeling document, will gain more structure as it grows.
+[Help Center: Product documentation writing guide](help-center.md)
 
 ## Best practices
 
