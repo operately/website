@@ -3,6 +3,19 @@
 This is a guide for writing [Help Center](https://operately.com/help),
 product documentation for Operately.
 
+## Tools for screenshots
+
+- [Rectangle](https://rectangleapp.com/) (free)
+  - On a large screen, move the browser window to "Left Half" to take a screenshot of uniform width.
+  - TODO: which specifi setting works well for laptops?
+- [Cleanshot X](https://www.cleanshot.com/) ($29 one-time payment)
+  - After taking a screenshot, press **⌘E** to open the edit screen.
+  - Press **B** to add background.
+  - Use the following settings - save them as a preset for later:
+    - Gradient: choose second option (purple/pink)
+    - Padding: 50%
+    - Corners: 2
+
 ## Use AI to produce well-written text from a rough draft
 
 We use [Claude](https://claude.ai) to assist us with writing.
