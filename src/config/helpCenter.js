@@ -40,6 +40,22 @@ export default function helpCenterSidebar() {
           { label: "Space access control", link: "/help/space-access-control" },
         ],
       },
+      {
+        label: "Documents & Files",
+        items: [
+          { label: "Create a document", link: "/help/docs-files/create-document" },
+          { label: "Format text and embed images", link: "/help/docs-files/format-text" },
+          { label: "Upload a file", link: "/help/docs-files/upload-file" },
+          { label: "Create a folder", link: "/help/docs-files/create-folder" },
+          { label: "Copy a document", link: "/help/docs-files/copy-document" },
+          { label: "Move a document", link: "/help/docs-files/move-document" },
+          { label: "Edit a document", link: "/help/docs-files/edit-document" },
+          { label: "Edit a file title and description", link: "/help/docs-files/edit-file" },
+          { label: "Download a file", link: "/help/docs-files/download-file" },
+          { label: "Delete a document or file", link: "/help/docs-files/delete-document" },
+          { label: "Discuss a document or file", link: "/help/docs-files/discuss-document" },
+        ],
+      },
     ],
     editLink: {
       baseUrl: "https://github.com/operately/website/edit/main/",
