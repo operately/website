@@ -1,0 +1,281 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Get in Touch";
+const pageDescription =
+  "Have a question or need help? We're here to assist you. Fill out this form and we'll get back to you as soon as possible.";
+---
+
+<script>
+  // In development, use the Wrangler server
+  // In production, use the current domain
+  const isDev = import.meta.env.DEV;
+  const apiBase = isDev ? "http://localhost:8788" : "";
+
+  function initContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const submitButton = form.querySelector(
+        "#submit-button"
+      ) as HTMLButtonElement;
+      const formStatus = document.getElementById("form-status");
+      const statusMessage = document.getElementById("status-message");
+      const successIcon = document.getElementById("success-icon");
+      const errorIcon = document.getElementById("error-icon");
+
+      // Disable submit button and show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = "Sending...";
+
+      try {
+        const formData = new FormData(form);
+
+        // Add the full text label to the form data
+        const select = form.querySelector(
+          'select[name="help-type"]'
+        ) as HTMLSelectElement;
+        const selectedOption = select.selectedOptions[0];
+        const fullText = selectedOption.dataset.label || selectedOption.text;
+        formData.append("help-type-label", fullText);
+
+        const response = await fetch(`${apiBase}/api/contact`, {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Show success message
+          formStatus?.classList.remove("hidden", "bg-red-50");
+          formStatus?.classList.add("bg-green-50");
+          statusMessage!.textContent = "Thank you! We'll get back to you soon.";
+          successIcon?.classList.remove("hidden");
+          errorIcon?.classList.add("hidden");
+          form.reset();
+        } else {
+          throw new Error(data.error || "Failed to send message");
+        }
+      } catch (error) {
+        // Show error message
+        formStatus?.classList.remove("hidden", "bg-green-50");
+        formStatus?.classList.add("bg-red-50");
+        statusMessage!.textContent =
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.";
+        successIcon?.classList.add("hidden");
+        errorIcon?.classList.remove("hidden");
+      } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Send message";
+      }
+    });
+  }
+
+  // Initialize when the DOM is ready
+  document.addEventListener("DOMContentLoaded", initContactForm);
+</script>
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  mainClass="bg-white px-6 py-24 sm:py-32 lg:px-8"
+>
+  <main class="py-8 sm:py-16">
+    <div class="mx-auto max-w-2xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        {pageTitle}
+      </h1>
+      <p class="mt-4 text-lg leading-8 text-gray-600">
+        {pageDescription}
+      </p>
+    </div>
+
+    <div class="mx-auto max-w-xl">
+      <div id="form-status" class="hidden rounded-md p-4 mt-8" role="alert">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg
+              id="success-icon"
+              class="h-5 w-5 text-green-400 hidden"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <svg
+              id="error-icon"
+              class="h-5 w-5 text-red-400 hidden"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p id="status-message" class="text-sm font-medium"></p>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="mx-auto mt-12 max-w-xl sm:mt-16">
+        <!-- Hidden honeypot field -->
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Hidden timestamp field -->
+        <input
+          type="hidden"
+          id="form-start-time"
+          name="form-start-time"
+          value={Date.now().toString()}
+        />
+
+        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label
+              for="help-type"
+              class="block text-lg font-medium leading-6 text-gray-900"
+            >
+              What can we help you with?<span class="text-red-600">*</span>
+              <span class="ml-2 text-sm text-gray-500"
+                >Let us know what brought you here</span
+              >
+            </label>
+            <div class="mt-2.5">
+              <select
+                id="help-type"
+                name="help-type"
+                class="block w-full rounded-md border-0 py-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 text-lg"
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="access" data-label="I can't access my account"
+                  >I can't access my account</option
+                >
+                <option
+                  value="pre-signup"
+                  data-label="I have a question before I sign up"
+                  >I have a question before I sign up</option
+                >
+                <option
+                  value="user-question"
+                  data-label="I'm a registered user and have a question"
+                  >I'm a registered user and have a question</option
+                >
+                <option value="bug" data-label="I think something's broken"
+                  >I think something's broken</option
+                >
+                <option value="feature" data-label="I have a feature request"
+                  >I have a feature request</option
+                >
+                <option value="other" data-label="Something else"
+                  >Something else</option
+                >
+              </select>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="message"
+              class="block text-lg font-medium leading-6 text-gray-900"
+            >
+              Tell us more<span class="text-red-600">*</span>
+              <span class="ml-2 text-sm text-gray-500"
+                >The more we know, the better we can help you</span
+              >
+            </label>
+            <div class="mt-2.5">
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 text-lg"
+                required
+                placeholder="Share the details of your question or issue..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="email"
+              class="block text-lg font-medium leading-6 text-gray-900"
+            >
+              Your email<span class="text-red-600">*</span>
+              <span class="ml-2 text-sm text-gray-500"
+                >So we can get back to you—double check you got it right</span
+              >
+            </label>
+            <div class="mt-2.5">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="block w-full rounded-md border-0 px-3.5 py-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 text-lg"
+                required
+                placeholder="you@company.com"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label
+              for="org-url"
+              class="block text-lg font-medium leading-6 text-gray-900"
+            >
+              Your organization URL
+              <span class="ml-2 text-sm text-gray-500"
+                >Help us locate your account if you're a user</span
+              >
+            </label>
+            <div class="mt-2.5">
+              <input
+                type="text"
+                id="org-url"
+                name="org-url"
+                class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 text-lg"
+                placeholder="https://app.operately.com/my-org-0plx"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <button
+            type="submit"
+            id="submit-button"
+            class="w-full rounded-md bg-blue-600 px-3.5 py-3.5 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          >
+            Send message
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</BaseLayout>
