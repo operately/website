@@ -45,6 +45,27 @@ Eg. if you create a React component that uses built-in Astro components and
 call it in a page or another Astro component, the code may not even build
 due to Astro components not rendering on the client[^1].
 
+## Dev Server
+
+The development setup uses two servers running concurrently:
+
+1. **Astro Dev Server** (port 4321)
+
+   - Main development server
+   - Provides live reload and instant updates (Hot Module Replacement)
+   - Serves the website content
+   - Enables development features like the Astro dev overlay
+
+2. **Wrangler** (port 8788)
+   - Handles Cloudflare Functions (API endpoints)
+   - Simulates the production Cloudflare Pages environment
+
+The `npm run dev` command sets this up by running both servers concurrently. Development is done through `localhost:4321`, with API requests automatically routed to the Wrangler server on port 8788.
+
+### Environment Variables
+
+The development setup uses `.dev.vars` instead of `.env` for environment variables. This is because we're using Wrangler to simulate the Cloudflare Pages environment.
+
 ## Deployment
 
 The website is hosted on CloudFlare Pages. Deployment is fully automated.
