@@ -42,6 +42,30 @@ export default function helpCenterSidebar() {
             label: "View space members",
             link: "/help/view-space-members",
           },
+          {
+            label: "Change space company access",
+            link: "/help/change-space-company-access",
+          },
+          {
+            label: "Make a space private",
+            link: "/help/make-space-private",
+          },
+          {
+            label: "Add a space member",
+            link: "/help/add-space-member",
+          },
+          {
+            label: "Remove a space member",
+            link: "/help/remove-space-member",
+          },
+          {
+            label: "Promote to space manager",
+            link: "/help/promote-to-space-manager",
+          },
+          {
+            label: "Reassign space manager to member",
+            link: "/help/reassign-space-manager-to-member",
+          },
         ],
       },
       {
