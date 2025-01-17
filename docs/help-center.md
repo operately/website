@@ -3,9 +3,41 @@
 This is a guide for writing [Help Center](https://operately.com/help),
 product documentation for Operately.
 
+## File naming conventions
+
+Help center pages are stored in a single directory with descriptive, action-oriented filenames.
+We chose this approach over subdirectories to avoid URL maintenance and redirect complexity as the documentation evolves and gets reorganized.
+Follow these principles when naming new help pages:
+
+- Start with an action verb that describes what the user wants to do
+
+  - Good: `add-space-member`, `remove-space-member`
+  - Avoid: `space-member-add`, `member-management`
+
+- Make names descriptive and specific
+
+  - Good: `reassign-space-manager-to-member`
+  - Avoid: `change-role` or `reassign-manager`
+
+- Skip articles ('a', 'the') in filenames
+
+  - Good: `create-space`, `remove-member`
+  - Avoid: `create-a-space`, `remove-the-member`
+
+- Use hyphens to separate words
+
+  - Good: `make-space-private`
+  - Avoid: `makespacePrivate` or `make_space_private`
+
+- Keep names concise but clear
+  - Good: `promote-to-space-manager`
+  - Avoid: `change-space-member-role-to-space-manager-role`
+
+The goal is to make filenames intuitive and searchable without enforcing rigid prefixes or complex naming rules.
+
 ## Tools for screenshots
 
-- [Rectangle](https://rectangleapp.com/) (free) 
+- [Rectangle](https://rectangleapp.com/) (free)
   - On a large screen, move the browser window to "Left Half" to take a screenshot of uniform width.
     - On macOS Sequoia, you can accomplish the same by holding the Option key and dragging the window to the side.
   - TODO: which specific setting works well for laptops?
@@ -17,14 +49,14 @@ product documentation for Operately.
     - Padding: 50%
     - Corners: 2
 
-## Use AI to produce well-written text from a rough draft
+## Working with AI
 
-We use [Claude](https://claude.ai) to assist us with writing.
+We use [Claude](https://claude.ai) to assist with documentation writing in two main ways:
 
-The process is simple: start with a rough draft of the page in Markdown.
-Then ask Claude to turn it into a polished page.
+### 1. Creating new feature documentation
 
-### Prompt template
+When documenting a new product feature for the first time, start with a rough draft to establish the key points and structure.
+Use the following prompt to get high-quality initial content:
 
 ```markdown
 I'm writing help documentation for Operately, an open source b2b web app that unifies goal tracking, project and process management. I need your help with writing a section about [topic].
@@ -43,9 +75,7 @@ Please help me refine this into clear, helpful documentation while keeping our e
 [Attach relevant screenshot]
 ```
 
-The purpose of passing a screenshot to AI is to give it further context, not necessarily to add the screenshot to the final page.
-
-### Example of a manually written draft
+#### Example of a manually written draft
 
 Here's a specific example of a rough draft that Claude turned into
 the initial version of the _Introduction to Spaces_ page.
@@ -100,3 +130,14 @@ quality of writing in the last few paragraphs drops:
 > Members of the space should be people who are part of the corresponding group and actively contribute to corresponding work.
 >
 > Every member of the space will by default be notified when new goals, projects, messages, or documents are created in the space.
+
+### 2. Iterating on existing documentation
+
+For subsequent pages that follow established patterns (like how-to guides for similar features), you can work with AI more directly.
+Simply describe what you need and reference existing similar pages - the AI will maintain consistency in style and structure while adapting the content for the new topic.
+
+The purpose of passing screenshots to AI is to give it further context, not necessarily to add the screenshots to the final page.
+
+#### Example of a prompt to create a simple how-to page
+
+> Create page about the single use case of promoting somebody from a space manager to a regular space member. see how the option looks like [attach screenshot]
