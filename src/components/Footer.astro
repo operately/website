@@ -12,11 +12,12 @@ const githubUrl = import.meta.env.PUBLIC_GITHUB_URL;
 const linkedinUrl = import.meta.env.PUBLIC_LINKEDIN_URL;
 const xUrl = import.meta.env.PUBLIC_X_URL;
 const youtubeUrl = import.meta.env.PUBLIC_YOUTUBE_URL;
-const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+const logInUrl = import.meta.env.LOG_IN_URL;
 
 const navigation = {
   product: [
-    { name: "Book a demo", href: bookaDemoUrl },
+    { name: "Features", href: "/features" },
     { name: "Releases", href: "/releases" },
     { name: "Roadmap", href: "/roadmap" },
     { name: "Status", href: "https://status.operately.com" },
@@ -37,10 +38,10 @@ const navigation = {
     },
     { name: "Jobs", href: "/jobs" },
   ],
-  legal: [
-    { name: "Terms of service", href: "/legal/terms" },
-    { name: "Privacy policy", href: "/legal/privacy-policy" },
-    { name: "Security policy", href: "/legal/security-policy" },
+  getStarted: [
+    { name: "Sign up", href: signUpUrl },
+    { name: "Log in", href: logInUrl },
+    { name: "Self-host", href: "/install" },
   ],
   social: [
     {
@@ -68,6 +69,11 @@ const navigation = {
       href: youtubeUrl,
       icon: (props) => YouTubeIcon(props),
     },
+  ],
+  legal: [
+    { name: "Terms of service", href: "/legal/terms" },
+    { name: "Privacy policy", href: "/legal/privacy-policy" },
+    { name: "Security policy", href: "/legal/security-policy" },
   ],
 };
 ---
@@ -155,10 +161,10 @@ const navigation = {
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
-            <h3 class="text-sm/6 font-semibold text-gray-900">Legal</h3>
+            <h3 class="text-sm/6 font-semibold text-gray-900">Get Started</h3>
             <ul role="list" class="mt-6 space-y-4">
               {
-                navigation.legal.map((item) => (
+                navigation.getStarted.map((item) => (
                   <li>
                     <a
                       href={item.href}
@@ -175,13 +181,27 @@ const navigation = {
       </div>
     </div>
     <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-      <p class="text-sm/6 text-gray-600">
-        &copy; {new Date().getFullYear()} Operately doo · All rights reserved ·
-        <a
-          href="https://github.com/operately/website"
-          class="hover:text-operately-blue">Source</a
-        >
-      </p>
+      <div class="flex items-center justify-between">
+        <p class="text-sm/6 text-gray-600">
+          &copy; {new Date().getFullYear()} Operately doo · All rights reserved ·
+          <a
+            href="https://github.com/operately/website"
+            class="hover:text-operately-blue">Source</a
+          >
+        </p>
+        <div class="flex gap-x-8">
+          {
+            navigation.legal.map((item) => (
+              <a
+                href={item.href}
+                class="text-sm/6 text-gray-600 hover:text-operately-blue"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </footer>
