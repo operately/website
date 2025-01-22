@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { latestRelease } = Astro.props;
+const signUpUrl = import.meta.env.SIGN_UP_URL;
 ---
 
 <div class="bg-white">
@@ -63,10 +64,10 @@ const { latestRelease } = Astro.props;
           class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-y-4 sm:gap-y-0 gap-x-6"
         >
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
+            href={signUpUrl}
             class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue w-auto inline-block"
           >
-            Join cloud waitlist
+            Get Operately free
           </a>
           <a
             href="/install"

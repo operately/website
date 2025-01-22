@@ -1,6 +1,7 @@
 "use client";
 
-const cloudWaitlistUrl = import.meta.env.PUBLIC_CLOUD_WAITLIST_URL;
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+const logInUrl = import.meta.env.LOG_IN_URL;
 const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
 const discordUrl = import.meta.env.PUBLIC_DISCORD_URL;
 const blogUrl = import.meta.env.PUBLIC_BLOG_URL;
@@ -23,13 +24,11 @@ import {
 } from "@headlessui/react";
 
 import {
-  ArrowUp,
   ChevronDown,
   Layout,
   PackageCheck,
   Binoculars,
   CalendarDays,
-  Mail,
   Menu,
   X,
 } from "lucide-react";
@@ -101,7 +100,7 @@ export default function Navigation() {
             <Menu aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+        <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           {/* Product menu */}
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
@@ -176,21 +175,28 @@ export default function Navigation() {
         </PopoverGroup>
 
         {/* CTAs */}
-        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-x-6">
+        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-x-4">
           <a
             href={bookaDemoUrl}
             rel="nofollow"
-            className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            className="text-sm font-semibold text-gray-900 hover:text-edgy-blue whitespace-nowrap"
           >
             Book a demo
           </a>
+          <div className="h-6 w-px bg-gray-200" aria-hidden="true" />
           <a
-            href={cloudWaitlistUrl}
+            href={logInUrl}
             rel="nofollow"
-            className="inline-flex items-center gap-x-1.5 rounded-md bg-edgy-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
+            className="text-sm font-semibold text-gray-900 hover:text-edgy-blue whitespace-nowrap"
           >
-            Join cloud waitlist
-            <Mail aria-hidden="true" className="size-5 -mr-0.5" />
+            Log in
+          </a>
+          <a
+            href={signUpUrl}
+            rel="nofollow"
+            className="inline-flex items-center gap-x-1.5 rounded-md bg-edgy-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue whitespace-nowrap"
+          >
+            Get Operately free
           </a>
         </div>
       </nav>
@@ -279,15 +285,24 @@ export default function Navigation() {
               <div className="py-6">
                 <a
                   href={bookaDemoUrl}
+                  rel="nofollow"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Book a demo
                 </a>
                 <a
-                  href={cloudWaitlistUrl}
+                  href={logInUrl}
+                  rel="nofollow"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Join cloud waitlist
+                  Log in
+                </a>
+                <a
+                  href={signUpUrl}
+                  rel="nofollow"
+                  className="mt-4 block rounded-md bg-edgy-blue px-3 py-2 text-center text-base/7 font-semibold text-white shadow-sm hover:bg-operately-blue"
+                >
+                  Get Operately free
                 </a>
               </div>
             </div>
