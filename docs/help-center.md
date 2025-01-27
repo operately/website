@@ -35,19 +35,24 @@ Follow these principles when naming new help pages:
 
 The goal is to make filenames intuitive and searchable without enforcing rigid prefixes or complex naming rules.
 
-## Tools for screenshots
+## How to create screenshots
 
-- [Rectangle](https://rectangleapp.com/) (free)
-  - On a large screen, move the browser window to "Left Half" to take a screenshot of uniform width.
-    - On macOS Sequoia, you can accomplish the same by holding the Option key and dragging the window to the side.
-  - TODO: which specific setting works well for laptops?
+Install the following tools to create high-quality screenshots for the help center:
+
 - [Cleanshot X](https://www.cleanshot.com/) ($29 one-time payment)
-  - After taking a screenshot, press **⌘E** to open the edit screen.
-  - Press **B** to add background.
-  - Use the following settings - save them as a preset for later:
-    - Gradient: choose second option (purple/pink)
-    - Padding: 50%
-    - Corners: 2
+- [Window Resizer](https://chromewebstore.google.com/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh) (free)
+
+When taking screenshots, follow these guidelines:
+
+1. Create a demo organization "Nexus Dynamics" and use it for all screenshots
+2. Set the window size to 1280x1100 pixels with Window Resizer
+3. After taking a screenshot with Cleanshot X, press **⌘E** to open the edit screen.
+    1. Press **B** to add a background.
+    2. Use the following settings:
+        - Gradient: choose the second option (purple/pink)
+        - Padding: 50
+        - Corners: 2
+    3. Save these settings as a preset for later use.
 
 ## Working with AI
 
