@@ -45,6 +45,7 @@ Install the following tools to create high-quality screenshots for the help cent
 When taking screenshots, follow these guidelines:
 
 1. Create a demo organization "Nexus Dynamics" and use it for all screenshots
+2. Set your name to "John Cooper" in your profile settings
 2. Set the window size to 1280x1100 pixels with Window Resizer
 3. After taking a screenshot with Cleanshot X, press **⌘E** to open the edit screen.
     1. Press **B** to add a background.
