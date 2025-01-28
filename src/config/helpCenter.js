@@ -80,6 +80,7 @@ export default function helpCenterSidebar() {
             link: "/help/format-document-text",
           },
           { label: "Upload a file", link: "/help/upload-file" },
+          { label: "Add an external link", link: "/help/add-external-link" },
           { label: "Create a folder", link: "/help/create-folder" },
           { label: "Copy a document", link: "/help/copy-document" },
           { label: "Move a document", link: "/help/move-document" },
