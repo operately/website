@@ -6,6 +6,13 @@ description: "Operately v0.4 introduces Docs & Files, simplifies the homepage an
 published: true
 ---
 
+import BigImage from '../../components/BigImage.astro';
+import docsFiles from './assets/v040/docs-files.png';
+import newHomepage from './assets/v040/new-homepage.png';
+import spaceDashboard from './assets/v040/space-dashboard.png';
+import unifiedGoalsAndProjects from './assets/v040/unified-goals-and-projects.png';
+import adminsOwners from './assets/v040/admins-owners.png';
+
 Operately v0.4 is here, packed with improvements that make your Operately
 experience even better. In this release, we're focusing on document management, 
 improving the homepage and space dashboards, and introducing new roles for 
@@ -18,6 +25,8 @@ find documents right where your team is working. No more searching through email
 threads or Slack channels to find that one document you need. Documents live
 where the work happens.
 
+<BigImage src={docsFiles} alt="Docs & Files" />
+
 ## Redesigned homepage
 
 We've rebuilt the homepage for clarity. You'll see all your spaces laid out
@@ -26,6 +35,8 @@ with the people who are part of them.
 On the bottom of the page, you'll find a feed of all the latest updates from
 your spaces, so you can stay up-to-date with what's happening in your company.
 
+<BigImage src={newHomepage} alt="New Homepage" />
+
 ## New space dashboard
 
 We’ve redesigned the space dashboard to give you a better overview of what’s
@@ -33,12 +44,16 @@ happening in your space. The new dashboard provides a snapshot of all the
 projects, goals, and discussions in the space, so you can quickly see what’s
 going on and where you need to focus your attention.
 
+<BigImage src={spaceDashboard} alt="New Space Dashboard" />
+
 ## Goals & Projects, unified
 
 Goals & Projects should be two sides of the same coin. Goals are the outcomes
 you want to achieve, and Projects are the work you need to do to get there. In
 Operately v0.4, we've unified Goals & Projects into a single view, so you can
 see how they relate to each other and track progress more easily.
+
+<BigImage src={unifiedGoalsAndProjects} alt="Unified Goals & Projects" />
 
 ## Company admins and owners
 
@@ -55,6 +70,8 @@ to manage the account.
 can do everything an admin can do, plus they can delete the account and manage admins
 and owners. Owners have full and direct access to all data in the account, including 
 private spaces, projects, and goals.
+
+<BigImage src={adminsOwners} alt="Company Admins and Owners" />
 
 ## Draft messages
 
