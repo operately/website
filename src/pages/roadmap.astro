@@ -5,24 +5,16 @@ const pageTitle = "Roadmap";
 const pageDescription =
   "Operately's roadmap of upcoming features and improvements.";
 
-import { Activity, Clock } from "lucide-react";
+import { Activity, Clock, Rocket } from "lucide-react";
 
 const discordUrl = import.meta.env.PUBLIC_DISCORD_URL;
 
 const features = {
   active: [
     {
-      title: "Rich text documents",
+      title: "Escalate overdue check-ins",
       description:
-        "Share and collaborate on documents with your team in spaces and projects.",
-    },
-    {
-      title: "Files as key resources",
-      description: "Publish and discuss relevant files in spaces and projects.",
-    },
-    {
-      title: "Operately SaaS general availability",
-      description: "Operately will be available as a SaaS for all users.",
+        "Automatically notify managers about overdue project and goal check-ins.",
     },
     {
       title: "Help documentation",
@@ -30,6 +22,10 @@ const features = {
     },
   ],
   planned: [
+    {
+      title: "Customizable work maps",
+      description: "Custom maps of goals and/projects for diverse team needs.",
+    },
     {
       title: "Checklists in goals",
       description:
@@ -132,14 +128,24 @@ const features = {
           </div>
         </div>
 
-        <p class="text-lg mt-16">
-          For more detail about recent product updates see the{" "}
-          <a
-            href="/releases"
-            class="text-operately-blue underline hover:text-operately-dark-blue"
-            >Releases</a
-          >.
-        </p>
+        <!-- Launched Features Section -->
+        <div class="mb-4">
+          <div class="flex items-center gap-2 mb-4">
+            <Rocket className="w-5 h-5 text-purple-500" />
+            <h2 class="text-2xl text-gray-900">Launched</h2>
+          </div>
+
+          <p class="text-lg">
+            Read about recent product updates in our{" "}
+            <a
+              href="/releases"
+              class="text-operately-blue underline hover:text-operately-dark-blue"
+              >Releases section</a
+            >.
+          </p>
+        </div>
+
+        <hr class="mt-8" />
 
         <p class="text-lg mt-4">
           Want to suggest a feature? <a
