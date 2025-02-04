@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import { getPublishedReleases } from "../utils/releases";
+import releaseCard from "../content/releases/assets/releases-card.jpeg";
 import "../styles/anchor-links.css";
 
 const sortedReleases = await getPublishedReleases();
@@ -19,7 +20,8 @@ const formatDate = (date) => {
 <BaseLayout
   title={title}
   description={description}
-  image="/images/social/card-summary.png"
+  image={releaseCard.src}
+  twitterCardType="summary_large_image"
 >
   <slot name="head" slot="head">
     <link
