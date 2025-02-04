@@ -17,7 +17,12 @@ const formatDate = (date) => {
 };
 ---
 
-<BaseLayout title={title} description={description} image={releaseCard.src}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={releaseCard.src}
+  twitterCardType="summary_large_image"
+>
   <slot name="head" slot="head">
     <link
       rel="alternate"
