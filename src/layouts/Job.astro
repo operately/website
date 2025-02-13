@@ -6,6 +6,8 @@ import "../styles/anchor-links.css";
 const { frontmatter } = Astro.props;
 
 const socialCardImage = new URL("/images/social/jobs.jpg", Astro.site);
+
+import Posthog from "../components/posthog.astro";
 ---
 
 <!doctype html>
@@ -32,6 +34,7 @@ const socialCardImage = new URL("/images/social/jobs.jpg", Astro.site);
       content="Let's build the future of startup operations."
     />
     <meta name="twitter:image" content={socialCardImage} />
+    <Posthog />
   </head>
   <body>
     <div class="">
