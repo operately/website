@@ -15,6 +15,7 @@ const {
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
 
+import Posthog from "../components/posthog.astro";
 import Navigation from "../components/Navigation.jsx";
 import Footer from "../components/Footer.astro";
 ---
@@ -44,6 +45,7 @@ import Footer from "../components/Footer.astro";
         <meta name="twitter:image" content={socialImageUrl} />
       ) : null
     }
+    <Posthog />
     <slot name="head" />
   </head>
   <body>

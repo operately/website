@@ -7,6 +7,7 @@ const imagePath = frontmatter.image
 const socialImageUrl = new URL(imagePath, Astro.site);
 
 import "../styles/anchor-links.css";
+import Posthog from "../components/posthog.astro";
 ---
 
 <!doctype html>
@@ -44,6 +45,7 @@ import "../styles/anchor-links.css";
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={frontmatter.title} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <Posthog />
   </head>
   <body class="dark:bg-zinc-800">
     <div class="flex min-h-full flex-col font-serif">
