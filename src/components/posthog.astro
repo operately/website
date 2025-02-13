@@ -1,5 +1,5 @@
 ---
-// default snippet from posthog docs
+// default snippet from posthog docs modified to exclude localhost
 ---
 
 <script is:inline>
@@ -52,8 +52,13 @@
       }),
       (e.__SV = 1));
   })(document, window.posthog || []);
-  posthog.init("phc_xf04u2FOMctiPEL4Ra5gH50ercpdlkgbYwBVdLpBtWA", {
-    api_host: "https://us.i.posthog.com",
-    person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-  });
+  if (
+    !window.location.host.includes("127.0.0.1") &&
+    !window.location.host.includes("localhost")
+  ) {
+    posthog.init("phc_xf04u2FOMctiPEL4Ra5gH50ercpdlkgbYwBVdLpBtWA", {
+      api_host: "https://us.i.posthog.com",
+      person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+    });
+  }
 </script>
