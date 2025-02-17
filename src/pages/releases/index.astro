@@ -60,7 +60,7 @@ const { Content: LatestReleaseContent } = latestRelease
             href={`/releases/${release.slug}`}
             class="text-operately-blue underline hover:text-operately-dark-blue transition-colors"
           >
-            {release.data.title} - v{release.data.version}
+            v{release.data.version} - {release.data.title}
           </a>
           <span class="text-gray-500 ml-2 text-sm">
             {formatDate(release.data.date)}
