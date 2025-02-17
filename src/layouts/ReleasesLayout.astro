@@ -1,20 +1,9 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { getPublishedReleases } from "../utils/releases";
 import releaseCard from "../content/releases/assets/releases-card.jpeg";
 import "../styles/anchor-links.css";
 
-const sortedReleases = await getPublishedReleases();
-
 const { title, description } = Astro.props;
-
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
 ---
 
 <BaseLayout
@@ -28,6 +17,7 @@ const formatDate = (date) => {
       rel="alternate"
       type="application/rss+xml"
       title="Operately Releases"
+      why
       href={new URL("/releases/rss.xml", Astro.site)}
     />
     <!-- we can't use `head` in further pages as it would override the above, hence a new slot -->

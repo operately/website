@@ -2,6 +2,7 @@
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
 import { getPublishedReleases } from "../../utils/releases";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { YouTubeEmbed } from "../../components/YouTubeEmbed";
 
 export async function getStaticPaths() {
   const releases = await getPublishedReleases();
@@ -47,7 +48,11 @@ const jsonLd = JSON.stringify({
 });
 ---
 
-<ReleasesLayout title={entry.data.title} description={entry.data.description}>
+<ReleasesLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  youtubeId={entry.data.youtubeId}
+>
   <Fragment slot="head-releases">
     <meta name="author" content="Operately Team" />
     <meta name="date" content={entry.data.date.toISOString()} />
@@ -60,12 +65,20 @@ const jsonLd = JSON.stringify({
     <h1 class="text-4xl font-extrabold mb-2 leading-snug">
       {entry.data.title}
     </h1>
+
     <p class="text-gray-500 mb-8 text-sm">
       <time itemprop="datePublished" datetime={entry.data.date.toISOString()}>
         {formatDate(entry.data.date)}
       </time>
     </p>
     <div class="prose max-w-none text-lg">
+      {
+        entry.data.youtubeId && (
+          <div class="mb-8">
+            <YouTubeEmbed id={entry.data.youtubeId} showControls={true} />
+          </div>
+        )
+      }
       <Content />
     </div>
   </article>
