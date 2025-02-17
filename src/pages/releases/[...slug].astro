@@ -96,7 +96,7 @@ const jsonLd = JSON.stringify({
           <span>
             <div class="text-sm text-gray-500">Previous release</div>
             <div class="hover:underline">
-              {prev.data.title} - v{prev.data.version}
+              v{prev.data.version} - {prev.data.title}
             </div>
           </span>
         </a>
@@ -112,7 +112,7 @@ const jsonLd = JSON.stringify({
           <span>
             <div class="text-sm text-gray-500">Next release</div>
             <div class="hover:underline">
-              {next.data.title} - v{next.data.version}
+              v{next.data.version} - {next.data.title}
             </div>
           </span>
           <ChevronRight className="h-5 w-5 ml-1" />
