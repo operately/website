@@ -14,13 +14,13 @@ export default function helpCenterSidebar() {
       light: "./src/layouts/square-logo-dense.png",
       dark: "./src/layouts/square-logo-dense-white.png",
     },
-    social: {
-      discord: "https://discord.com/invite/2ngnragJYV",
-      github: "https://github.com/operately/operately",
-      linkedin: "https://www.linkedin.com/company/operately-com",
-      "x.com": "https://x.com/operately",
-      youtube: "https://youtube.com/@operately",
-    },
+    social: [
+      { label: 'Discord', icon: 'discord', href: 'https://discord.com/invite/2ngnragJYV' },
+      { label: 'GitHub', icon: 'github', href: 'https://github.com/operately/operately' },
+      { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/operately-com' },
+      { label: 'X', icon: 'x.com', href: 'https://x.com/operately' },
+      { label: 'YouTube', icon: 'youtube', href: 'https://youtube.com/@operately' },
+    ],
     customCss: ["./src/styles/starlight.css", "./src/styles/anchor-links.css"],
     sidebar: [
       {
