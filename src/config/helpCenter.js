@@ -15,19 +15,34 @@ export default function helpCenterSidebar() {
       dark: "./src/layouts/square-logo-dense-white.png",
     },
     social: [
-      { label: 'Discord', icon: 'discord', href: 'https://discord.com/invite/2ngnragJYV' },
-      { label: 'GitHub', icon: 'github', href: 'https://github.com/operately/operately' },
-      { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/operately-com' },
-      { label: 'X', icon: 'x.com', href: 'https://x.com/operately' },
-      { label: 'YouTube', icon: 'youtube', href: 'https://youtube.com/@operately' },
+      {
+        label: "Discord",
+        icon: "discord",
+        href: "https://discord.com/invite/2ngnragJYV",
+      },
+      {
+        label: "GitHub",
+        icon: "github",
+        href: "https://github.com/operately/operately",
+      },
+      {
+        label: "LinkedIn",
+        icon: "linkedin",
+        href: "https://www.linkedin.com/company/operately-com",
+      },
+      { label: "X", icon: "x.com", href: "https://x.com/operately" },
+      {
+        label: "YouTube",
+        icon: "youtube",
+        href: "https://youtube.com/@operately",
+      },
     ],
     customCss: ["./src/styles/starlight.css", "./src/styles/anchor-links.css"],
     sidebar: [
       {
         label: "Introduction",
         items: [
-          { label: "Overview", link: "/help" },
-          { label: "What is Operately?", link: "/help/what-is-operately" },
+          { label: "Meet Operately", link: "/help" },
           { label: "Features overview", link: "/help/features-overview" },
           { label: "Quick tour", link: "/help/quick-tour" },
         ],
