@@ -40,11 +40,36 @@ export default function helpCenterSidebar() {
     customCss: ["./src/styles/starlight.css", "./src/styles/anchor-links.css"],
     sidebar: [
       {
-        label: "Introduction",
+        label: "Meet Operately",
         items: [
-          { label: "Meet Operately", link: "/help" },
+          { label: "Introduction", link: "/help" },
           { label: "Features overview", link: "/help/features-overview" },
           { label: "Quick tour", link: "/help/quick-tour" },
+        ],
+      },
+      {
+        label: "Account management",
+        items: [
+          { label: "Create a new account", link: "/help/create-account" },
+          { label: "Log in", link: "/help/log-in" },
+          { label: "Join an organization", link: "/help/join-organization" },
+          {
+            label: "Fill in your personal info",
+            link: "/help/fill-in-personal-info",
+          },
+          {
+            label: "Set appearance to light or dark mode",
+            link: "/help/set-light-dark-mode",
+          },
+          {
+            label: "Switch to another organization account",
+            link: "/help/switch-organization-account",
+          },
+          { label: "Reset password", link: "/help/reset-password" },
+          { label: "Change your password", link: "/help/change-password" },
+          { label: "Leave an organization", link: "/help/leave-organization" },
+          { label: "Log out", link: "/help/log-out" },
+          { label: "Delete your account", link: "/help/delete-account" },
         ],
       },
       {
