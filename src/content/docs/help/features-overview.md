@@ -32,13 +32,22 @@ Give teams and departments their own home where all their work lives together.
 - Give teams autonomy while maintaining company-wide visibility
 - Control access and sharing for sensitive information
 
-## Team collaboration
+## Team message boards
 
-Build shared understanding across teams without constant meetings and live status updates.
+Build shared understanding across teams with organized message boards instead of constant meetings and live status updates.
 
 - Replace scattered email threads with organized discussions
 - Give everyone visibility into decisions and progress
 - Keep context and documentation together where work happens
+
+## Documents & Files
+
+Create, store, and share all types of content in one centralized system with proper organization.
+
+- Create rich-text documents with formatting and embedded images
+- Upload files of any type to keep resources accessible to your team
+- Organize content with folders and maintain version history
+- Link to external resources and keep everything findable in one place
 
 <hr/>
 
