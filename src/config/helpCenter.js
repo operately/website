@@ -48,31 +48,6 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "Account management",
-        items: [
-          { label: "Create a new account", link: "/help/create-account" },
-          { label: "Log in", link: "/help/log-in" },
-          { label: "Join an organization", link: "/help/join-organization" },
-          {
-            label: "Fill in your personal info",
-            link: "/help/fill-in-personal-info",
-          },
-          {
-            label: "Set appearance to light or dark mode",
-            link: "/help/set-light-dark-mode",
-          },
-          {
-            label: "Switch to another organization account",
-            link: "/help/switch-organization-account",
-          },
-          { label: "Reset password", link: "/help/reset-password" },
-          { label: "Change your password", link: "/help/change-password" },
-          { label: "Leave an organization", link: "/help/leave-organization" },
-          { label: "Log out", link: "/help/log-out" },
-          { label: "Delete your account", link: "/help/delete-account" },
-        ],
-      },
-      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
@@ -132,6 +107,31 @@ export default function helpCenterSidebar() {
           { label: "Download a file", link: "/help/download-file" },
           { label: "Delete a document", link: "/help/delete-document" },
           { label: "Discuss a document", link: "/help/discuss-document" },
+        ],
+      },
+      {
+        label: "Account management",
+        items: [
+          { label: "Create a new account", link: "/help/create-account" },
+          { label: "Log in", link: "/help/log-in" },
+          { label: "Join an organization", link: "/help/join-organization" },
+          {
+            label: "Fill in your personal info",
+            link: "/help/fill-in-personal-info",
+          },
+          {
+            label: "Set appearance to light or dark mode",
+            link: "/help/set-light-dark-mode",
+          },
+          {
+            label: "Switch to another organization account",
+            link: "/help/switch-organization-account",
+          },
+          { label: "Reset password", link: "/help/reset-password" },
+          { label: "Change your password", link: "/help/change-password" },
+          { label: "Leave an organization", link: "/help/leave-organization" },
+          { label: "Log out", link: "/help/log-out" },
+          { label: "Delete your account", link: "/help/delete-account" },
         ],
       },
     ],
