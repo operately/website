@@ -5,6 +5,7 @@ description: Learn how to create a new account in Operately and get started with
 
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
 import { Steps } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
 
 <ImageEnhancer />
@@ -13,19 +14,21 @@ import { Steps } from '@astrojs/starlight/components';
 
 Creating an account in Operately is quick and straightforward. There are two ways to sign up, depending on whether you're using the cloud version or self-hosting Operately.
 
-### Sign up for Operately Cloud
+## Sign up for Operately Cloud
 
 To create a new account on Operately Cloud:
 
-1. Visit [app.operately.com/sign_up](https://app.operately.com/sign_up) or click the main sign up button on the Operately website.
+Visit [app.operately.com/sign_up](https://app.operately.com/sign_up) or click the button below:
 
-2. Choose your preferred sign-up method:
+<LinkButton href="https://app.operately.com/sign_up">Sign up</LinkButton>
+
+### Choose your preferred sign-up method
 
    - **Sign up with Google**: Click the "Sign up with Google" button for a fast and secure sign-up using your existing Google account. This option will access your Google profile information, including your name, email, and profile picture.
 
    - **Sign up with email**: Click the "Sign up with email" button to create an account using your work email address.
 
-#### If signing up with email
+### If signing up with email
 
 ![Screenshot: Email sign-up form with empty fields](./email-sign-up-form.png)
 
@@ -45,15 +48,19 @@ To create an account with your email:
 
 </Steps>
 
-### Sign up for self-hosted Operately
+## Sign up for self-hosted Operately
 
 If your organization is self-hosting Operately:
+
+<Steps>
 
 1. Navigate to your organization's Operately instance URL.
 
 2. On the sign-up page, enter your work email address, full name, and create a secure password.
 
 3. Complete the verification process by entering the code sent to your email.
+
+</Steps>
 
 ## What happens after signing up?
 
