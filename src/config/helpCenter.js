@@ -134,6 +134,24 @@ export default function helpCenterSidebar() {
           { label: "Delete your account", link: "/help/delete-account" },
         ],
       },
+      {
+        label: "Company administration",
+        items: [
+          {
+            label: "Create a new organization",
+            link: "/help/create-organization",
+          },
+          { label: "Rename organization", link: "/help/rename-organization" },
+          {
+            label: "Invite a new team member",
+            link: "/help/invite-team-member",
+          },
+          {
+            label: "Remove a team member",
+            link: "/help/remove-team-member",
+          },
+        ],
+      },
     ],
     editLink: {
       baseUrl: "https://github.com/operately/website/edit/main/",
