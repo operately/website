@@ -129,9 +129,7 @@ export default function helpCenterSidebar() {
           },
           { label: "Reset password", link: "/help/reset-password" },
           { label: "Change your password", link: "/help/change-password" },
-          { label: "Leave an organization", link: "/help/leave-organization" },
           { label: "Log out", link: "/help/log-out" },
-          { label: "Delete your account", link: "/help/delete-account" },
         ],
       },
       {
