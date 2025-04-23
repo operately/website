@@ -53,7 +53,7 @@ The goal is to make filenames intuitive and searchable without enforcing rigid p
 
 **Use short sentences**. Keep paragraphs short and focused. Each paragraph should cover one idea.
 
-## Page structure
+## Page formatting
 
 ### General guidelines
 
@@ -69,6 +69,15 @@ The goal is to make filenames intuitive and searchable without enforcing rigid p
 ### Outlining steps
 
 Use Starlight's [`<Steps />`](https://starlight.astro.build/components/steps/) component to outline the steps in the page.
+
+### Other formatting guidelines
+
+Use **bold** when writing the title of a UI element to interact with.
+
+For example:
+
+- "Click the **New** button"
+- "Select **Company Admin** from the dropdown menu"
 
 ## How to create screenshots
 
@@ -89,3 +98,7 @@ When taking screenshots, follow these guidelines:
       - Padding: 50
       - Corners: 2
    3. Save these settings as a preset for later use.
+
+Add background to screenshots showing a full screen or a page.
+
+Don't add background to screenshots showing a specific element.
