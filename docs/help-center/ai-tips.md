@@ -1,61 +1,4 @@
-# Help Center: Product documentation writing guide
-
-This is a guide for writing [Help Center](https://operately.com/help),
-product documentation for Operately.
-
-## File naming conventions
-
-Help center pages are stored in a single directory with descriptive, action-oriented filenames.
-We chose this approach over subdirectories to avoid URL maintenance and redirect complexity as the documentation evolves and gets reorganized.
-Follow these principles when naming new help pages:
-
-- Start with an action verb that describes what the user wants to do
-
-  - Good: `add-space-member`, `remove-space-member`
-  - Avoid: `space-member-add`, `member-management`
-
-- Make names descriptive and specific
-
-  - Good: `reassign-space-manager-to-member`
-  - Avoid: `change-role` or `reassign-manager`
-
-- Skip articles ('a', 'the') in filenames
-
-  - Good: `create-space`, `remove-member`
-  - Avoid: `create-a-space`, `remove-the-member`
-
-- Use hyphens to separate words
-
-  - Good: `make-space-private`
-  - Avoid: `makespacePrivate` or `make_space_private`
-
-- Keep names concise but clear
-  - Good: `promote-to-space-manager`
-  - Avoid: `change-space-member-role-to-space-manager-role`
-
-The goal is to make filenames intuitive and searchable without enforcing rigid prefixes or complex naming rules.
-
-## How to create screenshots
-
-Install the following tools to create high-quality screenshots for the help center:
-
-- [Cleanshot X](https://www.cleanshot.com/) ($29 one-time payment)
-- [Window Resizer](https://chromewebstore.google.com/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh) (free)
-
-When taking screenshots, follow these guidelines:
-
-1. Create a demo organization "Nexus Dynamics" and use it for all screenshots
-2. Set your name to "John Cooper" in your profile settings
-2. Set the window size to 1280x1100 pixels with Window Resizer
-3. After taking a screenshot with Cleanshot X, press **⌘E** to open the edit screen.
-    1. Press **B** to add a background.
-    2. Use the following settings:
-        - Gradient: choose the second option (purple/pink)
-        - Padding: 50
-        - Corners: 2
-    3. Save these settings as a preset for later use.
-
-## Working with AI
+# Working with AI
 
 We use [Claude](https://claude.ai) to assist with documentation writing in two main ways:
 
@@ -65,18 +8,15 @@ When documenting a new product feature for the first time, start with a rough dr
 Use the following prompt to get high-quality initial content:
 
 ```markdown
-I'm writing help documentation for Operately, an open source b2b web app that unifies goal tracking, project and process management. I need your help with writing a section about [topic].
+I'm writing help documentation for Operately. For context see @docs/help-center/README.md
+
+I need your help with writing a section about [topic].
 
 Here's the screenshot of the UI and a rough draft/summary of what we need to cover:
 
 [Draft/Summary]
 
-Please help me refine this into clear, helpful documentation while keeping our established tone:
-
-- Direct and conversational
-- Focus on practical benefits
-- Avoid corporate speak, technical jargon, buzzwords
-- Use simple, clear language
+Please help me refine this into clear, helpful documentation while keeping our established tone.
 
 [Attach relevant screenshot]
 ```
