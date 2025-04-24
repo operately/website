@@ -1,0 +1,30 @@
+---
+title: Add a trusted email domain
+description: Learn how owners can specify email domains that are allowed to sign up for your organization.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+Trusted email domains allow users with email addresses from those specific domains (e.g., `yourcompany.com`) to sign up for your organization automatically, without needing a manual invitation.
+
+<Aside type="note" title="Tip for Google Sign-In Users">
+This feature is particularly useful if your organization primarily uses Google Sign-In with your company's domain (e.g., Google Workspace). Adding your company domain here allows team members to sign up seamlessly using their Google account without needing an explicit invitation.
+</Aside>
+
+## Who can manage trusted domains?
+
+Only account owners can add or remove trusted email domains.
+
+## How to add a trusted email domain
+
+<Steps>
+1.  Click on your organization name in the top navigation bar to open the company menu.
+2.  Select **Company Admin** from the dropdown menu.
+3.  Under the "As an owner, you can:" section, click **Manage trusted email domains**.
+4.  On the "Trusted Email Domains" page, locate the "Add Trusted Email Domain" input field.
+5.  Enter the email domain you want to trust (e.g., `example.com`). Do not include `@`.
+6.  Click the **Add** button.
+</Steps>
+
+The domain will be added to the list of trusted domains. Users signing up with an email address from this domain can now join the organization without an explicit invitation.

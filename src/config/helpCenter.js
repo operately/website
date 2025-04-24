@@ -145,8 +145,36 @@ export default function helpCenterSidebar() {
             link: "/help/invite-team-member",
           },
           {
+            label: "Edit team member's profile",
+            link: "/help/edit-team-member-profile",
+          },
+          {
             label: "Remove a team member",
             link: "/help/remove-team-member",
+          },
+          {
+            label: "Add an administrator",
+            link: "/help/add-administrator",
+          },
+          {
+            label: "Remove an administrator",
+            link: "/help/remove-administrator",
+          },
+          {
+            label: "Add another owner",
+            link: "/help/add-another-owner",
+          },
+          {
+            label: "Remove an owner",
+            link: "/help/remove-owner",
+          },
+          {
+            label: "Add a trusted email domain",
+            link: "/help/add-trusted-email-domain",
+          },
+          {
+            label: "Remove a trusted email domain",
+            link: "/help/remove-trusted-email-domain",
           },
         ],
       },
