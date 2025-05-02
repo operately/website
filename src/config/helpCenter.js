@@ -133,6 +133,23 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "People",
+        items: [
+          {
+            label: "View all company members",
+            link: "/help/view-all-company-members",
+          },
+          {
+            label: "View the company org chart",
+            link: "/help/view-company-org-chart",
+          },
+          {
+            label: "View a person's profile",
+            link: "/help/view-person-profile",
+          },
+        ],
+      },
+      {
         label: "Company administration",
         items: [
           {
