@@ -84,6 +84,21 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Discussions",
+        items: [
+          { label: "Start a discussion", link: "/help/start-discussion" },
+          { label: "Choose who to notify", link: "/help/choose-notify" },
+          { label: "Draft a discussion", link: "/help/draft-discussion" },
+          {
+            label: "React to a post or comment",
+            link: "/help/react-post-comment",
+          },
+          { label: "Reply to a discussion", link: "/help/reply-discussion" },
+          { label: "Edit a post or comment", link: "/help/edit-post-comment" },
+          { label: "Delete a discussion", link: "/help/delete-discussion" },
+        ],
+      },
+      {
         label: "Documents & Files",
         items: [
           {
