@@ -125,6 +125,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Review",
+        items: [
+          {
+            label: "View your due actions as a champion or reviewer",
+            link: "/help/review-due-actions",
+          },
+        ],
+      },
+      {
         label: "Account management",
         items: [
           { label: "Create a new account", link: "/help/create-account" },
