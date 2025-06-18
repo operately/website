@@ -125,6 +125,19 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "My Work",
+        items: [
+          {
+            label: "Introduction to My Work",
+            link: "/help/my-work-overview",
+          },
+          {
+            label: "Understanding My Work Tabs",
+            link: "/help/my-work-tabs",
+          },
+        ],
+      },
+      {
         label: "Work Maps",
         items: [
           {
