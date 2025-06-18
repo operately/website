@@ -125,6 +125,23 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Work Maps",
+        items: [
+          {
+            label: "Introduction to Work Maps",
+            link: "/help/work-map-overview",
+          },
+          {
+            label: "Using the Company Work Map",
+            link: "/help/company-work-map",
+          },
+          {
+            label: "Using the Space Work Map",
+            link: "/help/space-work-map",
+          },
+        ],
+      },
+      {
         label: "Review",
         items: [
           {
