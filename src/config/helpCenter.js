@@ -1,8 +1,6 @@
 export default function helpCenterSidebar() {
   return {
-    title: {
-      en: "Operately Help Center",
-    },
+    title: "Operately Help Center",
     defaultLocale: "root",
     locales: {
       root: {
@@ -13,6 +11,7 @@ export default function helpCenterSidebar() {
     logo: {
       light: "./src/layouts/square-logo-dense.png",
       dark: "./src/layouts/square-logo-dense-white.png",
+      alt: "Operately Logo",
     },
     social: [
       {

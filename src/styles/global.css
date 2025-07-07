@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Custom color utilities - ensure they're available */
+.text-operately-blue { color: #3185FF; }
+.bg-operately-blue { background-color: #3185FF; }
+.border-operately-blue { border-color: #3185FF; }
+
+.text-operately-dark-blue { color: #024FAC; }
+.bg-operately-dark-blue { background-color: #024FAC; }
+.border-operately-dark-blue { border-color: #024FAC; }
+
+.text-operately-blue-tint-1 { color: #E3F2FF; }
+.bg-operately-blue-tint-1 { background-color: #E3F2FF; }
+.border-operately-blue-tint-1 { border-color: #E3F2FF; }
+
+.text-operately-blue-tint-2 { color: #98C9FF; }
+.bg-operately-blue-tint-2 { background-color: #98C9FF; }
+.border-operately-blue-tint-2 { border-color: #98C9FF; }
+
+.text-edgy-blue { color: #0055FF; }
+.bg-edgy-blue { background-color: #0055FF; }
+.border-edgy-blue { border-color: #0055FF; }
