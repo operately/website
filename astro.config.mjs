@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import starlight from "@astrojs/starlight";
+import tailwindcss from "@tailwindcss/vite";
 
 import mdx from "@astrojs/mdx";
 import rehypeSlug from "rehype-slug";
@@ -13,7 +13,6 @@ import helpCenterSidebar from "./src/config/helpCenter";
 export default defineConfig({
   site: "https://operately.com",
   integrations: [
-    tailwind(),
     react(),
     starlight(helpCenterSidebar()),
     mdx({
@@ -46,6 +45,7 @@ export default defineConfig({
     }),
   ],
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "@": "/src",
