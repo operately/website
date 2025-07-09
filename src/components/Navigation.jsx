@@ -103,7 +103,7 @@ export default function Navigation() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-8">
           {/* Product menu */}
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 cursor-pointer focus:outline-none">
               Product
               <ChevronDown
                 aria-hidden="true"
@@ -149,7 +149,7 @@ export default function Navigation() {
 
           {/* About menu */}
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 cursor-pointer focus:outline-none">
               About
               <ChevronDown
                 aria-hidden="true"
