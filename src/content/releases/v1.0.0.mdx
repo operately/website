@@ -7,6 +7,7 @@ published: true
 youtubeId: ""
 ---
 
+import { Image } from "astro:assets";
 import BigImage from "../../components/BigImage.astro";
 import workMap from "./assets/v100/work-map.png";
 import newGoalPage from "./assets/v100/new-goal-page.png";
@@ -77,7 +78,13 @@ Whether you're setting up quarterly goals or sketching out a year-long
 roadmap, Quick Add keeps you in the zone. Create goals and projects on the spot,
 then organize them exactly where they belong in your work structure.
 
-<BigImage src={quickAdd} alt="Quick Add" />
+<div class="drop-shadow-xl rounded-xl overflow-hidden lg:-mx-32">
+  <Image
+    src={quickAdd}
+    alt="Quick Add"
+    class="rounded-lg border border-gray-300 w-1/1"
+  />
+</div>
 
 ## Redesigned Goal Page
 
