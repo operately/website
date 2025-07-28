@@ -47,6 +47,63 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Account management",
+        items: [
+          { label: "Create a new account", link: "/help/create-account" },
+          { label: "Log in", link: "/help/log-in" },
+          { label: "Join an organization", link: "/help/join-organization" },
+          {
+            label: "Fill in your personal info",
+            link: "/help/fill-in-personal-info",
+          },
+          {
+            label: "Set appearance to light or dark mode",
+            link: "/help/set-light-dark-mode",
+          },
+          {
+            label: "Switch to another organization account",
+            link: "/help/switch-organization-account",
+          },
+          { label: "Reset password", link: "/help/reset-password" },
+          { label: "Change your password", link: "/help/change-password" },
+          { label: "Log out", link: "/help/log-out" },
+        ],
+      },
+      {
+        label: "User Profiles",
+        items: [
+          {
+            label: "Understanding user profiles",
+            link: "/help/user-profiles-overview",
+          },
+          {
+            label: "Your assigned work",
+            link: "/help/your-assigned-work",
+          },
+          {
+            label: "Reviewing others' work",
+            link: "/help/reviewing-others-work",
+          },
+          {
+            label: "Your activity history",
+            link: "/help/your-activity-history",
+          },
+          {
+            label: "Your profile & relationships",
+            link: "/help/your-profile-relationships",
+          },
+        ],
+      },
+      {
+        label: "Work Maps",
+        items: [
+          {
+            label: "Introduction to Work Maps",
+            link: "/help/work-map-overview",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
@@ -124,65 +181,12 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "My Work",
-        items: [
-          {
-            label: "Introduction to My Work",
-            link: "/help/my-work-overview",
-          },
-          {
-            label: "Understanding My Work Tabs",
-            link: "/help/my-work-tabs",
-          },
-        ],
-      },
-      {
-        label: "Work Maps",
-        items: [
-          {
-            label: "Introduction to Work Maps",
-            link: "/help/work-map-overview",
-          },
-          {
-            label: "Using the Company Work Map",
-            link: "/help/company-work-map",
-          },
-          {
-            label: "Using the Space Work Map",
-            link: "/help/space-work-map",
-          },
-        ],
-      },
-      {
         label: "Review",
         items: [
           {
             label: "View your due actions as a champion or reviewer",
             link: "/help/review-due-actions",
           },
-        ],
-      },
-      {
-        label: "Account management",
-        items: [
-          { label: "Create a new account", link: "/help/create-account" },
-          { label: "Log in", link: "/help/log-in" },
-          { label: "Join an organization", link: "/help/join-organization" },
-          {
-            label: "Fill in your personal info",
-            link: "/help/fill-in-personal-info",
-          },
-          {
-            label: "Set appearance to light or dark mode",
-            link: "/help/set-light-dark-mode",
-          },
-          {
-            label: "Switch to another organization account",
-            link: "/help/switch-organization-account",
-          },
-          { label: "Reset password", link: "/help/reset-password" },
-          { label: "Change your password", link: "/help/change-password" },
-          { label: "Log out", link: "/help/log-out" },
         ],
       },
       {
