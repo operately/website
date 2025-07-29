@@ -131,6 +131,18 @@ export default function helpCenterSidebar() {
             link: "/help/assign-goal-reviewer",
           },
           {
+            label: "Check-in on a goal",
+            link: "/help/check-in-goal",
+          },
+          {
+            label: "Start goal discussions",
+            link: "/help/start-goal-discussions",
+          },
+          {
+            label: "View goal activity",
+            link: "/help/view-goal-activity",
+          },
+          {
             label: "Set goal privacy",
             link: "/help/set-goal-privacy",
           },
