@@ -104,6 +104,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Goal Tracking",
+        items: [
+          {
+            label: "Create a goal",
+            link: "/help/create-goal",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
