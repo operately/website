@@ -110,6 +110,26 @@ export default function helpCenterSidebar() {
             label: "Create a goal",
             link: "/help/create-goal",
           },
+          {
+            label: "Add goal description",
+            link: "/help/add-goal-description",
+          },
+          {
+            label: "Add targets to a goal",
+            link: "/help/add-targets-to-goal",
+          },
+          {
+            label: "Set goal due date",
+            link: "/help/set-goal-due-date",
+          },
+          {
+            label: "Assign goal champion",
+            link: "/help/assign-goal-champion",
+          },
+          {
+            label: "Link goals in hierarchy",
+            link: "/help/link-goals-hierarchy",
+          },
         ],
       },
       {
