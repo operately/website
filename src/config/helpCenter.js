@@ -127,8 +127,28 @@ export default function helpCenterSidebar() {
             link: "/help/assign-goal-champion",
           },
           {
+            label: "Assign goal reviewer",
+            link: "/help/assign-goal-reviewer",
+          },
+          {
+            label: "Set goal privacy",
+            link: "/help/set-goal-privacy",
+          },
+          {
             label: "Link goals in hierarchy",
             link: "/help/link-goals-hierarchy",
+          },
+          {
+            label: "Close a goal",
+            link: "/help/close-goal",
+          },
+          {
+            label: "Move goal to another space",
+            link: "/help/move-goal-to-space",
+          },
+          {
+            label: "Delete a goal",
+            link: "/help/delete-goal",
           },
         ],
       },
