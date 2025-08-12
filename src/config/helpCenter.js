@@ -119,6 +119,10 @@ export default function helpCenterSidebar() {
             link: "/help/add-targets-to-goal",
           },
           {
+            label: "Add checklist items to a goal",
+            link: "/help/add-checklist-items",
+          },
+          {
             label: "Set goal due date",
             link: "/help/set-goal-due-date",
           },
