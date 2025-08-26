@@ -2,6 +2,12 @@
 
 This file contains important context and guidelines for Claude when working on this Astro website.
 
+## About This Website
+
+This is the marketing and documentation website for **Operately** - a company operating system that helps organizations run operations, align teams, and drive growth without the need for a COO. Operately brings together goals & OKRs, project management, team workspaces, message boards, and document management into one unified platform.
+
+The website serves both as a marketing site for potential customers and a comprehensive help center for existing users learning to use the platform effectively.
+
 ## Project Architecture
 
 This is an Astro website with the following key integrations:
@@ -45,7 +51,7 @@ Due to Tailwind v4 config reliability issues, custom colors are defined as expli
 ### Configuration
 - Config in `src/config/helpCenter.js`
 - Uses `defaultLocale: "root"` to avoid URL prefixes
-- Content in `src/content/docs/help/`
+- Content in `src/content/docs/help/` - **comprehensive product documentation** including step-by-step guides, feature explanations, and practical examples for all Operately features (goals, projects, workspaces, discussions, documents, team management, etc.)
 - Custom CSS in `customCss` array
 
 ### Common Issues
@@ -100,9 +106,13 @@ Due to Tailwind v4 config reliability issues, custom colors are defined as expli
 2. Check if `prose` classes are applied in layout
 3. Verify Typography plugin version compatibility
 
+## Content & Role Guidelines
+
+When working on this website, you should act as both a frontend engineer/designer and a content creator. The extensive product documentation in `/src/content/docs/help/` contains detailed descriptions of Operately's features, use cases, and workflows that you can leverage when creating or updating marketing content, landing pages, or other site content.
+
 ## File Structure Notes
-- `/src/pages/` - Main site pages
-- `/src/content/docs/help/` - Starlight documentation
+- `/src/pages/` - Main site pages (marketing, landing pages, etc.)
+- `/src/content/docs/help/` - Comprehensive end-user product documentation (step-by-step guides, feature overviews, tutorials)
 - `/src/layouts/` - Reusable layouts
 - `/src/components/` - React/Astro components
 - `/src/styles/` - CSS files
