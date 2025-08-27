@@ -1,18 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import {
-  FolderKanban,
-  Target,
-  ChartNoAxesCombined,
-  BookCheck,
-} from "lucide-react";
 import screenshotImage from "./operately-v4-screenshot.png";
 
-const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
+const signUpUrl = import.meta.env.SIGN_UP_URL;
 ---
 
 <div
-  class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
+  class="relative isolate overflow-hidden bg-white px-6 py-24 lg:overflow-visible lg:px-0"
 >
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <svg
@@ -44,7 +38,7 @@ const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
     </svg>
   </div>
   <div
-    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
+    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-4"
   >
     <div
       class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
@@ -54,19 +48,27 @@ const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
           <h2
             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
           >
-            You don't need a COO. You need Operately.
+            You don't need a COO. You need a system that runs itself.
           </h2>
           <p class="mt-6 text-xl leading-8 text-gray-700">
-            Running your startup with project management tools and Notion
-            documents? Must be a massive headache. We've been there with{" "}
+            Tools like Notion give you infinite flexibility — but no playbook.
+            So every founder ends up reinventing how to run the company: updates
+            scattered across docs, goals forgotten in spreadsheets, makeshift
+            processes held together by willpower until it runs out.
+          </p>
+          <p class="mt-6 text-xl leading-8 text-gray-700">
+            Operately flips that. Your plans and day-to-day work stay connected.
+            Reviews and check-ins happen on schedule. Your team makes consistent
+            progress every week — without you holding everything together.
+          </p>
+          <p class="mt-12">
             <a
-              href="https://semaphoreci.com"
-              class="text-operately-blue hover:text-operately-dark-blue underline"
-              target="_blank"
+              href={signUpUrl}
+              rel="nofollow"
+              class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
             >
-              Semaphore
-            </a>. Figuring out the right systems was tough and keeping them in
-            order, even tougher.
+              Get started
+            </a>
           </p>
         </div>
       </div>
@@ -74,85 +76,14 @@ const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
     <div
       class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
     >
-      <Image
-        src={screenshotImage}
-        alt="operately alpha screenshot"
-        class="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-      />
-    </div>
-    <div
-      class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-    >
-      <div class="lg:pr-4">
-        <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-          <p>
-            Truth is, every startup needs to do the same things in order to win.
-          </p>
-
-          <ul role="list" class="mt-8 space-y-8 text-gray-600">
-            <li class="flex gap-x-3">
-              <FolderKanban
-                className="mt-1 h-5 w-5 flex-none text-operately-blue"
-              />
-              <span>
-                <strong class="font-semibold text-gray-900">Projects</strong>{
-                  " "
-                }
-                Standardize project management across groups with a ready-to-go structure
-                with built-in accountability and feedback loops.
-              </span>
-            </li>
-            <li class="flex gap-x-3">
-              <Target className="mt-1 h-5 w-5 flex-none text-operately-blue" />
-              <span>
-                <strong class="font-semibold text-gray-900">Goals</strong>{" "}
-                Connect your long-term vision to short-term goals and all the way
-                to daily tasks and milestones. It'll be clear if your ship is moving
-                in the right direction and what distractions to avoid.
-              </span>
-            </li>
-            <li class="flex gap-x-3">
-              <ChartNoAxesCombined
-                className="mt-1 h-5 w-5 flex-none text-operately-blue"
-              />
-              <span>
-                <strong class="font-semibold text-gray-900">KPIs</strong>{" "}
-                <span class="uppercase text-xs mr-2" aria-hidden="true"
-                  >soon</span
-                >{" "}
-                Track your Key Performance Indicators in correlation with ongoing
-                work. Understand your team's performance at a glance and make data-driven
-                decisions to drive your startup forward.
-              </span>
-            </li>
-            <li class="flex gap-x-3">
-              <BookCheck
-                className="mt-1 h-5 w-5 flex-none text-operately-blue"
-              />
-              <span>
-                <strong class="font-semibold text-gray-900">Playbook</strong>{
-                  " "
-                }
-                <span class="uppercase text-xs mr-2" aria-hidden="true"
-                  >soon</span
-                >{" "}
-                No more dead letters. Your playbook will be made of actionable procedures
-                connected to every role and responsibility. As a bonus, you'll get
-                a system to onboard new team members in no time.
-              </span>
-            </li>
-          </ul>
-
-          <p class="mt-12">
-            <a
-              href={bookaDemoUrl}
-              rel="nofollow"
-              class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
-            >
-              Book a demo
-            </a>
-          </p>
-        </div>
+      <div
+        class="relative p-12 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl w-[60rem] -mr-[12rem]"
+      >
+        <Image
+          src={screenshotImage}
+          alt="operately alpha screenshot"
+          class="w-[48rem] max-w-none rounded-lg shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+        />
       </div>
     </div>
   </div>

@@ -7,6 +7,11 @@ const pageDescription =
 
 import Hero from "./_index/Hero.astro";
 import Intro from "./_index/Intro.astro";
+import Goals from "./_index/Goals.astro";
+import Projects from "./_index/Projects.astro";
+import Alfred from "./_index/Alfred.astro";
+import Security from "./_features/Security.astro";
+import CTA from "./_features/CTA.astro";
 
 import { getLatestRelease } from "../utils/releases";
 
@@ -22,5 +27,10 @@ const latestRelease = await getLatestRelease();
   <main>
     <Hero latestRelease={latestRelease} />
     <Intro />
+    <Goals />
+    <Projects />
+    <Alfred />
+    <Security />
+    <CTA />
   </main>
 </BaseLayout>
