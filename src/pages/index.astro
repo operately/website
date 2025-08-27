@@ -7,6 +7,7 @@ const pageDescription =
 
 import Hero from "./_index/Hero.astro";
 import Intro from "./_index/Intro.astro";
+import Intro2 from "./_index/Intro2.astro";
 
 import { getLatestRelease } from "../utils/releases";
 
@@ -21,6 +22,6 @@ const latestRelease = await getLatestRelease();
 >
   <main>
     <Hero latestRelease={latestRelease} />
-    <Intro />
+    <Intro2 />
   </main>
 </BaseLayout>
