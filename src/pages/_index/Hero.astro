@@ -26,11 +26,11 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
       </div>
     </div>
 
-    <div class="mx-auto max-w-2xl py-8 sm:py-12 lg:py-18">
+    <div class="mx-auto max-w-3xl py-8 sm:py-12 lg:py-18">
       {
         latestRelease && (
           <div class="mb-6 sm:mb-8 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
-            <GitHubStarButton username="operately" repo="operately" />
+            {/* <GitHubStarButton username="operately" repo="operately" /> */}
             <div class="text-center rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               <span class="inline-flex items-center flex-wrap justify-center">
                 🚀 Operately {latestRelease.version} now available •
@@ -53,9 +53,11 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
         <h1
           class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
         >
-          Stop burning energy on running the company.
+          Stop burning energy on keeping your teams together.
         </h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 px-4 sm:px-0">
+        <p
+          class="max-w-2xl mx-auto mt-6 text-lg leading-8 text-gray-600 px-4 sm:px-0"
+        >
           Other tools give you a blank canvas and no structure. Operately bakes
           in proven workflows — around goals, projects, and accountability — so
           your team makes consistent progress every week.
@@ -67,7 +69,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
             href={signUpUrl}
             class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue w-auto inline-block"
           >
-            Get Operately free
+            Start Operately free
           </a>
           <a
             href="/install"
@@ -75,6 +77,17 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
           >
             Self-Host in 5 minutes <span aria-hidden="true">→</span>
           </a>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="mt-12 flex items-center justify-center">
+          <div class="flex items-center text-sm text-gray-500 space-x-3">
+            <span>Open source</span>
+            <span aria-hidden="true">·</span>
+            <span>Built in public</span>
+            <span aria-hidden="true">·</span>
+            <span>Founder-run</span>
+          </div>
         </div>
       </div>
     </div>
