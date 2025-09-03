@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import goalScreenshot from "../_features/goal.png";
+import { Target, Brain, CalendarCheck } from "lucide-react";
+---
+
+<div class="overflow-hidden bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="lg:pr-8 lg:pt-4">
+        <div class="lg:max-w-lg">
+          <h2 class="text-base font-semibold leading-7 text-operately-blue">
+            Goals & OKRs
+          </h2>
+          <p
+            class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Turn goals into visible progress
+          </p>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Track business goals with measurable targets tied directly to
+            projects. Operately replaces your OKR spreadsheet or Notion
+            template.
+          </p>
+          <dl
+            class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none"
+          >
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <Target
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                Work maps for the big picture.
+              </dt>
+              <dd class="inline">
+                Connect vision to team goals and projects. Break big initiatives
+                into sub-goals and see how daily work moves the needle in one
+                view.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <Brain
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                A standard structure for your goals.
+              </dt>
+              <dd class="inline">
+                Define success criteria, assign champions, and set timelines.
+                Add context with docs and discussions so goals are clear and
+                actionable.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <CalendarCheck
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                No more 'set and forget'.
+              </dt>
+              <dd class="inline">
+                Reviews and check-ins run on schedule, with automatic reminders
+                when updates are due. Goals stay alive week after week — not
+                forgotten until the next board meeting.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <Image
+        src={goalScreenshot}
+        alt="Goal screenshot"
+        class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+      />
+    </div>
+  </div>
+</div>
