@@ -23,11 +23,29 @@ import { Map, UserCheck, Users } from "lucide-react";
   <!-- big screenshot / video prompt -->
   <div class="relative overflow-hidden pt-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <Image
-        src={Screenshot}
-        alt="Operately screenshot, dashboard with goals and projects."
-        class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
-      />
+      <div
+        class="relative isolate overflow-hidden bg-operately-blue px-6 pt-8 sm:mx-auto sm:max-w-5xl sm:rounded-3xl sm:pt-16 sm:px-16 lg:mx-0 lg:max-w-none"
+      >
+        <div
+          aria-hidden="true"
+          class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-operately-blue-tint-1 opacity-20 ring-1 ring-white ring-inset"
+        >
+        </div>
+        <div
+          class="mx-auto max-w-5xl sm:mx-0 sm:max-w-none flex justify-center"
+        >
+          <Image
+            src={Screenshot}
+            alt="Operately screenshot, dashboard with goals and projects."
+            class="mb-[-12%] w-full max-w-none rounded-t-xl bg-gray-800 ring-1 ring-white/10"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset sm:rounded-3xl"
+        >
+        </div>
+      </div>
       <div class="relative" aria-hidden="true">
         <div
           class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"
