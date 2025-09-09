@@ -16,6 +16,18 @@ const pageDescription =
     const form = document.getElementById("contact-form") as HTMLFormElement;
     if (!form) return;
 
+    // Check for URL parameters to pre-select options
+    const urlParams = new URLSearchParams(window.location.search);
+    const helpType = urlParams.get("help-type");
+    if (helpType) {
+      const select = form.querySelector(
+        'select[name="help-type"]'
+      ) as HTMLSelectElement;
+      if (select) {
+        select.value = helpType;
+      }
+    }
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -192,6 +204,11 @@ const pageDescription =
                 >
                 <option value="feature" data-label="I have a feature request"
                   >I have a feature request</option
+                >
+                <option
+                  value="ai-access"
+                  data-label="I want early access to Operately AI"
+                  >I want early access to Operately AI</option
                 >
                 <option value="other" data-label="Something else"
                   >Something else</option

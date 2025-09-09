@@ -37,7 +37,7 @@ const products = [
   {
     name: "Features",
     description: "See what's possible with Operately",
-    href: "/features",
+    href: "/#features",
     icon: Layout,
   },
   {
@@ -196,7 +196,7 @@ export default function Navigation() {
             rel="nofollow"
             className="inline-flex items-center gap-x-1.5 rounded-md bg-edgy-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue whitespace-nowrap"
           >
-            Get Operately free
+            Sign up free
           </a>
         </div>
       </nav>
@@ -302,7 +302,7 @@ export default function Navigation() {
                   rel="nofollow"
                   className="mt-4 block rounded-md bg-edgy-blue px-3 py-2 text-center text-base/7 font-semibold text-white shadow-sm hover:bg-operately-blue"
                 >
-                  Get Operately free
+                  Sign up free
                 </a>
               </div>
             </div>

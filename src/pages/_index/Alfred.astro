@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import agentScreenshot from "../_index/agent.png";
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<div class="overflow-hidden bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="lg:ml-auto lg:pt-4 lg:pl-4">
+        <div class="lg:max-w-lg">
+          <p class="text-base/7 font-semibold text-operately-blue">
+            And one more thing...
+          </p>
+          <h2
+            class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+          >
+            An AI COO for your team
+          </h2>
+          <p class="mt-6 text-lg/8 text-gray-600">
+            Meet Alfred, your company's AI executive coach, now in beta. Alfred
+            reviews your goals and projects, spots gaps, and gives clear
+            feedback — adding the kind of operational discipline most startups
+            lack.
+          </p>
+          <p class="mt-12">
+            <a
+              href="/contact?help-type=ai-access"
+              class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
+            >
+              Apply for early access
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="flex items-start justify-end lg:order-first">
+        <div
+          class="relative p-2 bg-gradient-to-br from-stone-500 via-stone-400 to-amber-600 rounded-xl"
+        >
+          <Image
+            src={agentScreenshot}
+            alt="Alfred"
+            class="w-228 max-w-none rounded-lg shadow-xl ring-1 ring-gray-400/10 scale-75"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

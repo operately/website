@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import Screenshot from "../_index/project.png";
+import { User, Flag, MessageCircle } from "lucide-react";
+---
+
+<div class="py-8 sm:py-12">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- intro -->
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
+      >
+        Project management for every department
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Task boards, milestones, and ownership keep initiatives moving.
+        Operately replaces Basecamp, Asana or Trello with a system that’s tied
+        directly to company goals.
+      </p>
+    </div>
+  </div>
+  <!-- big screenshot / video prompt -->
+  <div class="relative overflow-hidden pt-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="flex justify-center">
+        <div
+          class="relative p-12 bg-gradient-to-br from-teal-500 via-blue-500 to-emerald-600 rounded-xl"
+        >
+          <Image
+            src={Screenshot}
+            alt="Operately screenshot, dashboard with goals and projects."
+            class="w-full max-w-none rounded-lg shadow-xl ring-1 ring-gray-400/10"
+          />
+        </div>
+      </div>
+      <div class="relative" aria-hidden="true">
+        <div
+          class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- the gist -->
+  <div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-12 md:mt-18 lg:px-8">
+    <dl
+      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16"
+    >
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <User className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+          Always know who owns what.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Every project has a champion, a clear status, and milestones that are
+          tracked automatically.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <Flag className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+          Measure progress by outcomes, not busywork.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Projects are measured by milestones and results, not task-level noise.
+        </dd>
+      </div>
+      <div class="relative pl-9">
+        <dt class="inline font-semibold text-gray-900">
+          <MessageCircle
+            className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+          />
+          Fast feedback loops without chasing updates.
+        </dt>
+        <!-- space -->
+        <dd class="inline">
+          Check-ins and reminders keep progress flowing. Great for building an
+          async-first, remote-friendly culture.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>

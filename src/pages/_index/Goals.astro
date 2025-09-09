@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+import { Map, FileText, Clock } from "lucide-react";
+---
+
+<div id="features" class="overflow-hidden bg-white py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div
+      class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start"
+    >
+      <div class="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+          <h2
+            class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Turn goals into visible progress
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Track business goals with measurable targets tied directly to
+            projects. Operately replaces your OKR spreadsheet or Notion
+            template.
+          </p>
+          <dl
+            class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none"
+          >
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <Map
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                Work maps for the big picture.
+              </dt>
+              <dd class="inline">
+                Connect vision to team goals and projects. Break big initiatives
+                into sub-goals and see how daily work moves the needle in one
+                view.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <FileText
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                A standard structure for your goals.
+              </dt>
+              <dd class="inline">
+                Define success criteria, assign champions, and set timelines.
+                Add context with docs and discussions so goals are clear and
+                actionable.
+              </dd>
+            </div>
+            <div class="relative pl-9">
+              <dt class="inline font-semibold text-gray-900">
+                <Clock
+                  className="absolute left-1 top-1 h-5 w-5 text-operately-blue"
+                />
+                No more 'set and forget'.
+              </dt>
+              <dd class="inline">
+                Reviews and check-ins run on schedule, with automatic reminders
+                when updates are due. Goals stay alive week after week — not
+                forgotten until the next board meeting.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="sm:px-6 lg:px-0">
+        <div
+          class="relative isolate overflow-hidden bg-operately-blue px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16 lg:mx-0 lg:max-w-none"
+        >
+          <div
+            aria-hidden="true"
+            class="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-operately-blue-tint-1 opacity-20 ring-1 ring-white ring-inset"
+          >
+          </div>
+          <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+            <Image
+              src={goalScreenshot}
+              alt="Goal screenshot"
+              class="-mb-12 w-228 max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
+            />
+          </div>
+          <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset sm:rounded-3xl"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
