@@ -3,51 +3,82 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Pricing";
 const pageDescription =
-  "Beta program is now live. Get free access to all features while we gather feedback and optimize our platform.";
+  "Simple, transparent pricing for teams of all sizes. Start free, scale as you grow. No hidden fees, cancel anytime.";
 
-import { Check, CalendarDays, Mail } from "lucide-react";
+import { Check } from "lucide-react";
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
-  twitterCardType="summary_large_imagwe"
+  twitterCardType="summary_large_image"
 >
   <main class="bg-white py-8 sm:py-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Header */}
       <div class="mx-auto max-w-4xl text-center">
-        <h2 class="text-base/7 font-semibold text-operately-blue">Pricing</h2>
+        <h1 class="text-base/7 font-semibold text-operately-blue">Pricing</h1>
         <p
           class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
         >
-          Free during beta
+          Simple pricing for every team
+        </p>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
+        >
+          Flat-rate pricing with no per-seat costs. Start free and scale as you
+          grow.
         </p>
       </div>
-      <p
-        class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
-      >
-        We're offering complimentary access to all features while we gather
-        feedback and optimize our platform.
-      </p>
 
-      {/* Pricing plan */}
-      <div class="isolate mx-auto mt-16 grid max-w-md">
-        <div class="rounded-3xl p-8 ring-2 ring-operately-dark-blue xl:p-10">
-          <div class="flex items-center justify-between gap-x-4">
-            <h3
-              id="tier-beta"
-              class="text-lg/8 font-semibold text-operately-blue"
-            >
-              Beta Access
-            </h3>
-            <p
-              class="rounded-full bg-operately-blue/10 px-2.5 py-1 text-xs/5 font-semibold text-operately-blue"
-            >
-              Limited time offer
-            </p>
+      {/* Annual/Monthly Toggle */}
+      <div class="mt-12 flex justify-center">
+        <div class="flex items-center justify-between gap-3">
+          <div
+            id="toggle-container"
+            class="group relative inline-flex w-11 shrink-0 rounded-full bg-gray-200 p-0.5 transition-colors duration-200 ease-in-out"
+          >
+            <span
+              id="toggle-slider"
+              class="size-5 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out"
+            ></span>
+            <input
+              id="annual-billing"
+              type="checkbox"
+              name="annual-billing"
+              aria-labelledby="annual-billing-label"
+              aria-describedby="annual-billing-description"
+              class="absolute inset-0 appearance-none focus:outline-none"
+              onchange="togglePricing(this.checked ? 'annual' : 'monthly')"
+            />
           </div>
-          <p class="mt-4 text-sm/6 text-gray-600">All features, fair use.</p>
+
+          <div class="text-sm">
+            <label id="annual-billing-label" class="font-medium text-gray-900"
+              >Annual billing</label
+            >
+            <span id="annual-billing-description" class="text-gray-500"
+              >(Save 17%)</span
+            >
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing Tiers */}
+      <div
+        class="isolate mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3"
+      >
+        {/* Free Plan */}
+        <div class="rounded-3xl p-8 ring-2 ring-gray-300 shadow-lg xl:p-10">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Free</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            Perfect for small teams getting started
+          </p>
           <p class="mt-6 flex items-baseline gap-x-1">
             <span class="text-4xl font-semibold tracking-tight text-gray-900"
               >$0</span
@@ -57,11 +88,81 @@ import { Check, CalendarDays, Mail } from "lucide-react";
 
           <ul
             role="list"
-            class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
           >
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Early access to all features
+              All core features
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Up to 20 users
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              AI agents - 25 messages/mo
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              1GB storage
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Community support
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Self-hosting option available
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=free"}
+            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+          >
+            Get started
+          </a>
+        </div>
+
+        {/* Team Plan */}
+        <div
+          class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-xl xl:p-10"
+        >
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-operately-blue">Team</h3>
+            <p
+              class="rounded-full bg-operately-blue/10 px-2.5 py-1 text-xs/5 font-semibold text-operately-blue"
+            >
+              Most popular
+            </p>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">Ideal for growing teams</p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="team-price">$99</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/month</span>
+          </p>
+
+          <ul
+            role="list"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
+          >
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              All Free features, plus
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Up to 50 users
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              AI agents - 500 messages/mo
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              100 GB storage
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
@@ -69,62 +170,207 @@ import { Check, CalendarDays, Mail } from "lucide-react";
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Shape product roadmap
+              AI, storage packs available
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=team"}
+            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+          >
+            Get started
+          </a>
+        </div>
+
+        {/* Business Plan */}
+        <div class="rounded-3xl p-8 ring-2 ring-gray-300 shadow-lg xl:p-10">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Business</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            For established teams and organizations
+          </p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="business-price">$299</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/month</span>
+          </p>
+
+          <ul
+            role="list"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
+          >
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              All Team features, plus
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Up to 200 users
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              AI agents - 2,500 messages/mo
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              1 TB storage
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Dedicated support
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               Custom onboarding
             </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              No commitment required
-            </li>
           </ul>
           <a
-            href="#"
-            aria-describedby="tier-startup"
-            class="mt-6 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue transition-colors"
+            href={signUpUrl + "?plan=business"}
+            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
           >
-            <CalendarDays className="h-5 w-5 inline-block -mt-1 mr-2" />
-            Book an intro call
+            Get started
           </a>
+        </div>
+      </div>
+
+      {/* Self-hosted CTA */}
+      <div class="mx-auto mt-16 max-w-2xl">
+        <div
+          class="rounded-3xl bg-slate-100 p-8 text-center shadow-lg ring-1 ring-slate-200"
+        >
+          <h3 class="text-lg font-semibold text-gray-900">
+            Looking for a commercial self-hosted license?
+          </h3>
+          <p class="mt-2 text-sm text-gray-800">
+            Self-host Operately on your own infrastructure with unlimited users
+            and full control.
+          </p>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSebV6j1nIvyjvyLptZ95mHXoj42XrnBmd5znVnUzU_6ATAJgw/viewform"
-            aria-describedby="tier-startup"
-            class="mt-4 block rounded-md bg-white px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 shadow-sm hover:bg-gray-50 ring-1 ring-inset ring-gray-300 transition-colors"
+            href="/contact?help-type=commercial-license"
+            class="mt-4 inline-block rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue transition-colors"
           >
-            <Mail className="h-5 w-5 inline-block -mt-1 mr-2" />
-            Join waitlist
+            Contact us
           </a>
         </div>
       </div>
 
       {/* FAQ */}
-      <div class="max-w-2xl mx-auto mt-16">
-        <h2 class="text-2xl font-bold text-center mb-8">
+      <div class="mx-auto mt-24 max-w-4xl">
+        <h2 class="text-3xl font-bold text-center text-gray-900">
           Frequently Asked Questions
         </h2>
-        <div class="space-y-6">
+        <div class="mt-12 space-y-8">
           <div>
-            <h3 class="text-lg font-medium text-gray-900">
-              When will paid plans be available?
+            <h3 class="text-lg font-semibold text-gray-900">
+              Is there really no per-seat pricing?
             </h3>
-            <p class="mt-2 text-gray-500">
-              We plan to introduce paid plans once we've gathered sufficient
-              feedback from our beta users and optimized our feature set.
+            <p class="mt-2 text-gray-600">
+              Correct! We offer flat-rate pricing with no per-seat costs. Add as
+              many team members as you need without worrying about escalating
+              costs or surprise bills.
             </p>
           </div>
           <div>
-            <h3 class="text-lg font-medium text-gray-900">
-              What happens when beta ends?
+            <h3 class="text-lg font-semibold text-gray-900">
+              What happens if I exceed my user limit?
             </h3>
-            <p class="mt-2 text-gray-500">
-              Beta users will receive exclusive pricing and advanced notice
-              before any changes to their plan.
+            <p class="mt-2 text-gray-600">
+              If you need more users than your current plan allows, you can
+              upgrade to the next tier at any time. We'll prorate the cost and
+              you'll only pay the difference.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">
+              Can I self-host Operately?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Yes! The Free plan includes self-hosting options. You can download
+              and install Operately on your own infrastructure with unlimited
+              users. Check out our <a
+                href="/install"
+                class="text-operately-blue hover:underline"
+                >installation guide</a
+              > for details.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">
+              Do I need a credit card to start?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              No credit card required for the Free plan. You can start using
+              Operately immediately and upgrade when you're ready.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">
+              Can I cancel anytime?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Yes, you can cancel anytime! Your subscription remains active
+              until the end of your current billing period with no refunds, but
+              you keep access. No cancellation fees or long-term contracts
+              required.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">
+              What's included in the annual discount?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Annual plans include a 17% discount compared to monthly billing,
+              which is essentially two months free. You'll save money and get
+              the same features with no additional costs.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">
+              What if I need more than 200 users?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              For teams larger than 200 users, we offer custom enterprise plans
+              with dedicated support, custom training, and more. <a
+                href="/contact?help-type=commercial-license"
+                class="text-operately-blue hover:underline">Contact us</a
+              > to discuss your needs.
             </p>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <script>
+    // Make function globally accessible
+    window.togglePricing = function (period) {
+      const teamPrice = document.getElementById("team-price");
+      const businessPrice = document.getElementById("business-price");
+      const toggleContainer = document.getElementById("toggle-container");
+      const toggleSlider = document.getElementById("toggle-slider");
+
+      if (period === "monthly") {
+        teamPrice.textContent = "$99";
+        businessPrice.textContent = "$299";
+        // Reset toggle to off state
+        toggleContainer.classList.remove("bg-operately-blue");
+        toggleContainer.classList.add("bg-slate-200");
+        toggleSlider.classList.remove("translate-x-5");
+      } else {
+        teamPrice.textContent = "$82";
+        businessPrice.textContent = "$249";
+        // Set toggle to on state
+        toggleContainer.classList.remove("bg-slate-200");
+        toggleContainer.classList.add("bg-operately-blue");
+        toggleSlider.classList.add("translate-x-5");
+      }
+    };
+
+    // Initialize with monthly pricing
+    document.addEventListener("DOMContentLoaded", function () {
+      window.togglePricing("monthly");
+    });
+  </script>
 </BaseLayout>
