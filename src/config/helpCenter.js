@@ -315,6 +315,10 @@ export default function helpCenterSidebar() {
             label: "Remove a trusted email domain",
             link: "/help/remove-trusted-email-domain",
           },
+          {
+            label: "Configure SMTP email for self-hosted installations",
+            link: "/help/configure-smtp-email",
+          },
         ],
       },
     ],

@@ -48,10 +48,23 @@ Install Docker and Docker Compose for your operating system:
 - [Docker installation guide](https://docs.docker.com/get-docker/)
 - [Docker Compose installation guide](https://docs.docker.com/compose/install/)
 
-### Set up a mail server
+### Set up email delivery
 
-Operately uses SendGrid to send emails. Set up a SendGrid account and create an API key
-by following the instructions in the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+Operately requires email configuration to send notifications, invitations, and system emails. You have several options:
+
+**Recommended for production**: Use a dedicated email delivery service like:
+- **SendGrid** - Create an account and API key ([setup guide](https://sendgrid.com/docs/ui/account-and-settings/api-keys/))
+- **Mailgun** - Business email delivery service
+- **Amazon SES** - AWS email service
+
+**For testing or small teams**: Use SMTP with existing email providers like:
+- Gmail (with App Password)
+- Outlook/Microsoft 365
+- Google Workspace
+
+**For advanced users**: Configure your own SMTP server
+
+📖 **[View detailed SMTP configuration guide](/help/configure-smtp-email)** for comprehensive setup instructions for all email providers.
 
 ## Installation steps
 
@@ -80,7 +93,10 @@ The script will
 - Prompt you for the following information:
   - *Domain*: The domain you configured for your server (e.g. `operately.example.com`)
   - *Admin email*: The email address for receiving Let's Encrypt notifications
-  - *SendGrid API key*: The API key you created in the SendGrid dashboard
+  - *Email provider*: Choose between SendGrid (recommended) or custom SMTP
+  - *Email credentials*: API key for SendGrid, or SMTP settings for custom providers
+
+💡 **Tip**: For detailed email configuration options, see our [SMTP configuration guide](/help/configure-smtp-email).
 
 ### Launch Operately
 

@@ -1,0 +1,212 @@
+---
+title: Configure SMTP email for self-hosted installations
+description: Learn how to set up email delivery for your self-hosted Operately installation using SMTP servers.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+Self-hosted Operately installations require email configuration to send notifications, invitations, password resets, and other system emails. This guide covers how to configure various SMTP email providers for your installation.
+
+<Aside type="note" title="For Cloud Users">
+If you're using Operately's cloud service at operately.com, email is already configured for you. This guide is only for self-hosted installations.
+</Aside>
+
+## Overview
+
+Operately uses SMTP (Simple Mail Transfer Protocol) to send emails. You can configure it to work with:
+
+- **Commercial email providers** (Gmail, Outlook, Yahoo, etc.)
+- **Business email services** (Google Workspace, Microsoft 365, etc.)  
+- **Email delivery services** (SendGrid, Mailgun, Amazon SES, etc.)
+- **Custom SMTP servers** (self-hosted mail servers)
+
+## Who can configure SMTP?
+
+Only system administrators with access to the server and configuration files can set up SMTP email settings.
+
+## SMTP Configuration Parameters
+
+All SMTP configurations require these basic parameters:
+
+- **SMTP Host**: The server hostname (e.g., `smtp.gmail.com`)
+- **SMTP Port**: The port number (typically 587 for TLS or 465 for SSL)
+- **Username**: Your email account username or API key
+- **Password**: Your email account password or API secret
+- **Encryption**: The security protocol (TLS/STARTTLS or SSL)
+- **From Address**: The email address that appears as the sender
+
+## Popular SMTP Provider Settings
+
+### Gmail (Personal & Google Workspace)
+
+<Steps>
+1. **Enable 2-factor authentication** on your Google account
+2. **Generate an App Password** in your Google Account settings
+3. Use these SMTP settings:
+   - **Host**: `smtp.gmail.com`
+   - **Port**: `587`
+   - **Encryption**: `TLS`
+   - **Username**: Your full Gmail address
+   - **Password**: The generated App Password (not your regular password)
+</Steps>
+
+### Microsoft Outlook/Hotmail
+
+<Steps>
+1. **Enable 2-factor authentication** on your Microsoft account
+2. **Generate an App Password** in your account security settings
+3. Use these SMTP settings:
+   - **Host**: `smtp-mail.outlook.com`
+   - **Port**: `587`
+   - **Encryption**: `STARTTLS`
+   - **Username**: Your full Outlook email address
+   - **Password**: The generated App Password
+</Steps>
+
+### SendGrid (Recommended for production)
+
+<Steps>
+1. **Create a SendGrid account** at [sendgrid.com](https://sendgrid.com)
+2. **Generate an API Key** in the SendGrid dashboard
+3. Use these SMTP settings:
+   - **Host**: `smtp.sendgrid.net`
+   - **Port**: `587`
+   - **Encryption**: `TLS`
+   - **Username**: `apikey`
+   - **Password**: Your SendGrid API key
+</Steps>
+
+### Mailgun
+
+<Steps>
+1. **Create a Mailgun account** and verify your domain
+2. **Get your SMTP credentials** from the Mailgun dashboard
+3. Use these SMTP settings:
+   - **Host**: `smtp.mailgun.org`
+   - **Port**: `587`
+   - **Encryption**: `TLS`
+   - **Username**: Your Mailgun SMTP username
+   - **Password**: Your Mailgun SMTP password
+</Steps>
+
+### Amazon SES
+
+<Steps>
+1. **Set up Amazon SES** and verify your sending domain/email
+2. **Create SMTP credentials** in the SES console
+3. Use these SMTP settings:
+   - **Host**: `email-smtp.us-east-1.amazonaws.com` (replace `us-east-1` with your AWS region)
+   - **Port**: `587`
+   - **Encryption**: `TLS`
+   - **Username**: Your SES SMTP username
+   - **Password**: Your SES SMTP password
+</Steps>
+
+## Configuring SMTP in Operately
+
+### During Installation
+
+If you're installing Operately for the first time, the installation script will prompt you for SMTP configuration:
+
+<Steps>
+1. Run the installation script: `./install.sh`
+2. When prompted for email configuration, choose "SMTP" instead of "SendGrid"
+3. Enter your SMTP settings when prompted:
+   - SMTP host
+   - SMTP port
+   - SMTP username
+   - SMTP password
+   - SMTP encryption method
+   - From email address
+</Steps>
+
+### After Installation
+
+If you need to change SMTP settings on an existing installation:
+
+<Steps>
+1. **Stop Operately**: `docker compose down`
+2. **Edit the environment file**: Open `.env` in your Operately installation directory
+3. **Update SMTP variables**:
+   ```bash
+   SMTP_HOST=your.smtp.host.com
+   SMTP_PORT=587
+   SMTP_USERNAME=your-username
+   SMTP_PASSWORD=your-password
+   SMTP_ENCRYPTION=tls
+   FROM_EMAIL=noreply@yourdomain.com
+   ```
+4. **Restart Operately**: `docker compose up -d`
+</Steps>
+
+## Testing Your Email Configuration
+
+After configuring SMTP, test that emails are working:
+
+<Steps>
+1. **Access your Operately installation** in a web browser
+2. **Create a test account** or use the "Forgot Password" feature
+3. **Check that you receive the email** in your inbox
+4. **Check spam/junk folders** if the email doesn't arrive immediately
+</Steps>
+
+<Aside type="tip" title="Troubleshooting Email Delivery">
+If emails aren't being delivered:
+- Check your SMTP credentials are correct
+- Verify the SMTP host and port settings
+- Ensure your email provider allows SMTP access
+- Check Docker logs: `docker compose logs` for error messages
+- Test SMTP settings with a tool like `telnet` or `swaks`
+</Aside>
+
+## Security Best Practices
+
+- **Use App Passwords** instead of your main account password when available
+- **Enable 2-factor authentication** on your email accounts
+- **Use dedicated email accounts** for system emails rather than personal accounts
+- **Choose reputable email services** with good deliverability rates
+- **Monitor email logs** for failed deliveries or security issues
+
+## Delivery Considerations
+
+For production use, consider these factors:
+
+- **Deliverability**: Commercial email services (SendGrid, Mailgun) typically have better deliverability than personal email accounts
+- **Rate Limits**: Personal email accounts may have sending limits that could affect large teams
+- **Reliability**: Dedicated email services are designed for automated email delivery
+- **Compliance**: Some email providers have stricter policies for automated emails
+
+<Aside type="caution" title="Production Recommendations">
+For production deployments, we strongly recommend using a dedicated email delivery service like SendGrid, Mailgun, or Amazon SES rather than personal email accounts. These services are designed for application email delivery and provide better reliability, deliverability, and compliance.
+</Aside>
+
+## Frequently Asked Questions
+
+### Can I use a custom SMTP server?
+
+Yes, if you have your own mail server, you can configure Operately to use it by providing the appropriate SMTP settings for your server.
+
+### What if my email provider doesn't support SMTP?
+
+Most email providers support SMTP. If yours doesn't, consider using a dedicated email delivery service like those mentioned above.
+
+### Can I change the "From" email address?
+
+Yes, you can set any email address as the sender, but make sure:
+- You own the domain of the email address
+- Your SMTP provider allows sending from that address
+- The address is configured properly to avoid emails being marked as spam
+
+### How do I troubleshoot email delivery issues?
+
+Check the Docker logs for error messages:
+```bash
+docker compose logs operately
+```
+
+Common issues include:
+- Incorrect SMTP credentials
+- Firewall blocking SMTP ports
+- Email provider blocking automated emails
+- Invalid "From" email address configuration
