@@ -1,6 +1,6 @@
 ---
-layout: '../layouts/Article.astro'
-title: 'Free Download and Install'
+layout: "../layouts/Article.astro"
+title: "Free Download and Install"
 description: "Install and self-host the open source startup operating system on-premises in your own infrastructure."
 image: "/images/social/card-summary-large.jpg"
 ---
@@ -14,7 +14,7 @@ Pre-requisites:
 - [Select a server](#select-a-server)
 - [Configure a domain for your server](#configure-a-domain-for-your-server)
 - [Install Docker and Docker Compose](#install-docker-and-docker-compose)
-- [Set up email delivery](#set-up-email-delivery)
+- [Set up a mail server](#set-up-a-mail-server)
 
 Installation steps:
 
@@ -26,11 +26,12 @@ Installation steps:
 
 ### Select a server
 
-Choose a machine to host Operately. For cloud hosting, we recommend 
-[DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or 
+Choose a machine to host Operately. For cloud hosting, we recommend
+[DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or
 [Hetzner](https://www.hetzner.com/).
 
 Minimum requirements:
+
 - 2GB RAM and 1 CPU (suitable for teams up to 30 people)
 - 8GB RAM and 4 CPUs (recommended for larger teams)
 
@@ -48,45 +49,14 @@ Install Docker and Docker Compose for your operating system:
 - [Docker installation guide](https://docs.docker.com/get-docker/)
 - [Docker Compose installation guide](https://docs.docker.com/compose/install/)
 
-### Set up email delivery
+### Set up a mail server
 
-Operately needs to send emails for notifications, invitations, and other communications. You can choose between two options:
+Operately supports email delivery via SendGrid or SMTP.
 
-#### Option 1: SendGrid (Recommended)
-
-SendGrid provides reliable email delivery with minimal configuration. Set up a SendGrid account and create an API key
-by following the instructions in the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
-
-#### Option 2: SMTP Server
-
-Alternatively, you can configure Operately to use any SMTP server. This includes:
-
-- **Gmail**: Use your Gmail account with an app-specific password
-- **Outlook/Hotmail**: Use your Microsoft account with app password
-- **Amazon SES**: Use your AWS SES SMTP credentials
-- **Your own mail server**: Any SMTP-compatible server
-
-**Common SMTP Configuration Examples:**
-
-**Gmail:**
-- Host: `smtp.gmail.com`
-- Port: `587` (TLS) or `465` (SSL)
-- Username: Your Gmail address
-- Password: App-specific password (not your regular password)
-
-**Outlook/Hotmail:**
-- Host: `smtp-mail.outlook.com`
-- Port: `587`
-- Username: Your Outlook email address
-- Password: App-specific password
-
-**Amazon SES:**
-- Host: `email-smtp.us-east-1.amazonaws.com` (or your AWS region)
-- Port: `587` or `465`
-- Username: Your SMTP username from AWS SES
-- Password: Your SMTP password from AWS SES
-
-You'll need to gather these SMTP settings before running the installation script.
+- **SendGrid:** Create a SendGrid account and generate an API key by following
+  the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+- **SMTP:** To use SMTP with providers like AWS SES, Gmail, Mailgun, or others,
+  refer to the [SMTP configuration documentation](https://github.com/operately/operately/blob/main/docs/smtp-configuration.md).
 
 ## Installation steps
 
@@ -109,15 +79,14 @@ Run the installation script to configure Operately:
 ```
 
 The script will
+
 - Build the Docker images
 - Configure the environment
 - Set up a Let's encrypt certificate
 - Prompt you for the following information:
-  - *Domain*: The domain you configured for your server (e.g. `operately.example.com`)
-  - *Admin email*: The email address for receiving Let's Encrypt notifications
-  - *Email configuration*: Choose between SendGrid or SMTP
-    - **If using SendGrid**: Your SendGrid API key
-    - **If using SMTP**: SMTP server details (host, port, username, password, encryption type)
+  - _Domain_: The domain for your server (e.g. `operately.example.com`)
+  - _Admin email_: The email address for receiving Let's Encrypt notifications
+  - _Email configuration_: Either SendGrid API key or SMPT server details.
 
 ### Launch Operately
 
