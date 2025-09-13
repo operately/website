@@ -1,6 +1,6 @@
 ---
-layout: '../layouts/Article.astro'
-title: 'Free Download and Install'
+layout: "../layouts/Article.astro"
+title: "Free Download and Install"
 description: "Install and self-host the open source startup operating system on-premises in your own infrastructure."
 image: "/images/social/card-summary-large.jpg"
 ---
@@ -26,11 +26,12 @@ Installation steps:
 
 ### Select a server
 
-Choose a machine to host Operately. For cloud hosting, we recommend 
-[DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or 
+Choose a machine to host Operately. For cloud hosting, we recommend
+[DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or
 [Hetzner](https://www.hetzner.com/).
 
 Minimum requirements:
+
 - 2GB RAM and 1 CPU (suitable for teams up to 30 people)
 - 8GB RAM and 4 CPUs (recommended for larger teams)
 
@@ -50,8 +51,12 @@ Install Docker and Docker Compose for your operating system:
 
 ### Set up a mail server
 
-Operately uses SendGrid to send emails. Set up a SendGrid account and create an API key
-by following the instructions in the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+Operately supports email delivery via SendGrid or SMTP.
+
+- **SendGrid:** Create a SendGrid account and generate an API key by following
+  the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+- **SMTP:** To use SMTP with providers like AWS SES, Gmail, Mailgun, or others,
+  refer to the [SMTP configuration documentation](https://github.com/operately/operately/blob/main/docs/smtp-configuration.md).
 
 ## Installation steps
 
@@ -74,13 +79,14 @@ Run the installation script to configure Operately:
 ```
 
 The script will
+
 - Build the Docker images
 - Configure the environment
 - Set up a Let's encrypt certificate
 - Prompt you for the following information:
-  - *Domain*: The domain you configured for your server (e.g. `operately.example.com`)
-  - *Admin email*: The email address for receiving Let's Encrypt notifications
-  - *SendGrid API key*: The API key you created in the SendGrid dashboard
+  - _Domain_: The domain for your server (e.g. `operately.example.com`)
+  - _Admin email_: The email address for receiving Let's Encrypt notifications
+  - _Email configuration_: Either SendGrid API key or SMPT server details.
 
 ### Launch Operately
 
