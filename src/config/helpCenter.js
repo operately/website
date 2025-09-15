@@ -187,6 +187,14 @@ export default function helpCenterSidebar() {
             label: "Add task",
             link: "/help/add-task",
           },
+          {
+            label: "Add resource",
+            link: "/help/add-resource",
+          },
+          {
+            label: "Edit project parent goal",
+            link: "/help/edit-project-parent-goal",
+          },
         ],
       },
       {
