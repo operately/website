@@ -169,6 +169,19 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+          {
+            label: "Add resource",
+            link: "/help/add-resource",
+          },
+          {
+            label: "Edit project parent goal",
+            link: "/help/edit-project-parent-goal",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
