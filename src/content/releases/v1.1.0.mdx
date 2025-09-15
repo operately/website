@@ -1,0 +1,137 @@
+---
+title: "Redesigned Project Pages, Task Management, AI Executive Coach, and more"
+version: "1.1"
+date: 2025-09-15
+description: "Operately v1.1 delivers redesigned Project Pages with enhanced visibility, comprehensive Task Management for project execution, and Alfred, your AI executive coach. Plus SMTP email delivery for self-hosted installations and improved file sorting capabilities."
+published: true
+youtubeId: ""
+---
+
+import { Image } from "astro:assets";
+import BigImage from "../../components/BigImage.astro";
+import newProjectPage from "./assets/v110/new-project-page.png";
+import taskManagement from "./assets/v110/task-management.png";
+import alfredAI from "./assets/v110/alfred-ai.png";
+
+Operately v1.1 is here! This release brings redesigned Project Pages, comprehensive
+Task Management, and Alfred, your company's AI executive coach. We've also added
+SMTP email delivery for self-hosted installations and added sorting capabilities
+to docs & files.
+
+## Redesigned Project Pages
+
+Following the successful redesign of Goal Pages in v1.0, we've now given
+projects the same treatment. The new project pages bring everything you need into
+a single, organized view with improved navigation and better information hierarchy.
+
+The redesigned project page brings together all project details - description,
+milestones, tasks, contributors, discussions, and activity — into a single,
+unified interface. You can easily view project status, monitor progress against
+milestones, and access all related conversations without switching between
+different screens.
+
+The new layout makes it easier to understand project scope, identify what
+needs attention, and see who's responsible for each aspect of the work.
+
+<BigImage src={newProjectPage} alt="New Project Page" />
+
+## Break Projects into Actionable Steps with Tasks
+
+All projects now include a comprehensive task management system through the new
+**Tasks tab**. Break down your projects into specific, actionable tasks and track
+their completion with dedicated task workflows.
+
+- Create and organize tasks within projects
+- Assign tasks to team members with clear ownership
+- Set due dates and priorities for better planning
+- Track task status from creation to completion
+- Link tasks to project milestones and deliverables
+
+This addition bridges the gap between high-level project planning and day-to-day
+execution. While projects define what you're building and why, tasks define the
+specific steps needed to get there. Team members can now see exactly what they
+need to work on and when, making project execution more predictable and
+organized.
+
+<BigImage src={taskManagement} alt="Task Management System" />
+
+## Meet Alfred: Your AI Executive Coach (Beta)
+
+In this release, we are introducing **Alfred**, your company's AI executive coach,
+now available in beta. Alfred reviews your goals and projects, spots gaps, and
+provides clear, actionable feedback that helps instill the operational discipline
+many startups lack.
+
+Alfred analyzes your work structure and provides insights on:
+
+- Goal alignment and clarity across teams
+- Project scope and resource allocation
+- Potential risks and dependencies
+- Progress patterns and bottlenecks
+- Strategic gaps in your work map
+
+This AI coach helps leadership teams make better decisions by surfacing insights
+that might otherwise go unnoticed.
+
+Since Alfred is still in beta, we're actively gathering feedback to refine its
+capabilities and ensure it delivers meaningful value to teams of every size.
+To join the beta, request access via our contact page:
+[https://operately.com/contact/?help-type=ai-access][ai-access].
+
+<BigImage src={alfredAI} alt="Alfred AI Executive Coach" />
+
+## Additional Improvements
+
+This release also includes several enhancements based on user feedback:
+
+**SMTP Email Delivery (Self‑hosted)**: Self-hosted installations can now use SMTP
+for email delivery. Use SMTP with Amazon SES, Google Workspace, Microsoft 365,
+or your own SMTP server. See [SMTP configuration][smtp-conf] for more information.
+
+**File Sorting**: You can now sort items in docs & files by name, creation date,
+*or modification date. This makes it easier to manage a growing document library
+*and quickly find the files you need.
+
+---
+
+## Sign up for Operately
+
+Ready to experience Operately v1.1? [Sign up for a free account][signup] and
+see how these new features can transform how your team works together.
+
+## Self-host in 5 minutes
+
+Prefer to use your own infrastructure? [Follow our self-hosted installation guide][install]
+to get Operately running on your servers in minutes.
+
+If you are already running the self-hosted version, follow the [upgrade guide][upgrade]
+to update to the latest release.
+
+## Join the Operately community
+
+Operately is open source and available under the Apache 2.0 license.
+Join our growing community of users and contributors:
+
+- [Star the repository on GitHub][github] to show your support
+- Join our [Discord server][discord] to connect with the team and community
+- Contribute by submitting bug reports, feature requests, or code on [GitHub][github]
+- Share Operately with your network and help us grow
+
+## Special thanks to our contributors
+
+We're grateful for everyone who has contributed to making Operately better.
+Your feedback, bug reports, feature suggestions, and code contributions help
+shape the product for the entire community. Thank you for being part of this
+journey with us.
+
+Your contributions help make Operately better for everyone. Thank you!
+
+&mdash; The Operately Team
+
+[install]: https://operately.com/install
+[upgrade]: https://github.com/operately/operately/blob/main/docs/installation/upgrade-from-v1.0.0-to-v1.1.0.md
+[signup]: https://app.operately.com/sign_up
+[discord]: https://discord.com/invite/2ngnragJYV
+[github]: https://github.com/operately/operately
+[smpt-conf]: https://github.com/operately/operately/blob/main/docs/smtp-configuration.md
+[ai-access]: https://operately.com/contact/?help-type=ai-access
