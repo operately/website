@@ -1,0 +1,93 @@
+---
+title: Installation
+description: Learn how to download and install Operately on your own infrastructure.
+---
+
+# Installation
+
+This guide walks you through downloading and installing Operately on your own infrastructure.
+
+## Pre-requisites
+
+### Select a server
+
+Choose a machine to host Operately. For cloud hosting, we recommend
+[DigitalOcean](https://www.digitalocean.com/), [Linode](https://www.linode.com/), or
+[Hetzner](https://www.hetzner.com/).
+
+Minimum requirements:
+
+- 2GB RAM and 1 CPU (suitable for teams up to 30 people)
+- 8GB RAM and 4 CPUs (recommended for larger teams)
+
+### Configure a domain for your server
+
+Point a domain to your server. You can use a subdomain (e.g. `operately.example.com`) or a
+root domain (e.g. `example.com`). Configure the DNS records to point to your server's IP
+address. Make sure it's a direct DNS pointer, not a proxy (e.g. avoid Cloudflare proxy).
+
+### Install Docker and Docker Compose
+
+Operately runs as a set of Docker containers orchestrated by Docker Compose.
+Install Docker and Docker Compose for your operating system:
+
+- [Docker installation guide](https://docs.docker.com/get-docker/)
+- [Docker Compose installation guide](https://docs.docker.com/compose/install/)
+
+### Set up a mail server
+
+Operately supports email delivery via SendGrid or SMTP.
+
+- **SendGrid:** Create a SendGrid account and generate an API key by following
+  the [SendGrid documentation](https://sendgrid.com/docs/ui/account-and-settings/api-keys/).
+- **SMTP:** To use SMTP with providers like AWS SES, Gmail, Mailgun, or others,
+  refer to the [SMTP configuration documentation](https://github.com/operately/operately/blob/main/docs/smtp-configuration.md).
+
+## Installation steps
+
+### Download the latest release of Operately
+
+Download and extract the latest Operately release:
+
+```bash
+wget -q https://github.com/operately/operately/releases/latest/download/operately-single-host.tar.gz
+tar -xf operately-single-host.tar.gz
+cd operately
+```
+
+### Run the installation script
+
+Run the installation script to configure Operately:
+
+```bash
+./install.sh
+```
+
+The script will:
+
+- Build the Docker images
+- Configure the environment
+- Set up a Let's encrypt certificate
+- Prompt you for the following information:
+  - _Domain_: The domain for your server (e.g. `operately.example.com`)
+  - _Admin email_: The email address for receiving Let's Encrypt notifications
+  - _Email configuration_: Either SendGrid API key or SMPT server details.
+
+### Launch Operately
+
+Start Operately using Docker Compose:
+
+```bash
+docker compose up --wait --detach
+```
+
+Operately should now be running on your server. You can access it by navigating to your
+configured domain (e.g. `https://operately.example.com`).
+
+## Next steps
+
+After installation, you may want to:
+
+- [Configure email delivery settings](/help/self-hosted-email-delivery)
+- [Learn about the beacon system](/help/self-hosted-beacon)
+- [Create your first organization account](/help/create-organization)

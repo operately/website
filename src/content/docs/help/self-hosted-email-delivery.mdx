@@ -1,0 +1,198 @@
+---
+title: Email Delivery
+description: Learn how to configure email delivery for your self-hosted Operately installation using SendGrid API or SMTP.
+---
+
+# Email Delivery
+
+Operately requires email functionality to send notifications, invitations, and password reset emails. This guide explains how to configure email delivery for your self-hosted installation.
+
+## Email delivery options
+
+Operately supports two methods for email delivery:
+
+1. **SendGrid API** (recommended for simplicity)
+2. **SMTP** (compatible with most email providers)
+
+## SendGrid API configuration
+
+SendGrid is a reliable email delivery service that's easy to set up and scale.
+
+### Prerequisites
+
+1. Create a [SendGrid account](https://sendgrid.com/)
+2. Verify your sender identity (domain or single sender)
+3. Generate an API key with mail sending permissions
+
+### Setup steps
+
+1. **Create an API key:**
+
+   - Log in to your SendGrid dashboard
+   - Go to **Settings** > **API Keys**
+   - Click **Create API Key**
+   - Choose **Restricted Access**
+   - Grant **Mail Send** permissions
+   - Copy the generated API key
+
+2. **Configure Operately:**
+
+   Add the following environment variables to your operately.env file:
+
+   ```bash
+   OPERATELY_SENDGRID_API_KEY=your_api_key_here
+   ```
+
+3. **Restart Operately:**
+
+   ```bash
+   docker compose restart
+   ```
+
+### SendGrid best practices
+
+- **Domain authentication**: Set up domain authentication for better deliverability
+- **Reputation monitoring**: Monitor your sender reputation in the SendGrid dashboard
+- **Suppression management**: Regularly clean your suppression lists
+- **Analytics**: Use SendGrid's analytics to track email performance
+
+## SMTP configuration
+
+SMTP is a standard protocol supported by most email providers including Gmail,
+Outlook, AWS SES, Mailgun, and others.
+
+### Common SMTP providers
+
+| Provider | SMTP Server                     | Port    | Security     |
+| -------- | ------------------------------- | ------- | ------------ |
+| Gmail    | smtp.gmail.com                  | 587     | STARTTLS     |
+| Outlook  | smtp-mail.outlook.com           | 587     | STARTTLS     |
+| AWS SES  | email-smtp.region.amazonaws.com | 587     | STARTTLS     |
+| Mailgun  | smtp.mailgun.org                | 587     | STARTTLS     |
+| Custom   | your-mail-server.com            | 587/465 | STARTTLS/SSL |
+
+### Configuration steps
+
+1. **Gather SMTP credentials:**
+
+   - SMTP server hostname
+   - Port number (usually 587 for STARTTLS or 465 for SSL)
+   - Username and password
+   - Security method (STARTTLS, SSL, or none)
+
+2. **Configure environment variables:**
+
+   ```bash
+   OPERATELY_SMTP_HOST=smtp.your-provider.com
+   OPERATELY_SMTP_PORT=587
+   OPERATELY_SMTP_USERNAME=your_username
+   OPERATELY_SMTP_PASSWORD=your_password
+   OPERATELY_SMTP_SECURITY=starttls  # or 'ssl' or 'none'
+   ```
+
+3. **Restart Operately:**
+   ```bash
+   docker compose restart
+   ```
+
+### Provider-specific guides
+
+#### Gmail
+
+1. Enable 2-factor authentication on your Google account
+2. Generate an [App Password](https://support.google.com/accounts/answer/185833)
+3. Use the app password as your SMTP password
+
+```bash
+OPERATELY_SMTP_HOST=smtp.gmail.com
+OPERATELY_SMTP_PORT=587
+OPERATELY_SMTP_USERNAME=your-email@gmail.com
+OPERATELY_SMTP_PASSWORD=your_app_password
+OPERATELY_SMTP_SECURITY=starttls
+```
+
+#### AWS SES
+
+1. Verify your domain or email address in AWS SES
+2. Create SMTP credentials in the AWS SES console
+3. Choose the appropriate region endpoint
+
+```bash
+OPERATELY_SMTP_HOST=email-smtp.us-east-1.amazonaws.com
+OPERATELY_SMTP_PORT=587
+OPERATELY_SMTP_USERNAME=your_ses_username
+OPERATELY_SMTP_PASSWORD=your_ses_password
+OPERATELY_SMTP_SECURITY=starttls
+```
+
+#### Mailgun
+
+1. Add and verify your domain in Mailgun
+2. Get your SMTP credentials from the domain settings
+
+```bash
+OPERATELY_SMTP_HOST=smtp.mailgun.org
+OPERATELY_SMTP_PORT=587
+OPERATELY_SMTP_USERNAME=postmaster@your-domain.com
+OPERATELY_SMTP_PASSWORD=your_mailgun_password
+OPERATELY_SMTP_SECURITY=starttls
+```
+
+## Testing email configuration
+
+After configuring email delivery, test that it's working correctly:
+
+1. **Send a test email:**
+
+   - Log in to Operately as an administrator
+   - Go to **Settings** > **System Configuration**
+   - Find the **Email** section
+   - Click **Send Test Email**
+   - Check that you receive the test email
+
+2. **Test user invitation:**
+
+   - Try inviting a new team member
+   - Verify they receive the invitation email
+
+3. **Check server logs:**
+
+   ```bash
+   docker compose logs | grep email
+   ```
+
+## Troubleshooting
+
+### Common issues
+
+**Authentication failed:**
+
+- Double-check your username and password
+- Ensure 2FA and app passwords are configured correctly
+- Verify your SMTP provider allows the connection
+
+**Connection timeout:**
+
+- Check firewall rules allow outbound connections on the SMTP port
+- Verify the SMTP hostname is correct
+- Try increasing the timeout value
+
+**Email not delivered:**
+
+- Check spam/junk folders
+- Verify sender reputation with your email provider
+- Review email provider logs for bounce/rejection reasons
+
+**SSL/TLS errors:**
+
+- Ensure the security method matches your provider's requirements
+- Try different ports (587 for STARTTLS, 465 for SSL)
+- Check if your provider requires specific TLS versions
+
+## Security considerations
+
+- **Use app passwords**: Never use your main account password for SMTP
+- **Enable encryption**: Always use STARTTLS or SSL when available
+- **Limit permissions**: Use email service accounts with minimal required permissions
+- **Monitor usage**: Regularly review email sending patterns and limits
+- **Rotate credentials**: Periodically update API keys and passwords
