@@ -182,6 +182,19 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+          {
+            label: "Add milestone",
+            link: "/help/add-milestone",
+          },
+          {
+            label: "Add task",
+            link: "/help/add-task",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
