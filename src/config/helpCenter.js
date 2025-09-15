@@ -317,6 +317,23 @@ export default function helpCenterSidebar() {
           },
         ],
       },
+      {
+        label: "Self-hosted installations",
+        items: [
+          {
+            label: "Installation",
+            link: "/help/self-hosted-installation",
+          },
+          {
+            label: "Beacon",
+            link: "/help/self-hosted-beacon",
+          },
+          {
+            label: "Email Delivery",
+            link: "/help/self-hosted-email-delivery",
+          },
+        ],
+      },
     ],
     editLink: {
       baseUrl: "https://github.com/operately/website/edit/main/",

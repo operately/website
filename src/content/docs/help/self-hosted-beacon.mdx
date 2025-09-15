@@ -1,0 +1,65 @@
+---
+title: Beacon
+description: Learn about Operately's beacon system, how it works, and how to disable it.
+---
+
+Operately includes a beacon system that helps us understand how the software is
+being used and improve the product. This page explains how the beacon works and
+how you can disable it if needed.
+
+## What is the beacon?
+
+The beacon is a lightweight telemetry system that periodically sends anonymous
+usage statistics to Operately's servers.
+
+## What data is collected?
+
+The beacon collects only two pieces of information:
+
+- **Version**: The application version number (e.g., v1.1.0)
+- **Installation ID**: A randomly generated, non-identifying ID used only to deduplicate and count unique instances
+
+No other data is collected. No personal, content, or authentication data is
+transmitted.
+
+## What data is NOT collected?
+
+The beacon does not collect:
+
+- Personal information (names, emails, addresses)
+- Content data (goal titles, project descriptions, messages)
+- Authentication credentials
+- IP addresses or location data
+- Individual user behavior or activity
+
+## How does the beacon work?
+
+The beacon operates by:
+
+1. **Collecting metrics**: Gathering anonymous usage statistics locally
+2. **Aggregating data**: Combining data into anonymous summaries
+3. **Periodic transmission**: Sending data once per day to Operately servers
+4. **Automatic retry**: Retrying failed transmissions with exponential backoff
+
+The beacon uses HTTPS encryption for all data transmission and respects your
+network configuration and firewall rules.
+
+## How to disable the beacon
+
+To disable the beacon, set the following environment variable in your deployment:
+
+```bash
+OPERATELY_BEACON_ENABLED=false
+```
+
+After setting this environment variable, you must restart your Docker containers
+for the change to take effect.
+
+## Privacy considerations
+
+We take privacy seriously and are committed to:
+
+- **Transparency**: Being clear about what data is collected
+- **Minimalism**: Collecting only what's necessary for product improvement
+- **Security**: Using encryption and secure transmission methods
+- **Control**: Providing easy ways to disable data collection
