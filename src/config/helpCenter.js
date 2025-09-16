@@ -217,6 +217,10 @@ export default function helpCenterSidebar() {
             link: "/help/start-project-discussions/",
           },
           {
+            label: "Check-in on project",
+            link: "/help/check-in-project/",
+          },
+          {
             label: "Change project's parent goal",
             link: "/help/change-project-parent-goal",
           },
@@ -247,6 +251,10 @@ export default function helpCenterSidebar() {
           {
             label: "View project activity",
             link: "/help/view-project-activity/",
+          },
+          {
+            label: "Close project",
+            link: "/help/close-project/",
           },
           {
             label: "Delete project",
