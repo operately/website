@@ -169,6 +169,23 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+           {
+             label: "Move project to another space",
+             link: "/help/move-project-to-space/",
+           },
+           {
+             label: "Pause project",
+             link: "/help/pause-project/",
+           },
+           {
+             label: "Resume project",
+             link: "/help/resume-project/",
+           },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
