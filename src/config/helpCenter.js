@@ -240,6 +240,10 @@ export default function helpCenterSidebar() {
             label: "Subscriptions",
             link: "/help/subscriptions",
           },
+          {
+            label: "View project activity",
+            link: "/help/view-project-activity/",
+          },
         ],
       },
       {
