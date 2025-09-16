@@ -169,6 +169,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+          {
+            label: "View project activity",
+            link: "/help/view-project-activity/",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
