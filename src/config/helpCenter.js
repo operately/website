@@ -203,6 +203,18 @@ export default function helpCenterSidebar() {
             label: "Edit project due date",
             link: "/help/edit-project-due-date/",
           },
+          {
+            label: "Edit project champion",
+            link: "/help/edit-project-champion/",
+          },
+          {
+            label: "Edit project reviewer",
+            link: "/help/edit-project-reviewer/",
+          },
+          {
+            label: "Manage project contributors",
+            link: "/help/manage-project-contributors/",
+          },
         ],
       },
       {
