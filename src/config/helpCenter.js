@@ -169,6 +169,19 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+          {
+            label: "Edit project start date",
+            link: "/help/edit-project-start-date/",
+          },
+          {
+            label: "Edit project due date",
+            link: "/help/edit-project-due-date/",
+          },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
