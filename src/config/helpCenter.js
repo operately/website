@@ -245,12 +245,24 @@ export default function helpCenterSidebar() {
             link: "/help/manage-project-contributors/",
           },
           {
+            label: "Move project to another space",
+            link: "/help/move-project-to-space/",
+          },
+          {
             label: "Subscriptions",
             link: "/help/subscriptions",
           },
           {
             label: "View project activity",
             link: "/help/view-project-activity/",
+          },
+          {
+            label: "Pause project",
+            link: "/help/pause-project/",
+          },
+          {
+            label: "Resume project",
+            link: "/help/resume-project/",
           },
           {
             label: "Close project",
