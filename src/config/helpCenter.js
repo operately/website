@@ -169,6 +169,23 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Project Management",
+        items: [
+           {
+             label: "Edit project champion",
+             link: "/help/edit-project-champion/",
+           },
+           {
+             label: "Edit project reviewer",
+             link: "/help/edit-project-reviewer/",
+           },
+           {
+             label: "Manage project contributors",
+             link: "/help/manage-project-contributors/",
+           },
+        ],
+      },
+      {
         label: "Spaces",
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
