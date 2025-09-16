@@ -213,6 +213,10 @@ export default function helpCenterSidebar() {
             link: "/help/add-project-resource",
           },
           {
+            label: "Start project discussions",
+            link: "/help/start-project-discussions/",
+          },
+          {
             label: "Change project's parent goal",
             link: "/help/change-project-parent-goal",
           },
@@ -243,6 +247,10 @@ export default function helpCenterSidebar() {
           {
             label: "View project activity",
             link: "/help/view-project-activity/",
+          },
+          {
+            label: "Delete project",
+            link: "/help/delete-project/",
           },
         ],
       },
