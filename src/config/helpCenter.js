@@ -196,12 +196,24 @@ export default function helpCenterSidebar() {
             link: "/help/change-project-parent-goal",
           },
           {
-            label: "Edit project start date",
-            link: "/help/edit-project-start-date/",
+            label: "Set project start date",
+            link: "/help/set-project-start-date/",
           },
           {
-            label: "Edit project due date",
-            link: "/help/edit-project-due-date/",
+            label: "Set project due date",
+            link: "/help/set-project-due-date/",
+          },
+          {
+            label: "Set project champion",
+            link: "/help/set-project-champion/",
+          },
+          {
+            label: "Set project reviewer",
+            link: "/help/Set-project-reviewer/",
+          },
+          {
+            label: "Manage project contributors",
+            link: "/help/manage-project-contributors/",
           },
         ],
       },
