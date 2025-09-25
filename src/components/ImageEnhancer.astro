@@ -1,53 +1,285 @@
 ---
+const { enableGradient = false } = Astro.props;
 ---
 
-<script>
-  // Find all images in the content
-  const images = document.querySelectorAll('img');
-  
-  // Create lightbox container
-  const lightbox = document.createElement('div');
-  lightbox.style.cssText = `
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    cursor: pointer;
-  `;
-  document.body.appendChild(lightbox);
+<script data-gradient={enableGradient ? 'true' : 'false'}>
+  (function () {
+    const scriptEl = document.currentScript;
+    const gradientEnabled = scriptEl?.dataset.gradient !== 'false';
+    const enhancerFlag = 'docScreenshotEnhancer';
 
-  // Create lightbox image
-  const lightboxImg = document.createElement('img');
-  lightboxImg.style.cssText = `
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-  `;
-  lightbox.appendChild(lightboxImg);
+    const ensureLightbox = () => {
+      let lightbox = document.querySelector('[data-doc-lightbox]');
+      let lightboxImg = lightbox?.querySelector('img');
 
-  // Add click handlers to all images
-  images.forEach(img => {
-    // Only enhance content images, not logos or icons
-    if (!img.classList.contains('no-lightbox')) {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.style.display = 'block';
+      if (lightbox && lightboxImg) {
+        return { lightbox, lightboxImg };
+      }
+
+      lightbox = document.createElement('div');
+      lightbox.dataset.docLightbox = 'true';
+      lightbox.style.cssText = `
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        cursor: pointer;
+        padding: 2rem;
+        box-sizing: border-box;
+      `;
+
+      lightboxImg = document.createElement('img');
+      lightboxImg.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: min(1024px, 100%);
+        max-height: calc(100% - 4rem);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 20px;
+        box-shadow: 0 24px 60px -30px rgba(15, 23, 42, 0.65);
+        background: #0f172a;
+      `;
+
+      lightbox.appendChild(lightboxImg);
+      document.body.appendChild(lightbox);
+
+      lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.removeAttribute('src');
+        lightboxImg.removeAttribute('alt');
       });
-    }
-  });
 
-  // Close lightbox on click
-  lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
+      return { lightbox, lightboxImg };
+    };
+
+    const findStandaloneContainer = (img, root) => {
+      let current = img.parentElement;
+
+      while (current && root.contains(current)) {
+        if (!['P', 'FIGURE', 'DIV'].includes(current.tagName)) {
+          current = current.parentElement;
+          continue;
+        }
+
+        const hasOnlyWhitespaceText = Array.from(current.childNodes).every((node) => {
+          if (node.nodeType !== Node.TEXT_NODE) return true;
+          return node.textContent?.trim().length === 0;
+        });
+
+        if (!hasOnlyWhitespaceText) {
+          current = current.parentElement;
+          continue;
+        }
+
+        const elementChildren = Array.from(current.children);
+        if (elementChildren.length === 0) {
+          return current;
+        }
+
+        if (elementChildren.length === 1) {
+          const child = elementChildren[0];
+          if (child === img) return current;
+
+          if (
+            (child.tagName === 'A' || child.tagName === 'SPAN' || child.tagName === 'PICTURE') &&
+            child.querySelector('img') === img &&
+            child.textContent.trim().length === 0
+          ) {
+            return current;
+          }
+        }
+
+        return null;
+      }
+
+      return null;
+    };
+
+    const enhanceScreenshot = (img, root) => {
+      if (!gradientEnabled) {
+        return;
+      }
+
+      if (img.dataset.enhanced === 'true') return;
+      img.dataset.enhanced = 'true';
+      img.classList.add('doc-screenshot-image');
+
+      const container = findStandaloneContainer(img, root);
+
+      if (container) {
+        container.classList.add('doc-screenshot-frame');
+        return;
+      }
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'doc-screenshot-frame';
+      img.replaceWith(wrapper);
+      wrapper.appendChild(img);
+    };
+
+    const shouldSkipImage = (img) => {
+      if (img.classList.contains('no-lightbox')) {
+        return true;
+      }
+
+      return Boolean(
+        img.closest('header, nav, footer, aside, .sl-sidebar, .starlight-sidebar, [data-doc-lightbox]')
+      );
+    };
+
+    const processRoot = (contentRoot) => {
+      if (!contentRoot) {
+        return;
+      }
+
+      const stateKey = gradientEnabled ? 'with-gradient' : 'lightbox-only';
+      if (contentRoot.dataset[enhancerFlag] === stateKey) {
+        return;
+      }
+
+      contentRoot.dataset[enhancerFlag] = stateKey;
+
+      const { lightbox, lightboxImg } = ensureLightbox();
+
+      const bindImage = (img) => {
+        if (shouldSkipImage(img)) {
+          return;
+        }
+
+        enhanceScreenshot(img, contentRoot);
+
+        if (img.dataset.lightboxBound === 'true') {
+          return;
+        }
+
+        img.dataset.lightboxBound = 'true';
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.currentSrc || img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.style.display = 'block';
+        });
+      };
+
+      Array.from(contentRoot.querySelectorAll('img')).forEach(bindImage);
+
+      const observerKey = '__docScreenshotObserver';
+      if (contentRoot[observerKey]) {
+        return;
+      }
+
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              if (node.tagName === 'IMG') {
+                bindImage(node);
+                return;
+              }
+
+              node.querySelectorAll?.('img').forEach(bindImage);
+            }
+          });
+        });
+      });
+
+      observer.observe(contentRoot, { childList: true, subtree: true });
+      contentRoot[observerKey] = observer;
+    };
+
+    const selectContentRoots = () => {
+      const selectors = [
+        '.sl-markdown-content',
+        'main article',
+        'article.prose',
+        'main .prose',
+      ];
+
+      const seen = new Set();
+      const results = [];
+
+      selectors.forEach((selector) => {
+        document.querySelectorAll(selector).forEach((el) => {
+          if (!seen.has(el)) {
+            seen.add(el);
+            results.push(el);
+          }
+        });
+      });
+
+      return results;
+    };
+
+    const attemptInit = (retries = 10) => {
+      const roots = selectContentRoots();
+
+      if (roots.length === 0) {
+        if (retries > 0) {
+          requestAnimationFrame(() => attemptInit(retries - 1));
+        }
+        return;
+      }
+
+      roots.forEach(processRoot);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => attemptInit(), {
+        once: true,
+      });
+    } else {
+      attemptInit();
+    }
+  })();
 </script>
+
+<style is:global>
+  .doc-screenshot-frame {
+    position: relative;
+    display: block;
+    margin: clamp(2rem, 5vw, 4rem) auto;
+    padding: clamp(0.75rem, 2vw, 2rem);
+    border-radius: 32px;
+    background: linear-gradient(140deg, #3185ff 0%, #9b6bff 55%, #ff6f61 100%);
+    box-shadow: 0 40px 80px -45px rgba(49, 133, 255, 0.5);
+  }
+
+  .doc-screenshot-frame > .doc-screenshot-image,
+  .doc-screenshot-frame img.doc-screenshot-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 30px 50px -45px rgba(15, 23, 42, 0.65);
+    background: #fff;
+  }
+
+  article.prose .doc-screenshot-frame {
+    max-width: 960px;
+  }
+
+  article.prose .doc-screenshot-frame:last-child {
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  @media (max-width: 640px) {
+    .doc-screenshot-frame {
+      margin: clamp(1.5rem, 8vw, 3rem) auto;
+      padding: clamp(0.5rem, 6vw, 1.25rem);
+      border-radius: 24px;
+    }
+
+    .doc-screenshot-frame > .doc-screenshot-image,
+    .doc-screenshot-frame img.doc-screenshot-image {
+      border-radius: 18px;
+    }
+  }
+</style>
