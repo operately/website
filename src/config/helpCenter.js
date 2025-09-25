@@ -195,6 +195,14 @@ export default function helpCenterSidebar() {
             label: "Change project's parent goal",
             link: "/help/change-project-parent-goal",
           },
+          {
+            label: "Edit project start date",
+            link: "/help/edit-project-start-date/",
+          },
+          {
+            label: "Edit project due date",
+            link: "/help/edit-project-due-date/",
+          },
         ],
       },
       {
