@@ -70,7 +70,7 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "User Profiles",
+        label: "User profiles",
         items: [
           {
             label: "Understanding user profiles",
@@ -95,7 +95,7 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "Work Maps",
+        label: "Work maps",
         items: [
           {
             label: "Introduction to Work Maps",
@@ -104,7 +104,7 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "Goal Tracking",
+        label: "Goal tracking",
         items: [
           {
             label: "Create a goal",
@@ -169,7 +169,7 @@ export default function helpCenterSidebar() {
         ],
       },
       {
-        label: "Project Management",
+        label: "Project management",
         items: [
           {
             label: "Create a project",
