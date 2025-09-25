@@ -179,11 +179,6 @@ export default function helpCenterSidebar() {
             label: "Add project description",
             link: "/help/add-project-description",
           },
-        ],
-      },
-      {
-        label: "Project Management",
-        items: [
           {
             label: "Add milestone",
             link: "/help/add-milestone",
