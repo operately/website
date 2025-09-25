@@ -181,11 +181,19 @@ export default function helpCenterSidebar() {
           },
           {
             label: "Add milestone",
-            link: "/help/add-milestone",
+            link: "/help/add-project-milestone",
           },
           {
             label: "Add task",
-            link: "/help/add-task",
+            link: "/help/add-project-task",
+          },
+          {
+            label: "Add resource",
+            link: "/help/add-project-resource",
+          },
+          {
+            label: "Change project's parent goal",
+            link: "/help/change-project-parent-goal",
           },
         ],
       },
