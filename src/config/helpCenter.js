@@ -1,3 +1,5 @@
+import posthogSnippet from "../utils/posthogSnippet.js";
+
 export default function helpCenterSidebar() {
   return {
     title: "Operately Help Center",
@@ -34,6 +36,12 @@ export default function helpCenterSidebar() {
         label: "YouTube",
         icon: "youtube",
         href: "https://youtube.com/@operately",
+      },
+    ],
+    head: [
+      {
+        tag: "script",
+        content: posthogSnippet,
       },
     ],
     customCss: ["./src/styles/starlight.css", "./src/styles/anchor-links.css"],
