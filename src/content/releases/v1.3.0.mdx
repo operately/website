@@ -1,8 +1,8 @@
 ---
-title: "Project and Space Task Kanban, Tasks Tab on Profile Page, Space Tools, and more"
+title: "Kanban Views, Redesigned Review Page, Global Search, and more"
 version: "1.3"
 date: 2026-01-02
-description: "Operately v1.3 introduces Kanban views for project and space tasks with slide-in task details, a new Tasks tab on profiles, and space-level tool controls."
+description: "Operately v1.3 introduces Kanban views for project and space tasks, a redesigned Review Page, Global Search, streamlined team onboarding, and more."
 published: true
 youtubeId: ""
 ---
@@ -13,8 +13,11 @@ import taskSlideIn from './assets/v130/task-slide-in.png';
 import spaceKanbanBoard from './assets/v130/space-kanban-board.png';
 import tasksTabProfilePage from './assets/v130/tasks-tab-profile-page.png';
 import spaceToolsConfig from './assets/v130/space-tools-config.png';
+import reviewPage from './assets/v130/review-page.png';
+import teamInviteLinks from './assets/v130/team-invite-links.png';
+import globalSearch from './assets/v130/global-search.png';
 
-Operately v1.3 is here! This release brings Kanban views for project tasks and space tasks with slide-in task details, a new Tasks tab on profiles, and space-level tool controls.
+Operately v1.3 is here! This release brings Kanban views for project and space tasks, a redesigned Review Page, Global Search, and many other improvements to help your team work better together.
 
 ## Project Tasks Kanban: Plan and execute on a Kanban board
 
@@ -34,6 +37,33 @@ You get the same Kanban experience as projects, including drag-and-drop columns,
 
 <BigImage src={spaceKanbanBoard} alt="Space tasks Kanban board" />
 
+## Redesigned Review Page: See all work that needs your attention
+
+The Review Page has been completely redesigned to give you a comprehensive view of everything that needs your attention. Previously, the page only showed check-ins and reviews. Now it includes **due milestones and tasks** alongside check-ins and reviews.
+
+**Better organization through resource grouping**: Review items are now grouped by their parent resource—Goals and Projects. This makes it easy to see all the work related to a specific goal or project in one place.
+
+Whether you're an owner responsible for delivering work or a reviewer providing feedback, the new Review Page shows exactly what needs your attention and when.
+
+<BigImage src={reviewPage} alt="Redesigned Review Page" />
+
+## Global Search: Find anything, instantly
+
+Finding specific goals, projects, tasks, or people across your organization is now effortless. The new **Global Search** in the navbar lets you search across all resources and get instant results.
+
+Start typing in the search bar, and you'll immediately see matching:
+- **Goals** with their champions and spaces
+- **Projects** with their owners and teams
+- **Milestones** with their projects and spaces
+- **Tasks** with their assignees and parent projects
+- **People** with their roles and titles
+
+Search results are organized by resource type, making it easy to scan and find exactly what you're looking for. Click any result to jump directly to that resource's page.
+
+Global Search is always accessible from the navbar.
+
+<BigImage src={globalSearch} alt="Global Search" />
+
 ## Profile Tasks Tab: See your current work in one place
 
 Profile pages now include a **Tasks** tab that shows ongoing tasks assigned to each person. It is a quick way to review what's in progress, what is coming up, and where attention is needed.
@@ -45,6 +75,34 @@ Profile pages now include a **Tasks** tab that shows ongoing tasks assigned to e
 Space admins can now enable or disable tools for each space, including the Resource Hub, Discussions, and Tasks. Keep each space focused on the workflows that matter, and hide sections your team does not use.
 
 <BigImage src={spaceToolsConfig} alt="Space tools configuration" />
+
+## Team Invite Links: Invite your whole team with a single link
+
+Inviting team members one by one is tedious and time-consuming. With **Team Invite Links**, you can now generate a shareable link that lets anyone join your organization instantly.
+
+This is perfect for:
+- Onboarding entire departments or teams at once
+- Quickly expanding your organization as you grow
+
+You maintain full control over invite links—enable or disable them as needed, and regenerate new links which automatically invalidates the previous one for enhanced security.
+
+<BigImage src={teamInviteLinks} alt="Team Invite Links" />
+
+## Additional Features
+
+This release also includes several enhancements based on user feedback:
+
+**Subscriptions for Projects, Milestones, and Tasks**: Subscribe to specific projects, milestones, and tasks to receive notifications whenever they're updated. Follow work outside your direct responsibilities without being overwhelmed.
+
+**Comment Management**: Delete comments and copy direct links to any comment for easy reference and sharing.
+
+**Space Deletion**: Delete spaces that are no longer needed with cascade cleanup that removes all associated projects, goals, and content.
+
+**Expanded Emoji Reactions**: The emoji reactions palette has been expanded with search functionality, making it easy to find the perfect emoji from a much larger collection.
+
+**Profile Picture Updates**: Update your profile picture directly from your profile settings to personalize your account.
+
+**Milestone Drag-and-Drop Reordering**: Reorder milestones using drag-and-drop in the Overview tab on the Project page to quickly reorganize your project timeline.
 
 ---
 
