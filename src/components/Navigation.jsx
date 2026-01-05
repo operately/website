@@ -1,7 +1,7 @@
 "use client";
 
-const signUpUrl = import.meta.env.SIGN_UP_URL;
-const logInUrl = import.meta.env.LOG_IN_URL;
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+const logInUrl = import.meta.env.PUBLIC_LOG_IN_URL;
 const bookaDemoUrl = import.meta.env.PUBLIC_BOOK_A_DEMO_URL;
 const discordUrl = import.meta.env.PUBLIC_DISCORD_URL;
 const blogUrl = import.meta.env.PUBLIC_BLOG_URL;
