@@ -65,6 +65,10 @@ export default function helpCenterSidebar() {
             link: "/help/fill-in-personal-info",
           },
           {
+            label: "Disable daily assignments email",
+            link: "/help/disable-assignments-email",
+          },
+          {
             label: "Set appearance to light or dark mode",
             link: "/help/set-light-dark-mode",
           },
