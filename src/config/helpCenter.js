@@ -184,6 +184,10 @@ export default function helpCenterSidebar() {
             link: "/help/link-goals-hierarchy",
           },
           {
+            label: "Export goal as Markdown",
+            link: "/help/export-goal-markdown",
+          },
+          {
             label: "Close a goal",
             link: "/help/close-goal",
           },
@@ -263,6 +267,10 @@ export default function helpCenterSidebar() {
           {
             label: "View project activity",
             link: "/help/view-project-activity/",
+          },
+          {
+            label: "Export project as Markdown",
+            link: "/help/export-project-markdown",
           },
           {
             label: "Pause project",
@@ -359,6 +367,10 @@ export default function helpCenterSidebar() {
             link: "/help/edit-file-details",
           },
           { label: "Download a file", link: "/help/download-file" },
+          {
+            label: "Export document as Markdown",
+            link: "/help/export-document-markdown",
+          },
           { label: "Delete a document", link: "/help/delete-document" },
           { label: "Discuss a document", link: "/help/discuss-document" },
         ],
