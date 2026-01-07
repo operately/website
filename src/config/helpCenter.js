@@ -78,6 +78,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Global Search",
+        items: [
+          {
+            label: "Introduction to Global Search",
+            link: "/help/global-search",
+          },
+        ],
+      },
+      {
         label: "User profiles",
         items: [
           {
