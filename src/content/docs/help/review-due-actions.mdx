@@ -1,11 +1,14 @@
 ---
-title: View your due actions as a champion or reviewer
-description: Learn how to stay on top of your responsibilities for check-ins, updates, and reviews.
+title: View your due actions
+description: Learn how to stay on top of your responsibilities for check-ins, updates, reviews, and tasks.
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import ImageEnhancer from '@/components/ImageEnhancer.astro';
 
-The Review page in Operately brings together all your responsibilities in one convenient location. It shows actions you need to take, whether you're responsible for providing updates as a champion or acknowledging others' work as a reviewer.
+<ImageEnhancer />
+
+The Review page in Operately gives you a comprehensive view of everything that needs your attention. It brings together all your responsibilities in one convenient location, showing check-ins, reviews, due milestones, and tasks.
 
 ## Accessing the Review page
 
@@ -16,42 +19,36 @@ The Review page in Operately brings together all your responsibilities in one co
 
 ## Understanding the Review page layout
 
-The Review page is organized into two main sections:
+The Review page organizes your work by grouping items under their parent resource (Goals or Projects). This allows you to see all the work related to a specific initiative in one place.
 
-### 1. MY WORK (Due updates you are responsible for as a champion)
+![Screenshot: Review screen with pending actions](./quick-tour/review.png)
 
-This section displays all the updates you need to provide as a champion of goals, projects, or other initiatives. For each item, you'll see:
+### Resource Grouping
 
-*   **Due date:** When the update should be completed by
-*   **Type of update:** Check-in, progress update, etc.
-*   **Name of the item:** The goal, project, or initiative that needs your attention
+Each section represents a specific **Goal**, **Project** or **Space** that requires your attention. Next to the resource name, you'll see a badge indicating your role:
+*   **CHAMPION**: You are responsible for leading this work.
+*   **REVIEWER**: You are responsible for reviewing progress and updates.
 
-When an item appears here, it means it's time for you to provide an update. Clicking on any item takes you directly to the appropriate form to submit your update, such as:
+### Action Items
 
-*   Weekly check-ins for projects
-*   Monthly progress updates for goals
-*   Other types of regular updates you're responsible for
+Under each resource, you'll see a list of specific items that need action. These can include:
 
-### 2. FOR REVIEW (Updates from others needing your acknowledgment)
+*   **Check-ins**: Progress updates you need to submit (e.g., weekly project check-ins, monthly goal updates).
+*   **Reviews**: Updates from others that are waiting for your acknowledgment or feedback.
+*   **Milestones**: Key project milestones that are due or overdue.
+*   **Tasks**: Specific tasks assigned to you that are due or overdue.
 
-This section shows items that others have submitted and are waiting for your review or acknowledgment. As a manager or designated reviewer, you'll see:
-
-*   **Submission date:** When the item was submitted
-*   **Type of review:** What kind of update needs your attention
-*   **Who submitted it:** The team member who provided the update
-*   **Name of the item:** The goal, project, or initiative in question
-
-Clicking on these items takes you directly to the submitted update where you can review the content and acknowledge it.
+For each item, you'll see details like the due date and its current status (e.g., "Due today", "1 day overdue").
 
 ## Benefits of using the Review page
 
-*   **Stay organized:** See all your responsibilities in one place
-*   **Never miss updates:** Clear indicators of what needs your attention
-*   **Save time:** Direct links to the forms or content you need to act on
-*   **Maintain accountability:** Regular reminders of your commitments and responsibilities
+*   **Comprehensive view**: See check-ins, reviews, milestones, and tasks all in one place.
+*   **Better context**: Grouping by resource helps you understand how individual tasks relate to broader goals.
+*   **Stay organized**: Clear indicators of what needs your attention and when.
+*   **Maintain accountability**: Regular reminders of your commitments and responsibilities.
 
 ## Managing your due actions
 
-*   **Items automatically disappear:** Once you complete an action (submitting a check-in as a champion or acknowledging an update as a reviewer), the item will disappear from your list.
-*   **Goal is zero items:** The ideal state is to have no items in your Review list, indicating you've addressed all your responsibilities.
-*   **Daily email reminders:** Each morning, you'll receive an email digest summarizing all the items currently on your Review page, helping you plan your day and prioritize your actions.
+*   **Items automatically disappear**: Once you complete an action (submitting a check-in, acknowledging a review, or completing a task), the item will disappear from your list.
+*   **Goal is zero items**: The ideal state is to have no items in your Review list, indicating you've addressed all your responsibilities.
+*   **Daily email reminders**: Each morning, you'll receive an email digest summarizing all the items currently on your Review page, helping you plan your day and prioritize your actions.
