@@ -94,6 +94,10 @@ export default function helpCenterSidebar() {
             link: "/help/user-profiles-overview",
           },
           {
+            label: "Your tasks",
+            link: "/help/your-tasks",
+          },
+          {
             label: "Your assigned work",
             link: "/help/your-assigned-work",
           },
