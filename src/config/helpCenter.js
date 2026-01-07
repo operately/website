@@ -426,8 +426,8 @@ export default function helpCenterSidebar() {
             link: "/help/remove-trusted-email-domain",
           },
           {
-            label: "Delete organization",
-            link: "/help/delete-organization",
+            label: "Delete company",
+            link: "/help/delete-company",
           },
         ],
       },
