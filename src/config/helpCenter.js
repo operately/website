@@ -259,6 +259,10 @@ export default function helpCenterSidebar() {
             label: "Reassign space manager to member",
             link: "/help/reassign-space-manager-to-member",
           },
+          {
+            label: "Space tools",
+            link: "/help/space-tools",
+          },
         ],
       },
       {
