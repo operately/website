@@ -223,6 +223,10 @@ export default function helpCenterSidebar() {
             label: "Manage project contributors",
             link: "/help/manage-project-contributors/",
           },
+          {
+            label: "Subscriptions",
+            link: "/help/subscriptions",
+          },
         ],
       },
       {
