@@ -65,6 +65,10 @@ export default function helpCenterSidebar() {
             link: "/help/fill-in-personal-info",
           },
           {
+            label: "Update profile picture",
+            link: "/help/update-profile-picture",
+          },
+          {
             label: "Disable daily assignments email",
             link: "/help/disable-assignments-email",
           },
