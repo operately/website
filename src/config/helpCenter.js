@@ -230,7 +230,7 @@ export default function helpCenterSidebar() {
           },
           {
             label: "Set project reviewer",
-            link: "/help/Set-project-reviewer/",
+            link: "/help/set-project-reviewer/",
           },
           {
             label: "Manage project contributors",

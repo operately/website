@@ -1,11 +1,39 @@
 ---
-const { enableGradient = false } = Astro.props;
+const {
+  enableGradient = true,
+  startColor,
+  endColor,
+  gradient: customGradient,
+  imageRadius
+} = Astro.props;
+
+let gradient = customGradient;
+if (!gradient) {
+  if (startColor && endColor) {
+    gradient = `linear-gradient(160deg, ${startColor} 0%, ${endColor} 100%)`;
+  } else {
+    gradient = "linear-gradient(160deg, #002A90 10%, #F07EBC 100%)";
+  }
+}
 ---
 
-<script data-gradient={enableGradient ? 'true' : 'false'}>
+<script
+  data-gradient={enableGradient ? 'true' : 'false'}
+  data-bg={gradient}
+  data-image-radius={imageRadius}
+>
   (function () {
     const scriptEl = document.currentScript;
     const gradientEnabled = scriptEl?.dataset.gradient !== 'false';
+    const bg = scriptEl?.dataset.bg;
+    const imageRadius = scriptEl?.dataset.imageRadius;
+
+    if (bg) {
+      document.documentElement.style.setProperty('--doc-screenshot-bg', bg);
+    }
+    if (imageRadius) {
+      document.documentElement.style.setProperty('--doc-screenshot-image-radius', imageRadius);
+    }
     const enhancerFlag = 'docScreenshotEnhancer';
 
     const ensureLightbox = () => {
@@ -245,11 +273,10 @@ const { enableGradient = false } = Astro.props;
   .doc-screenshot-frame {
     position: relative;
     display: block;
-    margin: clamp(2rem, 5vw, 4rem) auto;
-    padding: clamp(0.75rem, 2vw, 2rem);
-    border-radius: 32px;
-    background: linear-gradient(140deg, #3185ff 0%, #9b6bff 55%, #ff6f61 100%);
-    box-shadow: 0 40px 80px -45px rgba(49, 133, 255, 0.5);
+    /* margin: clamp(2rem, 5vw, 4rem) auto; */
+    padding: var(--doc-screenshot-padding, clamp(0.75rem, 2vw, 2rem));
+    border-radius: 0px;
+    background: var(--doc-screenshot-bg, linear-gradient(135deg, #002A90 20%, #F07EBC 100%));
   }
 
   .doc-screenshot-frame > .doc-screenshot-image,
@@ -257,7 +284,7 @@ const { enableGradient = false } = Astro.props;
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 24px;
+    border-radius: var(--doc-screenshot-image-radius, 6px);
     box-shadow: 0 30px 50px -45px rgba(15, 23, 42, 0.65);
     background: #fff;
   }
@@ -274,12 +301,12 @@ const { enableGradient = false } = Astro.props;
     .doc-screenshot-frame {
       margin: clamp(1.5rem, 8vw, 3rem) auto;
       padding: clamp(0.5rem, 6vw, 1.25rem);
-      border-radius: 24px;
+      border-radius: 0px;
     }
 
     .doc-screenshot-frame > .doc-screenshot-image,
     .doc-screenshot-frame img.doc-screenshot-image {
-      border-radius: 18px;
+      border-radius: var(--doc-screenshot-image-radius, 2px);
     }
   }
 </style>
