@@ -339,6 +339,7 @@ export default function helpCenterSidebar() {
         items: [
           { label: "Introduction", link: "/help/kanban-board-introduction" },
           { label: "Add tasks", link: "/help/kanban-board-add-task" },
+          { label: "Edit a task", link: "/help/kanban-board-edit-task" },
         ],
       },
       {
