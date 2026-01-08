@@ -221,6 +221,10 @@ export default function helpCenterSidebar() {
             link: "/help/add-project-task",
           },
           {
+            label: "Customize task statuses",
+            link: "/help/customize-project-statuses",
+          },
+          {
             label: "Add resource",
             link: "/help/add-project-resource",
           },
