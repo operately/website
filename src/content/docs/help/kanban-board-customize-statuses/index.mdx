@@ -1,0 +1,57 @@
+---
+title: Customize statuses from Kanban board
+description: Learn how to add, edit, delete, and reorder statuses directly from a Kanban board.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+import ImageEnhancer from '@/components/ImageEnhancer.astro';
+
+<ImageEnhancer />
+
+In the Kanban board, each status is represented as a column. You can customize statuses directly from the board.
+
+## Add a new status
+
+<Steps>
+1. Click the **Add status** button to the right of the last status column.
+![Screenshot: Add status button](./add-status-button.png)
+2. Select an **icon** and **color** that best describes the new status.
+3. Enter a **name** for the status.
+4. Click **Add status**.
+![Screenshot: Add status form](./add-status-form.png)
+</Steps>
+
+## Edit an existing status
+
+<Steps>
+1. Click the **...** icon in the top-right corner of the status column.
+2. Select **Edit**.
+![Screenshot: Status column options](./status-column-options.png)
+3. Select a new **icon** and **color** that best describes the status.
+4. Enter the new **name**.
+5. Click **Save changes**.
+![Screenshot: Edit status form](./edit-status-form.png)
+</Steps>
+
+## Delete a status
+
+<Steps>
+1. Click the **...** icon in the top-right corner of the status column.
+2. Select **Delete**.
+![Screenshot: Status column options](./status-column-options.png)
+3. Select a **replacement status**.
+4. Click **Delete Status**.
+![Screenshot: Delete status form](./delete-status-form.png)
+</Steps>
+
+<Aside type="note">
+All tasks that had the deleted status will be updated to the replacement status you select.
+</Aside>
+
+## Reorder statuses
+
+Grab the status column at the top, then drag it to the desired position.
+
+<Aside type="tip">
+In projects, statuses can also be customized via the **Manage statuses** option. See [Customize project statuses](/help/customize-project-statuses).
+</Aside>
