@@ -1,0 +1,99 @@
+---
+title: Edit a task
+description: Learn how to edit task details in the Kanban board.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import ImageEnhancer from '@/components/ImageEnhancer.astro';
+
+<ImageEnhancer />
+
+Clicking on any task card in the Kanban board opens a slide-in view containing all the task's information. From here, you can update various details, manage actions, and collaborate with your team.
+
+## Updating task details
+
+You can modify key information directly from the slide-in view:
+
+![Screenshot: Task slide-in view](./task-slide-in.png)
+
+### Update task name
+
+<Steps>
+1. Click on the task's name at the top of the view.
+2. Enter the new name.
+3. Press **Enter** to save.
+</Steps>
+
+### Edit notes
+
+**Add notes:**
+
+<Steps>
+1. Click **Add notes about this task...**.
+2. Enter your notes.
+3. Click **Save**.
+</Steps>
+
+**Edit existing notes:**
+
+<Steps>
+1. Click the **Edit** button next to the notes.
+2. Modify your notes.
+3. Click **Save**.
+</Steps>
+
+### Edit due date
+
+<Steps>
+1. Click **Set due date** (or the current date if one is set).
+2. Select the new date from the calendar.
+3. Click **Confirm**.
+</Steps>
+
+### Edit assignee
+
+**Assign a person:**
+
+<Steps>
+1. Click **Assign task**.
+2. Select a person from the list.
+</Steps>
+
+**Change assignee:**
+
+<Steps>
+1. Click the current assignee's name.
+2. Select **Select someone else**.
+3. Choose the new assignee from the list.
+</Steps>
+
+### Edit milestone (Project tasks only)
+
+**Set milestone:**
+
+<Steps>
+1. Click **Select milestone**.
+2. Choose a milestone from the list.
+</Steps>
+
+**Change milestone:**
+
+<Steps>
+1. Click the current milestone name.
+2. Select **Choose different milestone**.
+3. Pick the new milestone from the list.
+</Steps>
+
+## Task actions
+
+In the actions section of the slide-in view, you can perform additional operations:
+
+- **Copy link**: Get a direct link to the specific task to share with others.
+- **Delete task**: Permanently remove the task from the board.
+
+## Activity and comments
+
+The slide-in view also shows the task's timeline:
+
+- **Timeline**: View a chronological history of all events and changes related to the task.
+- **Comments**: Add comments to discuss the task, ask questions, or provide updates to your team.
