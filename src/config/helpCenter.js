@@ -486,6 +486,10 @@ export default function helpCenterSidebar() {
             label: "Email Delivery",
             link: "/help/self-hosted-email-delivery",
           },
+          {
+            label: "Google Sign-In",
+            link: "/help/self-hosted-google-sign-in",
+          },
         ],
       },
     ],
