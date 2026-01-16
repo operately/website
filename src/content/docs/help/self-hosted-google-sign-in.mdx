@@ -1,0 +1,58 @@
+---
+title: Google Sign-In
+description: Learn how to enable Google Sign-In (OAuth) for your self-hosted Operately installation.
+---
+
+Google Sign-In lets users create accounts and log in using their Google accounts. This guide walks you through creating OAuth credentials in Google Cloud and configuring Operately to use them.
+
+## Create the OAuth consent screen
+
+1. Log in to the Google Cloud Console.
+2. Select an existing project or create a new one.
+3. Go to **APIs & Services** > **OAuth consent screen**.
+4. Click **Get started**.
+5. Enter an **App name** and select a **User support email**, then click **Next**.
+6. Choose **Internal** (Google Workspace only) or **External** (any Google account), then click **Next**.
+7. Enter a contact email address, then click **Next**.
+8. Agree to the policy and click **Continue**.
+9. Click **Create**.
+
+## Create OAuth client credentials
+
+1. Go to **APIs & Services** > **Credentials**.
+2. Click **Create credentials** and choose **OAuth client ID**.
+3. For **Application type**, select **Web application**.
+4. Under **Authorized JavaScript origins**, add the base URL of your Operately deployment.
+```
+Examples:
+- https://operately.example.com
+- http://localhost:4000
+```
+5. Under **Authorized redirect URIs**, add the same base URL followed by `/accounts/auth/google/callback`.
+```
+Examples:
+- https://operately.example.com/accounts/auth/google/callback
+- http://localhost:4000/accounts/auth/google/callback
+```
+6. Click **Create**, then copy the **Client ID** and **Client Secret**.
+
+## Configure Operately
+
+Add the following variables to your `operately.env` file:
+
+```bash
+ALLOW_LOGIN_WITH_GOOGLE=yes
+ALLOW_SIGNUP_WITH_GOOGLE=yes
+GOOGLE_LOGIN_CLIENT_ID=your_client_id_here
+GOOGLE_LOGIN_CLIENT_SECRET=your_client_secret_here
+```
+
+Restart your containers to apply the change:
+
+```bash
+docker compose up --wait --detach
+```
+
+## Verify sign-in
+
+Log out of Operately, then click **Sign in with Google** on the login page and confirm you can authenticate successfully.
