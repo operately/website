@@ -176,6 +176,10 @@ export default function helpCenterSidebar() {
             link: "/help/view-goal-activity",
           },
           {
+            label: "Manage goal access",
+            link: "/help/manage-goal-access",
+          },
+          {
             label: "Set goal privacy",
             link: "/help/set-goal-privacy",
           },
