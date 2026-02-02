@@ -4,7 +4,7 @@ description: Learn how to add new team members to your Operately organization.
 ---
 
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Aside } from '@astrojs/starlight/components';
 
 <ImageEnhancer />
 
@@ -16,50 +16,107 @@ Account owners and administrators have permission to invite new team members to 
 
 ## How to invite a new team member
 
-There are two quick ways to access the invitation form:
+There are three quick ways to access the invitation page:
 
-### Method 1: Via the "+ New" Button
+### Method 1: Via the Homepage
 
-1\. Click the "+ New" button located in the right-hand corner of the top navigation bar.
+1. From the homepage, click on **Invite People**.
 
-![Screenshot: "+ New" menu dropdown with "New team member" option](./new-team-member-menu.png)
+![Screenshot: Invite new people from homepage](./invite-people-homepage.png)
 
-2\. Select "New team member" from the dropdown menu.
+2. Choose **Team member**.
 
-### Method 2: Via Company Administration
+![Screenshot: Member type options](./member-type-options.png)
 
-1\. Click on your organization name in the top navigation bar in the left-hand corner of your screen to open the company menu.
+### Method 2: Via the "+ New" Button
 
-2\. Select **Company Admin** from the dropdown menu.
+1. Click the **+ New** button located in the right-hand corner of the top navigation bar.
 
-3\. On the **Company Administration** page, find the **Manage Team Members** section and click the **Add Team Member** button.
+2. Select **Invite people** from the dropdown menu.
 
-### Filling out the invitation form
+3. Choose **Team member**.
 
-Both methods will take you to the "Invite a new Member" form:
+### Method 3: Via Company Administration
+
+1. Click on your organization name in the top navigation bar in the left-hand corner of your screen to open the company menu.
+
+2. Select **Company Admin** from the dropdown menu.
+
+3. On the **Company Administration** page, find the **Manage Team Members** section and click the **Invite People** button.
+
+4. Choose **Team member**.
+
+## Managing your Team Invite Link
+
+After selecting **Team member** (using any of the methods above), you will land on the invite team page. On this page, you have full control over how your team joins.
+
+![Screenshot: Invite team page](./invite-team-page.png)
+
+### Enable or disable the link
+
+You can toggle the invite link on or off at any time.
+
+*   **Enabled**: Anyone with access to the link (and meeting the security requirements) can join your organization.
+*   **Disabled**: The link will not work, and no one can use it to join.
+
+### Control who can join
+
+You can restrict who is allowed to use the invite link:
+
+*   **Anyone with the link**: Any user who has the link can join your organization.
+*   **Trusted email domains only**: Only users with an email address from your trusted domains (e.g., `@yourcompany.com`) can join. This adds an extra layer of security.
+
+<Aside type="tip">
+We recommend setting up [Trusted Email Domains](/help/add-trusted-email-domain) and selecting "Trusted email domains only" for the most secure onboarding experience.
+</Aside>
+
+### Share the link
+
+Once your link is configured:
+
+1. Click the **Copy** button next to the link URL.
+2. Share the link with your team.
+
+### Generate a new link
+
+If you need to revoke access to the current link (for example, if it was shared with the wrong person), you can generate a new one.
+
+1. Click the **generate a new link** text below the link box.
+2. This will immediately invalidate the old link and create a new one. Anyone trying to use the old link will no longer be able to join.
+
+## Inviting specific people
+
+If you prefer to invite someone individually:
+
+1. In the **Invite one person?** section, click the **Create invite** button.
+
+![Screenshot: Invite one person?](./invite-one-person-section.png)
+
+2. You will be redirected to the "Invite a new Member" form.
 
 ![Screenshot: Invite a new Member form](./invite-new-member.png)
 
-To fill out the form and invite the new team member:
+To invite the new team member:
 
 <Steps>
-1. Enter the team member's **Full Name**.
-2. Enter their work **Email** address.
-3. Enter their **Title** within the company.
-4. Click the **Invite Member** button.
+1. Fill out the form:
+    - Enter the team member's **Full Name**.
+    - Enter their work **Email** address.
+    - Enter their **Title**. 
+2. Click the **Invite Member** button.
 </Steps>
 
 ## What happens next?
 
-- **If the person already has an Operately account** using the email address you entered, they will be automatically added to your organization. They'll receive an email notification.
+- **If the person already has an Operately account** using the email address you entered, they will be automatically added to your organization.
 
-- **If the person does not have an Operately account**, Operately will generate a unique invitation link. You'll need to copy this link and share it with them (e.g., via email or chat). The link is valid for 24 hours.
+- **If the person does not have an Operately account**, Operately will generate a unique invitation link. You'll need to copy this link and share it with them. The link is valid for 24 hours.
 
 ![Screenshot: Manage team members](./manage-team-members.png)
 
 While the invitation is pending, the new team member will appear in the **Invitations Awaiting Response** section of the **Manage Team Members** page.
 
-Once the invited person accepts the invitation or signs up using the link, they will appear in the "Current Team Members" list on the Company Administration page.
+Once the invited person signs up using the link, they will appear in the "Current Team Members" list on the Company Administration page.
 
 ## Managing pending invitations
 
@@ -68,4 +125,4 @@ While an invitation is waiting for a response, you can manage it from the "Manag
 Find the person in the **Invitations Awaiting Response** section:
 
 - **Re-issue Invitation**: If the original invitation link expired or was lost, click the **...** menu next to the person's name and select **Re-Issue Invitation** to generate a new 24-hour link.
-- **Deactivate Account**: If you need to cancel the invitation before the person accepts, click the **...** menu and select **Deactivate Account**. This will invalidate the invitation link and remove the pending invitation.
+- **Revoke Invitation**: If you need to cancel the invitation before the person accepts, click the **...** menu and select **Revoke Invitation**. This will invalidate the invitation link and remove the pending invitation.
