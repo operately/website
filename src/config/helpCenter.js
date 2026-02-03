@@ -483,6 +483,10 @@ export default function helpCenterSidebar() {
             link: "/help/self-hosted-installation",
           },
           {
+            label: "Update Version",
+            link: "/help/self-hosted-update",
+          },
+          {
             label: "Beacon",
             link: "/help/self-hosted-beacon",
           },
