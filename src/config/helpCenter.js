@@ -434,10 +434,6 @@ export default function helpCenterSidebar() {
             link: "/help/invite-team-member",
           },
           {
-            label: "Invite the whole team",
-            link: "/help/team-invite-links",
-          },
-          {
             label: "Edit team member's profile",
             link: "/help/edit-team-member-profile",
           },
