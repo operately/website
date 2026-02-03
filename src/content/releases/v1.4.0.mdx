@@ -1,0 +1,105 @@
+---
+title: "Guest Collaborators, Email Settings, Goal Access Management, and more"
+version: "1.4"
+date: 2026-02-03
+description: "Operately v1.4 adds guest collaborators, complete admin email settings, improved goal access management, and a bundled update command for easy upgrades."
+published: true
+youtubeId: ""
+---
+
+import BigImage from '../../components/BigImage.astro';
+import guestCollaborators from './assets/v140/invite-outside-collaborators.png';
+import outsideCollaboratorsSection from './assets/v140/outside-collaborators-section.png';
+import emailSettings from './assets/v140/email-settings.png';
+import goalAccessManagement from './assets/v140/goal-access-management.png';
+
+Operately v1.4 is here! This release introduces guest collaborators, complete admin
+email settings, improved goal access management, and a bundled update command
+that makes upgrading self-hosted installs easy and simple.
+
+## Guest collaborators: Invite outside partners safely
+
+You can now add guests and outside collaborators to your company without giving
+them default access to all non-secret spaces, goals, and projects. Guests only
+see the spaces, goals, and projects that you explicitly add them to, so external
+partners can access what they need without getting broader visibility.
+
+<BigImage src={guestCollaborators} alt="Guest collaborators" />
+
+To make it easy to manage, the Members page now has a dedicated Guests section
+and the Add People flow supports guest invites end-to-end.
+
+<BigImage src={outsideCollaboratorsSection} alt="Outside collaborators section" />
+
+## Admin email settings: Configure sender identity and email delivery
+
+Admins now have a complete email settings suite in the admin UI. You can
+configure SendGrid by adding your API key or set up SMTP delivery, and send a
+test email to confirm everything works as expected. All keys are stored
+securely in the database, encrypted at rest.
+
+<BigImage src={emailSettings} alt="Admin email settings" />
+
+## Goal access management: A dedicated access control page
+
+Goals now have a dedicated access management page. You can grant or remove
+access for anyone in the company, including outside collaborators, and see a
+full list of everyone who has access to the goal along with their access
+levels.
+
+<BigImage src={goalAccessManagement} alt="Goal access management" />
+
+## Additional Features
+
+This release also includes several enhancements based on user feedback:
+
+**Project resume improvements**: A new resume message can be added when a project is resumed.
+The next check-in date is updated automatically.
+
+**Profile description**: An "About me" section has been added to profile pages.
+
+**Invite link visibility**: Admins can now view an invite link after it is issued.
+
+**Update script**: Operately now ships with a useful commands script. It includes the **update** command, which makes upgrading to new versions simple and reliable for self-hosted deployments. For detailed instructions on updating your self-hosted installation, see the [self-hosted update documentation](/help/self-hosted-update).
+
+---
+
+## Sign up for Operately
+
+Ready to experience Operately v1.4? [Sign up for a free account][signup] and
+see how these new features can transform how your team works together.
+
+## Self-host in 5 minutes
+
+Prefer to use your own infrastructure? [Follow our self-hosted installation guide][install]
+to get Operately running on your servers in minutes.
+
+If you are already running the self-hosted version, follow the [upgrade guide](/help/self-hosted-update)
+to update to the latest release.
+
+## Join the Operately community
+
+Operately is open source and available under the Apache 2.0 license.
+Join our growing community of users and contributors:
+
+- [Star the repository on GitHub][github] to show your support
+- Join our [Discord server][discord] to connect with the team and community
+- Contribute by submitting bug reports, feature requests, or code on [GitHub][github]
+- Share Operately with your network and help us grow
+
+## Special thanks to our contributors
+
+We're grateful for everyone who has contributed to making Operately better.
+Your feedback, bug reports, feature suggestions, and code contributions help
+shape the product for the entire community. Thank you for being part of this
+journey with us.
+
+Your contributions help make Operately better for everyone. Thank you!
+
+&mdash; The Operately Team
+
+[install]: https://operately.com/install
+[upgrade]: https://github.com/operately/operately/blob/main/docs/installation/upgrade-from-v1.3.0-to-v1.4.0.md
+[signup]: https://app.operately.com/sign_up
+[discord]: https://discord.com/invite/2ngnragJYV
+[github]: https://github.com/operately/operately
