@@ -1,0 +1,105 @@
+---
+title: Update Version
+description: Learn how to update your self-hosted Operately installation to a newer version.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This guide walks you through updating a self-hosted installation of Operately to a newer version.
+
+## Before you start
+
+Log in to the server running Operately and navigate to the directory where Operately is running. By default this location is `~/operately`.
+
+## Using the update script
+
+After version 1.4.0, the Operately installation includes the `operately` helper script, which simplifies updates.
+
+If you installed Operately before version 1.4.0 and don't have the `operately` helper script, you can update Operately by manually updating the Docker Compose configuration, as explained in the next section.
+
+#### Update using the operately script
+
+To update to the latest official release without specifying a version:
+
+```bash
+./operately update
+```
+
+To update to a specific version:
+
+```bash
+./operately update <version>
+```
+
+Replace `<version>` with the version you want to upgrade to. For example:
+
+```bash
+./operately update 1.4.0
+```
+
+```bash
+./operately update 1.5.0
+```
+
+You can also update to nightly builds:
+
+```bash
+./operately update nightly-build-20260116-070020-49842cd04
+```
+
+## Manual update
+
+If your installation doesn't include the `operately` helper script (installations from before version 1.4.0), you need to manually update the Docker Compose file.
+
+<Aside>
+  If you downloaded Operately before version 1.4.0, updating to a newer version manually won't include the `operately` helper script, since the script is included in the downloaded bundle and is not part of the Docker Compose file. If you don't have the script, you can download the latest version of Operately and manually add the script to your installation.
+</Aside>
+
+#### Update the Docker Compose file
+
+Edit the `docker-compose.yml` file and update the Operately version tag:
+
+```yaml
+# From this:
+image: operately/operately:vOLD
+
+# To this:
+image: operately/operately:vNEW
+```
+
+Replace `vOLD` with your current version and `vNEW` with the target version you want to upgrade to.
+
+Examples:
+
+```yaml
+# From this:
+image: operately/operately:1.2.0
+
+# To this:
+image: operately/operately:1.3.0
+```
+
+```yaml
+# From this:
+image: operately/operately:1.2.0
+
+# To this:
+image: operately/operately:nightly-build-20260116-070020-49842cd04
+```
+
+#### Run database migrations
+
+```bash
+docker compose run --rm app sh -c "/opt/operately/bin/migrate"
+```
+
+#### Restart the server
+
+```bash
+docker compose up --wait --detach
+```
+
+## Available versions
+
+- **Official releases:** https://github.com/operately/operately/releases
+- **Nightly releases:** https://github.com/operately/nightly/releases
