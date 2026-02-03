@@ -430,8 +430,12 @@ export default function helpCenterSidebar() {
           },
           { label: "Rename organization", link: "/help/rename-organization" },
           {
-            label: "Invite a new team member",
+            label: "Invite a team member",
             link: "/help/invite-team-member",
+          },
+          {
+            label: "Invite an outside collaborator",
+            link: "/help/invite-outside-collaborator",
           },
           {
             label: "Edit team member's profile",
