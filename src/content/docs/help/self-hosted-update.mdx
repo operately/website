@@ -11,13 +11,16 @@ This guide walks you through updating a self-hosted installation of Operately to
 
 Log in to the server running Operately and navigate to the directory where Operately is running. By default this location is `~/operately`.
 
-## Using the update script
+## Updating Operately
 
-After version 1.4.0, the Operately installation includes the `operately` helper script, which simplifies updates.
+The update process depends on your current version:
 
-If you installed Operately before version 1.4.0 and don't have the `operately` helper script, you can update Operately by manually updating the Docker Compose configuration, as explained in the next section.
+- **Version 1.4.0 or later:** Use the `operately` update script
+- **Before version 1.4.0:** Manually update the Docker Compose configuration
 
-#### Update using the operately script
+### If you're on version 1.4.0 or later
+
+#### Using the operately script
 
 To update to the latest official release without specifying a version:
 
@@ -47,13 +50,20 @@ You can also update to nightly builds:
 ./operately update nightly-build-20260116-070020-49842cd04
 ```
 
-## Manual update
+#### If the script is not available
 
-If your installation doesn't include the `operately` helper script (installations from before version 1.4.0), you need to manually update the Docker Compose file.
+Depending on the Operately version you installed for the first time, the `operately` script might not be available. In that case, you need to generate it first:
 
-<Aside>
-  If you downloaded Operately before version 1.4.0, updating to a newer version manually won't include the `operately` helper script, since the script is included in the downloaded bundle and is not part of the Docker Compose file. If you don't have the script, you can download the latest version of Operately and manually add the script to your installation.
-</Aside>
+```bash
+docker compose run --rm app sh -c "/opt/operately/bin/generate-script" > operately
+chmod +x operately
+```
+
+After generating the script, you can use the update commands above.
+
+### If you're on a version before 1.4.0
+
+You need to manually update the Docker Compose file.
 
 #### Update the Docker Compose file
 
