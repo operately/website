@@ -4,7 +4,7 @@ description: Learn how to invite outside collaborators to your Operately organiz
 ---
 
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Aside } from '@astrojs/starlight/components';
 
 <ImageEnhancer />
 
@@ -64,9 +64,35 @@ To invite the outside collaborator:
 2. Click the **Invite Collaborator** button.
 </Steps>
 
-## Outside collaborators and access
+### Granting access to resources
 
-Outside collaborators do not get access to company resources by default. You must give them explicit access to the goals, projects, or spaces they should work on.
+After clicking **Invite Collaborator**, you can grant the outside collaborator access to specific spaces, goals, and projects.
+
+![Screenshot: Grant permissions](./grant-permissions.png)
+
+To grant access:
+
+<Steps>
+1. For each resource you want to grant access to:
+    - Select the **Type** (Space, Goal, or Project).
+    - Select the **Resource** from the dropdown.
+    - Choose the **Access Level**: View Access, Comment Access, Edit Access, or Full Access.
+2. To grant access to additional resources, click the **+** button to add another row.
+3. Repeat steps 1-2 for as many resources as needed.
+4. Click the **Grant Access** button to confirm.
+</Steps>
+
+<Aside type="note">
+Outside collaborators do not get access to company resources by default. However, you can grant them explicit access to the resources they should work on at any moment.
+</Aside>
+
+## Learn more about managing access
+
+For detailed instructions on how to manage access to specific resource types, see:
+
+- [Add a Space Member](/help/add-space-member)
+- [Manage project contributors](/help/manage-project-contributors)
+- [Manage goal access](/help/manage-goal-access)
 
 ## What happens next?
 
@@ -80,5 +106,5 @@ While an invitation is waiting for a response, you can manage it from the "Manag
 
 Find the person you invited:
 
-- **Re-issue Invitation**: If the original invitation link expired or was lost, click the **...** menu next to the person's name and select **Re-Issue Invitation** to generate a new link.
+- **Reissue Invitation**: If the original invitation link expired or was lost, click the **...** menu next to the person's name and select **Re-Issue Invitation** to generate a new link.
 - **Revoke Invitation**: If you need to cancel the invitation before the person accepts, click the **...** menu and select **Revoke Invitation**. This will invalidate the invitation link and remove the pending invitation.
