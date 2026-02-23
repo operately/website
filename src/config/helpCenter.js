@@ -316,7 +316,7 @@ export default function helpCenterSidebar() {
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
           { label: "Create a space", link: "/help/create-space" },
-          { label: "Space access management", link: "/help/space-access-control" },
+          { label: "Space access control", link: "/help/space-access-control" },
           {
             label: "View space members",
             link: "/help/view-space-members",
