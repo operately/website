@@ -1,0 +1,72 @@
+---
+title: "How permissions work"
+description: "Understand permission levels, inheritance, and effective access in spaces, goals, and projects."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Operately permissions are built around five selectable access states:
+
+- **No Access**
+- **View Access**
+- **Comment Access**
+- **Edit Access**
+- **Full Access**
+
+## Permission levels
+
+| Access Level       | What it means |
+| ------------------ | ------------- |
+| **No Access**      | The resource is hidden and cannot be accessed. |
+| **View Access**    | Can open and read the resource and its content. |
+| **Comment Access** | Includes View Access, plus posting comments on resources such as tasks, discussions and check-ins. |
+| **Edit Access**    | Includes Comment Access, plus editing content and creating/updating work inside the resource. |
+| **Full Access**    | Includes Edit Access, plus deletion and permission-management actions. |
+
+## Space permissions
+
+For each space, you can configure:
+
+- **Company-wide access** for all company members
+- **Individual member access** for explicitly added space members
+
+Setting company-wide access to **No Access** makes the space secret. In that case, only explicitly granted members can see or use it.
+
+See full details in [Space access control](/help/space-access-control).
+
+## Goal permissions
+
+Every goal lives inside a space. For each goal, you can configure:
+
+- **Company members** baseline access
+- **Space members** baseline access
+- **Direct people access** for specific company members
+
+A person’s final goal access comes from the most permissive applicable grant.
+
+See full details in [Goal permissions](/help/set-goal-privacy) and [Manage goal access](/help/manage-goal-access).
+
+## Project permissions
+
+Every project lives inside a space. For each project, you can configure:
+
+- **Company members** baseline access
+- **Space members** baseline access
+- **Contributor access** for specific contributors
+
+A person’s final project access comes from the most permissive applicable grant.
+
+See full details in [Project permissions](/help/project-access-control) and [Manage project contributors](/help/manage-project-contributors).
+
+## Examples
+
+1. **Secret space with exceptions**
+   Company members = **No Access**. One explicitly added member = **Edit Access**. That member can access and edit the space.
+2. **Goal with layered access**
+   Company members = **View Access**. Space members = **Comment Access**. A space member gets **Comment Access**.
+3. **Project with direct override**
+   Company members = **No Access**. Space members = **No Access**. A contributor is granted **Full Access**. That contributor gets **Full Access**.
+
+<Aside type="tip">
+When possible, start with lower baseline access and add direct/contributor grants only where needed. This keeps permissions easier to audit and reason about.
+</Aside>

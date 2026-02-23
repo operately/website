@@ -133,6 +133,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Permissions & Access",
+        items: [
+          {
+            label: "How permissions work",
+            link: "/help/permissions-overview",
+          },
+        ],
+      },
+      {
         label: "Goal tracking",
         items: [
           {
@@ -180,7 +189,7 @@ export default function helpCenterSidebar() {
             link: "/help/manage-goal-access",
           },
           {
-            label: "Set goal privacy",
+            label: "Goal permissions",
             link: "/help/set-goal-privacy",
           },
           {
@@ -265,6 +274,10 @@ export default function helpCenterSidebar() {
             link: "/help/manage-project-contributors/",
           },
           {
+            label: "Project permissions",
+            link: "/help/project-access-control",
+          },
+          {
             label: "Move project to another space",
             link: "/help/move-project-to-space/",
           },
@@ -303,7 +316,7 @@ export default function helpCenterSidebar() {
         items: [
           { label: "Introduction to Spaces", link: "/help/intro-to-spaces" },
           { label: "Create a space", link: "/help/create-space" },
-          { label: "Space access control", link: "/help/space-access-control" },
+          { label: "Space access management", link: "/help/space-access-control" },
           {
             label: "View space members",
             link: "/help/view-space-members",

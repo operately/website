@@ -1,43 +1,46 @@
 ---
-title: "Space Access Control"
-description: "How to control who has access to your space."
+title: "Space access management"
+description: "Control who can access a space and what each access level allows."
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-Operately makes it easy to control who can see and work in your [spaces](/help/intro-to-spaces). We believe in transparency, so by default, anyone in your company can view what's happening in a space.
+Use space access management to decide:
 
-You can change who can access your space via the **Manage Access** section of any space.
+- What all company members can do in the space
+- What explicitly added space members can do in the space
 
-### Understanding access levels
+## Access levels for spaces
 
-You can set different access levels for:
+| Access Level       | What it allows |
+| ------------------ | -------------- |
+| **No Access**      | Cannot see or access the space. |
+| **View Access**    | Can see the space and its accessible content, including documents, tasks, and non-secret goals and projects. |
+| **Comment Access** | Includes View Access, plus commenting on tasks, discussions, documents, and other commentable resources. |
+| **Edit Access**    | Includes Comment Access, plus editing space name and description, enabling or disabling tools, and creating content such as discussions, projects, goals, documents, and files. |
+| **Full Access**    | Includes Edit Access, plus deleting the space and managing company-wide and individual member access levels. |
 
-- Everyone in your company
-- Specific people you invite as members of the space
+## Company-wide vs. individual member access
 
-Here's what each access level means:
+Each space has two main permission layers:
 
-| Access Level       | Description                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| **View Access**    | • Can see everything in the space<br />• Can't edit or comment<br />• Can't add new content                                          |
-| **Comment Access** | • Can see everything in the space<br />• Can leave comments<br />• Can't create or edit content<br />• Can't add or remove members     |
-| **Edit Access**    | • Can edit space content<br />• Can add new members<br />• Can't see invite-only content<br />• Can't change who manages the space     |
-| **Full Access**    | • Complete control of the space<br />• Can manage all content<br />• Can control who has access<br />• Can assign space managers |
+- **Company-wide access**: baseline access for all company members
+- **Member access**: explicit access for individually added space members
 
-When we say "content", we mean anything that can be created in the space, such as:
+If someone receives both, Operately applies the most permissive access level.
 
-- Goals
-- Discussions
-- Projects
-- Documents
-- Files and attachments
+## Secret spaces
 
-**Space managers** are trusted members with full access who can:
+Set company-wide access to **No Access** to make a space secret. Only people with explicit space-level access can see and interact with the space.
 
-- Invite new people
-- Create content
-- Control access settings
-- See and manage all projects in the space
+## Space managers
 
-<Aside type="tip">Be selective about who you add as space members. Members should be active contributors who work on the space's goals and projects, not just occasional readers. A good way to decide: since members get notifications about new messages, ask yourself "Would this person need to know about and respond to updates in this space?" If not, they probably don't need to be a member.</Aside>
+People with **Full Access** can manage access, including:
+
+- Changing company-wide access
+- Adding or removing members
+- Promoting or reassigning space managers
+
+<Aside type="tip">
+A practical approach is to keep company-wide access broad enough for transparency, then grant higher individual access only to people actively working inside the space.
+</Aside>
