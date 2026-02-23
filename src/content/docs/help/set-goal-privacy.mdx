@@ -13,19 +13,43 @@ Each goal is created inside a space. Goal permissions combine three layers:
 
 ## Access levels for goals
 
-| Access Level       | What it allows |
-| ------------------ | -------------- |
-| **No Access**      | Cannot see or access the goal. |
-| **View Access**    | Can view everything in the goal, including discussions, check-ins, and activity feed. |
-| **Comment Access** | Includes View Access, plus commenting on check-ins, discussions, and other commentable resources. |
-| **Edit Access**    | Includes Comment Access, plus editing goal name, description, parent goal, and dates; closing the goal; and adding or editing targets, checklist items, check-ins, and discussions. |
-| **Full Access**    | Includes Edit Access, plus deleting the goal, moving it to another space, and managing goal-wide and direct people access settings. |
+#### No Access
+
+Users cannot see or access the goal.
+
+#### View Access
+
+Users can view everything in the goal, including discussions, check-ins, and activity feed.
+
+#### Comment Access
+
+Includes View Access, plus commenting on check-ins, discussions, and other commentable resources.
+
+#### Edit Access
+
+Includes Comment Access, plus the ability to:
+
+- Edit the goal name, description, parent goal, and start and due dates
+- Close the goal
+- Add and edit targets
+- Add and edit checklist items
+- Add and edit check-ins
+- Add and edit discussions
+
+#### Full Access
+
+Includes Edit Access, plus the ability to:
+
+- Delete the goal
+- Move the goal to another space
+- Manage goal-wide access settings
+- Manage direct people access settings
 
 ## How access is resolved
 
 When multiple grants apply, Operately uses the most permissive access level.
 
-Example: Company members = **View Access**, space members = **Comment Access**, direct access = **Edit Access**. Effective goal access is **Edit Access**.
+Example: if company members have **View Access**, space members have **Comment Access**, and the person has direct **Edit Access**, the person gets **Edit Access**.
 
 ## How to set baseline goal permissions
 
