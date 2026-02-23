@@ -133,6 +133,15 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "Permissions & Access",
+        items: [
+          {
+            label: "How permissions work",
+            link: "/help/permissions-overview",
+          },
+        ],
+      },
+      {
         label: "Goal tracking",
         items: [
           {
@@ -180,7 +189,7 @@ export default function helpCenterSidebar() {
             link: "/help/manage-goal-access",
           },
           {
-            label: "Set goal privacy",
+            label: "Goal permissions",
             link: "/help/set-goal-privacy",
           },
           {
@@ -263,6 +272,10 @@ export default function helpCenterSidebar() {
           {
             label: "Manage project contributors",
             link: "/help/manage-project-contributors/",
+          },
+          {
+            label: "Project permissions",
+            link: "/help/project-access-control",
           },
           {
             label: "Move project to another space",

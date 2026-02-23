@@ -1,47 +1,72 @@
 ---
-title: "Set goal privacy"
-description: "Learn how to control who can view, comment on, and edit your goal."
+title: "Goal permissions"
+description: "Control who can access a goal and what each access level allows."
 ---
 
-import { Steps } from '@astrojs/starlight/components';
-import ImageEnhancer from '@/components/ImageEnhancer.astro';
+import { Steps, Aside } from '@astrojs/starlight/components';
 
-<ImageEnhancer />
+Each goal is created inside a space. Goal permissions combine three layers:
 
-Goal privacy settings control who can see and interact with your goal. You can set different access levels for company members and space members.
+- **Company members** baseline access
+- **Space members** baseline access
+- **Direct people access** for specific company members
 
-## Setting privacy
+## Access levels for goals
+
+#### No Access
+
+Users cannot see or access the goal.
+
+#### View Access
+
+Users can view everything in the goal, including discussions, check-ins, and activity feed.
+
+#### Comment Access
+
+Includes View Access, plus commenting on check-ins, discussions, and other commentable resources.
+
+#### Edit Access
+
+Includes Comment Access, plus the ability to:
+
+- Edit the goal name, description, parent goal, and start and due dates
+- Close the goal
+- Add and edit targets
+- Add and edit checklist items
+- Add and edit check-ins
+- Add and edit discussions
+
+#### Full Access
+
+Includes Edit Access, plus the ability to:
+
+- Delete the goal
+- Move the goal to another space
+- Manage goal-wide access settings
+- Manage direct people access settings
+
+## How access is resolved
+
+When multiple grants apply, Operately uses the most permissive access level.
+
+Example: if company members have **View Access**, space members have **Comment Access**, and the person has direct **Edit Access**, the person gets **Edit Access**.
+
+## How to set baseline goal permissions
 
 <Steps>
-1. Open the goal page and go to the **Overview** tab
+1. Open the goal and go to the **Overview** tab
 2. In the sidebar, find the **Privacy** section
-3. Click the privacy setting to open the privacy dialog
-4. Choose access levels for company members and space members
-5. Click **Save** to apply the settings
+3. Open the permissions dialog
+4. Choose access levels for **Company members** and **Space members**
+5. Save your changes
 </Steps>
 
-## Access levels
+## How to manage direct people access
 
-**No Access** — People cannot see the goal at all.
+Use **Manage access** on the goal sidebar to grant direct access to specific company members.
 
-**View Access** — People can see the goal but cannot comment or edit.
+For step-by-step instructions, see [Manage goal access](/help/manage-goal-access).
 
-**Comment Access** — People can see the goal and add comments, but cannot edit the goal details.
-
-**Edit Access** — People can see, comment on, and edit the goal details.
-
-**Full Access** — People have complete control over the goal, including deleting it.
-
-## Default settings
-
-Most goals use the default "Company members can comment, space members can edit" setting. This promotes transparency while giving space members more control over their work.
-
-## When to adjust privacy
-
-**Sensitive work** — Use more restrictive settings for confidential or strategic goals.
-
-**Cross-team collaboration** — Give broader access when multiple teams need to contribute.
-
-**Public goals** — Use open settings for company-wide initiatives that everyone should see.
-
-**Private work** — Restrict access for early-stage work that's not ready for broader visibility. 
+<Aside type="note">
+Setting both company and space-member baselines to <strong>No Access</strong> makes the goal hidden unless someone receives direct goal access.
+</Aside>

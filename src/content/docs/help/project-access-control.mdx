@@ -1,0 +1,76 @@
+---
+title: "Project permissions"
+description: "Control who can access a project and what each access level allows."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Projects always live inside a space. You can control project access at three layers:
+
+- **Company members** baseline
+- **Space members** baseline
+- **Contributors** (direct project-level grants)
+
+## Access levels for projects
+
+#### No Access
+
+Users cannot see or access the project.
+
+#### View Access
+
+Users can view everything in the project, including milestones, tasks, check-ins, discussions, and activity.
+
+#### Comment Access
+
+Includes View Access, plus commenting on tasks, discussions, check-ins, and other commentable resources.
+
+#### Edit Access
+
+Includes Comment Access, plus the ability to:
+
+- Edit project name, description, parent goal, and start and due dates
+- Add and edit milestones
+- Add and edit tasks
+- Add and edit resources
+- Add and edit check-ins
+- Add and edit discussions
+- Pause and close the project
+- Add and edit contributors (within edit-level limits)
+
+#### Full Access
+
+Includes Edit Access, plus the ability to:
+
+- Delete the project
+- Move the project to another space
+- Manage project-wide access settings
+- Manage contributor access settings
+
+## How access is resolved
+
+When a person matches more than one project rule, Operately applies the most permissive access level.
+
+Example: if company members have **No Access**, space members have **Comment Access**, and the person is a contributor with **Edit Access**, the person gets **Edit Access**.
+
+## Configuring project access
+
+1. Open the project and go to the **Overview** tab.
+2. Click **Manage team & access** in the sidebar.
+3. Set baseline access for **Company members** and **Space members**.
+4. Add or update **Contributors** with direct access levels.
+
+## Contributors
+
+Contributors are specific people granted direct project access and responsibilities.
+
+- Use contributors when someone needs project access that differs from baseline rules.
+- Contributors can be granted **View**, **Comment**, **Edit**, or **Full** direct access.
+- Remove a contributor when they should no longer have direct project access.
+- If someone has **Edit Access**, they can add and edit other contributors, but cannot grant contributor access above **Edit Access** and they cannot edit contributors with higher access levels.
+
+For contributor management steps, see [Manage project contributors](/help/manage-project-contributors).
+
+<Aside type="note">
+Setting both company and space member baselines to <strong>No Access</strong> makes the project effectively hidden except for explicitly added contributors.
+</Aside>

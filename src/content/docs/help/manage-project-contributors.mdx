@@ -1,51 +1,55 @@
 ---
-title: Manage project contributors
-description: Learn how to add and remove contributors from your project
+title: "Manage project contributors"
+description: "Add, update, or remove project contributors and their direct access levels."
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Aside } from '@astrojs/starlight/components';
 
-Project contributors are team members who actively participate in the project's execution. Managing contributors effectively ensures the right people have access to contribute to your project's success.
+Contributors are people with direct project-level grants and defined responsibilities.
 
-## How to manage contributors
-
-<Steps>
-1. Open the project page and go to the **Overview** tab
-2. In the sidebar, click on **Manage team & access**
-3. On the new page, in the **Contributors** section, you'll see all current contributors listed
-</Steps>
-
-### Adding contributors
+## Open contributor access settings
 
 <Steps>
-1. Click the **Add Contributors** button at the top of the page
-2. Select a company member from the dropdown
-3. Choose the appropriate access level for the contributor
-4. Enter the contributor's responsibility (their role in the project)
-5. To add multiple contributors at once, click the **+** button and repeat steps 2-4
-6. Once you've entered information for all new contributors, click **Add contributors**
+1. Open the project and go to the **Overview** tab
+2. In the sidebar, click **Manage team & access**
+3. In the **Contributors** section, review current contributors
 </Steps>
 
-### Removing contributors
+## Add contributors
 
 <Steps>
-1. Find the contributor you want to remove in the Contributors section
-2. Click on the three dots (**...**) next to their name
-3. Select **Remove from project** from the dropdown menu
+1. Click **Add Contributors**
+2. Select a company member
+3. Choose contributor access: **View**, **Comment**, **Edit**, or **Full**
+4. Enter the contributor's responsibility
+5. Repeat for additional contributors if needed
+6. Click **Add contributors**
 </Steps>
 
-## After updating contributors
+## Update or remove contributors
 
-Once you've made changes to the contributor list:
+<Steps>
+1. Find the contributor in the **Contributors** section
+2. Open the **...** menu next to their name
+3. Choose to update access or remove them from the project
+</Steps>
 
-- **Team notifications** - Contributors will be notified of their addition or removal
-- **Access updates** - New contributors gain project access, removed contributors lose access
-- **Project visibility** - The updated contributor list is visible to all project stakeholders
+## How contributor access combines with baseline access
 
-## Best practices for contributor management
+A person can receive project access from:
 
-- **Clear responsibilities** - Always define specific roles and responsibilities for each contributor
-- **Appropriate access levels** - Grant the minimum access level necessary for contributors to do their work
-- **Regular reviews** - Periodically review the contributor list to ensure it's up to date
-- **Communication** - Inform the team when contributors are added or removed
-- **Documentation** - Keep track of why contributors were added and their expected contributions
+- Company-members baseline
+- Space-members baseline
+- Contributor grant
+
+Operately uses the most permissive grant as effective access.
+
+## Important limitation
+
+People with **Edit Access** can manage contributors, but they cannot grant contributor access above **Edit Access**.
+
+For complete level definitions and project-wide rules, see [Project permissions](/help/project-access-control) and [How permissions work](/help/permissions-overview).
+
+<Aside type="tip">
+Use baseline rules for broad visibility and contributor grants for people who actively execute project work.
+</Aside>
