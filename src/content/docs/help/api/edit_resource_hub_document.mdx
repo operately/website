@@ -1,0 +1,86 @@
+---
+title: "edit_resource_hub_document"
+description: "Generated reference for the mutation endpoint edit_resource_hub_document."
+---
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/edit_resource_hub_document` |
+| Handler | `OperatelyWeb.Api.Mutations.EditResourceHubDocument` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>content</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>send_notifications_to_everyone</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>subscriber_ids</code></td>
+  <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `document` | `resource_hub_document` object | No | Yes |
+

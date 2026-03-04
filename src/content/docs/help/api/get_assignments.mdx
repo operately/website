@@ -1,0 +1,30 @@
+---
+title: "get_assignments"
+description: "Generated reference for the query endpoint get_assignments."
+---
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/get_assignments` |
+| Handler | `OperatelyWeb.Api.Queries.GetAssignments` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+This endpoint has no input fields.
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `assignments` | array of `review_assignment` object | Yes | No |
+

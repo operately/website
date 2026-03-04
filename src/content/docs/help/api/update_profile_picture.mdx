@@ -1,0 +1,70 @@
+---
+title: "update_profile_picture"
+description: "Generated reference for the mutation endpoint update_profile_picture."
+---
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/update_profile_picture` |
+| Handler | `OperatelyWeb.Api.Mutations.UpdateProfilePicture` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>person_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>avatar_blob_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>avatar_url</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `person` | `person` object | Yes | Yes |
+

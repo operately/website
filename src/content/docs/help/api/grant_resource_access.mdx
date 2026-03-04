@@ -1,0 +1,62 @@
+---
+title: "grant_resource_access"
+description: "Generated reference for the mutation endpoint grant_resource_access."
+---
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/grant_resource_access` |
+| Handler | `OperatelyWeb.Api.Mutations.GrantResourceAccess` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>person_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>resources</code></td>
+  <td style={{ whiteSpace: "normal" }}>array of <code>resource_access_input</code> object</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `success` | `boolean` | Yes | No |
+

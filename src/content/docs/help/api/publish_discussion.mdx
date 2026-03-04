@@ -1,0 +1,54 @@
+---
+title: "publish_discussion"
+description: "Generated reference for the mutation endpoint publish_discussion."
+---
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/publish_discussion` |
+| Handler | `OperatelyWeb.Api.Mutations.PublishDiscussion` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `discussion` | `discussion` object | No | Yes |
+
