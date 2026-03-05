@@ -3,6 +3,8 @@ title: "create_goal"
 description: "Generated reference for the mutation endpoint create_goal."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -132,3 +134,7 @@ description: "Generated reference for the mutation endpoint create_goal."
 | --- | --- | --- | --- |
 | `goal` | `goal` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_goal\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":123, \"champion_id\":\"value\", \"company_access_level\":123, \"description\":\"value\", \"name\":\"value\", \"parent_goal_id\":\"value\", \"reviewer_id\":\"value\", \"space_access_level\":123, \"space_id\":\"value\", \"targets\":[{\"from\":12.34, \"index\":123, \"name\":\"value\", \"to\":12.34, \"unit\":\"value\"}], \"timeframe\":{\"contextual_end_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"contextual_start_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}}}'"} />

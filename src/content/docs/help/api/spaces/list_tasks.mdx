@@ -3,6 +3,8 @@ title: "spaces/list_tasks"
 description: "Generated reference for the query endpoint spaces/list_tasks."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint spaces/list_tasks."
 | --- | --- | --- | --- |
 | `tasks` | array of `task` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/list_tasks?space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "delete_resource_hub_link"
 description: "Generated reference for the mutation endpoint delete_resource_hub_link."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -52,3 +54,7 @@ description: "Generated reference for the mutation endpoint delete_resource_hub_
 | --- | --- | --- | --- |
 | `success` | `boolean` | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/delete_resource_hub_link\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"link_id\":\"value\"}'"} />

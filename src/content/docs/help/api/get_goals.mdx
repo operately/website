@@ -3,6 +3,8 @@ title: "get_goals"
 description: "Generated reference for the query endpoint get_goals."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -91,3 +93,7 @@ description: "Generated reference for the query endpoint get_goals."
 | --- | --- | --- | --- |
 | `goals` | array of `goal` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_goals?include_champion=true&include_last_check_in=true&include_projects=true&include_reviewer=true&include_space=true&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "add_reaction"
 description: "Generated reference for the mutation endpoint add_reaction."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -76,3 +78,7 @@ description: "Generated reference for the mutation endpoint add_reaction."
 | --- | --- | --- | --- |
 | `reaction` | `reaction` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/add_reaction\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"emoji\":\"value\", \"entity_id\":\"value\", \"entity_type\":\"project_check_in\", \"parent_type\":\"project_check_in\"}'"} />

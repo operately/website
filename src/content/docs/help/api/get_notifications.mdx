@@ -3,6 +3,8 @@ title: "get_notifications"
 description: "Generated reference for the query endpoint get_notifications."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -59,3 +61,7 @@ description: "Generated reference for the query endpoint get_notifications."
 | --- | --- | --- | --- |
 | `notifications` | array of `notification` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_notifications?page=123&per_page=123\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

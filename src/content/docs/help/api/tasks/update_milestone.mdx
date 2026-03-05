@@ -3,6 +3,8 @@ title: "tasks/update_milestone"
 description: "Generated reference for the mutation endpoint tasks/update_milestone."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint tasks/update_milesto
 | --- | --- | --- | --- |
 | `task` | `task` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_milestone\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\", \"task_id\":\"value\"}'"} />

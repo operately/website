@@ -3,6 +3,8 @@ title: "get_flat_work_map"
 description: "Generated reference for the query endpoint get_flat_work_map."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -115,3 +117,7 @@ description: "Generated reference for the query endpoint get_flat_work_map."
 | --- | --- | --- | --- |
 | `work_map` | array of `work_map_item` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_flat_work_map?champion_id=value&contributor_id=value&include_assignees=true&include_reviewer=true&include_tasks=true&only_completed=true&parent_goal_id=value&reviewer_id=value&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

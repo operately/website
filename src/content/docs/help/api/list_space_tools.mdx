@@ -3,6 +3,8 @@ title: "list_space_tools"
 description: "Generated reference for the query endpoint list_space_tools."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint list_space_tools."
 | --- | --- | --- | --- |
 | `tools` | `space_tools` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/list_space_tools?space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

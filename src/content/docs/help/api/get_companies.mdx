@@ -3,6 +3,8 @@ title: "get_companies"
 description: "Generated reference for the query endpoint get_companies."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint get_companies."
 | --- | --- | --- | --- |
 | `companies` | array of `company` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_companies?include_member_count=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

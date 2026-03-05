@@ -3,6 +3,8 @@ title: "close_goal"
 description: "Generated reference for the mutation endpoint close_goal."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -92,3 +94,7 @@ description: "Generated reference for the mutation endpoint close_goal."
 | --- | --- | --- | --- |
 | `goal` | `goal` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/close_goal\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"retrospective\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"], \"success\":\"value\", \"success_status\":\"value\"}'"} />

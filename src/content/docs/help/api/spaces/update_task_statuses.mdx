@@ -3,6 +3,8 @@ title: "spaces/update_task_statuses"
 description: "Generated reference for the mutation endpoint spaces/update_task_statuses."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -68,3 +70,7 @@ description: "Generated reference for the mutation endpoint spaces/update_task_s
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_task_statuses\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"deleted_status_replacements\":[{\"deleted_status_id\":\"value\", \"replacement_status_id\":\"value\"}], \"space_id\":\"value\", \"task_statuses\":[{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}]}'"} />

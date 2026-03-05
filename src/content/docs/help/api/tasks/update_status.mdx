@@ -3,6 +3,8 @@ title: "tasks/update_status"
 description: "Generated reference for the mutation endpoint tasks/update_status."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -69,3 +71,7 @@ description: "Generated reference for the mutation endpoint tasks/update_status.
 | `task` | `task` object | Yes | No |
 | `updated_milestone` | `milestone` object | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_status\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"task_id\":\"value\", \"type\":\"space\"}'"} />

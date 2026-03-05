@@ -3,6 +3,8 @@ title: "get_goal_progress_update"
 description: "Generated reference for the query endpoint get_goal_progress_update."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -163,3 +165,7 @@ description: "Generated reference for the query endpoint get_goal_progress_updat
 | --- | --- | --- | --- |
 | `update` | `goal_progress_update` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_goal_progress_update?id=value&include_acknowledged_by=true&include_author=true&include_champion=true&include_goal=true&include_goal_checklist=true&include_goal_targets=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_reviewer=true&include_space=true&include_space_members=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

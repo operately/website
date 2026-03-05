@@ -3,6 +3,8 @@ title: "edit_company"
 description: "Generated reference for the mutation endpoint edit_company."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -52,3 +54,7 @@ description: "Generated reference for the mutation endpoint edit_company."
 | --- | --- | --- | --- |
 | `company` | `company` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_company\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"name\":\"value\"}'"} />

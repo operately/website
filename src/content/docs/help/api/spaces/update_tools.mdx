@@ -3,6 +3,8 @@ title: "spaces/update_tools"
 description: "Generated reference for the mutation endpoint spaces/update_tools."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -61,3 +63,7 @@ description: "Generated reference for the mutation endpoint spaces/update_tools.
 | `success` | `boolean` | Yes | Yes |
 | `tools` | `space_tools` object | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_tools\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"space_id\":\"value\", \"tools\":{\"discussions_enabled\":true, \"resource_hub_enabled\":true, \"tasks_enabled\":true}}'"} />

@@ -3,6 +3,8 @@ title: "get_discussions"
 description: "Generated reference for the query endpoint get_discussions."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -76,3 +78,7 @@ description: "Generated reference for the query endpoint get_discussions."
 | `discussions` | array of `discussion` object | No | Yes |
 | `my_drafts` | array of `discussion` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_discussions?include_author=true&include_comments_count=true&include_my_drafts=true&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

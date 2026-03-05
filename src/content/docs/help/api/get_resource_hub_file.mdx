@@ -3,6 +3,8 @@ title: "get_resource_hub_file"
 description: "Generated reference for the query endpoint get_resource_hub_file."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -123,3 +125,7 @@ description: "Generated reference for the query endpoint get_resource_hub_file."
 | --- | --- | --- | --- |
 | `file` | `resource_hub_file` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_resource_hub_file?id=value&include_author=true&include_parent_folder=true&include_path_to_file=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

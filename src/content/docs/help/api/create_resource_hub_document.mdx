@@ -3,6 +3,8 @@ title: "create_resource_hub_document"
 description: "Generated reference for the mutation endpoint create_resource_hub_document."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -108,3 +110,7 @@ description: "Generated reference for the mutation endpoint create_resource_hub_
 | --- | --- | --- | --- |
 | `document` | `document` | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_resource_hub_document\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"copied_document_id\":\"value\", \"folder_id\":\"value\", \"name\":\"value\", \"post_as_draft\":true, \"resource_hub_id\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />

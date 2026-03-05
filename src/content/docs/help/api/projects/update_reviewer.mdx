@@ -3,6 +3,8 @@ title: "projects/update_reviewer"
 description: "Generated reference for the mutation endpoint projects/update_reviewer."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint projects/update_revi
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_reviewer\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"project_id\":\"value\", \"reviewer_id\":\"value\"}'"} />

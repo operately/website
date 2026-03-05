@@ -3,6 +3,8 @@ title: "search_people"
 description: "Generated reference for the query endpoint search_people."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -75,3 +77,7 @@ description: "Generated reference for the query endpoint search_people."
 | --- | --- | --- | --- |
 | `people` | array of `person` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/search_people?ignored_ids[]=value&query=value&search_scope_id=value&search_scope_type=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

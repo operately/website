@@ -3,6 +3,8 @@ title: "mark_notification_as_read"
 description: "Generated reference for the mutation endpoint mark_notification_as_read."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -49,3 +51,7 @@ description: "Generated reference for the mutation endpoint mark_notification_as
 ## Outputs
 
 This endpoint has no output fields.
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/mark_notification_as_read\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />

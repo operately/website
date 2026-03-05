@@ -3,6 +3,8 @@ title: "subscribe_to_notifications"
 description: "Generated reference for the mutation endpoint subscribe_to_notifications."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -57,3 +59,7 @@ description: "Generated reference for the mutation endpoint subscribe_to_notific
 ## Outputs
 
 This endpoint has no output fields.
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/subscribe_to_notifications\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"type\":\"project_check_in\"}'"} />

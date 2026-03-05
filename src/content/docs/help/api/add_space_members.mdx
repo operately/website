@@ -3,6 +3,8 @@ title: "add_space_members"
 description: "Generated reference for the mutation endpoint add_space_members."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint add_space_members."
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/add_space_members\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"members\":[{\"access_level\":123, \"id\":\"value\"}], \"space_id\":\"value\"}'"} />

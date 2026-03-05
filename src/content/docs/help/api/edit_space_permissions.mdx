@@ -3,6 +3,8 @@ title: "edit_space_permissions"
 description: "Generated reference for the mutation endpoint edit_space_permissions."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint edit_space_permissio
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_space_permissions\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"access_levels\":{\"company\":123, \"public\":123, \"space\":123}, \"space_id\":\"value\"}'"} />

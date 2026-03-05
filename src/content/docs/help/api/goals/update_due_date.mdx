@@ -3,6 +3,8 @@ title: "goals/update_due_date"
 description: "Generated reference for the mutation endpoint goals/update_due_date."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint goals/update_due_dat
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_due_date\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"goal_id\":\"value\"}'"} />

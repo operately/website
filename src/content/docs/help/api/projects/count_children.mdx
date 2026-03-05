@@ -3,6 +3,8 @@ title: "projects/count_children"
 description: "Generated reference for the query endpoint projects/count_children."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -67,3 +69,7 @@ description: "Generated reference for the query endpoint projects/count_children
 | --- | --- | --- | --- |
 | `children_count` | `project_children_count` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/count_children?id=value&use_milestone_id=true&use_task_id=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

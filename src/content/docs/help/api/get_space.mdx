@@ -3,6 +3,8 @@ title: "get_space"
 description: "Generated reference for the query endpoint get_space."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -99,3 +101,7 @@ description: "Generated reference for the query endpoint get_space."
 | --- | --- | --- | --- |
 | `space` | `space` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_space?id=value&include_access_levels=true&include_members=true&include_members_access_levels=true&include_permissions=true&include_potential_subscribers=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

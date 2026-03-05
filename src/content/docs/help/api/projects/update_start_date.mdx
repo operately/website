@@ -3,6 +3,8 @@ title: "projects/update_start_date"
 description: "Generated reference for the mutation endpoint projects/update_start_date."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint projects/update_star
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_start_date\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"project_id\":\"value\", \"start_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}}'"} />

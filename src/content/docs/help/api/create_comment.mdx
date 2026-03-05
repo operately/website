@@ -3,6 +3,8 @@ title: "create_comment"
 description: "Generated reference for the mutation endpoint create_comment."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -68,3 +70,7 @@ description: "Generated reference for the mutation endpoint create_comment."
 | --- | --- | --- | --- |
 | `comment` | `comment` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_comment\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"entity_id\":\"value\", \"entity_type\":\"project_check_in\"}'"} />

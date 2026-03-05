@@ -3,6 +3,8 @@ title: "get_projects"
 description: "Generated reference for the query endpoint get_projects."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -155,3 +157,7 @@ description: "Generated reference for the query endpoint get_projects."
 | --- | --- | --- | --- |
 | `projects` | array of `project` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_projects?goal_id=value&include_archived=true&include_champion=true&include_contributors=true&include_goal=true&include_last_check_in=true&include_milestones=true&include_privacy=true&include_retrospective=true&include_reviewer=true&include_space=true&only_my_projects=true&only_reviewed_by_me=true&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

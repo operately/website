@@ -3,6 +3,8 @@ title: "tasks/create"
 description: "Generated reference for the mutation endpoint tasks/create."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -102,3 +104,7 @@ description: "Generated reference for the mutation endpoint tasks/create."
 | `updated_milestone` | `milestone` object | No | No |
 | `updated_space` | `space` object | No | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />

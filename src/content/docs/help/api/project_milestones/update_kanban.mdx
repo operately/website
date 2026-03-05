@@ -3,6 +3,8 @@ title: "project_milestones/update_kanban"
 description: "Generated reference for the mutation endpoint project_milestones/update_kanban."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -76,3 +78,7 @@ description: "Generated reference for the mutation endpoint project_milestones/u
 | --- | --- | --- | --- |
 | `task` | `task` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/update_kanban\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"kanban_state\":\"value\", \"milestone_id\":\"value\", \"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"task_id\":\"value\"}'"} />

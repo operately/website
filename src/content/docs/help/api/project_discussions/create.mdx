@@ -3,6 +3,8 @@ title: "project_discussions/create"
 description: "Generated reference for the mutation endpoint project_discussions/create."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -84,3 +86,7 @@ description: "Generated reference for the mutation endpoint project_discussions/
 | --- | --- | --- | --- |
 | `discussion` | `comment_thread` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_discussions/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"message\":\"value\", \"project_id\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />

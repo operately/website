@@ -3,6 +3,8 @@ title: "get_comments"
 description: "Generated reference for the query endpoint get_comments."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -59,3 +61,7 @@ description: "Generated reference for the query endpoint get_comments."
 | --- | --- | --- | --- |
 | `comments` | array of `comment` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_comments?entity_id=value&entity_type=project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

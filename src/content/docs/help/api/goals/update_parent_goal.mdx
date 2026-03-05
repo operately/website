@@ -3,6 +3,8 @@ title: "goals/update_parent_goal"
 description: "Generated reference for the mutation endpoint goals/update_parent_goal."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -60,3 +62,7 @@ description: "Generated reference for the mutation endpoint goals/update_parent_
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_parent_goal\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"parent_goal_id\":\"value\"}'"} />

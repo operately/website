@@ -3,6 +3,8 @@ title: "projects/delete"
 description: "Generated reference for the mutation endpoint projects/delete."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -52,3 +54,7 @@ description: "Generated reference for the mutation endpoint projects/delete."
 | --- | --- | --- | --- |
 | `project` | `project` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"project_id\":\"value\"}'"} />

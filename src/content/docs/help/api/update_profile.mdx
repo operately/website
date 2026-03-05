@@ -3,6 +3,8 @@ title: "update_profile"
 description: "Generated reference for the mutation endpoint update_profile."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -108,3 +110,7 @@ description: "Generated reference for the mutation endpoint update_profile."
 | --- | --- | --- | --- |
 | `person` | `person` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/update_profile\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"full_name\":\"value\", \"id\":\"value\", \"manager_id\":\"value\", \"notify_about_assignments\":true, \"theme\":\"value\", \"timezone\":\"value\", \"title\":\"value\"}'"} />

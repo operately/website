@@ -3,6 +3,8 @@ title: "projects/parent_goal_search"
 description: "Generated reference for the query endpoint projects/parent_goal_search."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -59,3 +61,7 @@ description: "Generated reference for the query endpoint projects/parent_goal_se
 | --- | --- | --- | --- |
 | `goals` | array of `goal` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/parent_goal_search?project_id=value&query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

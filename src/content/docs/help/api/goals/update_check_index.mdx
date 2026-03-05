@@ -3,6 +3,8 @@ title: "goals/update_check_index"
 description: "Generated reference for the mutation endpoint goals/update_check_index."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -68,3 +70,7 @@ description: "Generated reference for the mutation endpoint goals/update_check_i
 | --- | --- | --- | --- |
 | `success` | `boolean` | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_check_index\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"check_id\":\"value\", \"goal_id\":\"value\", \"index\":123}'"} />

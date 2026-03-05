@@ -3,6 +3,8 @@ title: "invite_guest"
 description: "Generated reference for the mutation endpoint invite_guest."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -70,3 +72,7 @@ description: "Generated reference for the mutation endpoint invite_guest."
 | `new_account` | `boolean` | Yes | No |
 | `person_id` | `string` | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/invite_guest\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />

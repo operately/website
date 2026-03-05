@@ -3,6 +3,8 @@ title: "archive_message"
 description: "Generated reference for the mutation endpoint archive_message."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -49,3 +51,7 @@ description: "Generated reference for the mutation endpoint archive_message."
 ## Outputs
 
 This endpoint has no output fields.
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/archive_message\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"message_id\":\"value\"}'"} />

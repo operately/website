@@ -3,6 +3,8 @@ title: "get_project_check_ins"
 description: "Generated reference for the query endpoint get_project_check_ins."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -75,3 +77,7 @@ description: "Generated reference for the query endpoint get_project_check_ins."
 | --- | --- | --- | --- |
 | `project_check_ins` | array of `project_check_in` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_project_check_ins?include_author=true&include_project=true&include_reactions=true&project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

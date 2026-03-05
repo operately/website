@@ -3,6 +3,8 @@ title: "tasks/list"
 description: "Generated reference for the query endpoint tasks/list."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint tasks/list."
 | --- | --- | --- | --- |
 | `tasks` | array of `task` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/tasks/list?project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

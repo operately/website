@@ -3,6 +3,8 @@ title: "get_milestone"
 description: "Generated reference for the query endpoint get_milestone."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -107,3 +109,7 @@ description: "Generated reference for the query endpoint get_milestone."
 | --- | --- | --- | --- |
 | `milestone` | `milestone` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_milestone?id=value&include_available_statuses=true&include_comments=true&include_creator=true&include_permissions=true&include_project=true&include_space=true&include_subscription_list=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "get_activities"
 description: "Generated reference for the query endpoint get_activities."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -67,3 +69,7 @@ description: "Generated reference for the query endpoint get_activities."
 | --- | --- | --- | --- |
 | `activities` | array of `activity` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_activities?actions[]=value&scope_id=value&scope_type=person\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "post_milestone_comment"
 description: "Generated reference for the mutation endpoint post_milestone_comment."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -68,3 +70,7 @@ description: "Generated reference for the mutation endpoint post_milestone_comme
 | --- | --- | --- | --- |
 | `comment` | `milestone_comment` object | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/post_milestone_comment\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"action\":\"value\", \"content\":\"value\", \"milestone_id\":\"value\"}'"} />

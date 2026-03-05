@@ -3,6 +3,8 @@ title: "create_goal_discussion"
 description: "Generated reference for the mutation endpoint create_goal_discussion."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -84,3 +86,7 @@ description: "Generated reference for the mutation endpoint create_goal_discussi
 | --- | --- | --- | --- |
 | `id` | `string` | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_goal_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"message\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />

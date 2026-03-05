@@ -3,6 +3,8 @@ title: "is_subscribed_to_resource"
 description: "Generated reference for the query endpoint is_subscribed_to_resource."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -59,3 +61,7 @@ description: "Generated reference for the query endpoint is_subscribed_to_resour
 | --- | --- | --- | --- |
 | `subscribed` | `boolean` | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/is_subscribed_to_resource?resource_id=value&resource_type=project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

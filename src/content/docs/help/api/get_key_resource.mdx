@@ -3,6 +3,8 @@ title: "get_key_resource"
 description: "Generated reference for the query endpoint get_key_resource."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint get_key_resource."
 | --- | --- | --- | --- |
 | `key_resource` | `project_key_resource` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_key_resource?id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

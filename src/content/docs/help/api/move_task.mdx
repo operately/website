@@ -3,6 +3,8 @@ title: "move_task"
 description: "Generated reference for the mutation endpoint move_task."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -70,3 +72,7 @@ description: "Generated reference for the mutation endpoint move_task."
 | `destination_type` | `task_type` enum (`space`, `project`) | Yes | No |
 | `destination_id` | `id` primitive (encoded as `string`) | Yes | No |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/move_task\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"destination_id\":\"value\", \"destination_type\":\"space\", \"task_id\":\"value\"}'"} />

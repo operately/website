@@ -3,6 +3,8 @@ title: "spaces/list_members"
 description: "Generated reference for the query endpoint spaces/list_members."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -67,3 +69,7 @@ description: "Generated reference for the query endpoint spaces/list_members."
 | --- | --- | --- | --- |
 | `people` | array of `person` object | Yes | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/list_members?ignored_ids[]=value&query=value&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "list_goal_contributors"
 description: "Generated reference for the query endpoint list_goal_contributors."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -51,3 +53,7 @@ description: "Generated reference for the query endpoint list_goal_contributors.
 | --- | --- | --- | --- |
 | `contributors` | array of `person` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/list_goal_contributors?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />

@@ -3,6 +3,8 @@ title: "get_people"
 description: "Generated reference for the query endpoint get_people."
 ---
 
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
 ## Endpoint
 
 | Property | Value |
@@ -91,3 +93,7 @@ description: "Generated reference for the query endpoint get_people."
 | --- | --- | --- | --- |
 | `people` | array of `person` object | No | Yes |
 
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_people?include_account=true&include_company_access_levels=true&include_invite_link=true&include_manager=true&include_suspended=true&only_suspended=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
