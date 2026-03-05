@@ -4,3 +4,59 @@
   list-style-type: disc;
   padding-inline-start: 2em;
 }
+
+.sl-markdown-content .curl-copy-block {
+  position: relative;
+}
+
+.sl-markdown-content .curl-copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.375rem;
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+.sl-markdown-content .curl-copy-block pre {
+  margin-top: 0;
+  padding-right: 3.5rem;
+}
+
+.sl-markdown-content .curl-copy-button:hover {
+  opacity: 0.9;
+}
+
+.sl-markdown-content .curl-copy-button:active {
+  transform: scale(0.96);
+}
+
+.sl-markdown-content .curl-copy-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.sl-markdown-content .curl-copy-feedback {
+  position: absolute;
+  top: 0.8rem;
+  right: 2.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #22c55e;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.sl-markdown-content .curl-copy-feedback.is-visible {
+  opacity: 1;
+}
