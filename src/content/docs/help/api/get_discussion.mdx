@@ -121,3 +121,38 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_discussion?id=value&include_author=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_space=true&include_space_members=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "discussion": {
+    "author": "<person>",
+    "body": "value",
+    "comments": [
+      "<comment>"
+    ],
+    "comments_count": 123,
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "name": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<space_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "published_at": "2026-01-01",
+    "reactions": [
+      "<reaction>"
+    ],
+    "space": "<space>",
+    "state": "value",
+    "subscription_list": "<subscription_list>",
+    "title": "value",
+    "updated_at": "2026-01-01"
+  }
+}
+```
+

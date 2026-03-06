@@ -61,3 +61,200 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/global_search?query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "goals": [
+    {
+      "access_levels": "<access_levels>",
+      "archived_at": "2026-01-01",
+      "champion": "<person>",
+      "checklist": [
+        "<goal_check>"
+      ],
+      "closed_at": "2026-01-01",
+      "closed_by": "<person>",
+      "description": "value",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "is_archived": true,
+      "is_closed": true,
+      "is_outdated": true,
+      "last_check_in": "<goal_progress_update>",
+      "last_check_in_id": "value",
+      "my_role": "value",
+      "name": "value",
+      "next_update_scheduled_at": "2026-01-01",
+      "notifications": [
+        "<notification>"
+      ],
+      "parent_goal": "<goal>",
+      "parent_goal_id": "value",
+      "permissions": "<goal_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "privacy": "public",
+      "progress_percentage": 12.34,
+      "projects": [
+        "<project>"
+      ],
+      "retrospective": "<goal_retrospective>",
+      "reviewer": "<person>",
+      "space": "<space>",
+      "status": "on_track",
+      "success": true,
+      "targets": [
+        "<target>"
+      ],
+      "timeframe": "<timeframe>",
+      "updated_at": "2026-01-01"
+    }
+  ],
+  "milestones": [
+    {
+      "available_statuses": [
+        "<task_status>"
+      ],
+      "comments": [
+        "<milestone_comment>"
+      ],
+      "comments_count": 123,
+      "completed_at": "2026-01-01",
+      "creator": "<person>",
+      "description": "value",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "permissions": "<project_permissions>",
+      "project": "<project>",
+      "space": "<space>",
+      "status": "pending",
+      "subscription_list": "<subscription_list>",
+      "tasks_kanban_state": "value",
+      "tasks_ordering_state": [
+        "value"
+      ],
+      "timeframe": "<timeframe>",
+      "title": "value"
+    }
+  ],
+  "people": [
+    {
+      "access_level": 123,
+      "agent_def": "<agent_def>",
+      "avatar_blob_id": "value",
+      "avatar_url": "value",
+      "company": "<company>",
+      "description": "value",
+      "email": "value",
+      "full_name": "value",
+      "has_open_invitation": true,
+      "id": "value",
+      "invite_link": "<invite_link>",
+      "manager": "<person>",
+      "notify_about_assignments": true,
+      "notify_on_mention": true,
+      "peers": [
+        "<person>"
+      ],
+      "permissions": "<person_permissions>",
+      "reports": [
+        "<person>"
+      ],
+      "send_daily_summary": true,
+      "show_dev_bar": true,
+      "suspended": true,
+      "timezone": "value",
+      "title": "value",
+      "type": "value"
+    }
+  ],
+  "projects": [
+    {
+      "access_levels": "<access_levels>",
+      "archived_at": "2026-01-01",
+      "champion": "<person>",
+      "closed_at": "2026-01-01",
+      "contributors": [
+        "<project_contributor>"
+      ],
+      "description": "value",
+      "goal": "<goal>",
+      "goal_id": "value",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "is_archived": true,
+      "is_outdated": true,
+      "is_pinned": true,
+      "key_resources": [
+        "<project_key_resource>"
+      ],
+      "last_check_in": "<project_check_in>",
+      "milestones": [
+        "<milestone>"
+      ],
+      "milestones_ordering_state": [
+        "value"
+      ],
+      "my_role": "value",
+      "name": "value",
+      "next_check_in_scheduled_at": "2026-01-01",
+      "next_milestone": "<milestone>",
+      "next_update_scheduled_at": "2026-01-01",
+      "notifications": [
+        "<notification>"
+      ],
+      "permissions": "<project_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "privacy": "value",
+      "retrospective": "<project_retrospective>",
+      "reviewer": "<person>",
+      "space": "<space>",
+      "space_id": "value",
+      "state": "active",
+      "status": "value",
+      "subscription_list": "<subscription_list>",
+      "success_status": "achieved",
+      "task_statuses": [
+        "<task_status>"
+      ],
+      "tasks_kanban_state": "value",
+      "timeframe": "<timeframe>",
+      "updated_at": "2026-01-01"
+    }
+  ],
+  "tasks": [
+    {
+      "assignees": [
+        "<person>"
+      ],
+      "available_statuses": [
+        "<task_status>"
+      ],
+      "comments_count": 123,
+      "creator": "<person>",
+      "description": "value",
+      "due_date": "<contextual_date>",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "milestone": "<milestone>",
+      "name": "value",
+      "permissions": "<project_permissions>",
+      "priority": "value",
+      "project": "<project>",
+      "project_space": "<space>",
+      "size": "value",
+      "space": "<space>",
+      "status": "<task_status>",
+      "subscription_list": "<subscription_list>",
+      "type": "space",
+      "updated_at": "2026-01-01"
+    }
+  ]
+}
+```
+

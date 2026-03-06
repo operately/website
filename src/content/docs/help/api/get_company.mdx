@@ -105,3 +105,36 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_company?id=value&include_admins=true&include_general_space=true&include_members_access_levels=true&include_owners=true&include_people=true&include_permissions=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "company": {
+    "admins": [
+      "<person>"
+    ],
+    "company_space_id": "value",
+    "enabled_experimental_features": [
+      "value"
+    ],
+    "general_space": "<space>",
+    "id": "value",
+    "member_count": 123,
+    "mission": "value",
+    "name": "value",
+    "owners": [
+      "<person>"
+    ],
+    "people": [
+      "<person>"
+    ],
+    "permissions": "<company_permissions>",
+    "setup_completed": true,
+    "trusted_email_domains": [
+      "value"
+    ]
+  }
+}
+```
+

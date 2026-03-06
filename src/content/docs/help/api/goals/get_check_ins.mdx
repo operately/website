@@ -57,3 +57,43 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/get_check_ins?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "check_ins": [
+    {
+      "acknowledged": true,
+      "acknowledged_at": "2026-01-01T09:30:00Z",
+      "acknowledging_person": "<person>",
+      "author": "<person>",
+      "checklist": [
+        "<goal_check_update>"
+      ],
+      "comments_count": 123,
+      "goal": "<goal>",
+      "goal_target_updates": [
+        "<goal_target_updates>"
+      ],
+      "id": "value",
+      "inserted_at": "2026-01-01T09:30:00Z",
+      "message": "value",
+      "notifications": [
+        "<notification>"
+      ],
+      "permissions": "<goal_update_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "reactions": [
+        "<reaction>"
+      ],
+      "status": "value",
+      "subscription_list": "<subscription_list>",
+      "timeframe": "<timeframe>"
+    }
+  ]
+}
+```
+

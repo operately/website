@@ -98,3 +98,41 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_goal_progress_update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"checklist\":[{\"completed\":true, \"id\":\"value\", \"index\":123, \"name\":\"value\"}], \"content\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"new_target_values\":\"value\", \"status\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "update": {
+    "acknowledged": true,
+    "acknowledged_at": "2026-01-01T09:30:00Z",
+    "acknowledging_person": "<person>",
+    "author": "<person>",
+    "checklist": [
+      "<goal_check_update>"
+    ],
+    "comments_count": 123,
+    "goal": "<goal>",
+    "goal_target_updates": [
+      "<goal_target_updates>"
+    ],
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "message": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<goal_update_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "reactions": [
+      "<reaction>"
+    ],
+    "status": "value",
+    "subscription_list": "<subscription_list>",
+    "timeframe": "<timeframe>"
+  }
+}
+```
+

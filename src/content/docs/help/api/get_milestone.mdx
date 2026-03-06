@@ -113,3 +113,36 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_milestone?id=value&include_available_statuses=true&include_comments=true&include_creator=true&include_permissions=true&include_project=true&include_space=true&include_subscription_list=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "milestone": {
+    "available_statuses": [
+      "<task_status>"
+    ],
+    "comments": [
+      "<milestone_comment>"
+    ],
+    "comments_count": 123,
+    "completed_at": "2026-01-01",
+    "creator": "<person>",
+    "description": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "permissions": "<project_permissions>",
+    "project": "<project>",
+    "space": "<space>",
+    "status": "pending",
+    "subscription_list": "<subscription_list>",
+    "tasks_kanban_state": "value",
+    "tasks_ordering_state": [
+      "value"
+    ],
+    "timeframe": "<timeframe>",
+    "title": "value"
+  }
+}
+```
+

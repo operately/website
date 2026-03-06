@@ -67,3 +67,32 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_tools\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"space_id\":\"value\", \"tools\":{\"discussions_enabled\":true, \"resource_hub_enabled\":true, \"tasks_enabled\":true}}'"} />
+
+## Response Example
+
+```json
+{
+  "success": true,
+  "tools": {
+    "discussions_enabled": true,
+    "goals": [
+      "<goal>"
+    ],
+    "messages_boards": [
+      "<messages_board>"
+    ],
+    "projects": [
+      "<project>"
+    ],
+    "resource_hub_enabled": true,
+    "resource_hubs": [
+      "<resource_hub>"
+    ],
+    "tasks": [
+      "<task>"
+    ],
+    "tasks_enabled": true
+  }
+}
+```
+

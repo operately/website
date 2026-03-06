@@ -75,3 +75,64 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_milestone_and_ordering\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\", \"milestones_ordering_state\":[{\"milestone_id\":\"value\", \"ordering_state\":[\"value\"]}], \"task_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "task": {
+    "assignees": [
+      "<person>"
+    ],
+    "available_statuses": [
+      "<task_status>"
+    ],
+    "comments_count": 123,
+    "creator": "<person>",
+    "description": "value",
+    "due_date": "<contextual_date>",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "milestone": "<milestone>",
+    "name": "value",
+    "permissions": "<project_permissions>",
+    "priority": "value",
+    "project": "<project>",
+    "project_space": "<space>",
+    "size": "value",
+    "space": "<space>",
+    "status": "<task_status>",
+    "subscription_list": "<subscription_list>",
+    "type": "space",
+    "updated_at": "2026-01-01"
+  },
+  "updated_milestones": [
+    {
+      "available_statuses": [
+        "<task_status>"
+      ],
+      "comments": [
+        "<milestone_comment>"
+      ],
+      "comments_count": 123,
+      "completed_at": "2026-01-01",
+      "creator": "<person>",
+      "description": "value",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "permissions": "<project_permissions>",
+      "project": "<project>",
+      "space": "<space>",
+      "status": "pending",
+      "subscription_list": "<subscription_list>",
+      "tasks_kanban_state": "value",
+      "tasks_ordering_state": [
+        "value"
+      ],
+      "timeframe": "<timeframe>",
+      "title": "value"
+    }
+  ]
+}
+```
+

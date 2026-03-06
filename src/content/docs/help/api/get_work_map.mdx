@@ -113,3 +113,43 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_work_map?champion_id=value&contributor_id=value&include_assignees=true&include_reviewer=true&only_completed=true&parent_goal_id=value&reviewer_id=value&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "work_map": [
+    {
+      "assignees": [
+        "<person>"
+      ],
+      "children": [
+        "<work_map_item>"
+      ],
+      "completed_on": "2026-01-01",
+      "id": "value",
+      "is_new": true,
+      "item_path": "value",
+      "name": "value",
+      "next_step": "value",
+      "owner": "<person>",
+      "owner_path": "value",
+      "parent_id": "value",
+      "privacy": "public",
+      "progress": 12.34,
+      "project": "<project>",
+      "project_path": "value",
+      "reviewer": "<person>",
+      "reviewer_path": "value",
+      "space": "<space>",
+      "space_path": "value",
+      "state": "active",
+      "status": "on_track",
+      "task_status": "<task_status>",
+      "timeframe": "<timeframe>",
+      "type": "project"
+    }
+  ]
+}
+```
+

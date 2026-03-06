@@ -76,3 +76,28 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/invite_guest\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "invite_link": {
+    "allowed_domains": [
+      "value"
+    ],
+    "author": "<person>",
+    "company": "<company>",
+    "company_id": "value",
+    "expires_at": "2026-01-01T09:30:00Z",
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "is_active": true,
+    "token": "value",
+    "type": "value",
+    "use_count": 123
+  },
+  "new_account": true,
+  "person_id": "value"
+}
+```
+

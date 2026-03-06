@@ -108,3 +108,87 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />
+
+## Response Example
+
+```json
+{
+  "task": {
+    "assignees": [
+      "<person>"
+    ],
+    "available_statuses": [
+      "<task_status>"
+    ],
+    "comments_count": 123,
+    "creator": "<person>",
+    "description": "value",
+    "due_date": "<contextual_date>",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "milestone": "<milestone>",
+    "name": "value",
+    "permissions": "<project_permissions>",
+    "priority": "value",
+    "project": "<project>",
+    "project_space": "<space>",
+    "size": "value",
+    "space": "<space>",
+    "status": "<task_status>",
+    "subscription_list": "<subscription_list>",
+    "type": "space",
+    "updated_at": "2026-01-01"
+  },
+  "updated_milestone": {
+    "available_statuses": [
+      "<task_status>"
+    ],
+    "comments": [
+      "<milestone_comment>"
+    ],
+    "comments_count": 123,
+    "completed_at": "2026-01-01",
+    "creator": "<person>",
+    "description": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "permissions": "<project_permissions>",
+    "project": "<project>",
+    "space": "<space>",
+    "status": "pending",
+    "subscription_list": "<subscription_list>",
+    "tasks_kanban_state": "value",
+    "tasks_ordering_state": [
+      "value"
+    ],
+    "timeframe": "<timeframe>",
+    "title": "value"
+  },
+  "updated_space": {
+    "access_levels": "<access_levels>",
+    "color": "value",
+    "icon": "value",
+    "id": "value",
+    "is_company_space": true,
+    "is_member": true,
+    "members": [
+      "<person>"
+    ],
+    "mission": "value",
+    "name": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<space_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "private_space": true,
+    "task_statuses": [
+      "<task_status>"
+    ],
+    "tasks_kanban_state": "value"
+  }
+}
+```
+

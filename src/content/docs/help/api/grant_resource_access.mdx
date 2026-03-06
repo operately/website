@@ -66,3 +66,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/grant_resource_access\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\", \"resources\":[{\"access_level\":\"no_access\", \"resource_id\":\"value\", \"resource_type\":\"space\"}]}'"} />
+
+## Response Example
+
+```json
+{
+  "success": true
+}
+```
+

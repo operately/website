@@ -34,3 +34,27 @@ This endpoint has no input fields.
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_assignments\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "assignments": [
+    {
+      "action_label": "value",
+      "author_id": "value",
+      "author_name": "value",
+      "description": "value",
+      "due": "2026-01-01",
+      "name": "value",
+      "origin": "<review_assignment_origin>",
+      "path": "value",
+      "resource_id": "value",
+      "role": "owner",
+      "task_status": "value",
+      "type": "check_in"
+    }
+  ]
+}
+```
+

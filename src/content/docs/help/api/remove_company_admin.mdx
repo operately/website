@@ -58,3 +58,40 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/remove_company_admin\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "person": {
+    "access_level": 123,
+    "agent_def": "<agent_def>",
+    "avatar_blob_id": "value",
+    "avatar_url": "value",
+    "company": "<company>",
+    "description": "value",
+    "email": "value",
+    "full_name": "value",
+    "has_open_invitation": true,
+    "id": "value",
+    "invite_link": "<invite_link>",
+    "manager": "<person>",
+    "notify_about_assignments": true,
+    "notify_on_mention": true,
+    "peers": [
+      "<person>"
+    ],
+    "permissions": "<person_permissions>",
+    "reports": [
+      "<person>"
+    ],
+    "send_daily_summary": true,
+    "show_dev_bar": true,
+    "suspended": true,
+    "timezone": "value",
+    "title": "value",
+    "type": "value"
+  }
+}
+```
+

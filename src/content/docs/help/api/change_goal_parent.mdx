@@ -66,3 +66,56 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/change_goal_parent\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"parent_goal_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "goal": {
+    "access_levels": "<access_levels>",
+    "archived_at": "2026-01-01",
+    "champion": "<person>",
+    "checklist": [
+      "<goal_check>"
+    ],
+    "closed_at": "2026-01-01",
+    "closed_by": "<person>",
+    "description": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "is_archived": true,
+    "is_closed": true,
+    "is_outdated": true,
+    "last_check_in": "<goal_progress_update>",
+    "last_check_in_id": "value",
+    "my_role": "value",
+    "name": "value",
+    "next_update_scheduled_at": "2026-01-01",
+    "notifications": [
+      "<notification>"
+    ],
+    "parent_goal": "<goal>",
+    "parent_goal_id": "value",
+    "permissions": "<goal_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "privacy": "public",
+    "progress_percentage": 12.34,
+    "projects": [
+      "<project>"
+    ],
+    "retrospective": "<goal_retrospective>",
+    "reviewer": "<person>",
+    "space": "<space>",
+    "status": "on_track",
+    "success": true,
+    "targets": [
+      "<target>"
+    ],
+    "timeframe": "<timeframe>",
+    "updated_at": "2026-01-01"
+  }
+}
+```
+

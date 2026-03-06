@@ -73,3 +73,42 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get_contributors?ignored_ids[]=value&project_id=value&query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "contributors": [
+    {
+      "access_level": 123,
+      "agent_def": "<agent_def>",
+      "avatar_blob_id": "value",
+      "avatar_url": "value",
+      "company": "<company>",
+      "description": "value",
+      "email": "value",
+      "full_name": "value",
+      "has_open_invitation": true,
+      "id": "value",
+      "invite_link": "<invite_link>",
+      "manager": "<person>",
+      "notify_about_assignments": true,
+      "notify_on_mention": true,
+      "peers": [
+        "<person>"
+      ],
+      "permissions": "<person_permissions>",
+      "reports": [
+        "<person>"
+      ],
+      "send_daily_summary": true,
+      "show_dev_bar": true,
+      "suspended": true,
+      "timezone": "value",
+      "title": "value",
+      "type": "value"
+    }
+  ]
+}
+```
+

@@ -65,3 +65,19 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_notifications?page=123&per_page=123\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "notifications": [
+    {
+      "activity": "<activity>",
+      "id": "value",
+      "read": true,
+      "read_at": "2026-01-01T09:30:00Z"
+    }
+  ]
+}
+```
+

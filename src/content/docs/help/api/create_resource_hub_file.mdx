@@ -90,3 +90,39 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_resource_hub_file\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"files\":[{\"blob_id\":\"value\", \"description\":\"value\", \"name\":\"value\", \"preview_blob_id\":\"value\"}], \"folder_id\":\"value\", \"resource_hub_id\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
+
+## Response Example
+
+```json
+{
+  "files": [
+    {
+      "author": "<person>",
+      "blob": "<blob>",
+      "comments_count": 123,
+      "description": "value",
+      "id": "value",
+      "inserted_at": "value",
+      "name": "value",
+      "parent_folder": "<resource_hub_folder>",
+      "parent_folder_id": "value",
+      "path_to_file": [
+        "<resource_hub_folder>"
+      ],
+      "permissions": "<resource_hub_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "reactions": [
+        "<reaction>"
+      ],
+      "resource_hub": "<resource_hub>",
+      "resource_hub_id": "value",
+      "size": 123,
+      "subscription_list": "<subscription_list>",
+      "type": "value"
+    }
+  ]
+}
+```
+

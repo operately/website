@@ -73,3 +73,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/count_children?id=value&use_milestone_id=true&use_task_id=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "children_count": {
+    "check_ins_count": 123,
+    "discussions_count": 123,
+    "tasks_count": 123
+  }
+}
+```
+

@@ -169,3 +169,41 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_goal_progress_update?id=value&include_acknowledged_by=true&include_author=true&include_champion=true&include_goal=true&include_goal_checklist=true&include_goal_targets=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_reviewer=true&include_space=true&include_space_members=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "update": {
+    "acknowledged": true,
+    "acknowledged_at": "2026-01-01T09:30:00Z",
+    "acknowledging_person": "<person>",
+    "author": "<person>",
+    "checklist": [
+      "<goal_check_update>"
+    ],
+    "comments_count": 123,
+    "goal": "<goal>",
+    "goal_target_updates": [
+      "<goal_target_updates>"
+    ],
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "message": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<goal_update_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "reactions": [
+      "<reaction>"
+    ],
+    "status": "value",
+    "subscription_list": "<subscription_list>",
+    "timeframe": "<timeframe>"
+  }
+}
+```
+

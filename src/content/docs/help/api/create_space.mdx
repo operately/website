@@ -82,3 +82,36 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_space\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"company_permissions\":123, \"mission\":\"value\", \"name\":\"value\", \"public_permissions\":123}'"} />
+
+## Response Example
+
+```json
+{
+  "space": {
+    "access_levels": "<access_levels>",
+    "color": "value",
+    "icon": "value",
+    "id": "value",
+    "is_company_space": true,
+    "is_member": true,
+    "members": [
+      "<person>"
+    ],
+    "mission": "value",
+    "name": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<space_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "private_space": true,
+    "task_statuses": [
+      "<task_status>"
+    ],
+    "tasks_kanban_state": "value"
+  }
+}
+```
+

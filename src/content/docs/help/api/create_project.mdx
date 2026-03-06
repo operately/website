@@ -114,3 +114,65 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":123, \"champion_id\":\"value\", \"company_access_level\":123, \"goal_id\":\"value\", \"name\":\"value\", \"reviewer_id\":\"value\", \"space_access_level\":123, \"space_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "project": {
+    "access_levels": "<access_levels>",
+    "archived_at": "2026-01-01",
+    "champion": "<person>",
+    "closed_at": "2026-01-01",
+    "contributors": [
+      "<project_contributor>"
+    ],
+    "description": "value",
+    "goal": "<goal>",
+    "goal_id": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "is_archived": true,
+    "is_outdated": true,
+    "is_pinned": true,
+    "key_resources": [
+      "<project_key_resource>"
+    ],
+    "last_check_in": "<project_check_in>",
+    "milestones": [
+      "<milestone>"
+    ],
+    "milestones_ordering_state": [
+      "value"
+    ],
+    "my_role": "value",
+    "name": "value",
+    "next_check_in_scheduled_at": "2026-01-01",
+    "next_milestone": "<milestone>",
+    "next_update_scheduled_at": "2026-01-01",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<project_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "privacy": "value",
+    "retrospective": "<project_retrospective>",
+    "reviewer": "<person>",
+    "space": "<space>",
+    "space_id": "value",
+    "state": "active",
+    "status": "value",
+    "subscription_list": "<subscription_list>",
+    "success_status": "achieved",
+    "task_statuses": [
+      "<task_status>"
+    ],
+    "tasks_kanban_state": "value",
+    "timeframe": "<timeframe>",
+    "updated_at": "2026-01-01"
+  }
+}
+```
+

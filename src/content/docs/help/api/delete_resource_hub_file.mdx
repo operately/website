@@ -58,3 +58,37 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/delete_resource_hub_file\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"file_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "file": {
+    "author": "<person>",
+    "blob": "<blob>",
+    "comments_count": 123,
+    "description": "value",
+    "id": "value",
+    "inserted_at": "value",
+    "name": "value",
+    "parent_folder": "<resource_hub_folder>",
+    "parent_folder_id": "value",
+    "path_to_file": [
+      "<resource_hub_folder>"
+    ],
+    "permissions": "<resource_hub_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "reactions": [
+      "<reaction>"
+    ],
+    "resource_hub": "<resource_hub>",
+    "resource_hub_id": "value",
+    "size": 123,
+    "subscription_list": "<subscription_list>",
+    "type": "value"
+  }
+}
+```
+

@@ -97,3 +97,30 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_resource_hub_folder?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_resource_hub=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "folder": {
+    "children_count": 123,
+    "description": "value",
+    "id": "value",
+    "name": "value",
+    "nodes": [
+      "<resource_hub_node>"
+    ],
+    "parent_folder_id": "value",
+    "path_to_folder": [
+      "<resource_hub_folder>"
+    ],
+    "permissions": "<resource_hub_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "resource_hub": "<resource_hub>",
+    "resource_hub_id": "value"
+  }
+}
+```
+

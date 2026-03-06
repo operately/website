@@ -98,3 +98,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_target\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"name\":\"value\", \"start_value\":12.34, \"target_id\":\"value\", \"target_value\":12.34, \"unit\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "success": true
+}
+```
+

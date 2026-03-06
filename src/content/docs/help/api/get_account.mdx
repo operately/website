@@ -34,3 +34,15 @@ This endpoint has no input fields.
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_account\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "account": {
+    "full_name": "value",
+    "site_admin": true
+  }
+}
+```
+

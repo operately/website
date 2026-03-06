@@ -74,3 +74,33 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"check_in_id\":\"value\", \"description\":\"value\", \"status\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "check_in": {
+    "acknowledged_at": "2026-01-01T09:30:00Z",
+    "acknowledged_by": "<person>",
+    "author": "<person>",
+    "comments_count": 123,
+    "description": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "notifications": [
+      "<notification>"
+    ],
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "project": "<project>",
+    "reactions": [
+      "<reaction>"
+    ],
+    "space": "<space>",
+    "status": "on_track",
+    "subscription_list": "<subscription_list>"
+  }
+}
+```
+

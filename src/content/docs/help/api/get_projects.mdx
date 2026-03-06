@@ -161,3 +161,67 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ## cURL Example
 
 <CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_projects?goal_id=value&include_archived=true&include_champion=true&include_contributors=true&include_goal=true&include_last_check_in=true&include_milestones=true&include_privacy=true&include_retrospective=true&include_reviewer=true&include_space=true&only_my_projects=true&only_reviewed_by_me=true&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "projects": [
+    {
+      "access_levels": "<access_levels>",
+      "archived_at": "2026-01-01",
+      "champion": "<person>",
+      "closed_at": "2026-01-01",
+      "contributors": [
+        "<project_contributor>"
+      ],
+      "description": "value",
+      "goal": "<goal>",
+      "goal_id": "value",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "is_archived": true,
+      "is_outdated": true,
+      "is_pinned": true,
+      "key_resources": [
+        "<project_key_resource>"
+      ],
+      "last_check_in": "<project_check_in>",
+      "milestones": [
+        "<milestone>"
+      ],
+      "milestones_ordering_state": [
+        "value"
+      ],
+      "my_role": "value",
+      "name": "value",
+      "next_check_in_scheduled_at": "2026-01-01",
+      "next_milestone": "<milestone>",
+      "next_update_scheduled_at": "2026-01-01",
+      "notifications": [
+        "<notification>"
+      ],
+      "permissions": "<project_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "privacy": "value",
+      "retrospective": "<project_retrospective>",
+      "reviewer": "<person>",
+      "space": "<space>",
+      "space_id": "value",
+      "state": "active",
+      "status": "value",
+      "subscription_list": "<subscription_list>",
+      "success_status": "achieved",
+      "task_statuses": [
+        "<task_status>"
+      ],
+      "tasks_kanban_state": "value",
+      "timeframe": "<timeframe>",
+      "updated_at": "2026-01-01"
+    }
+  ]
+}
+```
+
