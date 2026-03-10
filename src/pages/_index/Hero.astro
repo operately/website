@@ -1,6 +1,4 @@
 ---
-import { GitHubStarButton } from "../../components/Buttons";
-import { Code, Eye, HeartHandshake } from "lucide-react";
 
 interface Props {
   latestRelease: {
@@ -59,7 +57,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
         <p
           class="max-w-2xl mx-auto mt-6 text-lg leading-8 text-gray-600 px-4 sm:px-0"
         >
-          Operately is an open source goal and project management system for teams that need execution, not chaos. Run it in Operately Cloud or self-host it yourself, with proven workflows for goals, projects, and accountability.
+          Operately is an open source system for running goals and projects. Use Operately Cloud or self-host it in minutes.
         </p>
         <div
           class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-y-4 sm:gap-y-0 gap-x-6"
@@ -78,25 +76,6 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
           </a>
         </div>
 
-        <!-- Trust bar -->
-        <div class="mt-12 flex items-center justify-center">
-          <div class="flex items-center text-sm text-gray-500 space-x-3">
-            <span class="flex items-center gap-1.5">
-              <Code className="h-3 w-3" />
-              Open source
-            </span>
-            <span aria-hidden="true">·</span>
-            <span class="flex items-center gap-1.5">
-              <Eye className="h-3 w-3" />
-              Built in public
-            </span>
-            <span aria-hidden="true">·</span>
-            <span class="flex items-center gap-1.5">
-              <HeartHandshake className="h-3 w-3" />
-              Founder-run
-            </span>
-          </div>
-        </div>
       </div>
     </div>
 
