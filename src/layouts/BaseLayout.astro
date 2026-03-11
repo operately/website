@@ -4,6 +4,7 @@ interface LayoutProps {
   description?: string;
   image?: string;
   twitterCardType?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -11,10 +12,16 @@ const {
   description,
   image,
   twitterCardType = "summary",
+  schema,
 } = Astro.props as LayoutProps;
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+const schemaGraph = schema
+  ? Array.isArray(schema)
+    ? schema
+    : [schema]
+  : [];
 
 import "../styles/global.css";
 import Posthog from "../components/posthog.astro";
@@ -46,6 +53,16 @@ import Footer from "../components/Footer.astro";
     {
       socialImageUrl ? (
         <meta name="twitter:image" content={socialImageUrl} />
+      ) : null
+    }
+    {
+      schemaGraph.length > 0 ? (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(
+            schemaGraph.length === 1 ? schemaGraph[0] : { "@context": "https://schema.org", "@graph": schemaGraph },
+          )}
+        />
       ) : null
     }
     <Posthog />
