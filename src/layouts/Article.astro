@@ -10,6 +10,24 @@ const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-s
 const socialImageUrl = new URL(imagePath, Astro.site);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": canonicalURL.toString(),
+  url: canonicalURL.toString(),
+  name: frontmatter.title,
+  description: frontmatter.description,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: socialImageUrl.toString(),
+  },
+});
 
 import Posthog from "../components/posthog.astro";
 ---
@@ -31,6 +49,7 @@ import Posthog from "../components/posthog.astro";
     <meta name="twitter:site" content="@operately" />
     <meta name="twitter:title" content={frontmatter.title} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <script type="application/ld+json" set:html={jsonLd} />
     <style>
       @view-transition { navigation: auto; /* enabled! */ }
     </style>
