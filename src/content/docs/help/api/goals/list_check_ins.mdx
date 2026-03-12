@@ -1,6 +1,6 @@
 ---
-title: "goals/get_check_ins"
-description: "Generated reference for the query endpoint goals/get_check_ins."
+title: "goals/list_check_ins"
+description: "Generated reference for the query endpoint goals/list_check_ins."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/goals/get_check_ins` |
-| Handler | `OperatelyWeb.Api.Queries.GetGoalCheckIns` |
+| Path | `/api/external/v1/goals/list_check_ins` |
+| Handler | `OperatelyWeb.Api.Queries.ListGoalCheckIns` |
 
 ## Authentication
 
@@ -51,12 +51,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `check_ins` | array of `goal_progress_update` object | No | Yes |
+| `check_ins` | array of `goal_progress_update` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/get_check_ins?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/list_check_ins?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

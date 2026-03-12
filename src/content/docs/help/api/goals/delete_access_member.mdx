@@ -1,6 +1,6 @@
 ---
-title: "goals/remove_access_member"
-description: "Generated reference for the mutation endpoint goals/remove_access_member."
+title: "goals/delete_access_member"
+description: "Generated reference for the mutation endpoint goals/delete_access_member."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/goals/remove_access_member` |
-| Handler | `OperatelyWeb.Api.Goals.RemoveAccessMember` |
+| Path | `/api/external/v1/goals/delete_access_member` |
+| Handler | `OperatelyWeb.Api.Goals.DeleteAccessMember` |
 
 ## Authentication
 
@@ -60,12 +60,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `success` | `boolean` | Yes | Yes |
+| `success` | `boolean` | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/remove_access_member\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"person_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/delete_access_member\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"person_id\":\"value\"}'"} />
 
 ## Response Example
 

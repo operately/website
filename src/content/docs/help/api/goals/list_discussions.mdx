@@ -1,6 +1,6 @@
 ---
-title: "goals/get_discussions"
-description: "Generated reference for the query endpoint goals/get_discussions."
+title: "goals/list_discussions"
+description: "Generated reference for the query endpoint goals/list_discussions."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/goals/get_discussions` |
-| Handler | `OperatelyWeb.Api.Goals.GetDiscussions` |
+| Path | `/api/external/v1/goals/list_discussions` |
+| Handler | `OperatelyWeb.Api.Goals.ListDiscussions` |
 
 ## Authentication
 
@@ -51,12 +51,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussions` | array of `discussion` object | Yes | Yes |
+| `discussions` | array of `discussion` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/get_discussions?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/list_discussions?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
