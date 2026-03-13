@@ -15,12 +15,13 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 
 | Namespace | Queries | Mutations | Total |
 | --- | ---: | ---: | ---: |
-| [Goals](./goals) | 4 | 22 | 26 |
+| [Goals](./goals) | 7 | 27 | 34 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
-| [Project milestones](./project_milestones) | 1 | 6 | 7 |
-| [Projects](./projects) | 5 | 10 | 15 |
-| [Spaces](./spaces) | 4 | 3 | 7 |
-| [Tasks](./tasks) | 1 | 9 | 10 |
+| [Project milestones](./project_milestones) | 2 | 6 | 8 |
+| [Projects](./projects) | 8 | 19 | 27 |
+| [Space discussions](./space_discussions) | 2 | 4 | 6 |
+| [Spaces](./spaces) | 8 | 11 | 19 |
+| [Tasks](./tasks) | 3 | 10 | 13 |
 
 
 ## Other Endpoints
@@ -102,41 +103,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./add_space_members">add_space_members</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_space_members</code></td>
-</tr>
-
-<tr>
-  <td><a href="./archive_message">archive_message</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/archive_message</code></td>
-</tr>
-
-<tr>
-  <td><a href="./change_goal_parent">change_goal_parent</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/change_goal_parent</code></td>
-</tr>
-
-<tr>
-  <td><a href="./close_goal">close_goal</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/close_goal</code></td>
-</tr>
-
-<tr>
-  <td><a href="./close_project">close_project</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/close_project</code></td>
-</tr>
-
-<tr>
   <td><a href="./convert_company_member_to_guest">convert_company_member_to_guest</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -158,24 +124,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./create_goal">create_goal</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_goal</code></td>
-</tr>
-
-<tr>
   <td><a href="./create_goal_discussion">create_goal_discussion</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/create_goal_discussion</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_project">create_project</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_project</code></td>
 </tr>
 
 <tr>
@@ -214,24 +166,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./create_space">create_space</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_space</code></td>
-</tr>
-
-<tr>
   <td><a href="./delete_comment">delete_comment</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/delete_comment</code></td>
-</tr>
-
-<tr>
-  <td><a href="./delete_goal">delete_goal</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_goal</code></td>
 </tr>
 
 <tr>
@@ -263,13 +201,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./delete_space">delete_space</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_space</code></td>
-</tr>
-
-<tr>
   <td><a href="./edit_comment">edit_comment</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -288,13 +219,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_company_members_permissions</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_discussion">edit_discussion</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_discussion</code></td>
 </tr>
 
 <tr>
@@ -333,27 +257,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./edit_project_name">edit_project_name</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_project_name</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_project_permissions">edit_project_permissions</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_project_permissions</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_project_retrospective">edit_project_retrospective</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_project_retrospective</code></td>
-</tr>
-
-<tr>
   <td><a href="./edit_resource_hub_document">edit_resource_hub_document</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -372,27 +275,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_resource_hub_link</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_space">edit_space</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_space</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_space_members_permissions">edit_space_members_permissions</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_space_members_permissions</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_space_permissions">edit_space_permissions</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_space_permissions</code></td>
 </tr>
 
 <tr>
@@ -466,20 +348,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_discussion">get_discussion</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_discussion</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_discussions">get_discussions</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_discussions</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_flat_work_map">get_flat_work_map</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -487,24 +355,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_goal">get_goal</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_goal</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_goal_progress_update">get_goal_progress_update</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_goal_progress_update</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_goals">get_goals</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_goals</code></td>
 </tr>
 
 <tr>
@@ -519,13 +373,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_me</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_milestone">get_milestone</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_milestone</code></td>
 </tr>
 
 <tr>
@@ -547,13 +394,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_person</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_project">get_project</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_project</code></td>
 </tr>
 
 <tr>
@@ -582,13 +422,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_project_retrospective</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_projects">get_projects</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_projects</code></td>
 </tr>
 
 <tr>
@@ -624,34 +457,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_resource_hub_link</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_space">get_space</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_space</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_spaces">get_spaces</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_spaces</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_task">get_task</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_task</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_tasks">get_tasks</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_tasks</code></td>
 </tr>
 
 <tr>
@@ -697,20 +502,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./join_space">join_space</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/join_space</code></td>
-</tr>
-
-<tr>
-  <td><a href="./list_goal_contributors">list_goal_contributors</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/list_goal_contributors</code></td>
-</tr>
-
-<tr>
   <td><a href="./list_possible_managers">list_possible_managers</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -722,20 +513,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/list_resource_hub_nodes</code></td>
-</tr>
-
-<tr>
-  <td><a href="./list_space_tools">list_space_tools</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/list_space_tools</code></td>
-</tr>
-
-<tr>
-  <td><a href="./list_task_assignable_people">list_task_assignable_people</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/list_task_assignable_people</code></td>
 </tr>
 
 <tr>
@@ -760,34 +537,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./move_project_to_space">move_project_to_space</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/move_project_to_space</code></td>
-</tr>
-
-<tr>
-  <td><a href="./move_task">move_task</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/move_task</code></td>
-</tr>
-
-<tr>
-  <td><a href="./pause_project">pause_project</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/pause_project</code></td>
-</tr>
-
-<tr>
-  <td><a href="./post_discussion">post_discussion</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/post_discussion</code></td>
-</tr>
-
-<tr>
   <td><a href="./post_goal_progress_update">post_goal_progress_update</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -806,13 +555,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/post_project_check_in</code></td>
-</tr>
-
-<tr>
-  <td><a href="./publish_discussion">publish_discussion</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/publish_discussion</code></td>
 </tr>
 
 <tr>
@@ -851,24 +593,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./remove_group_member">remove_group_member</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_group_member</code></td>
-</tr>
-
-<tr>
   <td><a href="./remove_key_resource">remove_key_resource</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/remove_key_resource</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_project_contributor">remove_project_contributor</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_project_contributor</code></td>
 </tr>
 
 <tr>
@@ -886,13 +614,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./reopen_goal">reopen_goal</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/reopen_goal</code></td>
-</tr>
-
-<tr>
   <td><a href="./restore_company_member">restore_company_member</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -900,31 +621,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./resume_project">resume_project</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/resume_project</code></td>
-</tr>
-
-<tr>
   <td><a href="./search_people">search_people</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/search_people</code></td>
-</tr>
-
-<tr>
-  <td><a href="./search_potential_space_members">search_potential_space_members</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/search_potential_space_members</code></td>
-</tr>
-
-<tr>
-  <td><a href="./search_project_contributor_candidates">search_project_contributor_candidates</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/search_project_contributor_candidates</code></td>
 </tr>
 
 <tr>
