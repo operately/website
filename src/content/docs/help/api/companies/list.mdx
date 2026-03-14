@@ -1,6 +1,6 @@
 ---
-title: "get_companies"
-description: "Generated reference for the query endpoint get_companies."
+title: "companies/list"
+description: "Generated reference for the query endpoint companies/list."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_companies` |
-| Handler | `OperatelyWeb.Api.Queries.GetCompanies` |
+| Path | `/api/external/v1/companies/list` |
+| Handler | `OperatelyWeb.Api.Companies.List` |
 
 ## Authentication
 
@@ -56,7 +56,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_companies?include_member_count=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/list?include_member_count=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

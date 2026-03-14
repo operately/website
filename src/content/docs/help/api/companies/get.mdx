@@ -1,6 +1,6 @@
 ---
-title: "get_company"
-description: "Generated reference for the query endpoint get_company."
+title: "companies/get"
+description: "Generated reference for the query endpoint companies/get."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_company` |
-| Handler | `OperatelyWeb.Api.Queries.GetCompany` |
+| Path | `/api/external/v1/companies/get` |
+| Handler | `OperatelyWeb.Api.Companies.Get` |
 
 ## Authentication
 
@@ -104,7 +104,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_company?id=value&include_admins=true&include_general_space=true&include_members_access_levels=true&include_owners=true&include_people=true&include_permissions=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/get?id=value&include_admins=true&include_general_space=true&include_members_access_levels=true&include_owners=true&include_people=true&include_permissions=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

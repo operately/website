@@ -1,6 +1,6 @@
 ---
-title: "remove_company_admin"
-description: "Generated reference for the mutation endpoint remove_company_admin."
+title: "companies/delete_member"
+description: "Generated reference for the mutation endpoint companies/delete_member."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/remove_company_admin` |
-| Handler | `OperatelyWeb.Api.Mutations.RemoveCompanyAdmin` |
+| Path | `/api/external/v1/companies/delete_member` |
+| Handler | `OperatelyWeb.Api.Companies.DeleteMember` |
 
 ## Authentication
 
@@ -37,9 +37,9 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     <tbody>
       <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>person_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -52,12 +52,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `person` | `person` object | No | Yes |
+| `person` | `person` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/remove_company_admin\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/companies/delete_member\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\"}'"} />
 
 ## Response Example
 

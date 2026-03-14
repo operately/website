@@ -15,6 +15,7 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 
 | Namespace | Queries | Mutations | Total |
 | --- | ---: | ---: | ---: |
+| [Companies](./companies) | 2 | 11 | 13 |
 | [Goals](./goals) | 7 | 27 | 34 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
 | [Project milestones](./project_milestones) | 2 | 6 | 8 |
@@ -54,27 +55,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./add_company">add_company</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_company</code></td>
-</tr>
-
-<tr>
-  <td><a href="./add_company_admins">add_company_admins</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_company_admins</code></td>
-</tr>
-
-<tr>
-  <td><a href="./add_company_member">add_company_member</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_company_member</code></td>
-</tr>
-
-<tr>
   <td><a href="./add_key_resource">add_key_resource</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -100,13 +80,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/add_reaction</code></td>
-</tr>
-
-<tr>
-  <td><a href="./convert_company_member_to_guest">convert_company_member_to_guest</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/convert_company_member_to_guest</code></td>
 </tr>
 
 <tr>
@@ -205,20 +178,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_comment</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_company">edit_company</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_company</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_company_members_permissions">edit_company_members_permissions</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_company_members_permissions</code></td>
 </tr>
 
 <tr>
@@ -331,20 +290,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_comments</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_companies">get_companies</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_companies</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_company">get_company</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_company</code></td>
 </tr>
 
 <tr>
@@ -565,34 +510,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./remove_company_admin">remove_company_admin</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_company_admin</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_company_member">remove_company_member</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_company_member</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_company_owner">remove_company_owner</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_company_owner</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_company_trusted_email_domain">remove_company_trusted_email_domain</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_company_trusted_email_domain</code></td>
-</tr>
-
-<tr>
   <td><a href="./remove_key_resource">remove_key_resource</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -611,13 +528,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/rename_resource_hub_folder</code></td>
-</tr>
-
-<tr>
-  <td><a href="./restore_company_member">restore_company_member</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/restore_company_member</code></td>
 </tr>
 
 <tr>

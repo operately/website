@@ -1,6 +1,6 @@
 ---
-title: "add_company_member"
-description: "Generated reference for the mutation endpoint add_company_member."
+title: "companies/create_member"
+description: "Generated reference for the mutation endpoint companies/create_member."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/add_company_member` |
-| Handler | `OperatelyWeb.Api.Mutations.AddCompanyMember` |
+| Path | `/api/external/v1/companies/create_member` |
+| Handler | `OperatelyWeb.Api.Companies.CreateMember` |
 
 ## Authentication
 
@@ -75,7 +75,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/add_company_member\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/companies/create_member\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
