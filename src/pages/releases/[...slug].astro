@@ -27,24 +27,56 @@ const formatDate = (date) => {
   });
 };
 
+const canonicalURL = new URL(`/releases/${entry.slug}/`, Astro.site);
+const breadcrumbId = `${canonicalURL.toString()}#breadcrumb`;
+
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: entry.data.title,
-  datePublished: entry.data.date.toISOString(),
-  author: {
-    "@type": "Organization",
-    name: "Operately",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Operately",
-    logo: {
-      "@type": "ImageObject",
-      url: new URL("/images/social/card-summary.png", Astro.site),
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": `${canonicalURL.toString()}#article`,
+      headline: entry.data.title,
+      datePublished: entry.data.date.toISOString(),
+      description: entry.data.description,
+      mainEntityOfPage: {
+        "@id": canonicalURL.toString(),
+      },
+      author: {
+        "@id": "https://operately.com/#organization",
+      },
+      publisher: {
+        "@id": "https://operately.com/#organization",
+      },
+      isPartOf: {
+        "@id": "https://operately.com/#website",
+      },
     },
-  },
-  description: entry.data.description,
+    {
+      "@type": "BreadcrumbList",
+      "@id": breadcrumbId,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://operately.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Releases",
+          item: "https://operately.com/releases/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: entry.data.title,
+          item: canonicalURL.toString(),
+        },
+      ],
+    },
+  ],
 });
 ---
 
