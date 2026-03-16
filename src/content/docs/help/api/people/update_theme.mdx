@@ -1,6 +1,6 @@
 ---
-title: "update_theme"
-description: "Generated reference for the mutation endpoint update_theme."
+title: "people/update_theme"
+description: "Generated reference for the mutation endpoint people/update_theme."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/update_theme` |
-| Handler | `OperatelyWeb.Api.Mutations.UpdateTheme` |
+| Path | `/api/external/v1/people/update_theme` |
+| Handler | `OperatelyWeb.Api.People.UpdateTheme` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/update_theme\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"theme\":\"dark\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update_theme\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"theme\":\"dark\"}'"} />
 
 ## Response Example
 

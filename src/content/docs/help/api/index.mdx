@@ -19,6 +19,7 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 | [Companies](./companies) | 2 | 11 | 13 |
 | [Goal check ins](./goal_check_ins) | 1 | 3 | 4 |
 | [Goals](./goals) | 7 | 27 | 34 |
+| [People](./people) | 9 | 3 | 12 |
 | [Project check ins](./project_check_ins) | 2 | 3 | 5 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
 | [Project milestones](./project_milestones) | 2 | 7 | 9 |
@@ -164,13 +165,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_account">get_account</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_account</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_activities">get_activities</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -185,27 +179,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_assignments">get_assignments</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_assignments</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_assignments_count">get_assignments_count</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_assignments_count</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_binded_people">get_binded_people</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_binded_people</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_flat_work_map">get_flat_work_map</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -213,31 +186,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_me">get_me</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_me</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_notifications">get_notifications</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_notifications</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_people">get_people</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_people</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_person">get_person</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_person</code></td>
 </tr>
 
 <tr>
@@ -318,13 +270,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./list_possible_managers">list_possible_managers</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/list_possible_managers</code></td>
-</tr>
-
-<tr>
   <td><a href="./list_resource_hub_nodes">list_resource_hub_nodes</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -367,13 +312,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./search_people">search_people</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/search_people</code></td>
-</tr>
-
-<tr>
   <td><a href="./subscribe_to_notifications">subscribe_to_notifications</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -385,27 +323,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/unsubscribe_from_notifications</code></td>
-</tr>
-
-<tr>
-  <td><a href="./update_profile">update_profile</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/update_profile</code></td>
-</tr>
-
-<tr>
-  <td><a href="./update_profile_picture">update_profile_picture</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/update_profile_picture</code></td>
-</tr>
-
-<tr>
-  <td><a href="./update_theme">update_theme</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/update_theme</code></td>
 </tr>
 
     </tbody>

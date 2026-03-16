@@ -1,6 +1,6 @@
 ---
-title: "get_me"
-description: "Generated reference for the query endpoint get_me."
+title: "people/update_picture"
+description: "Generated reference for the mutation endpoint people/update_picture."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -9,15 +9,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Property | Value |
 | --- | --- |
-| Type | `query` |
-| Method | `GET` |
-| Path | `/api/external/v1/get_me` |
-| Handler | `OperatelyWeb.Api.Queries.GetMe` |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/people/update_picture` |
+| Handler | `OperatelyWeb.Api.People.UpdatePicture` |
 
 ## Authentication
 
 - Requires a valid API token.
-- Read-only and full-access tokens can execute this query.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
 
 
 ## Inputs
@@ -35,8 +36,24 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_manager</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>person_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>avatar_blob_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>avatar_url</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -51,18 +68,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `me` | `person` object | No | Yes |
+| `person` | `person` object | Yes | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_me?include_manager=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update_picture\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"avatar_blob_id\":\"value\", \"avatar_url\":\"value\", \"person_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "me": {
+  "person": {
     "access_level": 123,
     "agent_def": "<agent_def>",
     "avatar_blob_id": "value",

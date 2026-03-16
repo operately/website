@@ -1,0 +1,106 @@
+---
+title: "people/list_possible_managers"
+description: "Generated reference for the query endpoint people/list_possible_managers."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/people/list_possible_managers` |
+| Handler | `OperatelyWeb.Api.People.ListPossibleManagers` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>user_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>query</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `people` | array of `person` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/people/list_possible_managers?query=value&user_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "people": [
+    {
+      "access_level": 123,
+      "agent_def": "<agent_def>",
+      "avatar_blob_id": "value",
+      "avatar_url": "value",
+      "company": "<company>",
+      "description": "value",
+      "email": "value",
+      "full_name": "value",
+      "has_open_invitation": true,
+      "id": "value",
+      "invite_link": "<invite_link>",
+      "manager": "<person>",
+      "notify_about_assignments": true,
+      "notify_on_mention": true,
+      "peers": [
+        "<person>"
+      ],
+      "permissions": "<person_permissions>",
+      "reports": [
+        "<person>"
+      ],
+      "send_daily_summary": true,
+      "show_dev_bar": true,
+      "suspended": true,
+      "timezone": "value",
+      "title": "value",
+      "type": "value"
+    }
+  ]
+}
+```
+
