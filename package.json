@@ -6,7 +6,7 @@
     "dev:astro": "astro dev --port 4321",
     "dev:wrangler": "npx wrangler pages dev --port 8788 --ip localhost",
     "dev": "concurrently --kill-others \"npm run dev:astro\" \"npm run dev:wrangler\"",
-    "build": "astro build",
+    "build": "astro build && node scripts/postprocess-sitemap.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
