@@ -1,6 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Astro generates the sitemap during `astro build` (for this repo that ends up as
+// `dist/sitemap-index.xml` + `dist/sitemap-0.xml`). This script runs immediately
+// afterward from `npm run build` and removes any URLs whose final built HTML is
+// marked `noindex`, so the published sitemap stays consistent with crawl/index
+// directives.
+
 const distDir = path.resolve('dist');
 const sitemapPath = path.join(distDir, 'sitemap-0.xml');
 
