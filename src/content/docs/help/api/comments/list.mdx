@@ -1,6 +1,6 @@
 ---
-title: "get_comments"
-description: "Generated reference for the query endpoint get_comments."
+title: "comments/list"
+description: "Generated reference for the query endpoint comments/list."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_comments` |
-| Handler | `OperatelyWeb.Api.Queries.GetComments` |
+| Path | `/api/external/v1/comments/list` |
+| Handler | `OperatelyWeb.Api.Comments.List` |
 
 ## Authentication
 
@@ -64,7 +64,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_comments?entity_id=value&entity_type=project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/comments/list?entity_id=value&entity_type=project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "create_comment"
-description: "Generated reference for the mutation endpoint create_comment."
+title: "comments/delete"
+description: "Generated reference for the mutation endpoint comments/delete."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/create_comment` |
-| Handler | `OperatelyWeb.Api.Mutations.CreateComment` |
+| Path | `/api/external/v1/comments/delete` |
+| Handler | `OperatelyWeb.Api.Comments.Delete` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>entity_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>comment_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -44,16 +44,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>entity_type</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>parent_type</code></td>
   <td style={{ whiteSpace: "normal" }}><code>comment_parent_type</code> enum (<code>project_check_in</code>, <code>project_retrospective</code>, <code>comment_thread</code>, <code>goal_update</code>, <code>message</code>, <code>resource_hub_document</code>, <code>resource_hub_file</code>, <code>resource_hub_link</code>, <code>space_task</code>, <code>project_task</code>, <code>milestone</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>content</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -73,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_comment\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"entity_id\":\"value\", \"entity_type\":\"project_check_in\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/comments/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"comment_id\":\"value\", \"parent_type\":\"project_check_in\"}'"} />
 
 ## Response Example
 

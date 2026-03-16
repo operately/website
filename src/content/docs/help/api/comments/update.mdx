@@ -1,6 +1,6 @@
 ---
-title: "edit_comment"
-description: "Generated reference for the mutation endpoint edit_comment."
+title: "comments/update"
+description: "Generated reference for the mutation endpoint comments/update."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/edit_comment` |
-| Handler | `OperatelyWeb.Api.Mutations.EditComment` |
+| Path | `/api/external/v1/comments/update` |
+| Handler | `OperatelyWeb.Api.Comments.Update` |
 
 ## Authentication
 
@@ -73,7 +73,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_comment\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"comment_id\":\"value\", \"content\":\"value\", \"parent_type\":\"project_check_in\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/comments/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"comment_id\":\"value\", \"content\":\"value\", \"parent_type\":\"project_check_in\"}'"} />
 
 ## Response Example
 

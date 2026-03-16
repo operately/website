@@ -1,6 +1,6 @@
 ---
-title: "add_reaction"
-description: "Generated reference for the mutation endpoint add_reaction."
+title: "reactions/create"
+description: "Generated reference for the mutation endpoint reactions/create."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/add_reaction` |
-| Handler | `OperatelyWeb.Api.Mutations.AddReaction` |
+| Path | `/api/external/v1/reactions/create` |
+| Handler | `OperatelyWeb.Api.Reactions.Create` |
 
 ## Authentication
 
@@ -81,7 +81,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/add_reaction\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"emoji\":\"value\", \"entity_id\":\"value\", \"entity_type\":\"project_check_in\", \"parent_type\":\"project_check_in\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/reactions/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"emoji\":\"value\", \"entity_id\":\"value\", \"entity_type\":\"project_check_in\", \"parent_type\":\"project_check_in\"}'"} />
 
 ## Response Example
 

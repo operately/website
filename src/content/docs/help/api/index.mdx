@@ -15,11 +15,13 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 
 | Namespace | Queries | Mutations | Total |
 | --- | ---: | ---: | ---: |
+| [Comments](./comments) | 1 | 3 | 4 |
 | [Companies](./companies) | 2 | 11 | 13 |
 | [Goals](./goals) | 7 | 27 | 34 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
 | [Project milestones](./project_milestones) | 2 | 6 | 8 |
 | [Projects](./projects) | 8 | 19 | 27 |
+| [Reactions](./reactions) | 0 | 2 | 2 |
 | [Space discussions](./space_discussions) | 2 | 4 | 6 |
 | [Spaces](./spaces) | 8 | 11 | 19 |
 | [Tasks](./tasks) | 3 | 10 | 13 |
@@ -76,24 +78,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./add_reaction">add_reaction</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_reaction</code></td>
-</tr>
-
-<tr>
   <td><a href="./copy_resource_hub_folder">copy_resource_hub_folder</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/copy_resource_hub_folder</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_comment">create_comment</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_comment</code></td>
 </tr>
 
 <tr>
@@ -139,13 +127,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./delete_comment">delete_comment</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_comment</code></td>
-</tr>
-
-<tr>
   <td><a href="./delete_resource_hub_document">delete_resource_hub_document</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -171,13 +152,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/delete_resource_hub_link</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_comment">edit_comment</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_comment</code></td>
 </tr>
 
 <tr>
@@ -283,13 +257,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_binded_people</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_comments">get_comments</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_comments</code></td>
 </tr>
 
 <tr>
@@ -514,13 +481,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/remove_key_resource</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_reaction">remove_reaction</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_reaction</code></td>
 </tr>
 
 <tr>
