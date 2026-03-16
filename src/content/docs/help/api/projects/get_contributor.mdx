@@ -1,6 +1,6 @@
 ---
-title: "get_project_contributor"
-description: "Generated reference for the query endpoint get_project_contributor."
+title: "projects/get_contributor"
+description: "Generated reference for the query endpoint projects/get_contributor."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_project_contributor` |
-| Handler | `OperatelyWeb.Api.Queries.GetProjectContributor` |
+| Path | `/api/external/v1/projects/get_contributor` |
+| Handler | `OperatelyWeb.Api.Projects.GetContributor` |
 
 ## Authentication
 
@@ -80,7 +80,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_project_contributor?id=value&include_access_level=true&include_permissions=true&include_project=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get_contributor?id=value&include_access_level=true&include_permissions=true&include_project=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

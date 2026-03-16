@@ -1,6 +1,6 @@
 ---
-title: "add_project_contributors"
-description: "Generated reference for the mutation endpoint add_project_contributors."
+title: "projects/create_contributors"
+description: "Generated reference for the mutation endpoint projects/create_contributors."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/add_project_contributors` |
-| Handler | `OperatelyWeb.Api.Mutations.AddProjectContributors` |
+| Path | `/api/external/v1/projects/create_contributors` |
+| Handler | `OperatelyWeb.Api.Projects.CreateContributors` |
 
 ## Authentication
 
@@ -65,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/add_project_contributors\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"contributors\":[{\"access_level\":\"no_access\", \"person_id\":\"value\", \"responsibility\":\"value\"}], \"project_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/create_contributors\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"contributors\":[{\"access_level\":\"no_access\", \"person_id\":\"value\", \"responsibility\":\"value\"}], \"project_id\":\"value\"}'"} />
 
 ## Response Example
 

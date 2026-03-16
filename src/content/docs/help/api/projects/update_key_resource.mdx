@@ -1,6 +1,6 @@
 ---
-title: "edit_key_resource"
-description: "Generated reference for the mutation endpoint edit_key_resource."
+title: "projects/update_key_resource"
+description: "Generated reference for the mutation endpoint projects/update_key_resource."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/edit_key_resource` |
-| Handler | `OperatelyWeb.Api.Mutations.EditKeyResource` |
+| Path | `/api/external/v1/projects/update_key_resource` |
+| Handler | `OperatelyWeb.Api.Projects.UpdateKeyResource` |
 
 ## Authentication
 
@@ -73,7 +73,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_key_resource\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"link\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_key_resource\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"link\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 

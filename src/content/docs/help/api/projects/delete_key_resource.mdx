@@ -1,6 +1,6 @@
 ---
-title: "remove_key_resource"
-description: "Generated reference for the mutation endpoint remove_key_resource."
+title: "projects/delete_key_resource"
+description: "Generated reference for the mutation endpoint projects/delete_key_resource."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/remove_key_resource` |
-| Handler | `OperatelyWeb.Api.Mutations.RemoveKeyResource` |
+| Path | `/api/external/v1/projects/delete_key_resource` |
+| Handler | `OperatelyWeb.Api.Projects.DeleteKeyResource` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/remove_key_resource\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/delete_key_resource\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "get_project_retrospective"
-description: "Generated reference for the query endpoint get_project_retrospective."
+title: "projects/get_retrospective"
+description: "Generated reference for the query endpoint projects/get_retrospective."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_project_retrospective` |
-| Handler | `OperatelyWeb.Api.Queries.GetProjectRetrospective` |
+| Path | `/api/external/v1/projects/get_retrospective` |
+| Handler | `OperatelyWeb.Api.Projects.GetRetrospective` |
 
 ## Authentication
 
@@ -120,7 +120,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_project_retrospective?include_author=true&include_closed_at=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_subscriptions_list=true&include_unread_notifications=true&project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get_retrospective?include_author=true&include_closed_at=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_subscriptions_list=true&include_unread_notifications=true&project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

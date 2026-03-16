@@ -19,8 +19,8 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 | [Companies](./companies) | 2 | 11 | 13 |
 | [Goals](./goals) | 7 | 27 | 34 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
-| [Project milestones](./project_milestones) | 2 | 6 | 8 |
-| [Projects](./projects) | 8 | 19 | 27 |
+| [Project milestones](./project_milestones) | 2 | 7 | 9 |
+| [Projects](./projects) | 11 | 26 | 37 |
 | [Reactions](./reactions) | 0 | 2 | 2 |
 | [Space discussions](./space_discussions) | 2 | 4 | 6 |
 | [Spaces](./spaces) | 8 | 11 | 19 |
@@ -54,27 +54,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/acknowledge_project_check_in</code></td>
-</tr>
-
-<tr>
-  <td><a href="./add_key_resource">add_key_resource</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_key_resource</code></td>
-</tr>
-
-<tr>
-  <td><a href="./add_project_contributor">add_project_contributor</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_project_contributor</code></td>
-</tr>
-
-<tr>
-  <td><a href="./add_project_contributors">add_project_contributors</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/add_project_contributors</code></td>
 </tr>
 
 <tr>
@@ -166,13 +145,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_goal_progress_update</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_key_resource">edit_key_resource</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_key_resource</code></td>
 </tr>
 
 <tr>
@@ -274,13 +246,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_key_resource">get_key_resource</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_key_resource</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_me">get_me</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -320,20 +285,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_project_check_ins</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_project_contributor">get_project_contributor</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_project_contributor</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_project_retrospective">get_project_retrospective</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_project_retrospective</code></td>
 </tr>
 
 <tr>
@@ -456,13 +407,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./post_milestone_comment">post_milestone_comment</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/post_milestone_comment</code></td>
-</tr>
-
-<tr>
   <td><a href="./post_project_check_in">post_project_check_in</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -474,13 +418,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/publish_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./remove_key_resource">remove_key_resource</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/remove_key_resource</code></td>
 </tr>
 
 <tr>
@@ -523,20 +460,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/update_profile_picture</code></td>
-</tr>
-
-<tr>
-  <td><a href="./update_project_contributor">update_project_contributor</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/update_project_contributor</code></td>
-</tr>
-
-<tr>
-  <td><a href="./update_project_description">update_project_description</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/update_project_description</code></td>
 </tr>
 
 <tr>
