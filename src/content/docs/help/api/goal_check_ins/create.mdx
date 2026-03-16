@@ -1,6 +1,6 @@
 ---
-title: "post_goal_progress_update"
-description: "Generated reference for the mutation endpoint post_goal_progress_update."
+title: "goal_check_ins/create"
+description: "Generated reference for the mutation endpoint goal_check_ins/create."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/post_goal_progress_update` |
-| Handler | `OperatelyWeb.Api.Mutations.PostGoalProgressUpdate` |
+| Path | `/api/external/v1/goal_check_ins/create` |
+| Handler | `OperatelyWeb.Api.GoalCheckIns.Create` |
 
 ## Authentication
 
@@ -113,7 +113,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/post_goal_progress_update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"checklist\":[{\"completed\":true, \"id\":\"value\", \"index\":123, \"name\":\"value\"}], \"content\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"goal_id\":\"value\", \"new_target_values\":\"value\", \"send_notifications_to_everyone\":true, \"status\":\"value\", \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goal_check_ins/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"checklist\":[{\"completed\":true, \"id\":\"value\", \"index\":123, \"name\":\"value\"}], \"content\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"goal_id\":\"value\", \"new_target_values\":\"value\", \"send_notifications_to_everyone\":true, \"status\":\"value\", \"subscriber_ids\":[\"value\"]}'"} />
 
 ## Response Example
 

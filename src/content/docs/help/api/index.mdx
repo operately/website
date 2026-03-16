@@ -17,7 +17,9 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 | --- | ---: | ---: | ---: |
 | [Comments](./comments) | 1 | 3 | 4 |
 | [Companies](./companies) | 2 | 11 | 13 |
+| [Goal check ins](./goal_check_ins) | 1 | 3 | 4 |
 | [Goals](./goals) | 7 | 27 | 34 |
+| [Project check ins](./project_check_ins) | 2 | 3 | 5 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
 | [Project milestones](./project_milestones) | 2 | 7 | 9 |
 | [Projects](./projects) | 11 | 26 | 37 |
@@ -43,20 +45,6 @@ These endpoints do not belong to a namespace and are available directly under `/
     </thead>
     <tbody>
       <tr>
-  <td><a href="./acknowledge_goal_progress_update">acknowledge_goal_progress_update</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/acknowledge_goal_progress_update</code></td>
-</tr>
-
-<tr>
-  <td><a href="./acknowledge_project_check_in">acknowledge_project_check_in</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/acknowledge_project_check_in</code></td>
-</tr>
-
-<tr>
   <td><a href="./copy_resource_hub_folder">copy_resource_hub_folder</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -141,24 +129,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./edit_goal_progress_update">edit_goal_progress_update</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_goal_progress_update</code></td>
-</tr>
-
-<tr>
   <td><a href="./edit_parent_folder_in_resource_hub">edit_parent_folder_in_resource_hub</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_parent_folder_in_resource_hub</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_project_check_in">edit_project_check_in</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_project_check_in</code></td>
 </tr>
 
 <tr>
@@ -239,13 +213,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./get_goal_progress_update">get_goal_progress_update</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_goal_progress_update</code></td>
-</tr>
-
-<tr>
   <td><a href="./get_me">get_me</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -271,20 +238,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_person</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_project_check_in">get_project_check_in</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_project_check_in</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_project_check_ins">get_project_check_ins</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_project_check_ins</code></td>
 </tr>
 
 <tr>
@@ -397,20 +350,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/mark_notifications_as_read</code></td>
-</tr>
-
-<tr>
-  <td><a href="./post_goal_progress_update">post_goal_progress_update</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/post_goal_progress_update</code></td>
-</tr>
-
-<tr>
-  <td><a href="./post_project_check_in">post_project_check_in</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/post_project_check_in</code></td>
 </tr>
 
 <tr>

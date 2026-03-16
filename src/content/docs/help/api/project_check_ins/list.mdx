@@ -1,6 +1,6 @@
 ---
-title: "get_project_check_ins"
-description: "Generated reference for the query endpoint get_project_check_ins."
+title: "project_check_ins/list"
+description: "Generated reference for the query endpoint project_check_ins/list."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_project_check_ins` |
-| Handler | `OperatelyWeb.Api.Queries.GetProjectCheckIns` |
+| Path | `/api/external/v1/project_check_ins/list` |
+| Handler | `OperatelyWeb.Api.ProjectCheckIns.List` |
 
 ## Authentication
 
@@ -80,7 +80,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_project_check_ins?include_author=true&include_project=true&include_reactions=true&project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/project_check_ins/list?include_author=true&include_project=true&include_reactions=true&project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
