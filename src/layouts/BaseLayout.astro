@@ -17,11 +17,53 @@ const {
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
-const schemaGraph = schema
+const siteDescription = "Operately helps teams run goals, projects, and weekly execution with built-in workflows. Use Operately Cloud or self-host it in minutes.";
+const siteSchema = canonicalUrl
+  ? [
+      {
+        "@type": "Organization",
+        "@id": "https://operately.com/#organization",
+        name: "Operately",
+        url: "https://operately.com/",
+        logo: "https://operately.com/favicon.svg",
+        sameAs: [
+          "https://github.com/operately/operately",
+          "https://www.linkedin.com/company/92810497/",
+          "https://x.com/operately",
+          "https://www.youtube.com/@operately",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://operately.com/#website",
+        name: "Operately",
+        url: "https://operately.com/",
+        description: siteDescription,
+        publisher: {
+          "@id": "https://operately.com/#organization",
+        },
+      },
+    ]
+  : [];
+const pageSchema = schema
   ? Array.isArray(schema)
     ? schema
     : [schema]
   : [];
+const schemaGraph = [...siteSchema, ...pageSchema].reduce<Record<string, unknown>[]>((acc, item) => {
+  if (item && typeof item === "object" && "@id" in item && item["@id"]) {
+    const existingIndex = acc.findIndex((entry) => entry && typeof entry === "object" && "@id" in entry && entry["@id"] === item["@id"]);
+    if (existingIndex >= 0) {
+      acc[existingIndex] = item;
+    } else {
+      acc.push(item);
+    }
+    return acc;
+  }
+
+  acc.push(item);
+  return acc;
+}, []);
 
 import "../styles/global.css";
 import Posthog from "../components/posthog.astro";

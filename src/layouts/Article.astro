@@ -1,72 +1,108 @@
 ---
-import Navigation from '../components/Navigation.jsx';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from './BaseLayout.astro';
 import '../styles/anchor-links.css';
 
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 
 const imagePath = frontmatter.image ? frontmatter.image : "/images/social/card-summary-large.png";
 const socialImageUrl = new URL(imagePath, Astro.site);
-
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const jsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": canonicalURL.toString(),
-  url: canonicalURL.toString(),
-  name: frontmatter.title,
-  description: frontmatter.description,
-  isPartOf: {
-    "@id": "https://operately.com/#website",
-  },
-  about: {
-    "@id": "https://operately.com/#organization",
-  },
-  primaryImageOfPage: {
-    "@type": "ImageObject",
-    url: socialImageUrl.toString(),
-  },
-});
+const isLegalPage = Astro.url.pathname.startsWith('/legal/');
 
-import Posthog from "../components/posthog.astro";
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: 'https://operately.com/',
+  },
+  ...(isLegalPage
+    ? [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Legal',
+          item: 'https://operately.com/legal/',
+        },
+      ]
+    : []),
+  {
+    '@type': 'ListItem',
+    position: isLegalPage ? 3 : 2,
+    name: frontmatter.title,
+    item: canonicalURL.toString(),
+  },
+];
+
+const schema = [
+  {
+    '@type': 'WebPage',
+    '@id': canonicalURL.toString(),
+    url: canonicalURL.toString(),
+    name: frontmatter.title,
+    description: frontmatter.description,
+    isPartOf: {
+      '@id': 'https://operately.com/#website',
+    },
+    about: {
+      '@id': 'https://operately.com/#organization',
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: socialImageUrl.toString(),
+    },
+    breadcrumb: {
+      '@id': `${canonicalURL.toString()}#breadcrumb`,
+    },
+  },
+  {
+    '@type': 'Article',
+    '@id': `${canonicalURL.toString()}#article`,
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    image: {
+      '@type': 'ImageObject',
+      url: socialImageUrl.toString(),
+    },
+    mainEntityOfPage: {
+      '@id': canonicalURL.toString(),
+    },
+    author: {
+      '@id': 'https://operately.com/#organization',
+    },
+    publisher: {
+      '@id': 'https://operately.com/#organization',
+    },
+    isPartOf: {
+      '@id': 'https://operately.com/#website',
+    },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalURL.toString()}#breadcrumb`,
+    itemListElement: breadcrumbItems,
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>{frontmatter.title} - Operately</title>
-    <link rel="canonical" href={canonicalURL} />
-    {frontmatter.description? <meta name="description" content={frontmatter.description} /> <meta name="twitter:description" content={frontmatter.description} /> : null}
-    <meta property="og:title" content={frontmatter.title} />
-    <meta property="og:site_name" content="Operately" />
-    <meta property="og:image" content={socialImageUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@operately" />
-    <meta name="twitter:title" content={frontmatter.title} />
-    <meta name="twitter:image" content={socialImageUrl} />
-    <script type="application/ld+json" set:html={jsonLd} />
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={imagePath}
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <Fragment slot="head">
     <style>
       @view-transition { navigation: auto; /* enabled! */ }
     </style>
-    <Posthog />
-    <slot name="head" />
-  </head>
-  <body>
-    <div>
-    <Navigation client:load />
-        <div class="bg-white px-6 py-16 lg:px-8 py-8 sm:py-12">
-            <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-              <article class="prose lg:prose-lg prose-a:text-operately-blue prose-th:bg-operately-blue-tint-1 prose-th:p-2 prose-th:pb-2 prose-td:text-left prose-th:text-left even:prose-tr:bg-gray-100">
-                <slot />
-              </article>
-            </div>
-        </div>
-    <Footer />
+  </Fragment>
+
+  <div class="bg-white px-6 py-16 lg:px-8 py-8 sm:py-12">
+    <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+      <article class="prose lg:prose-lg prose-a:text-operately-blue prose-th:bg-operately-blue-tint-1 prose-th:p-2 prose-th:pb-2 prose-td:text-left prose-th:text-left even:prose-tr:bg-gray-100">
+        <slot />
+      </article>
+    </div>
   </div>
-  </body>
-</html>
+</BaseLayout>
