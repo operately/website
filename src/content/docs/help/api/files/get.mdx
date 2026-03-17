@@ -1,6 +1,6 @@
 ---
-title: "get_resource_hub_document"
-description: "Generated reference for the query endpoint get_resource_hub_document."
+title: "files/get"
+description: "Generated reference for the query endpoint files/get."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_resource_hub_document` |
-| Handler | `OperatelyWeb.Api.Queries.GetResourceHubDocument` |
+| Path | `/api/external/v1/files/get` |
+| Handler | `OperatelyWeb.Api.Files.Get` |
 
 ## Authentication
 
@@ -51,7 +51,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -59,7 +59,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -107,15 +107,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_unread_notifications</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_document</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_file</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -131,30 +123,28 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `document` | `resource_hub_document` object | Yes | No |
+| `file` | `resource_hub_file` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_resource_hub_document?id=value&include_author=true&include_parent_folder=true&include_path_to_document=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/files/get?id=value&include_author=true&include_parent_folder=true&include_path_to_file=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "document": {
+  "file": {
     "author": "<person>",
+    "blob": "<blob>",
     "comments_count": 123,
-    "content": "value",
+    "description": "value",
     "id": "value",
     "inserted_at": "value",
     "name": "value",
-    "notifications": [
-      "<notification>"
-    ],
     "parent_folder": "<resource_hub_folder>",
     "parent_folder_id": "value",
-    "path_to_document": [
+    "path_to_file": [
       "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
@@ -166,9 +156,9 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     ],
     "resource_hub": "<resource_hub>",
     "resource_hub_id": "value",
-    "state": "value",
+    "size": 123,
     "subscription_list": "<subscription_list>",
-    "updated_at": "2026-01-01"
+    "type": "value"
   }
 }
 ```

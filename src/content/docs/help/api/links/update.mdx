@@ -1,6 +1,6 @@
 ---
-title: "get_resource_hub"
-description: "Generated reference for the query endpoint get_resource_hub."
+title: "links/update"
+description: "Generated reference for the mutation endpoint links/update."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -9,15 +9,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Property | Value |
 | --- | --- |
-| Type | `query` |
-| Method | `GET` |
-| Path | `/api/external/v1/get_resource_hub` |
-| Handler | `OperatelyWeb.Api.Queries.GetResourceHub` |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/links/update` |
+| Handler | `OperatelyWeb.Api.Links.Update` |
 
 ## Authentication
 
 - Requires a valid API token.
-- Read-only and full-access tokens can execute this query.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
 
 
 ## Inputs
@@ -35,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>link_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -43,32 +44,32 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_nodes</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>url</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -83,31 +84,44 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `resource_hub` | `resource_hub` object | No | Yes |
+| `link` | `resource_hub_link` object | No | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_resource_hub?id=value&include_nodes=true&include_permissions=true&include_potential_subscribers=true&include_space=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/links/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"value\", \"url\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "resource_hub": {
+  "link": {
+    "author": "<person>",
+    "comments_count": 123,
     "description": "value",
     "id": "value",
-    "inserted_at": "2026-01-01",
+    "inserted_at": "value",
     "name": "value",
-    "nodes": [
-      "<resource_hub_node>"
+    "notifications": [
+      "<notification>"
+    ],
+    "parent_folder": "<resource_hub_folder>",
+    "parent_folder_id": "value",
+    "path_to_link": [
+      "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "space": "<space>",
-    "updated_at": "2026-01-01"
+    "reactions": [
+      "<reaction>"
+    ],
+    "resource_hub": "<resource_hub>",
+    "resource_hub_id": "value",
+    "subscription_list": "<subscription_list>",
+    "type": "value",
+    "url": "value"
   }
 }
 ```

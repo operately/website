@@ -1,6 +1,6 @@
 ---
-title: "create_resource_hub_file"
-description: "Generated reference for the mutation endpoint create_resource_hub_file."
+title: "files/create"
+description: "Generated reference for the mutation endpoint files/create."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/create_resource_hub_file` |
-| Handler | `OperatelyWeb.Api.Mutations.CreateResourceHubFile` |
+| Path | `/api/external/v1/files/create` |
+| Handler | `OperatelyWeb.Api.Files.Create` |
 
 ## Authentication
 
@@ -89,7 +89,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_resource_hub_file\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"files\":[{\"blob_id\":\"value\", \"description\":\"value\", \"name\":\"value\", \"preview_blob_id\":\"value\"}], \"folder_id\":\"value\", \"resource_hub_id\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/files/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"files\":[{\"blob_id\":\"value\", \"description\":\"value\", \"name\":\"value\", \"preview_blob_id\":\"value\"}], \"folder_id\":\"value\", \"resource_hub_id\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
 
 ## Response Example
 

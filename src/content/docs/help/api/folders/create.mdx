@@ -1,6 +1,6 @@
 ---
-title: "edit_resource_hub_link"
-description: "Generated reference for the mutation endpoint edit_resource_hub_link."
+title: "folders/create"
+description: "Generated reference for the mutation endpoint folders/create."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/edit_resource_hub_link` |
-| Handler | `OperatelyWeb.Api.Mutations.EditResourceHubLink` |
+| Path | `/api/external/v1/folders/create` |
+| Handler | `OperatelyWeb.Api.Folders.Create` |
 
 ## Authentication
 
@@ -36,8 +36,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>link_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>resource_hub_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>folder_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -45,30 +53,6 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>url</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -84,44 +68,35 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `link` | `resource_hub_link` object | No | Yes |
+| `folder` | `resource_hub_folder` object | No | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/edit_resource_hub_link\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"value\", \"url\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/folders/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\", \"name\":\"value\", \"resource_hub_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "link": {
-    "author": "<person>",
-    "comments_count": 123,
+  "folder": {
+    "children_count": 123,
     "description": "value",
     "id": "value",
-    "inserted_at": "value",
     "name": "value",
-    "notifications": [
-      "<notification>"
+    "nodes": [
+      "<resource_hub_node>"
     ],
-    "parent_folder": "<resource_hub_folder>",
     "parent_folder_id": "value",
-    "path_to_link": [
+    "path_to_folder": [
       "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "reactions": [
-      "<reaction>"
-    ],
     "resource_hub": "<resource_hub>",
-    "resource_hub_id": "value",
-    "subscription_list": "<subscription_list>",
-    "type": "value",
-    "url": "value"
+    "resource_hub_id": "value"
   }
 }
 ```

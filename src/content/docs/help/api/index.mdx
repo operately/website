@@ -17,14 +17,19 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 | --- | ---: | ---: | ---: |
 | [Comments](./comments) | 1 | 3 | 4 |
 | [Companies](./companies) | 2 | 11 | 13 |
+| [Documents](./documents) | 1 | 4 | 5 |
+| [Files](./files) | 1 | 3 | 4 |
+| [Folders](./folders) | 1 | 4 | 5 |
 | [Goal check ins](./goal_check_ins) | 1 | 3 | 4 |
 | [Goals](./goals) | 7 | 27 | 34 |
+| [Links](./links) | 1 | 3 | 4 |
 | [People](./people) | 9 | 3 | 12 |
 | [Project check ins](./project_check_ins) | 2 | 3 | 5 |
 | [Project discussions](./project_discussions) | 2 | 2 | 4 |
 | [Project milestones](./project_milestones) | 2 | 7 | 9 |
 | [Projects](./projects) | 11 | 26 | 37 |
 | [Reactions](./reactions) | 0 | 2 | 2 |
+| [Resource hubs](./resource_hubs) | 2 | 2 | 4 |
 | [Space discussions](./space_discussions) | 2 | 4 | 6 |
 | [Spaces](./spaces) | 8 | 11 | 19 |
 | [Tasks](./tasks) | 3 | 10 | 13 |
@@ -46,13 +51,6 @@ These endpoints do not belong to a namespace and are available directly under `/
     </thead>
     <tbody>
       <tr>
-  <td><a href="./copy_resource_hub_folder">copy_resource_hub_folder</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/copy_resource_hub_folder</code></td>
-</tr>
-
-<tr>
   <td><a href="./create_goal_discussion">create_goal_discussion</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -60,101 +58,10 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./create_resource_hub">create_resource_hub</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_resource_hub</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_resource_hub_document">create_resource_hub_document</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_resource_hub_file">create_resource_hub_file</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_resource_hub_file</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_resource_hub_folder">create_resource_hub_folder</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_resource_hub_folder</code></td>
-</tr>
-
-<tr>
-  <td><a href="./create_resource_hub_link">create_resource_hub_link</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_resource_hub_link</code></td>
-</tr>
-
-<tr>
-  <td><a href="./delete_resource_hub_document">delete_resource_hub_document</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./delete_resource_hub_file">delete_resource_hub_file</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_resource_hub_file</code></td>
-</tr>
-
-<tr>
-  <td><a href="./delete_resource_hub_folder">delete_resource_hub_folder</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_resource_hub_folder</code></td>
-</tr>
-
-<tr>
-  <td><a href="./delete_resource_hub_link">delete_resource_hub_link</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/delete_resource_hub_link</code></td>
-</tr>
-
-<tr>
   <td><a href="./edit_goal_discussion">edit_goal_discussion</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/edit_goal_discussion</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_parent_folder_in_resource_hub">edit_parent_folder_in_resource_hub</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_parent_folder_in_resource_hub</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_resource_hub_document">edit_resource_hub_document</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_resource_hub_file">edit_resource_hub_file</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_resource_hub_file</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_resource_hub_link">edit_resource_hub_link</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_resource_hub_link</code></td>
 </tr>
 
 <tr>
@@ -190,41 +97,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/get_notifications</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_resource_hub">get_resource_hub</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_resource_hub</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_resource_hub_document">get_resource_hub_document</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_resource_hub_file">get_resource_hub_file</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_resource_hub_file</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_resource_hub_folder">get_resource_hub_folder</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_resource_hub_folder</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_resource_hub_link">get_resource_hub_link</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_resource_hub_link</code></td>
 </tr>
 
 <tr>
@@ -270,13 +142,6 @@ These endpoints do not belong to a namespace and are available directly under `/
 </tr>
 
 <tr>
-  <td><a href="./list_resource_hub_nodes">list_resource_hub_nodes</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/list_resource_hub_nodes</code></td>
-</tr>
-
-<tr>
   <td><a href="./mark_all_notifications_as_read">mark_all_notifications_as_read</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
@@ -295,20 +160,6 @@ These endpoints do not belong to a namespace and are available directly under `/
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
   <td><code>/api/external/v1/mark_notifications_as_read</code></td>
-</tr>
-
-<tr>
-  <td><a href="./publish_resource_hub_document">publish_resource_hub_document</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/publish_resource_hub_document</code></td>
-</tr>
-
-<tr>
-  <td><a href="./rename_resource_hub_folder">rename_resource_hub_folder</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/rename_resource_hub_folder</code></td>
 </tr>
 
 <tr>

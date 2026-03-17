@@ -1,6 +1,6 @@
 ---
-title: "get_resource_hub_link"
-description: "Generated reference for the query endpoint get_resource_hub_link."
+title: "links/get"
+description: "Generated reference for the query endpoint links/get."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_resource_hub_link` |
-| Handler | `OperatelyWeb.Api.Queries.GetResourceHubLink` |
+| Path | `/api/external/v1/links/get` |
+| Handler | `OperatelyWeb.Api.Links.Get` |
 
 ## Authentication
 
@@ -136,7 +136,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_resource_hub_link?id=value&include_author=true&include_parent_folder=true&include_path_to_link=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/links/get?id=value&include_author=true&include_parent_folder=true&include_path_to_link=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "delete_resource_hub_folder"
-description: "Generated reference for the mutation endpoint delete_resource_hub_folder."
+title: "documents/delete"
+description: "Generated reference for the mutation endpoint documents/delete."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/delete_resource_hub_folder` |
-| Handler | `OperatelyWeb.Api.Mutations.DeleteResourceHubFolder` |
+| Path | `/api/external/v1/documents/delete` |
+| Handler | `OperatelyWeb.Api.Documents.Delete` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>folder_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -52,18 +52,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `success` | `boolean` | No | Yes |
+| `document` | `document` | No | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/delete_resource_hub_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"document_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "success": true
+  "document": "<document>"
 }
 ```
 

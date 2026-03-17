@@ -1,6 +1,6 @@
 ---
-title: "create_resource_hub"
-description: "Generated reference for the mutation endpoint create_resource_hub."
+title: "folders/get"
+description: "Generated reference for the query endpoint folders/get."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -9,16 +9,15 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Property | Value |
 | --- | --- |
-| Type | `mutation` |
-| Method | `POST` |
-| Path | `/api/external/v1/create_resource_hub` |
-| Handler | `OperatelyWeb.Api.Mutations.CreateResourceHub` |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/folders/get` |
+| Handler | `OperatelyWeb.Api.Folders.Get` |
 
 ## Authentication
 
 - Requires a valid API token.
-- Requires a write-enabled token.
-- Read-only tokens return `403`.
+- Read-only and full-access tokens can execute this query.
 
 
 ## Inputs
@@ -36,48 +35,48 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>space_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_nodes</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>anonymous_access_level</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_folder</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>company_access_level</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>space_access_level</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -92,31 +91,35 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `resource_hub` | `resource_hub` object | No | Yes |
+| `folder` | `resource_hub_folder` object | No | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/create_resource_hub\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":123, \"company_access_level\":123, \"description\":\"value\", \"name\":\"value\", \"space_access_level\":123, \"space_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/folders/get?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_resource_hub=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "resource_hub": {
+  "folder": {
+    "children_count": 123,
     "description": "value",
     "id": "value",
-    "inserted_at": "2026-01-01",
     "name": "value",
     "nodes": [
       "<resource_hub_node>"
+    ],
+    "parent_folder_id": "value",
+    "path_to_folder": [
+      "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "space": "<space>",
-    "updated_at": "2026-01-01"
+    "resource_hub": "<resource_hub>",
+    "resource_hub_id": "value"
   }
 }
 ```
