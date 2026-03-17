@@ -1,6 +1,6 @@
 ---
-title: "invite_guest"
-description: "Generated reference for the mutation endpoint invite_guest."
+title: "companies/invite_guest"
+description: "Generated reference for the mutation endpoint companies/invite_guest."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/invite_guest` |
-| Handler | `OperatelyWeb.Api.Mutations.InviteGuest` |
+| Path | `/api/external/v1/companies/invite_guest` |
+| Handler | `OperatelyWeb.Api.Companies.InviteGuest` |
 
 ## Authentication
 
@@ -75,7 +75,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/invite_guest\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/companies/invite_guest\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"email\":\"value\", \"full_name\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 

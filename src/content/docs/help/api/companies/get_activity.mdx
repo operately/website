@@ -1,6 +1,6 @@
 ---
-title: "get_activity"
-description: "Generated reference for the query endpoint get_activity."
+title: "companies/get_activity"
+description: "Generated reference for the query endpoint companies/get_activity."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_activity` |
-| Handler | `OperatelyWeb.Api.Queries.GetActivity` |
+| Path | `/api/external/v1/companies/get_activity` |
+| Handler | `OperatelyWeb.Api.Companies.GetActivity` |
 
 ## Authentication
 
@@ -96,7 +96,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_activity?id=value&include_permissions=true&include_potential_subscribers=true&include_subscriptions_list=true&include_unread_goal_notifications=true&include_unread_project_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/get_activity?id=value&include_permissions=true&include_potential_subscribers=true&include_subscriptions_list=true&include_unread_goal_notifications=true&include_unread_project_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

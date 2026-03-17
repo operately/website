@@ -1,6 +1,6 @@
 ---
-title: "global_search"
-description: "Generated reference for the query endpoint global_search."
+title: "companies/global_search"
+description: "Generated reference for the query endpoint companies/global_search."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/global_search` |
-| Handler | `OperatelyWeb.Api.Queries.GlobalSearch` |
+| Path | `/api/external/v1/companies/global_search` |
+| Handler | `OperatelyWeb.Api.Companies.GlobalSearch` |
 
 ## Authentication
 
@@ -60,7 +60,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/global_search?query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/global_search?query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 

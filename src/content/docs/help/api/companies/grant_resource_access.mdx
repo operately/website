@@ -1,6 +1,6 @@
 ---
-title: "grant_resource_access"
-description: "Generated reference for the mutation endpoint grant_resource_access."
+title: "companies/grant_resource_access"
+description: "Generated reference for the mutation endpoint companies/grant_resource_access."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/grant_resource_access` |
-| Handler | `OperatelyWeb.Api.Mutations.GrantResourceAccess` |
+| Path | `/api/external/v1/companies/grant_resource_access` |
+| Handler | `OperatelyWeb.Api.Companies.GrantResourceAccess` |
 
 ## Authentication
 
@@ -65,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/grant_resource_access\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\", \"resources\":[{\"access_level\":\"no_access\", \"resource_id\":\"value\", \"resource_type\":\"space\"}]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/companies/grant_resource_access\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"person_id\":\"value\", \"resources\":[{\"access_level\":\"no_access\", \"resource_id\":\"value\", \"resource_type\":\"space\"}]}'"} />
 
 ## Response Example
 

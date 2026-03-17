@@ -16,12 +16,13 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 | Namespace | Queries | Mutations | Total |
 | --- | ---: | ---: | ---: |
 | [Comments](./comments) | 1 | 3 | 4 |
-| [Companies](./companies) | 2 | 11 | 13 |
+| [Companies](./companies) | 7 | 13 | 20 |
 | [Documents](./documents) | 1 | 4 | 5 |
 | [Files](./files) | 1 | 3 | 4 |
 | [Folders](./folders) | 1 | 4 | 5 |
 | [Goal check ins](./goal_check_ins) | 1 | 3 | 4 |
-| [Goals](./goals) | 7 | 27 | 34 |
+| [Goal discussions](./goal_discussions) | 1 | 2 | 3 |
+| [Goals](./goals) | 6 | 27 | 33 |
 | [Links](./links) | 1 | 3 | 4 |
 | [Notifications](./notifications) | 3 | 6 | 9 |
 | [People](./people) | 9 | 3 | 12 |
@@ -40,81 +41,4 @@ Operately API provides HTTP endpoints for querying and mutating Operately resour
 
 These endpoints do not belong to a namespace and are available directly under `/help/api/*`.
 
-<div style={{ overflowX: "auto" }}>
-  <table style={{ minWidth: "52rem", whiteSpace: "nowrap" }}>
-    <thead>
-      <tr>
-        <th>Endpoint</th>
-        <th>Method</th>
-        <th>Type</th>
-        <th>Path</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-  <td><a href="./create_goal_discussion">create_goal_discussion</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/create_goal_discussion</code></td>
-</tr>
-
-<tr>
-  <td><a href="./edit_goal_discussion">edit_goal_discussion</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/edit_goal_discussion</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_activities">get_activities</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_activities</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_activity">get_activity</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_activity</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_flat_work_map">get_flat_work_map</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_flat_work_map</code></td>
-</tr>
-
-<tr>
-  <td><a href="./get_work_map">get_work_map</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/get_work_map</code></td>
-</tr>
-
-<tr>
-  <td><a href="./global_search">global_search</a></td>
-  <td><code>GET</code></td>
-  <td><code>query</code></td>
-  <td><code>/api/external/v1/global_search</code></td>
-</tr>
-
-<tr>
-  <td><a href="./grant_resource_access">grant_resource_access</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/grant_resource_access</code></td>
-</tr>
-
-<tr>
-  <td><a href="./invite_guest">invite_guest</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/invite_guest</code></td>
-</tr>
-
-    </tbody>
-  </table>
-</div>
-
+There are currently no additional endpoints.
