@@ -1,6 +1,6 @@
 ---
-title: "mark_notifications_as_read"
-description: "Generated reference for the mutation endpoint mark_notifications_as_read."
+title: "notifications/unsubscribe"
+description: "Generated reference for the mutation endpoint notifications/unsubscribe."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/mark_notifications_as_read` |
-| Handler | `OperatelyWeb.Api.Mutations.MarkNotificationsAsRead` |
+| Path | `/api/external/v1/notifications/unsubscribe` |
+| Handler | `OperatelyWeb.Api.Notifications.Unsubscribe` |
 
 ## Authentication
 
@@ -36,10 +36,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>ids</code></td>
-  <td style={{ whiteSpace: "normal" }}>array of <code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -54,6 +54,6 @@ This endpoint has no output fields.
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/mark_notifications_as_read\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/notifications/unsubscribe\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
 
 

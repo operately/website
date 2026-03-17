@@ -1,6 +1,6 @@
 ---
-title: "is_subscribed_to_resource"
-description: "Generated reference for the query endpoint is_subscribed_to_resource."
+title: "notifications/subscribe"
+description: "Generated reference for the mutation endpoint notifications/subscribe."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -9,15 +9,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Property | Value |
 | --- | --- |
-| Type | `query` |
-| Method | `GET` |
-| Path | `/api/external/v1/is_subscribed_to_resource` |
-| Handler | `OperatelyWeb.Api.Queries.IsSubscribedToResource` |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/notifications/subscribe` |
+| Handler | `OperatelyWeb.Api.Notifications.Subscribe` |
 
 ## Authentication
 
 - Requires a valid API token.
-- Read-only and full-access tokens can execute this query.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
 
 
 ## Inputs
@@ -35,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>resource_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -43,7 +44,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>resource_type</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
   <td style={{ whiteSpace: "normal" }}><code>subscription_parent_type</code> enum (<code>project_check_in</code>, <code>project_retrospective</code>, <code>goal_update</code>, <code>message</code>, <code>resource_hub_document</code>, <code>resource_hub_file</code>, <code>resource_hub_link</code>, <code>comment_thread</code>, <code>project</code>, <code>milestone</code>, <code>project_task</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -57,20 +58,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## Outputs
 
-| Field | Type | Required | Nullable |
-| --- | --- | --- | --- |
-| `subscribed` | `boolean` | Yes | No |
-
+This endpoint has no output fields.
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/is_subscribed_to_resource?resource_id=value&resource_type=project_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/notifications/subscribe\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"type\":\"project_check_in\"}'"} />
 
-## Response Example
-
-```json
-{
-  "subscribed": true
-}
-```
 

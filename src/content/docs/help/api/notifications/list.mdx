@@ -1,6 +1,6 @@
 ---
-title: "get_notifications"
-description: "Generated reference for the query endpoint get_notifications."
+title: "notifications/list"
+description: "Generated reference for the query endpoint notifications/list."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/get_notifications` |
-| Handler | `OperatelyWeb.Api.Queries.GetNotifications` |
+| Path | `/api/external/v1/notifications/list` |
+| Handler | `OperatelyWeb.Api.Notifications.List` |
 
 ## Authentication
 
@@ -64,7 +64,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/get_notifications?page=123&per_page=123\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/notifications/list?page=123&per_page=123\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
