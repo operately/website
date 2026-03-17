@@ -27,6 +27,7 @@ import {
   ChevronDown,
   Layout,
   PackageCheck,
+  BookOpen,
   Binoculars,
   CalendarDays,
   Menu,
@@ -45,6 +46,12 @@ const products = [
     description: "The latest updates and improvements",
     href: "/releases",
     icon: PackageCheck,
+  },
+  {
+    name: "Help center",
+    description: "Browse product guides and self-serve documentation",
+    href: "/help",
+    icon: BookOpen,
   },
   {
     name: "Roadmap",
