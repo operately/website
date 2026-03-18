@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     <tbody>
       <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>project_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -75,7 +75,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `project_check_ins` | array of `project_check_in` object | No | Yes |
+| `project_check_ins` | array of `project_check_in` object | Yes | No |
 
 
 ## cURL Example

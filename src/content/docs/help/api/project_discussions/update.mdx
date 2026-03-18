@@ -76,7 +76,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussion` | `update` object | Yes | No |
+| `discussion` | `comment_thread` object | Yes | No |
 
 
 ## cURL Example
@@ -88,26 +88,29 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 ```json
 {
   "discussion": {
-    "acknowledged": true,
-    "acknowledged_at": "2026-01-01T09:30:00Z",
-    "acknowledging_person": "<person>",
     "author": "<person>",
+    "can_comment": true,
     "comments": [
       "<comment>"
     ],
     "comments_count": 123,
-    "content": "<update_content>",
     "id": "value",
-    "inserted_at": "2026-01-01T09:30:00Z",
+    "inserted_at": "2026-01-01",
     "message": "value",
-    "message_type": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
     "project": "<project>",
+    "project_permissions": "<project_permissions>",
     "reactions": [
       "<reaction>"
     ],
-    "title": "value",
-    "updatable_id": "value",
-    "updated_at": "2026-01-01T09:30:00Z"
+    "space": "<space>",
+    "subscription_list": "<subscription_list>",
+    "title": "value"
   }
 }
 ```
