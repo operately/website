@@ -37,15 +37,15 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     <tbody>
       <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>resource_hub_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>folder_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -54,8 +54,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -68,7 +68,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `folder` | `resource_hub_folder` object | No | Yes |
+| `folder` | `resource_hub_folder` object | Yes | No |
 
 
 ## cURL Example
