@@ -38,7 +38,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>page</code></td>
   <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -46,7 +46,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>per_page</code></td>
   <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -59,7 +59,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `notifications` | array of `notification` object | No | Yes |
+| `notifications` | array of `notification` object | Yes | No |
 
 
 ## cURL Example
@@ -74,6 +74,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     {
       "activity": "<activity>",
       "id": "value",
+      "inserted_at": "2026-01-01T09:30:00Z",
       "read": true,
       "read_at": "2026-01-01T09:30:00Z"
     }
