@@ -1,6 +1,6 @@
 ---
-title: "create"
-description: "Generated reference for the mutation endpoint folders/create."
+title: "create_folder"
+description: "Generated reference for the mutation endpoint resource_hubs/create_folder."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/folders/create` |
-| Handler | `OperatelyWeb.Api.Folders.Create` |
+| Path | `/api/external/v1/resource_hubs/create_folder` |
+| Handler | `OperatelyWeb.Api.ResourceHubs.CreateFolder` |
 
 ## Authentication
 
@@ -73,7 +73,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/folders/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\", \"name\":\"value\", \"resource_hub_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/create_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\", \"name\":\"value\", \"resource_hub_id\":\"value\"}'"} />
 
 ## Response Example
 

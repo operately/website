@@ -1,6 +1,6 @@
 ---
-title: "delete"
-description: "Generated reference for the mutation endpoint folders/delete."
+title: "delete_folder"
+description: "Generated reference for the mutation endpoint resource_hubs/delete_folder."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/folders/delete` |
-| Handler | `OperatelyWeb.Api.Folders.Delete` |
+| Path | `/api/external/v1/resource_hubs/delete_folder` |
+| Handler | `OperatelyWeb.Api.ResourceHubs.DeleteFolder` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/folders/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/delete_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\"}'"} />
 
 ## Response Example
 

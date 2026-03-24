@@ -1,6 +1,6 @@
 ---
-title: "delete"
-description: "Generated reference for the mutation endpoint project_milestones/delete."
+title: "delete_milestone"
+description: "Generated reference for the mutation endpoint projects/delete_milestone."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_milestones/delete` |
-| Handler | `OperatelyWeb.Api.ProjectMilestones.Delete` |
+| Path | `/api/external/v1/projects/delete_milestone` |
+| Handler | `OperatelyWeb.Api.Projects.Milestones.Delete` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/delete_milestone\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\"}'"} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "get"
-description: "Generated reference for the query endpoint folders/get."
+title: "get_milestone"
+description: "Generated reference for the query endpoint projects/get_milestone."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/folders/get` |
-| Handler | `OperatelyWeb.Api.Folders.Get` |
+| Path | `/api/external/v1/projects/get_milestone` |
+| Handler | `OperatelyWeb.Api.Projects.GetMilestone` |
 
 ## Authentication
 
@@ -43,7 +43,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_nodes</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_comments</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -51,7 +51,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -59,7 +59,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_folder</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_creator</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -75,7 +75,23 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_subscription_list</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_available_statuses</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -91,35 +107,41 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `folder` | `resource_hub_folder` object | Yes | No |
+| `milestone` | `milestone` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/folders/get?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_resource_hub=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get_milestone?id=value&include_available_statuses=true&include_comments=true&include_creator=true&include_permissions=true&include_project=true&include_space=true&include_subscription_list=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "folder": {
-    "children_count": 123,
+  "milestone": {
+    "available_statuses": [
+      "<task_status>"
+    ],
+    "comments": [
+      "<milestone_comment>"
+    ],
+    "comments_count": 123,
+    "completed_at": "2026-01-01",
+    "creator": "<person>",
     "description": "value",
     "id": "value",
-    "name": "value",
-    "nodes": [
-      "<resource_hub_node>"
+    "inserted_at": "2026-01-01",
+    "permissions": "<project_permissions>",
+    "project": "<project>",
+    "space": "<space>",
+    "status": "pending",
+    "subscription_list": "<subscription_list>",
+    "tasks_kanban_state": "value",
+    "tasks_ordering_state": [
+      "value"
     ],
-    "parent_folder_id": "value",
-    "path_to_folder": [
-      "<resource_hub_folder>"
-    ],
-    "permissions": "<resource_hub_permissions>",
-    "potential_subscribers": [
-      "<subscriber>"
-    ],
-    "resource_hub": "<resource_hub>",
-    "resource_hub_id": "value"
+    "timeframe": "<timeframe>",
+    "title": "value"
   }
 }
 ```

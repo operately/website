@@ -1,6 +1,6 @@
 ---
-title: "update_kanban"
-description: "Generated reference for the mutation endpoint project_milestones/update_kanban."
+title: "update_milestone_description"
+description: "Generated reference for the mutation endpoint projects/update_milestone_description."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_milestones/update_kanban` |
-| Handler | `OperatelyWeb.Api.ProjectMilestones.UpdateKanban` |
+| Path | `/api/external/v1/projects/update_milestone_description` |
+| Handler | `OperatelyWeb.Api.Projects.Milestones.UpdateDescription` |
 
 ## Authentication
 
@@ -44,23 +44,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>task_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>status</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>task_status</code> object</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>kanban_state</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
   <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -76,42 +60,41 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `task` | `task` object | Yes | No |
+| `milestone` | `milestone` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/update_kanban\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"kanban_state\":\"value\", \"milestone_id\":\"value\", \"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"task_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_milestone_description\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"milestone_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "task": {
-    "assignees": [
-      "<person>"
-    ],
+  "milestone": {
     "available_statuses": [
       "<task_status>"
     ],
+    "comments": [
+      "<milestone_comment>"
+    ],
     "comments_count": 123,
+    "completed_at": "2026-01-01",
     "creator": "<person>",
     "description": "value",
-    "due_date": "<contextual_date>",
     "id": "value",
     "inserted_at": "2026-01-01",
-    "milestone": "<milestone>",
-    "name": "value",
     "permissions": "<project_permissions>",
-    "priority": "value",
     "project": "<project>",
-    "project_space": "<space>",
-    "size": "value",
     "space": "<space>",
-    "status": "<task_status>",
+    "status": "pending",
     "subscription_list": "<subscription_list>",
-    "type": "space",
-    "updated_at": "2026-01-01"
+    "tasks_kanban_state": "value",
+    "tasks_ordering_state": [
+      "value"
+    ],
+    "timeframe": "<timeframe>",
+    "title": "value"
   }
 }
 ```

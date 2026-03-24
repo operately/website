@@ -1,6 +1,6 @@
 ---
-title: "update_due_date"
-description: "Generated reference for the mutation endpoint project_milestones/update_due_date."
+title: "update_milestone_due_date"
+description: "Generated reference for the mutation endpoint projects/update_milestone_due_date."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_milestones/update_due_date` |
-| Handler | `OperatelyWeb.Api.ProjectMilestones.UpdateDueDate` |
+| Path | `/api/external/v1/projects/update_milestone_due_date` |
+| Handler | `OperatelyWeb.Api.Projects.Milestones.UpdateDueDate` |
 
 ## Authentication
 
@@ -65,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/update_due_date\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"milestone_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_milestone_due_date\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"milestone_id\":\"value\"}'"} />
 
 ## Response Example
 

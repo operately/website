@@ -1,6 +1,6 @@
 ---
-title: "update_title"
-description: "Generated reference for the mutation endpoint project_milestones/update_title."
+title: "update_milestone_title"
+description: "Generated reference for the mutation endpoint projects/update_milestone_title."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_milestones/update_title` |
-| Handler | `OperatelyWeb.Api.ProjectMilestones.UpdateTitle` |
+| Path | `/api/external/v1/projects/update_milestone_title` |
+| Handler | `OperatelyWeb.Api.Projects.Milestones.UpdateTitle` |
 
 ## Authentication
 
@@ -65,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/update_title\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_milestone_title\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 

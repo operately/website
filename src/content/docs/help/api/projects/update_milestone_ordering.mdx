@@ -1,6 +1,6 @@
 ---
-title: "update_ordering"
-description: "Generated reference for the mutation endpoint project_milestones/update_ordering."
+title: "update_milestone_ordering"
+description: "Generated reference for the mutation endpoint projects/update_milestone_ordering."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_milestones/update_ordering` |
-| Handler | `OperatelyWeb.Api.ProjectMilestones.UpdateOrdering` |
+| Path | `/api/external/v1/projects/update_milestone_ordering` |
+| Handler | `OperatelyWeb.Api.Projects.Milestones.UpdateOrdering` |
 
 ## Authentication
 
@@ -65,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_milestones/update_ordering\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"ordering_state\":[\"value\"], \"project_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_milestone_ordering\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"ordering_state\":[\"value\"], \"project_id\":\"value\"}'"} />
 
 ## Response Example
 
