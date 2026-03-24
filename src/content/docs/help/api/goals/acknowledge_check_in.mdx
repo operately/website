@@ -1,6 +1,6 @@
 ---
-title: "acknowledge"
-description: "Generated reference for the mutation endpoint goal_check_ins/acknowledge."
+title: "acknowledge_check_in"
+description: "Generated reference for the mutation endpoint goals/acknowledge_check_in."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/goal_check_ins/acknowledge` |
-| Handler | `OperatelyWeb.Api.GoalCheckIns.Acknowledge` |
+| Path | `/api/external/v1/goals/acknowledge_check_in` |
+| Handler | `OperatelyWeb.Api.Goals.AcknowledgeCheckIn` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goal_check_ins/acknowledge\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/acknowledge_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
 
 ## Response Example
 

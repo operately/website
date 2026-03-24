@@ -1,6 +1,6 @@
 ---
-title: "archive"
-description: "Generated reference for the mutation endpoint space_discussions/archive."
+title: "archive_discussion"
+description: "Generated reference for the mutation endpoint spaces/archive_discussion."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/space_discussions/archive` |
-| Handler | `OperatelyWeb.Api.SpaceDiscussions.Archive` |
+| Path | `/api/external/v1/spaces/archive_discussion` |
+| Handler | `OperatelyWeb.Api.Spaces.ArchiveDiscussion` |
 
 ## Authentication
 
@@ -54,6 +54,6 @@ This endpoint has no output fields.
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/space_discussions/archive\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"message_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/archive_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"message_id\":\"value\"}'"} />
 
 

@@ -1,6 +1,6 @@
 ---
-title: "create"
-description: "Generated reference for the mutation endpoint goal_discussions/create."
+title: "update_discussion"
+description: "Generated reference for the mutation endpoint projects/update_discussion."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/goal_discussions/create` |
-| Handler | `OperatelyWeb.Api.GoalDiscussions.Create` |
+| Path | `/api/external/v1/projects/update_discussion` |
+| Handler | `OperatelyWeb.Api.Projects.Discussions.Update` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>goal_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -53,17 +53,9 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>message</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>send_notifications_to_everyone</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -71,8 +63,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>subscriber_ids</code></td>
   <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>[]</code></td>
 </tr>
 
     </tbody>
@@ -84,18 +76,42 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `id` | `string` | No | Yes |
+| `discussion` | `comment_thread` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goal_discussions/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"goal_id\":\"value\", \"message\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"message\":\"value\", \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "id": "value"
+  "discussion": {
+    "author": "<person>",
+    "can_comment": true,
+    "comments": [
+      "<comment>"
+    ],
+    "comments_count": 123,
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "message": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "project": "<project>",
+    "project_permissions": "<project_permissions>",
+    "reactions": [
+      "<reaction>"
+    ],
+    "space": "<space>",
+    "subscription_list": "<subscription_list>",
+    "title": "value"
+  }
 }
 ```
 

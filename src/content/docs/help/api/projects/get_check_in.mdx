@@ -1,6 +1,6 @@
 ---
-title: "get"
-description: "Generated reference for the query endpoint space_discussions/get."
+title: "get_check_in"
+description: "Generated reference for the query endpoint projects/get_check_in."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/space_discussions/get` |
-| Handler | `OperatelyWeb.Api.SpaceDiscussions.Get` |
+| Path | `/api/external/v1/projects/get_check_in` |
+| Handler | `OperatelyWeb.Api.Projects.GetCheckIn` |
 
 ## Authentication
 
@@ -46,15 +46,23 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_author</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_reactions</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_acknowledged_by</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -62,15 +70,15 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_space_members</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_reactions</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -78,7 +86,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_subscriptions_list</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -86,20 +94,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_unread_notifications</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -115,43 +115,38 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussion` | `discussion` object | Yes | No |
+| `project_check_in` | `project_check_in` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/space_discussions/get?id=value&include_author=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_space=true&include_space_members=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get_check_in?id=value&include_acknowledged_by=true&include_author=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "discussion": {
+  "project_check_in": {
+    "acknowledged_at": "2026-01-01T09:30:00Z",
+    "acknowledged_by": "<person>",
     "author": "<person>",
-    "body": "value",
-    "comments": [
-      "<comment>"
-    ],
     "comments_count": 123,
+    "description": "value",
     "id": "value",
     "inserted_at": "2026-01-01",
-    "name": "value",
     "notifications": [
       "<notification>"
     ],
-    "permissions": "<space_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "published_at": "2026-01-01",
+    "project": "<project>",
     "reactions": [
       "<reaction>"
     ],
     "space": "<space>",
-    "state": "value",
-    "subscription_list": "<subscription_list>",
-    "title": "value",
-    "updated_at": "2026-01-01"
+    "status": "on_track",
+    "subscription_list": "<subscription_list>"
   }
 }
 ```

@@ -1,6 +1,6 @@
 ---
-title: "update"
-description: "Generated reference for the mutation endpoint project_discussions/update."
+title: "create_discussion"
+description: "Generated reference for the mutation endpoint spaces/create_discussion."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_discussions/update` |
-| Handler | `OperatelyWeb.Api.ProjectDiscussions.Update` |
+| Path | `/api/external/v1/spaces/create_discussion` |
+| Handler | `OperatelyWeb.Api.Spaces.CreateDiscussion` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>space_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -52,9 +52,25 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>message</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>body</code></td>
   <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>post_as_draft</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>send_notifications_to_everyone</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
@@ -64,7 +80,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}><code>[]</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
     </tbody>
@@ -76,12 +92,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussion` | `comment_thread` object | Yes | No |
+| `discussion` | `discussion` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_discussions/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"message\":\"value\", \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/create_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"body\":\"value\", \"post_as_draft\":true, \"send_notifications_to_everyone\":true, \"space_id\":\"value\", \"subscriber_ids\":[\"value\"], \"title\":\"value\"}'"} />
 
 ## Response Example
 
@@ -89,28 +105,30 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 {
   "discussion": {
     "author": "<person>",
-    "can_comment": true,
+    "body": "value",
     "comments": [
       "<comment>"
     ],
     "comments_count": 123,
     "id": "value",
     "inserted_at": "2026-01-01",
-    "message": "value",
+    "name": "value",
     "notifications": [
       "<notification>"
     ],
+    "permissions": "<space_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "project": "<project>",
-    "project_permissions": "<project_permissions>",
+    "published_at": "2026-01-01",
     "reactions": [
       "<reaction>"
     ],
     "space": "<space>",
+    "state": "value",
     "subscription_list": "<subscription_list>",
-    "title": "value"
+    "title": "value",
+    "updated_at": "2026-01-01"
   }
 }
 ```

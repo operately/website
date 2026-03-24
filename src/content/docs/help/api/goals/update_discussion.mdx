@@ -1,6 +1,6 @@
 ---
-title: "update"
-description: "Generated reference for the mutation endpoint project_check_ins/update."
+title: "update_discussion"
+description: "Generated reference for the mutation endpoint goals/update_discussion."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_check_ins/update` |
-| Handler | `OperatelyWeb.Api.ProjectCheckIns.Update` |
+| Path | `/api/external/v1/goals/update_discussion` |
+| Handler | `OperatelyWeb.Api.Goals.UpdateDiscussion` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>check_in_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>activity_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -44,7 +44,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>status</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>title</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -52,7 +52,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>message</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -66,41 +66,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## Outputs
 
-| Field | Type | Required | Nullable |
-| --- | --- | --- | --- |
-| `check_in` | `project_check_in` object | Yes | No |
-
+This endpoint has no output fields.
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_check_ins/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"check_in_id\":\"value\", \"description\":\"value\", \"status\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"activity_id\":\"value\", \"message\":\"value\", \"title\":\"value\"}'"} />
 
-## Response Example
-
-```json
-{
-  "check_in": {
-    "acknowledged_at": "2026-01-01T09:30:00Z",
-    "acknowledged_by": "<person>",
-    "author": "<person>",
-    "comments_count": 123,
-    "description": "value",
-    "id": "value",
-    "inserted_at": "2026-01-01",
-    "notifications": [
-      "<notification>"
-    ],
-    "potential_subscribers": [
-      "<subscriber>"
-    ],
-    "project": "<project>",
-    "reactions": [
-      "<reaction>"
-    ],
-    "space": "<space>",
-    "status": "on_track",
-    "subscription_list": "<subscription_list>"
-  }
-}
-```
 

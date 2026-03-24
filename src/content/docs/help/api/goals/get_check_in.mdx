@@ -1,6 +1,6 @@
 ---
-title: "get"
-description: "Generated reference for the query endpoint project_check_ins/get."
+title: "get_check_in"
+description: "Generated reference for the query endpoint goals/get_check_in."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/project_check_ins/get` |
-| Handler | `OperatelyWeb.Api.ProjectCheckIns.Get` |
+| Path | `/api/external/v1/goals/get_check_in` |
+| Handler | `OperatelyWeb.Api.Goals.GetCheckIn` |
 
 ## Authentication
 
@@ -46,7 +46,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_author</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -54,23 +54,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_acknowledged_by</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -78,7 +62,63 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_reactions</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_goal</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_goal_targets</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_goal_checklist</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_reviewer</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_champion</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space_members</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -86,7 +126,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_subscriptions_list</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -94,12 +134,20 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_unread_notifications</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -115,38 +163,46 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `project_check_in` | `project_check_in` object | Yes | No |
+| `update` | `goal_progress_update` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/project_check_ins/get?id=value&include_acknowledged_by=true&include_author=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/get_check_in?id=value&include_acknowledged_by=true&include_author=true&include_champion=true&include_goal=true&include_goal_checklist=true&include_goal_targets=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_reviewer=true&include_space=true&include_space_members=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "project_check_in": {
+  "update": {
+    "acknowledged": true,
     "acknowledged_at": "2026-01-01T09:30:00Z",
-    "acknowledged_by": "<person>",
+    "acknowledging_person": "<person>",
     "author": "<person>",
+    "checklist": [
+      "<goal_check_update>"
+    ],
     "comments_count": 123,
-    "description": "value",
+    "goal": "<goal>",
+    "goal_target_updates": [
+      "<goal_target_updates>"
+    ],
     "id": "value",
-    "inserted_at": "2026-01-01",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "message": "value",
     "notifications": [
       "<notification>"
     ],
+    "permissions": "<goal_update_permissions>",
     "potential_subscribers": [
       "<subscriber>"
     ],
-    "project": "<project>",
     "reactions": [
       "<reaction>"
     ],
-    "space": "<space>",
-    "status": "on_track",
-    "subscription_list": "<subscription_list>"
+    "status": "value",
+    "subscription_list": "<subscription_list>",
+    "timeframe": "<timeframe>"
   }
 }
 ```

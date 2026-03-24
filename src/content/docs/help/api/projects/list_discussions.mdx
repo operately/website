@@ -1,6 +1,6 @@
 ---
-title: "list"
-description: "Generated reference for the query endpoint goal_discussions/list."
+title: "list_discussions"
+description: "Generated reference for the query endpoint projects/list_discussions."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/goal_discussions/list` |
-| Handler | `OperatelyWeb.Api.GoalDiscussions.List` |
+| Path | `/api/external/v1/projects/list_discussions` |
+| Handler | `OperatelyWeb.Api.Projects.Discussions.List` |
 
 ## Authentication
 
@@ -35,7 +35,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>goal_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>project_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -51,12 +51,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussions` | array of `discussion` object | Yes | No |
+| `discussions` | array of `comment_thread` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goal_discussions/list?goal_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/list_discussions?project_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -65,30 +65,28 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   "discussions": [
     {
       "author": "<person>",
-      "body": "value",
+      "can_comment": true,
       "comments": [
         "<comment>"
       ],
       "comments_count": 123,
       "id": "value",
       "inserted_at": "2026-01-01",
-      "name": "value",
+      "message": "value",
       "notifications": [
         "<notification>"
       ],
-      "permissions": "<space_permissions>",
       "potential_subscribers": [
         "<subscriber>"
       ],
-      "published_at": "2026-01-01",
+      "project": "<project>",
+      "project_permissions": "<project_permissions>",
       "reactions": [
         "<reaction>"
       ],
       "space": "<space>",
-      "state": "value",
       "subscription_list": "<subscription_list>",
-      "title": "value",
-      "updated_at": "2026-01-01"
+      "title": "value"
     }
   ]
 }

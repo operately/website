@@ -1,6 +1,6 @@
 ---
-title: "publish"
-description: "Generated reference for the mutation endpoint space_discussions/publish."
+title: "publish_discussion"
+description: "Generated reference for the mutation endpoint spaces/publish_discussion."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/space_discussions/publish` |
-| Handler | `OperatelyWeb.Api.SpaceDiscussions.Publish` |
+| Path | `/api/external/v1/spaces/publish_discussion` |
+| Handler | `OperatelyWeb.Api.Spaces.PublishDiscussion` |
 
 ## Authentication
 
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/space_discussions/publish\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/publish_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
 
 ## Response Example
 
