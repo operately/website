@@ -84,7 +84,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `id` | `string` | No | Yes |
+| `discussion` | `comment_thread` object | Yes | No |
+| `activity_id` | `string` | Yes | No |
 
 
 ## cURL Example
@@ -95,7 +96,32 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ```json
 {
-  "id": "value"
+  "activity_id": "value",
+  "discussion": {
+    "author": "<person>",
+    "can_comment": true,
+    "comments": [
+      "<comment>"
+    ],
+    "comments_count": 123,
+    "id": "value",
+    "inserted_at": "2026-01-01",
+    "message": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "project": "<project>",
+    "project_permissions": "<project_permissions>",
+    "reactions": [
+      "<reaction>"
+    ],
+    "space": "<space>",
+    "subscription_list": "<subscription_list>",
+    "title": "value"
+  }
 }
 ```
 
