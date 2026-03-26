@@ -61,7 +61,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>state</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>discussion_state</code> enum (<code>draft</code>, <code>published</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -81,7 +81,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"body\":\"value\", \"id\":\"value\", \"state\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_discussion\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"body\":\"value\", \"id\":\"value\", \"state\":\"draft\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
