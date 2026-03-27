@@ -53,7 +53,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>resource_hub_link_type</code> enum (<code>airtable</code>, <code>dropbox</code>, <code>figma</code>, <code>google</code>, <code>google_doc</code>, <code>google_sheet</code>, <code>google_slides</code>, <code>notion</code>, <code>other</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -89,7 +89,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/links/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"value\", \"url\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/links/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"airtable\", \"url\":\"value\"}'"} />
 
 ## Response Example
 
@@ -120,7 +120,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "resource_hub": "<resource_hub>",
     "resource_hub_id": "value",
     "subscription_list": "<subscription_list>",
-    "type": "value",
+    "type": "airtable",
     "url": "value"
   }
 }
