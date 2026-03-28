@@ -53,7 +53,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>company_permissions</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>access_options_int</code> enum (<code>0</code>, <code>10</code>, <code>40</code>, <code>70</code>, <code>100</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -61,7 +61,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>public_permissions</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>access_options_int</code> enum (<code>0</code>, <code>10</code>, <code>40</code>, <code>70</code>, <code>100</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -81,7 +81,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"company_permissions\":123, \"mission\":\"value\", \"name\":\"value\", \"public_permissions\":123}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"company_permissions\":\"<access_options_int>\", \"mission\":\"value\", \"name\":\"value\", \"public_permissions\":\"<access_options_int>\"}'"} />
 
 ## Response Example
 
