@@ -38,24 +38,24 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>query</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>&quot;&quot;</code></td>
 </tr>
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>ignored_ids</code></td>
   <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>[]</code></td>
 </tr>
 
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>search_scope_type</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>search_scope_options</code> enum (<code>company</code>, <code>project</code>, <code>space</code>, <code>goal</code>, <code>resource_hub</code>, <code>none</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>&quot;none&quot;</code></td>
 </tr>
 
 <tr>
@@ -63,7 +63,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>nil</code></td>
 </tr>
 
     </tbody>
@@ -80,7 +80,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/people/search?ignored_ids[]=value&query=value&search_scope_id=value&search_scope_type=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/people/search?ignored_ids[]=value&query=value&search_scope_id=value&search_scope_type=company\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
