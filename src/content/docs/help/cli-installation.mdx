@@ -1,0 +1,44 @@
+---
+title: Install and update
+description: Learn how to install, update, and verify the Operately CLI.
+---
+
+Install the Operately CLI globally with npm:
+
+```bash
+npm install -g @operately/operately-cli
+```
+
+The package installs both `operately` and `op`.
+
+## Verify the installation
+
+Check that the CLI is available and print its current version:
+
+```bash
+operately --version
+```
+
+If that prints a version number, the CLI is installed and ready to use.
+
+## Update the CLI
+
+To update an existing installation, use either of these commands:
+
+```bash
+npm update -g @operately/operately-cli
+```
+
+```bash
+npm install -g @operately/operately-cli@latest
+```
+
+After updating, verify the installed version again:
+
+```bash
+operately --version
+```
+
+## Next step
+
+Once the CLI is installed, [authenticate with an API token](/help/cli-authentication).

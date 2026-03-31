@@ -5,6 +5,22 @@
   padding-inline-start: 2em;
 }
 
+.sl-markdown-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sl-markdown-content pre > code[class^="language-"] {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
 .sl-markdown-content .curl-copy-block {
   position: relative;
   max-width: 100%;

@@ -1,0 +1,102 @@
+---
+title: Authentication
+description: Learn how to authenticate the Operately CLI with API tokens, profiles, and environment variables.
+---
+
+The Operately CLI uses API tokens to authenticate requests.
+
+## Create an API token
+
+In Operately, open your profile and go to **API Tokens** to create a token for CLI use.
+
+## Log in
+
+Save a token to your default profile:
+
+```bash
+operately auth login --token <your-token>
+```
+
+After logging in, verify which account the CLI is using:
+
+```bash
+operately auth whoami
+```
+
+You can inspect the current profile and base URL at any time:
+
+```bash
+operately auth status
+```
+
+To remove the saved token from a profile:
+
+```bash
+operately auth logout
+```
+
+## Use another base URL
+
+If you are connecting to a self-hosted or staging environment, pass `--base-url` when you log in:
+
+```bash
+operately auth login --token <token> --base-url https://operately.example.com
+```
+
+If you do not set a base URL, the CLI defaults to:
+
+```text
+https://app.operately.com
+```
+
+## Profiles
+
+You can keep separate profiles for different environments:
+
+```bash
+# Production
+operately auth login --token op_live_xxx
+
+# Staging
+operately auth login --token op_staging_xxx --profile staging --base-url https://staging.operately.com
+
+# Local development
+operately auth login --token op_local_xxx --profile local --base-url http://localhost:4000
+```
+
+Use a profile on any command:
+
+```bash
+operately auth whoami --profile staging
+operately people get_me --profile local
+```
+
+Saved profiles are stored in:
+
+```text
+~/.operately/config.json
+```
+
+## Environment variables
+
+For scripts and CI, you can provide credentials through environment variables:
+
+```bash
+export OPERATELY_API_TOKEN=op_live_xxx
+export OPERATELY_BASE_URL=https://app.operately.com
+export OPERATELY_PROFILE=default
+```
+
+## Resolution order
+
+When the CLI resolves authentication settings, it uses this order:
+
+1. Command flags
+2. Environment variables
+3. Saved profile values
+
+That means command-line overrides such as `--token`, `--base-url`, and `--profile` always win.
+
+## Next step
+
+Once authentication is working, [learn how to discover and run commands](/help/cli-usage).

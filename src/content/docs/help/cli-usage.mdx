@@ -1,0 +1,89 @@
+---
+title: Use the CLI
+description: Learn the Operately CLI command shape, help system, and a few common examples.
+---
+
+Most Operately CLI commands follow this shape:
+
+```bash
+operately <namespace> <command> [flags]
+```
+
+Examples:
+
+```bash
+operately people get_me
+operately spaces list
+operately projects list --include-space
+```
+
+Authentication commands are separate utility commands:
+
+```bash
+operately auth login --token <token>
+operately auth whoami
+```
+
+## Use help to discover commands
+
+Start with general help:
+
+```bash
+operately help
+```
+
+List commands in a namespace:
+
+```bash
+operately help projects
+```
+
+Show command-specific help:
+
+```bash
+operately help projects list
+```
+
+You can also request help inline:
+
+```bash
+operately projects list --help
+```
+
+Use command-specific help whenever you need to see the available flags for a specific endpoint.
+
+## Common examples
+
+Get information about the authenticated user:
+
+```bash
+operately people get_me
+```
+
+List spaces:
+
+```bash
+operately spaces list
+```
+
+List projects and include space details:
+
+```bash
+operately projects list --include-space
+```
+
+Write command output to a file:
+
+```bash
+operately projects list --include-space --output ./projects.json
+```
+
+Print compact JSON:
+
+```bash
+operately spaces list --compact
+```
+
+## Keep the reference in the API docs
+
+The CLI is a thin interface over the Operately external API. Use these docs for onboarding and discovery, then use the [API docs](/help/api) when you need the full endpoint reference.
