@@ -1,0 +1,32 @@
+---
+title: Install skills
+description: Learn how to install the Operately skills with the skills package from npm.
+---
+
+Operately publishes skills that help compatible agent tools understand how to work with the Operately CLI and common Operately workflows.
+
+The skills live in the [operately/skills](https://github.com/operately/skills) repository and are installed with the [skills package on npm](https://www.npmjs.com/package/skills).
+
+## Install all Operately skills
+
+```bash
+npx skills add https://github.com/operately/skills
+```
+
+Or install only the Operately CLI skill:
+
+```bash
+npx skills add https://github.com/operately/skills --skill operately-cli
+```
+
+## What to install
+
+- Install the whole repository if you want all Operately skills that are published there.
+- Install `operately-cli` if you only need guidance for working with the Operately CLI.
+
+## Next step
+
+After installing the skills, continue with the main CLI docs:
+
+- [Authenticate the CLI](/help/cli-authentication)
+- [Learn how to use the CLI](/help/cli-usage)
