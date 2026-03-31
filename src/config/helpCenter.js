@@ -514,6 +514,27 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "CLI",
+        items: [
+          {
+            label: "Overview",
+            link: "/help/cli",
+          },
+          {
+            label: "Install and update",
+            link: "/help/cli-installation",
+          },
+          {
+            label: "Authentication",
+            link: "/help/cli-authentication",
+          },
+          {
+            label: "Use the CLI",
+            link: "/help/cli-usage",
+          },
+        ],
+      },
+      {
         label: "API docs",
         autogenerate: {
           directory: "help/api",

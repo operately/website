@@ -1,0 +1,40 @@
+---
+title: CLI
+description: Learn how to use the Operately CLI to work with the external API from your terminal.
+---
+
+The Operately CLI is a terminal interface for the Operately external API.
+
+It installs two equivalent binaries:
+
+- `operately`
+- `op`
+
+Use the CLI when you want to query or update Operately from scripts, local automation, or an interactive shell. For complete endpoint-by-endpoint reference, use the [API docs](/help/api).
+
+## Quick start
+
+```bash
+# Install the CLI
+npm install -g @operately/operately-cli
+
+# Save a token to your default profile
+operately auth login --token <your-token>
+
+# Verify authentication
+operately auth whoami
+
+# Discover commands
+operately help
+operately help projects
+
+# Run an API command
+operately people get_me
+```
+
+## What to read next
+
+- [Install and update the CLI](/help/cli-installation)
+- [Authenticate the CLI](/help/cli-authentication)
+- [Learn the command shape and help system](/help/cli-usage)
+- [Browse the API docs](/help/api)
