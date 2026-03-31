@@ -525,6 +525,10 @@ export default function helpCenterSidebar() {
             link: "/help/cli-installation",
           },
           {
+            label: "Install skills",
+            link: "/help/cli-skills",
+          },
+          {
             label: "Authentication",
             link: "/help/cli-authentication",
           },
