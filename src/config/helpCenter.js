@@ -529,6 +529,10 @@ export default function helpCenterSidebar() {
             link: "/help/cli-skills",
           },
           {
+            label: "Create tokens",
+            link: "/help/create-api-token",
+          },
+          {
             label: "Authentication",
             link: "/help/cli-authentication",
           },
