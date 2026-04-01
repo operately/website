@@ -1,0 +1,140 @@
+---
+title: "The Operately CLI is here"
+version: "1.5"
+date: 2026-04-01
+description: "Operately v1.5 introduces the official CLI for the external API, plus installable skills for compatible agents and a round of smaller fixes and polish."
+published: true
+youtubeId: ""
+---
+
+Operately v1.5 is here. This release is centered on one big addition: the official Operately CLI.
+
+If you want to script routine work, automate reporting, work from the terminal, or pair Operately with agent tools, you now have a direct way to do it. 
+
+We've also included a round of smaller polish and fixes across the product.
+
+## Official CLI: Use Operately from your terminal
+
+The new CLI is a thin interface over the Operately external API. It gives you a practical way to query and update Operately from scripts, local automation, CI jobs, or an interactive shell. Once installed, you can use either the `operately` or the shorter `op` binary.
+
+It is especially useful when you want to:
+
+- fetch data for dashboards or reporting
+- automate repetitive workflows
+- let agents work with Operately through terminal commands
+
+To get started, [create an API token](/help/create-api-token) and log in:
+
+```bash
+operately auth login --token <your-token>
+```
+
+From there, commands follow one simple shape:
+
+```bash
+operately <namespace> <command> [flags]
+```
+
+For example:
+
+```bash
+operately people get_me
+operately projects list --include-space
+```
+
+And when you need to explore, the built-in help gives you all the information you need:
+
+```bash
+operately --help
+operately projects --help
+operately projects list --help
+```
+
+## Install and upgrade
+
+Install the CLI globally with npm:
+
+```bash
+npm install -g @operately/operately-cli
+```
+
+Upgrade an existing installation with:
+
+```bash
+npm update -g @operately/operately-cli
+```
+
+Or:
+
+```bash
+npm install -g @operately/operately-cli@latest
+```
+
+Then verify the version:
+
+```bash
+operately --version
+```
+
+We've also published dedicated docs for [installation](/help/cli-installation), [authentication](/help/cli-authentication), and [usage](/help/cli-usage).
+
+## Install skills for better results
+
+We're also publishing Operately skills for compatible agent tools. These skills teach agents how to work with the Operately CLI and common Operately workflows more effectively.
+
+Install all Operately skills:
+
+```bash
+npx skills add https://github.com/operately/skills
+```
+
+Or install only the CLI skill:
+
+```bash
+npx skills add https://github.com/operately/skills --skill operately-cli
+```
+
+See the [skills installation guide](/help/cli-skills) for the available install options.
+
+## Additional Features
+
+This release also includes a few improvements across the product:
+
+**Move tasks**: You can now move a task to another active project or to a space with tasks enabled, without recreating it manually or losing its history.
+
+**Smarter subscriptions and notification emails**: Assignees, milestone creators, project champions, and people mentioned in descriptions get notifications more consistently, so updates reach the right people with less manual setup.
+
+---
+
+## Sign up for Operately
+
+Ready to try Operately v1.5? [Sign up for a free account][signup] and start using the CLI alongside the product.
+
+## Self-host in 5 minutes
+
+Prefer to run Operately on your own infrastructure? [Follow our self-hosted installation guide][install] to get started.
+
+If you are already running the self-hosted version, follow the [update guide](/help/self-hosted-update) to upgrade to the latest release.
+
+## Join the Operately community
+
+Operately is open source and available under the Apache 2.0 license.
+Join our growing community of users and contributors:
+
+- [Star the repository on GitHub][github] to show your support
+- Join our [Discord server][discord] to connect with the team and community
+- Contribute by submitting bug reports, feature requests, or code on [GitHub][github]
+- Share Operately with your network and help us grow
+
+## Special thanks to our contributors
+
+We're grateful for everyone who helps make Operately better through feedback, bug reports, feature ideas, and code contributions.
+
+Your contributions help make Operately better for everyone. Thank you!
+
+&mdash; The Operately Team
+
+[install]: https://operately.com/install
+[signup]: https://app.operately.com/sign_up
+[discord]: https://discord.com/invite/2ngnragJYV
+[github]: https://github.com/operately/operately
