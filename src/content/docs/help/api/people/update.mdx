@@ -116,6 +116,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>daily_summary_delivery_time</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
   <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -137,7 +145,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"email_window_minutes\":123, \"full_name\":\"value\", \"id\":\"value\", \"manager_id\":\"value\", \"notify_about_assignments\":true, \"notify_on_mention\":true, \"send_daily_summary\":true, \"theme\":\"value\", \"timezone\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"daily_summary_delivery_time\":\"value\", \"description\":\"value\", \"email_window_minutes\":123, \"full_name\":\"value\", \"id\":\"value\", \"manager_id\":\"value\", \"notify_about_assignments\":true, \"notify_on_mention\":true, \"send_daily_summary\":true, \"theme\":\"value\", \"timezone\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
@@ -149,6 +157,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "avatar_blob_id": "value",
     "avatar_url": "value",
     "company": "<company>",
+    "daily_summary_delivery_time": "value",
     "description": "value",
     "email": "value",
     "email_preference": "buffered",
