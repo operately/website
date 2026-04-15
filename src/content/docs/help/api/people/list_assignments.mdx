@@ -28,7 +28,9 @@ This endpoint has no input fields.
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `assignments` | array of `review_assignment` object | Yes | No |
+| `due_soon` | array of `review_assignment_group` object | Yes | No |
+| `needs_review` | array of `review_assignment_group` object | Yes | No |
+| `upcoming` | array of `review_assignment_group` object | Yes | No |
 
 
 ## cURL Example
@@ -39,20 +41,28 @@ This endpoint has no input fields.
 
 ```json
 {
-  "assignments": [
+  "due_soon": [
     {
-      "action_label": "value",
-      "author_id": "value",
-      "author_name": "value",
-      "description": "value",
-      "due": "2026-01-01",
-      "name": "value",
-      "origin": "<review_assignment_origin>",
-      "path": "value",
-      "resource_id": "value",
-      "role": "owner",
-      "task_status": "value",
-      "type": "check_in"
+      "assignments": [
+        "<review_assignment>"
+      ],
+      "origin": "<review_assignment_origin>"
+    }
+  ],
+  "needs_review": [
+    {
+      "assignments": [
+        "<review_assignment>"
+      ],
+      "origin": "<review_assignment_origin>"
+    }
+  ],
+  "upcoming": [
+    {
+      "assignments": [
+        "<review_assignment>"
+      ],
+      "origin": "<review_assignment_origin>"
     }
   ]
 }
