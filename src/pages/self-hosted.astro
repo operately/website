@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Self-host Operately";
+const pageDescription =
+  "Learn when to choose self-hosted Operately, how it compares to Operately Cloud, and where to go next for installation, docs, pricing, and commercial support.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/self-hosted/#webpage",
+  url: "https://operately.com/self-hosted/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          Deployment options
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Self-host Operately on your own infrastructure
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately Cloud is the fastest way to get started. Self-hosted Operately is the better fit when you need infrastructure control, custom deployment constraints, or an on-prem path.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:justify-center">
+        <a
+          href="/install"
+          class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+        >
+          Go to installation guide
+        </a>
+        <a
+          href="/contact?help-type=commercial-license"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+        >
+          Ask about commercial self-hosting
+        </a>
+      </div>
+
+      <div class="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-2">
+        <section class="rounded-3xl border border-gray-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-semibold text-gray-900">Choose self-hosted if you want</h2>
+          <ul class="mt-6 list-disc space-y-3 pl-6 text-gray-700 marker:text-operately-blue">
+            <li class="pl-1">Full control over where Operately runs and how it is deployed</li>
+            <li class="pl-1">An environment that matches your own infrastructure, networking, or security constraints</li>
+            <li class="pl-1">A path that connects directly to installation docs and self-hosted operations guides</li>
+            <li class="pl-1">A commercial conversation about self-hosted licensing or support</li>
+          </ul>
+        </section>
+
+        <section class="rounded-3xl border border-gray-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-semibold text-gray-900">Choose Operately Cloud if you want</h2>
+          <ul class="mt-6 list-disc space-y-3 pl-6 text-gray-700 marker:text-operately-blue">
+            <li class="pl-1">The fastest possible setup path</li>
+            <li class="pl-1">No infrastructure or server maintenance</li>
+            <li class="pl-1">A simpler default for teams that do not need deployment control</li>
+            <li class="pl-1">To start using Operately before deciding whether self-hosting is necessary</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-200">
+        <h2 class="text-2xl font-semibold text-gray-900">What this page is for</h2>
+        <p class="mt-4 text-gray-700">
+          This page is the decision layer between the main marketing site and the technical install docs. If you already know you want to self-host, go straight to the install guide. If you are still comparing cloud vs self-hosted, start here and then follow the next step that matches your situation.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-3xl font-semibold text-gray-900">Common next steps</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <a href="/install" class="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:border-operately-blue hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Open guide</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Installation guide</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Use the step-by-step guide if you are ready to download and deploy Operately.
+            </p>
+          </a>
+
+          <a href="/help/self-hosted-installation" class="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:border-operately-blue hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Browse docs</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Self-hosted help docs</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Browse the self-hosted docs for installation, updates, email delivery, beacon, and related setup tasks.
+            </p>
+          </a>
+
+          <a href="/pricing" class="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:border-operately-blue hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Review pricing</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Pricing</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Review cloud plans and the current self-hosted pricing context before deciding which path fits best.
+            </p>
+          </a>
+
+          <a href="/open-source" class="group block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:border-operately-blue hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Read context</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Open source context</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Read the broader open source rationale behind Operately if you want product and company context before deployment.
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-3xl font-semibold text-gray-900">Questions people usually need answered first</h2>
+        <div class="mt-8 space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Can I self-host Operately today?</h3>
+            <p class="mt-2 text-gray-700">
+              Yes. If you are ready to deploy, start with the <a href="/install" class="text-operately-blue hover:underline">installation guide</a>.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Where do I find the operational docs?</h3>
+            <p class="mt-2 text-gray-700">
+              Use the <a href="/help/self-hosted-installation" class="text-operately-blue hover:underline">self-hosted installation docs</a> and the related self-hosted help pages for ongoing setup details.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">What if I need a commercial self-hosted setup?</h3>
+            <p class="mt-2 text-gray-700">
+              Start with <a href="/pricing" class="text-operately-blue hover:underline">pricing</a>, then <a href="/contact?help-type=commercial-license" class="text-operately-blue hover:underline">contact us</a> if you need a commercial licensing or support conversation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
