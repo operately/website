@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Roadmap";
 const pageDescription =
-  "Operately's roadmap of upcoming features and improvements.";
+  "What Operately is actively working on now, and what is coming next.";
 
 import { Activity, Clock, Rocket } from "lucide-react";
 
@@ -12,14 +12,16 @@ const discordUrl = import.meta.env.PUBLIC_DISCORD_URL;
 const features = {
   active: [
     {
-      title: "AI COO",
-      description: "AI-powered insights and recommendations for your business.",
+      title: "Agent workflows",
+      description:
+        "We are making Operately work better with agents and developer tools, including the CLI, skills, and ways to control Operately from OpenClaw, Codex, Claude Code, and similar tools.",
+      href: "/help/cli",
+      cta: "Explore the CLI docs",
     },
     {
-      title: "Help documentation",
-      description: "Comprehensive help documentation and guides.",
-      href: "/help",
-      cta: "Browse the Help Center",
+      title: "Project import and export",
+      description:
+        "Bring projects into Operately more easily and move them out when you need to connect with other systems or workflows.",
     },
   ],
   planned: [
@@ -38,6 +40,21 @@ const features = {
       description:
         "Find anything in Operately with a powerful full text search engine.",
     },
+    {
+      title: "Project templates",
+      description:
+        "Start faster with reusable project structures that teams can apply without rebuilding the same setup every time.",
+    },
+    {
+      title: "Translations",
+      description:
+        "Make Operately available in more languages so teams can use it comfortably outside English-only workflows.",
+    },
+    {
+      title: "Time tracking",
+      description:
+        "Track time against work so teams can better understand effort, workload, and project delivery.",
+    },
   ],
 };
 ---
@@ -46,7 +63,7 @@ const features = {
   title={pageTitle}
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
-  twitterCardType="summary_large_imagwe"
+  twitterCardType="summary_large_image"
 >
   <main class="bg-white">
     <div class="min-h-screen text-gray-900 py-8 lg:py-16">
@@ -55,9 +72,9 @@ const features = {
           <h1 class="">Roadmap</h1>
 
           <p class="lead mb-12">
-            Instead of a traditional fixed roadmap, we move fast and ship often,
-            adapting our priorities as we learn. Here's what we're currently
-            focused on and committed to delivering:
+            Instead of a rigid long-term roadmap, we move fast and update our
+            priorities as we learn. Here is what we are actively working on now,
+            and what is on the horizon.
           </p>
         </div>
 
@@ -133,8 +150,7 @@ const features = {
             href="https://github.com/operately/operately/issues/new"
             class="text-operately-blue underline hover:text-operately-dark-blue"
             >Post on GitHub</a
-          > or
-          <a
+          > or <a
             href={discordUrl}
             class="text-operately-blue underline hover:text-operately-dark-blue"
             >chat with us on Discord</a
