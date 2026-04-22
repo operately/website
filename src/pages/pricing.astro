@@ -247,12 +247,20 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
             Self-host Operately on your own infrastructure with unlimited users
             and full control.
           </p>
-          <a
-            href="/contact?help-type=commercial-license"
-            class="mt-4 inline-block rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue transition-colors"
-          >
-            Contact us
-          </a>
+          <div class="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/self-hosted"
+              class="inline-block rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue transition-colors"
+            >
+              Learn about self-hosting
+            </a>
+            <a
+              href="/contact?help-type=commercial-license"
+              class="inline-block rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue transition-colors"
+            >
+              Contact us
+            </a>
+          </div>
         </div>
       </div>
 
@@ -287,9 +295,11 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               Can I self-host Operately?
             </h3>
             <p class="mt-2 text-gray-600">
-              Yes! The Free plan includes self-hosting options. You can download
-              and install Operately on your own infrastructure with unlimited
-              users. Check out our <a
+              Yes. If you are comparing deployment options, start with the <a
+                href="/self-hosted"
+                class="text-operately-blue hover:underline"
+                >self-hosted overview</a
+              >. If you are ready to deploy, use the <a
                 href="/install"
                 class="text-operately-blue hover:underline"
                 >installation guide</a
@@ -297,7 +307,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
                 href="/help/self-hosted-installation"
                 class="text-operately-blue hover:underline"
                 >self-hosting help docs</a
-              > for details.
+              >.
             </p>
           </div>
           <div>
