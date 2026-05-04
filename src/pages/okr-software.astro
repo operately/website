@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "OKR Software";
+const pageDescription =
+  "Operately is open source OKR software for teams that want goals, projects, and execution connected. Self-host or use the cloud. No per-seat pricing.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/okr-software/#webpage",
+  url: "https://operately.com/okr-software/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          OKR Software
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Open source OKR software for growing teams
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Set goals, track progress with structured check-ins, and connect objectives to the projects
+          that deliver them. Operately is open source, self-hostable, and built for teams that prefer
+          transparency over black-box SaaS.
+        </p>
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Open source
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Self-hostable
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          No per-seat pricing
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Goals + projects connected
+        </span>
+      </div>
+
+      {/* How Operately handles OKRs */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How Operately handles OKRs</h2>
+        <div class="mt-8 grid gap-8 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Goals with measurable targets</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Define objectives with clear success criteria. Set targets as percentages,
+              numbers, or milestones. Track progress over time without spreadsheet gymnastics.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Structured check-ins</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Regular progress updates with a consistent format. No more chasing people for
+              status. Check-ins make progress visible to the whole team automatically.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Projects tied to goals</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Connect projects directly to the goals they serve. See which goals have active
+              work behind them and which are just words on a page.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Company-wide visibility</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              See all goals across the organization in one place. Understand how team
+              objectives connect to company-level priorities without building custom dashboards.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* How it compares */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How Operately compares to other OKR tools</h2>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Perdoo</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Weekdone</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Quantive</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Open source</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Self-hosted option</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Pricing</td>
+                <td class="px-6 py-4 text-center">Flat rate</td>
+                <td class="px-6 py-4 text-center">Per user</td>
+                <td class="px-6 py-4 text-center">Per user</td>
+                <td class="px-6 py-4 text-center">Per user</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Project management</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center">Limited</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">CLI and API</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center">API only</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center">API only</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">AI agent integration</td>
+                <td class="px-6 py-4 text-center text-green-600">Native</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center">Limited</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Check-in workflows</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center text-green-600">Weekly pulse</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Strategy mapping</td>
+                <td class="px-6 py-4 text-center">Goal hierarchy</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center">Basic</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Ready to try a different approach to OKRs?</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+        >
+          Start free — no credit card needed
+        </a>
+      </div>
+
+      {/* Who it's for */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Who Operately is for</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately works best for teams of 5 to 100 who run on goals and want their goal-setting
+            connected to actual project execution. It is especially good for:
+          </p>
+        </div>
+        <ul class="mt-6 space-y-3 text-gray-600">
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Startups</strong> that want lightweight OKR tracking without enterprise complexity</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Engineering teams</strong> that prefer CLI and API access over clicking through UIs</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Teams that value transparency</strong> and want full visibility into their tool's code and data</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Organizations with compliance needs</strong> that require self-hosted deployment or data sovereignty</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* What are OKRs */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">What are OKRs?</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            OKRs (Objectives and Key Results) are a goal-setting framework used by teams to define
+            what they want to achieve and measure whether they are getting there. An <strong>Objective</strong> is
+            a clear, qualitative goal. <strong>Key Results</strong> are the measurable outcomes that tell you
+            whether the objective is being met.
+          </p>
+          <p>
+            OKR software helps teams set, track, and review these goals in a structured way. The best
+            OKR tools connect goals to the actual work being done, so progress is visible without
+            manual reporting. Operately does this by linking goals directly to projects and tracking
+            progress through regular check-ins.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately for OKRs</h2>
+        <p class="mt-4 text-gray-600">
+          Start with Operately Cloud for free, or self-host it on your own infrastructure.
+          No credit card required.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
