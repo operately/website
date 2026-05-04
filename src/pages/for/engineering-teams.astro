@@ -1,0 +1,211 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTitle = "Goal Tracking for Engineering Teams";
+const pageDescription =
+  "Operately helps engineering teams track goals, ship projects, and stay aligned with structured check-ins, a CLI, and API-first design. Open source.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/for/engineering-teams/#webpage",
+  url: "https://operately.com/for/engineering-teams/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          For Engineering Teams
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Goals and projects for teams that live in the terminal
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately gives engineering teams a way to track goals, run projects, and report progress
+          without leaving your development workflow. CLI, API, and AI agent support built in.
+          Open source.
+        </p>
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          CLI first
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          API for everything
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          AI agent native
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Open source
+        </span>
+      </div>
+
+      {/* Problem */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">The problem with goal tracking for engineers</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Engineering teams ship code. They do not want to context-switch into a web app to update
+            goal progress, write status reports, or navigate dashboards built for project managers.
+          </p>
+          <p>
+            Most goal-tracking tools assume you work in the browser. They have no CLI, limited APIs,
+            and no way for an AI agent to interact with them. That means engineers either skip goal
+            updates entirely or waste time doing manual reporting.
+          </p>
+        </div>
+      </div>
+
+      {/* How Operately is different */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How Operately works for engineering teams</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Update goals from the terminal</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Use the Operately CLI to update goal progress, post check-ins, and manage projects
+              without opening a browser. Fits naturally into your existing terminal workflow.
+            </p>
+            <div class="mt-4 rounded-lg bg-gray-900 p-3">
+              <code class="text-xs text-green-400">
+                $ operately goals update --progress 75 --note "Auth module shipped"
+              </code>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Full API for automation</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Every action in Operately is available through the API. Build custom integrations,
+              connect to your CI pipeline, or let scripts handle routine updates.
+            </p>
+            <div class="mt-4 rounded-lg bg-gray-900 p-3">
+              <code class="text-xs text-green-400">
+                POST /api/v2/goals/update_progress
+              </code>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">AI agents can use it</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Operately is designed for AI agents to interact with natively. Agents can create goals,
+              post check-ins, update progress, and manage projects through the CLI or API.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Open source you can inspect</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              The entire codebase is open. No black box. Run it on your own infrastructure, contribute
+              fixes, or audit the code yourself. Built by engineers for engineers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Works where you work</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+        >
+          Try free — no credit card needed
+        </a>
+      </div>
+
+      {/* How engineering teams use it */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How engineering teams use Operately</h2>
+        <ul class="mt-6 space-y-3 text-gray-600">
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Quarterly OKRs</strong> that connect to sprints and milestones, not just abstract objectives</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Weekly check-ins</strong> from the terminal that keep leadership informed without status meetings</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Project tracking</strong> that is lightweight enough to use but structured enough to be useful</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span><strong>Agent-powered reporting</strong> where AI agents handle the tedious parts of progress updates</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Comparison to Linear/Shortcut */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Operately vs issue trackers</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Linear, Shortcut, and Jira are great for tracking issues and development work. Operately
+            is not trying to replace them. It sits one level above: connecting your development work
+            to company and team goals.
+          </p>
+          <p>
+            Think of it this way: Linear tracks what you are building this week. Operately tracks
+            why you are building it and whether it is working.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately with your team</h2>
+        <p class="mt-4 text-gray-600">
+          Free to start. Open source. Deploys in minutes. No credit card required.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
