@@ -1,0 +1,288 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTitle = "Operately vs Monday.com";
+const pageDescription =
+  "Comparing Operately and Monday.com: open source vs closed, self-hosted vs cloud-only, goal-driven vs task-driven. Find out which fits your team.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/vs/monday/#webpage",
+  url: "https://operately.com/vs/monday/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          Comparison
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Operately vs Monday.com
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Monday.com is a popular work management platform. Operately is an open source alternative
+          built for teams that want goals, projects, and execution in one place without vendor lock-in.
+        </p>
+      </div>
+
+      {/* Quick summary */}
+      <div class="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2">
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold text-gray-900">Monday.com</h3>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-gray-400">&#x2022;</span>
+              Closed source, cloud-only
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-gray-400">&#x2022;</span>
+              Per-seat pricing, starts at $9/seat/mo
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-gray-400">&#x2022;</span>
+              Task and workflow focused
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-gray-400">&#x2022;</span>
+              Visual boards and automations
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-gray-400">&#x2022;</span>
+              Enterprise-scale feature set
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border-2 border-operately-blue p-6">
+          <h3 class="text-lg font-semibold text-gray-900">Operately</h3>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-operately-blue">&#x2022;</span>
+              Open source, self-host or cloud
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-operately-blue">&#x2022;</span>
+              Flat-rate pricing, no per-seat costs
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-operately-blue">&#x2022;</span>
+              Goal and outcome focused (OKRs, projects, check-ins)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-operately-blue">&#x2022;</span>
+              CLI, API, and agent-friendly by design
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-0.5 text-operately-blue">&#x2022;</span>
+              Lightweight, no enterprise bloat
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Comparison table */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Feature comparison</h2>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Monday.com</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Open source</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Self-hosted option</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Pricing model</td>
+                <td class="px-6 py-4 text-center">Flat rate</td>
+                <td class="px-6 py-4 text-center">Per seat</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">OKRs and goals</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center">Add-on</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Projects with check-ins</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center">Custom boards</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">CLI access</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">API-first design</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center">REST API available</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">AI agent integration</td>
+                <td class="px-6 py-4 text-center text-green-600">Native</td>
+                <td class="px-6 py-4 text-center">Limited</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Visual boards</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Workflow automations</td>
+                <td class="px-6 py-4 text-center">Minimal</td>
+                <td class="px-6 py-4 text-center text-green-600">Extensive</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Enterprise features</td>
+                <td class="px-6 py-4 text-center">Growing</td>
+                <td class="px-6 py-4 text-center text-green-600">Mature</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* When to choose sections */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">When to choose Operately</h2>
+        <ul class="mt-6 space-y-3 text-gray-600">
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You want an open source tool you can inspect, modify, and self-host</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Your team runs on goals and OKRs, not just tasks and boards</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You prefer flat-rate pricing over per-seat costs that grow with your team</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You use or plan to use AI agents and want a tool with CLI and API access</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You need infrastructure control or data sovereignty</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">When Monday.com might be better</h2>
+        <ul class="mt-6 space-y-3 text-gray-600">
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You need highly visual boards and drag-and-drop workflows</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You rely on extensive workflow automations with complex triggers</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Your team is large and needs mature enterprise features today</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>You need integrations with a wide range of third-party tools</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Philosophy section */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Different philosophies</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Monday.com is built around visual boards and flexible workflows. It works well for teams
+            that need to manage many types of work across departments with custom automations.
+          </p>
+          <p>
+            Operately takes a different approach. It is built around goals and projects with structured
+            check-ins, so teams stay focused on outcomes rather than just tracking tasks. It is open source,
+            deployable on your own infrastructure, and designed from the ground up to work with CLI tools
+            and AI agents.
+          </p>
+          <p>
+            The trade-off is clear: Monday.com offers more visual flexibility and a larger feature set today.
+            Operately offers transparency, infrastructure control, no per-seat pricing, and a developer-friendly
+            architecture that treats automation and AI as first-class citizens.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately</h2>
+        <p class="mt-4 text-gray-600">
+          Start with Operately Cloud for free, or self-host it on your own infrastructure.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
