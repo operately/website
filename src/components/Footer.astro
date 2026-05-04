@@ -23,6 +23,10 @@ const navigation = {
     { name: "Status", href: "https://status.operately.com" },
     { name: "GitHub", href: "https://github.com/operately/operately" },
   ],
+  compare: [
+    { name: "vs Monday.com", href: "/vs/monday" },
+    { name: "vs Asana", href: "/vs/asana" },
+  ],
   resources: [
     { name: "Help center", href: "/help" },
     { name: "Blog", href: "https://blog.operately.com" },
@@ -166,6 +170,22 @@ const navigation = {
             <ul role="list" class="mt-6 space-y-4">
               {
                 navigation.getStarted.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="text-sm/6 text-gray-600 hover:text-operately-blue"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <h3 class="mt-10 text-sm/6 font-semibold text-gray-900">Compare</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              {
+                navigation.compare.map((item) => (
                   <li>
                     <a
                       href={item.href}
