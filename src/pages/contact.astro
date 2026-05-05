@@ -55,9 +55,6 @@ const pageDescription =
     const draftBody = document.getElementById(
       "draft-body"
     ) as HTMLTextAreaElement;
-    const mailtoLink = document.getElementById(
-      "mailto-link"
-    ) as HTMLAnchorElement;
     const copySubjectButton = document.getElementById(
       "copy-subject"
     ) as HTMLButtonElement;
@@ -97,15 +94,23 @@ const pageDescription =
 
       draftSubject.value = draft.subject;
       draftBody.value = draft.body;
-      mailtoLink.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
-        draft.subject
-      )}&body=${encodeURIComponent(draft.body)}`;
 
       if (helpTypeSelect.value) {
         draftPanel?.classList.remove("hidden");
       } else {
         draftPanel?.classList.add("hidden");
       }
+    }
+
+    function buildMailtoUrl() {
+      const draft = buildDraft();
+      return `mailto:${contactEmail}?subject=${encodeURIComponent(
+        draft.subject
+      )}&body=${encodeURIComponent(draft.body)}`;
+    }
+
+    function openEmailDraft() {
+      window.location.href = buildMailtoUrl();
     }
 
     async function copyText(value: string, button: HTMLButtonElement) {
@@ -142,7 +147,7 @@ const pageDescription =
       e.preventDefault();
       updateDraft();
       if (helpTypeSelect.value) {
-        window.location.href = mailtoLink.href;
+        openEmailDraft();
       }
     });
 
@@ -154,33 +159,43 @@ const pageDescription =
   document.addEventListener("DOMContentLoaded", initContactForm);
 </script>
 
+<style>
+  :global(body) {
+    background: #fff;
+  }
+</style>
+
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
-  mainClass="bg-white px-6 py-24 sm:py-32 lg:px-8"
 >
-  <main class="py-8 sm:py-16">
+  <main class="overflow-x-hidden bg-white px-4 py-12 sm:px-6 sm:py-24 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
       <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         {pageTitle}
       </h1>
-      <p class="mt-4 text-lg leading-8 text-gray-600">
+      <p
+        class="mx-auto mt-4 max-w-[32ch] text-base leading-7 text-gray-600 sm:max-w-xl sm:text-lg sm:leading-8"
+      >
         {pageDescription}
       </p>
     </div>
 
-    <div class="mx-auto max-w-xl">
-      <form id="contact-form" class="mx-auto mt-12 max-w-xl sm:mt-16">
-        <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+    <div class="mx-auto w-full max-w-xl">
+      <form
+        id="contact-form"
+        class="mx-auto mt-8 box-border w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:mt-14 sm:p-6"
+      >
+        <div class="grid grid-cols-1 gap-y-5">
           <div class="sm:col-span-2">
             <label
               for="help-type"
-              class="block text-lg font-medium leading-6 text-gray-900"
+              class="block text-base font-semibold leading-6 text-gray-900"
             >
               What can we help you with?<span class="text-red-600">*</span>
-              <span class="ml-2 text-sm text-gray-500"
+              <span class="mt-1 block text-sm font-normal leading-6 text-gray-500"
                 >Let us know what brought you here</span
               >
             </label>
@@ -188,7 +203,7 @@ const pageDescription =
               <select
                 id="help-type"
                 name="help-type"
-                class="block w-full rounded-md border-0 py-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 text-lg"
+                class="box-border block w-full min-w-0 rounded-md border-0 bg-white py-3 pl-3 pr-10 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600"
                 required
               >
                 <option value="">Select an option</option>
@@ -231,10 +246,10 @@ const pageDescription =
           <div class="sm:col-span-2">
             <label
               for="message"
-              class="block text-lg font-medium leading-6 text-gray-900"
+              class="block text-base font-semibold leading-6 text-gray-900"
             >
               Tell us more
-              <span class="ml-2 text-sm text-gray-500"
+              <span class="mt-1 block text-sm font-normal leading-6 text-gray-500"
                 >Optional context for the email draft</span
               >
             </label>
@@ -242,8 +257,8 @@ const pageDescription =
               <textarea
                 id="message"
                 name="message"
-                rows="6"
-                class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 text-lg"
+                rows="5"
+                class="box-border block min-h-32 w-full min-w-0 resize-y rounded-md border-0 px-3 py-3 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 sm:min-h-40"
                 placeholder="Share the details of your question or issue..."
               ></textarea>
             </div>
@@ -252,10 +267,10 @@ const pageDescription =
           <div class="sm:col-span-2">
             <label
               for="email"
-              class="block text-lg font-medium leading-6 text-gray-900"
+              class="block text-base font-semibold leading-6 text-gray-900"
             >
               Your email
-              <span class="ml-2 text-sm text-gray-500"
+              <span class="mt-1 block text-sm font-normal leading-6 text-gray-500"
                 >Optional, if you want it included in the draft body</span
               >
             </label>
@@ -264,7 +279,7 @@ const pageDescription =
                 type="email"
                 name="email"
                 id="email"
-                class="block w-full rounded-md border-0 px-3.5 py-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 text-lg"
+                class="box-border block w-full min-w-0 rounded-md border-0 px-3.5 py-3 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
                 placeholder="you@company.com"
               />
             </div>
@@ -273,10 +288,10 @@ const pageDescription =
           <div class="sm:col-span-2">
             <label
               for="org-url"
-              class="block text-lg font-medium leading-6 text-gray-900"
+              class="block text-base font-semibold leading-6 text-gray-900"
             >
               Your organization URL
-              <span class="ml-2 text-sm text-gray-500"
+              <span class="mt-1 block text-sm font-normal leading-6 text-gray-500"
                 >Help us locate your account if you're a user</span
               >
             </label>
@@ -285,86 +300,82 @@ const pageDescription =
                 type="text"
                 id="org-url"
                 name="org-url"
-                class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 text-lg"
+                class="box-border block w-full min-w-0 rounded-md border-0 px-3 py-3 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600"
                 placeholder="https://app.operately.com/my-org-0plx"
               />
             </div>
           </div>
         </div>
 
-        <div class="mt-10">
+        <section
+          id="email-draft"
+          class="hidden mt-8 border-t border-gray-200 pt-6"
+          aria-live="polite"
+        >
+          <div>
+            <label
+              for="draft-subject"
+              class="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Subject
+            </label>
+            <div class="relative mt-2">
+              <input
+                id="draft-subject"
+                type="text"
+                readonly
+                class="box-border block w-full min-w-0 rounded-md border-0 bg-white px-3.5 py-2.5 pr-20 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
+              />
+              <button
+                id="copy-subject"
+                type="button"
+                class="absolute right-2 top-1/2 min-w-12 -translate-y-1/2 rounded px-2 py-1 text-center text-xs font-semibold text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+                aria-label="Copy subject"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label
+              for="draft-body"
+              class="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Email body
+            </label>
+            <div class="relative mt-2">
+              <textarea
+                id="draft-body"
+                rows="8"
+                readonly
+                class="box-border block w-full min-w-0 rounded-md border-0 bg-white px-3.5 pb-2.5 pl-3.5 pr-20 pt-10 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
+              ></textarea>
+              <button
+                id="copy-body"
+                type="button"
+                class="absolute right-2 top-2 min-w-12 rounded px-2 py-1 text-center text-xs font-semibold text-gray-500 hover:bg-gray-100 hover:text-gray-900"
+                aria-label="Copy email body"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="mt-8">
           <button
             type="submit"
             id="submit-button"
-            class="w-full rounded-md bg-blue-600 px-3.5 py-3.5 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            class="w-full rounded-md bg-blue-600 px-3.5 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Open email draft
           </button>
+          <p class="mt-3 text-sm leading-6 text-gray-500">
+            Opens your email app with the generated subject and body.
+          </p>
         </div>
       </form>
-
-      <section
-        id="email-draft"
-        class="hidden mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm"
-        aria-live="polite"
-      >
-        <div>
-          <label
-            for="draft-subject"
-            class="block text-sm font-semibold leading-6 text-gray-900"
-          >
-            Subject
-          </label>
-          <div class="mt-2 flex gap-3">
-            <input
-              id="draft-subject"
-              type="text"
-              readonly
-              class="block w-full rounded-md border-0 bg-white px-3.5 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
-            />
-            <button
-              id="copy-subject"
-              type="button"
-              class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            >
-              Copy
-            </button>
-          </div>
-        </div>
-
-        <div class="mt-6">
-          <label
-            for="draft-body"
-            class="block text-sm font-semibold leading-6 text-gray-900"
-          >
-            Email body
-          </label>
-          <div class="mt-2">
-            <textarea
-              id="draft-body"
-              rows="10"
-              readonly
-              class="block w-full rounded-md border-0 bg-white px-3.5 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
-            ></textarea>
-          </div>
-          <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-            <a
-              id="mailto-link"
-              href="mailto:hello@operately.com"
-              class="inline-flex justify-center rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
-            >
-              Email hello@operately.com
-            </a>
-            <button
-              id="copy-body"
-              type="button"
-              class="inline-flex justify-center rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            >
-              Copy body
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 </BaseLayout>
