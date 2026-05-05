@@ -1,0 +1,5 @@
+/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/home/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
