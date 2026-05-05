@@ -3,14 +3,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Get in Touch";
 const pageDescription =
-  "Have a question or need help? We're here to assist you. Fill out this form and we'll get back to you as soon as possible.";
+  "Have a question or need help? Generate an email draft and send it to us directly.";
 ---
 
 <script>
-  // In development, use the Wrangler server
-  // In production, use the current domain
-  const isDev = import.meta.env.DEV;
-  const apiBase = isDev ? "http://localhost:8788" : "";
+  const contactEmail = "hello@operately.com";
+
+  const subjectByHelpType: Record<string, string> = {
+    access: "Account access help",
+    "pre-signup": "Question before signing up",
+    "user-question": "Question from an Operately user",
+    bug: "Bug report",
+    feature: "Feature request",
+    "ai-access": "Operately AI early access",
+    "commercial-license": "Commercial self-hosted license",
+    other: "Question for Operately",
+  };
 
   function initContactForm() {
     const form = document.getElementById("contact-form") as HTMLFormElement;
@@ -28,69 +36,121 @@ const pageDescription =
       }
     }
 
-    form.addEventListener("submit", async (e) => {
+    const helpTypeSelect = form.querySelector(
+      'select[name="help-type"]'
+    ) as HTMLSelectElement;
+    const messageInput = form.querySelector(
+      'textarea[name="message"]'
+    ) as HTMLTextAreaElement;
+    const emailInput = form.querySelector(
+      'input[name="email"]'
+    ) as HTMLInputElement;
+    const orgUrlInput = form.querySelector(
+      'input[name="org-url"]'
+    ) as HTMLInputElement;
+    const draftPanel = document.getElementById("email-draft");
+    const draftSubject = document.getElementById(
+      "draft-subject"
+    ) as HTMLInputElement;
+    const draftBody = document.getElementById(
+      "draft-body"
+    ) as HTMLTextAreaElement;
+    const mailtoLink = document.getElementById(
+      "mailto-link"
+    ) as HTMLAnchorElement;
+    const copySubjectButton = document.getElementById(
+      "copy-subject"
+    ) as HTMLButtonElement;
+    const copyBodyButton = document.getElementById(
+      "copy-body"
+    ) as HTMLButtonElement;
+
+    function getHelpTypeLabel() {
+      const selectedOption = helpTypeSelect.selectedOptions[0];
+      return selectedOption?.dataset.label || selectedOption?.text || "";
+    }
+
+    function buildDraft() {
+      const helpType = helpTypeSelect.value;
+      const helpTypeLabel = getHelpTypeLabel();
+      const subject = subjectByHelpType[helpType] || "Question for Operately";
+      const bodyLines = [
+        `Hi Operately team,`,
+        "",
+        `I need help with: ${helpTypeLabel || "[select a topic]"}`,
+        "",
+        messageInput.value || "[write your message here]",
+        "",
+        "Contact details:",
+        `Email: ${emailInput.value || "[your email]"}`,
+        `Organization URL: ${orgUrlInput.value || "[optional]"}`,
+      ];
+
+      return {
+        subject,
+        body: bodyLines.join("\n"),
+      };
+    }
+
+    function updateDraft() {
+      const draft = buildDraft();
+
+      draftSubject.value = draft.subject;
+      draftBody.value = draft.body;
+      mailtoLink.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
+        draft.subject
+      )}&body=${encodeURIComponent(draft.body)}`;
+
+      if (helpTypeSelect.value) {
+        draftPanel?.classList.remove("hidden");
+      } else {
+        draftPanel?.classList.add("hidden");
+      }
+    }
+
+    async function copyText(value: string, button: HTMLButtonElement) {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = value;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      const originalLabel = button.textContent;
+      button.textContent = "Copied";
+      window.setTimeout(() => {
+        button.textContent = originalLabel;
+      }, 1400);
+    }
+
+    copySubjectButton?.addEventListener("click", () => {
+      copyText(draftSubject.value, copySubjectButton);
+    });
+
+    copyBodyButton?.addEventListener("click", () => {
+      copyText(draftBody.value, copyBodyButton);
+    });
+
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      const submitButton = form.querySelector(
-        "#submit-button"
-      ) as HTMLButtonElement;
-      const formStatus = document.getElementById("form-status");
-      const statusMessage = document.getElementById("status-message");
-      const successIcon = document.getElementById("success-icon");
-      const errorIcon = document.getElementById("error-icon");
-
-      // Disable submit button and show loading state
-      submitButton.disabled = true;
-      submitButton.innerHTML = "Sending...";
-
-      try {
-        const formData = new FormData(form);
-
-        // Add the full text label to the form data
-        const select = form.querySelector(
-          'select[name="help-type"]'
-        ) as HTMLSelectElement;
-        const selectedOption = select.selectedOptions[0];
-        const fullText = selectedOption.dataset.label || selectedOption.text;
-        formData.append("help-type-label", fullText);
-
-        const response = await fetch(`${apiBase}/api/contact`, {
-          method: "POST",
-          body: formData,
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          // Show success message
-          formStatus?.classList.remove("hidden", "bg-red-50");
-          formStatus?.classList.add("bg-green-50");
-          statusMessage!.textContent = "Thank you! We'll get back to you soon.";
-          successIcon?.classList.remove("hidden");
-          errorIcon?.classList.add("hidden");
-          form.reset();
-        } else {
-          throw new Error(data.error || "Failed to send message");
-        }
-      } catch (error) {
-        // Show error message
-        formStatus?.classList.remove("hidden", "bg-green-50");
-        formStatus?.classList.add("bg-red-50");
-        statusMessage!.textContent =
-          error instanceof Error
-            ? error.message
-            : "Something went wrong. Please try again.";
-        successIcon?.classList.add("hidden");
-        errorIcon?.classList.remove("hidden");
-      } finally {
-        // Re-enable submit button
-        submitButton.disabled = false;
-        submitButton.innerHTML = "Send message";
+      updateDraft();
+      if (helpTypeSelect.value) {
+        window.location.href = mailtoLink.href;
       }
     });
+
+    form.addEventListener("input", updateDraft);
+    form.addEventListener("change", updateDraft);
+    updateDraft();
   }
 
-  // Initialize when the DOM is ready
   document.addEventListener("DOMContentLoaded", initContactForm);
 </script>
 
@@ -112,61 +172,7 @@ const pageDescription =
     </div>
 
     <div class="mx-auto max-w-xl">
-      <div id="form-status" class="hidden rounded-md p-4 mt-8" role="alert">
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <svg
-              id="success-icon"
-              class="h-5 w-5 text-green-400 hidden"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <svg
-              id="error-icon"
-              class="h-5 w-5 text-red-400 hidden"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </div>
-          <div class="ml-3">
-            <p id="status-message" class="text-sm font-medium"></p>
-          </div>
-        </div>
-      </div>
-
       <form id="contact-form" class="mx-auto mt-12 max-w-xl sm:mt-16">
-        <!-- Hidden honeypot field -->
-        <div class="hidden" aria-hidden="true">
-          <label for="website">Leave this field empty</label>
-          <input
-            type="text"
-            id="website"
-            name="website"
-            tabindex="-1"
-            autocomplete="off"
-          />
-        </div>
-
-        <!-- Hidden timestamp field -->
-        <input
-          type="hidden"
-          id="form-start-time"
-          name="form-start-time"
-          value={Date.now().toString()}
-        />
-
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div class="sm:col-span-2">
             <label
@@ -227,9 +233,9 @@ const pageDescription =
               for="message"
               class="block text-lg font-medium leading-6 text-gray-900"
             >
-              Tell us more<span class="text-red-600">*</span>
+              Tell us more
               <span class="ml-2 text-sm text-gray-500"
-                >The more we know, the better we can help you</span
+                >Optional context for the email draft</span
               >
             </label>
             <div class="mt-2.5">
@@ -238,7 +244,6 @@ const pageDescription =
                 name="message"
                 rows="6"
                 class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 text-lg"
-                required
                 placeholder="Share the details of your question or issue..."
               ></textarea>
             </div>
@@ -249,9 +254,9 @@ const pageDescription =
               for="email"
               class="block text-lg font-medium leading-6 text-gray-900"
             >
-              Your email<span class="text-red-600">*</span>
+              Your email
               <span class="ml-2 text-sm text-gray-500"
-                >So we can get back to you—double check you got it right</span
+                >Optional, if you want it included in the draft body</span
               >
             </label>
             <div class="mt-2.5">
@@ -260,7 +265,6 @@ const pageDescription =
                 name="email"
                 id="email"
                 class="block w-full rounded-md border-0 px-3.5 py-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 text-lg"
-                required
                 placeholder="you@company.com"
               />
             </div>
@@ -294,10 +298,73 @@ const pageDescription =
             id="submit-button"
             class="w-full rounded-md bg-blue-600 px-3.5 py-3.5 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
-            Send message
+            Open email draft
           </button>
         </div>
       </form>
+
+      <section
+        id="email-draft"
+        class="hidden mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm"
+        aria-live="polite"
+      >
+        <div>
+          <label
+            for="draft-subject"
+            class="block text-sm font-semibold leading-6 text-gray-900"
+          >
+            Subject
+          </label>
+          <div class="mt-2 flex gap-3">
+            <input
+              id="draft-subject"
+              type="text"
+              readonly
+              class="block w-full rounded-md border-0 bg-white px-3.5 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
+            />
+            <button
+              id="copy-subject"
+              type="button"
+              class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label
+            for="draft-body"
+            class="block text-sm font-semibold leading-6 text-gray-900"
+          >
+            Email body
+          </label>
+          <div class="mt-2">
+            <textarea
+              id="draft-body"
+              rows="10"
+              readonly
+              class="block w-full rounded-md border-0 bg-white px-3.5 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300"
+            ></textarea>
+          </div>
+          <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+            <a
+              id="mailto-link"
+              href="mailto:hello@operately.com"
+              class="inline-flex justify-center rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
+            >
+              Email hello@operately.com
+            </a>
+            <button
+              id="copy-body"
+              type="button"
+              class="inline-flex justify-center rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            >
+              Copy body
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 </BaseLayout>
