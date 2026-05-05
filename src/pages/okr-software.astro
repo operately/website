@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "./_index/goal.png";
 
 const pageTitle = "OKR Software";
 const pageDescription =
@@ -99,6 +101,30 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Screenshot */}
+      <div class="mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <Image
+            src={goalScreenshot}
+            alt="Goal tracking in Operately showing measurable targets and progress"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      {/* Flexibility note */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl border border-operately-blue-tint-1 bg-operately-blue-tint-1 p-6">
+        <p class="text-sm font-medium text-operately-dark-blue">
+          Not strictly OKRs? That's fine.
+        </p>
+        <p class="mt-2 text-sm text-gray-700">
+          Operately supports OKRs but does not force a specific framework. You can structure goals
+          as OKRs, simple targets, milestones, or whatever fits your team. The focus is on structured
+          execution and visible progress, not ideological compliance.
+          <a href="/blueprint" class="text-operately-blue hover:underline">Read our approach to structuring work →</a>
+        </p>
       </div>
 
       {/* How it compares */}
