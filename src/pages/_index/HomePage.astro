@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const pageTitle = "Operately: Open Source Goal & Project Management for Startups";
+const pageDescription =
+  "Operately helps teams run goals, projects, and weekly execution with built-in workflows. Use Operately Cloud or self-host it in minutes.";
+
+import Hero from "./Hero.astro";
+import Intro from "./Intro.astro";
+import Goals from "./Goals.astro";
+import Projects from "./Projects.astro";
+import Alfred from "./Alfred.astro";
+import Security from "../_features/Security.astro";
+import CTA from "../_features/CTA.astro";
+
+import { getLatestRelease } from "../../utils/releases";
+
+const latestRelease = await getLatestRelease();
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://operately.com/#organization",
+    name: "Operately",
+    url: "https://operately.com/",
+    logo: "https://operately.com/favicon.svg",
+    sameAs: [
+      "https://github.com/operately/operately",
+      "https://www.linkedin.com/company/92810497/",
+      "https://x.com/operately",
+      "https://www.youtube.com/@operately",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://operately.com/#website",
+    name: "Operately",
+    url: "https://operately.com/",
+    description: pageDescription,
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://operately.com/#software",
+    name: "Operately",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://operately.com/",
+    description: pageDescription,
+    image: "https://operately.com/images/social/card-summary-large.png",
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  schema={schema}
+  canonicalPath="/"
+>
+  <main>
+    <Hero latestRelease={latestRelease} />
+    <Intro />
+    <Goals />
+    <Projects />
+    <Alfred />
+    <Security />
+    <CTA />
+  </main>
+</BaseLayout>

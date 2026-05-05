@@ -5,6 +5,7 @@ interface LayoutProps {
   image?: string;
   twitterCardType?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  canonicalPath?: string;
 }
 
 const {
@@ -13,10 +14,11 @@ const {
   image,
   twitterCardType = "summary",
   schema,
+  canonicalPath,
 } = Astro.props as LayoutProps;
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
-const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+const canonicalUrl = Astro.site ? new URL(canonicalPath ?? Astro.url.pathname, Astro.site) : null;
 const siteDescription = "Operately helps teams run goals, projects, and weekly execution with built-in workflows. Use Operately Cloud or self-host it in minutes.";
 const siteSchema = canonicalUrl
   ? [
