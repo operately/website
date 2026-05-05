@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 import mdx from "@astrojs/mdx";
 import rehypeSlug from "rehype-slug";
@@ -14,6 +15,7 @@ export default defineConfig({
   site: "https://operately.com",
   integrations: [
     react(),
+    sitemap(),
     starlight(helpCenterSidebar()),
     mdx({
       remarkPlugins: [],
