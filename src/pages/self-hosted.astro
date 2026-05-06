@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "Self-host Operately";
+const pageTitle = "Self-Hosted Project Management Software | Operately";
 const pageDescription =
-  "Learn when to choose self-hosted Operately, how it compares to Operately Cloud, and where to go next for installation, docs, pricing, and commercial support.";
+  "Operately is open source, self-hosted project management with built-in goal tracking. Compare to OpenProject, Taiga, and Plane. Deploy on your infrastructure in minutes.";
 
 const schema = {
   "@type": "WebPage",
@@ -34,10 +34,12 @@ const schema = {
           Deployment options
         </p>
         <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-          Self-host Operately on your own infrastructure
+          Self-hosted project management with built-in goals
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">
-          Operately Cloud is the fastest way to get started. Self-hosted Operately is the better fit when you need infrastructure control, custom deployment constraints, or an on-prem path.
+          Operately is open source project management you can deploy on your own infrastructure.
+          Built-in OKR goal tracking, project check-ins, and team alignment. No vendor lock-in,
+          full data control, install in minutes.
         </p>
       </div>
 
@@ -76,6 +78,76 @@ const schema = {
             <li class="pl-1">To start using Operately before deciding whether self-hosting is necessary</li>
           </ul>
         </section>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-200">
+        <h2 class="text-2xl font-semibold text-gray-900">How Operately compares to other self-hosted tools</h2>
+        <p class="mt-4 text-gray-700">
+          If you are evaluating self-hosted project management options, here is how Operately fits
+          alongside the other tools you are probably looking at.
+        </p>
+        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-100">
+                <th class="px-5 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">OpenProject</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Plane</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Taiga</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Built-in goals/OKRs</td>
+                <td class="px-5 py-3 text-center text-green-600">Yes</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Project check-ins</td>
+                <td class="px-5 py-3 text-center text-green-600">Built in</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+                <td class="px-5 py-3 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Setup time</td>
+                <td class="px-5 py-3 text-center text-green-600">~5 minutes</td>
+                <td class="px-5 py-3 text-center">30-60 min</td>
+                <td class="px-5 py-3 text-center">~15 min</td>
+                <td class="px-5 py-3 text-center">~15 min</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Focus</td>
+                <td class="px-5 py-3 text-center">Goals + projects</td>
+                <td class="px-5 py-3 text-center">Traditional PM</td>
+                <td class="px-5 py-3 text-center">Issue tracking</td>
+                <td class="px-5 py-3 text-center">Agile/Scrum</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Complexity</td>
+                <td class="px-5 py-3 text-center text-green-600">Focused</td>
+                <td class="px-5 py-3 text-center">Feature-heavy</td>
+                <td class="px-5 py-3 text-center">Moderate</td>
+                <td class="px-5 py-3 text-center">Moderate</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Open source</td>
+                <td class="px-5 py-3 text-center text-green-600">Yes (Apache 2.0)</td>
+                <td class="px-5 py-3 text-center text-green-600">Yes (GPL)</td>
+                <td class="px-5 py-3 text-center text-green-600">Yes (AGPL)</td>
+                <td class="px-5 py-3 text-center text-green-600">Yes (MPL)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-6 text-sm text-gray-600">
+          Most self-hosted PM tools focus on task and issue tracking. Operately is different: it
+          connects goals to projects with built-in progress check-ins, so your team stays aligned on
+          outcomes rather than just tracking tasks.
+        </p>
       </div>
 
       <div class="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-200">
