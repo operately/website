@@ -1,0 +1,244 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+
+const pageTitle = "Project Management for Nonprofits";
+const pageDescription =
+  "Operately is project management for nonprofits: open source, flat pricing, built-in goal tracking. Show impact to funders and keep your team aligned.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/for/nonprofits/#webpage",
+  url: "https://operately.com/for/nonprofits/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          For Nonprofits
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Run programs and show impact without expensive tools
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Nonprofit teams juggle programs, grants, and reporting with tools built for corporations.
+          Operately gives you goal tracking, project management, and built-in accountability
+          without per-seat pricing eating into your budget. Open source and free to start.
+        </p>
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Free to start
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          No per-seat costs
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Open source
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Self-hostable
+        </span>
+      </div>
+
+      {/* Problem / Solution */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">The nonprofit tool problem</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Most project management tools charge per seat. For a nonprofit with 15 people, that is
+            $150 to $300 per month spent on software instead of your mission. And the tools you get
+            are designed for sales teams and product launches, not programs and grant deliverables.
+          </p>
+          <p>
+            Meanwhile, your board and funders want to see progress. They want measurable outcomes.
+            You need a way to connect your daily work to the goals you promised in your grant
+            proposals, without building a custom reporting system out of spreadsheets.
+          </p>
+        </div>
+      </div>
+
+      {/* Screenshot */}
+      <div class="mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <Image
+            src={goalScreenshot}
+            alt="Goal tracking in Operately showing measurable targets and progress"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      {/* What you get */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">What you get with Operately</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Goals tied to your mission</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Set organizational goals with measurable targets. Track program outcomes the same way
+              you report them to funders. Progress is always visible without manual reporting.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Projects with built-in check-ins</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Run programs and campaigns with regular progress updates. Your team stays accountable
+              and your leadership always knows where things stand.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Flat-rate pricing</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              No per-seat fees. Add staff, volunteers, and board members without watching your
+              software costs grow. Every dollar saved goes back to your mission.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Open source and self-hostable</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Full transparency into the code. Self-host for complete control over donor and
+              beneficiary data, or use the cloud to get started in minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Set up takes less than 5 minutes</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+        >
+          Start free — no credit card needed
+        </a>
+      </div>
+
+      {/* Comparison */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Why not just use Monday.com or Asana?</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            They work, but their pricing and complexity are designed for funded companies,
+            not mission-driven organizations watching every dollar.
+          </p>
+        </div>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Enterprise tools</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Cost at 15 people</td>
+                <td class="px-6 py-4 text-center text-green-600">$0 (free plan)</td>
+                <td class="px-6 py-4 text-center">$135-225/mo</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Add volunteers/board</td>
+                <td class="px-6 py-4 text-center text-green-600">No extra cost</td>
+                <td class="px-6 py-4 text-center">Extra seats = extra fees</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Goal tracking</td>
+                <td class="px-6 py-4 text-center text-green-600">Built in, free</td>
+                <td class="px-6 py-4 text-center">Paid add-on or higher tier</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Data control</td>
+                <td class="px-6 py-4 text-center text-green-600">Self-host option</td>
+                <td class="px-6 py-4 text-center text-gray-400">Vendor-hosted only</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Open source</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Setup complexity</td>
+                <td class="px-6 py-4 text-center text-green-600">Minutes</td>
+                <td class="px-6 py-4 text-center">Requires admin training</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Built for accountability, not busywork</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Nonprofits exist to create change, and change requires focus. You need to know whether
+            your programs are working, whether your team is aligned, and whether you can show
+            concrete progress to the people who fund your work.
+          </p>
+          <p>
+            Most tools give you a blank canvas and say "figure it out." Operately gives you a clear
+            structure: goals with measurable targets, projects with regular check-ins, and visibility
+            into what is working and what is not. No consultants needed to set it up.
+          </p>
+          <p>
+            We believe every organization doing meaningful work deserves tools that help them stay
+            accountable to their mission without spending their budget on software licenses.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately with your organization</h2>
+        <p class="mt-4 text-gray-600">
+          Free to start. No per-seat pricing. Ready in minutes.
+          No credit card required.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
