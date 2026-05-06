@@ -1,0 +1,256 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+
+const pageTitle = "Project Management for Small Teams";
+const pageDescription =
+  "Operately is project management for small teams: open source, flat pricing, no enterprise bloat. Connect goals to projects and keep everyone aligned.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/for/small-teams/#webpage",
+  url: "https://operately.com/for/small-teams/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          For Small Teams
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Project management that fits your team, not the other way around
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Most project management tools are built for large organizations. Operately is built for
+          teams of 5 to 50 who want to stay aligned on goals and ship work without drowning in
+          features they do not use. Open source, flat pricing, ready in minutes.
+        </p>
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Free to start
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          No per-seat costs
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Open source
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Ready in minutes
+        </span>
+      </div>
+
+      {/* Problem / Solution */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">The small team problem</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Enterprise project management tools come with per-seat pricing that punishes growth,
+            feature lists built for 500-person organizations, and setup processes that take longer
+            than your actual work cycle.
+          </p>
+          <p>
+            Small teams need something different: a tool that helps a growing team stay aligned on
+            goals, ship projects consistently, and keep everyone informed without constant meetings.
+            Something that costs nothing to start and does not become a budget problem at 20 people.
+          </p>
+        </div>
+      </div>
+
+      {/* Screenshot */}
+      <div class="mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <Image
+            src={goalScreenshot}
+            alt="Goal tracking in Operately showing measurable targets and progress"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      {/* What you get */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">What you get with Operately</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Goals in one place</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Set company or team goals with measurable targets. Everyone sees what matters and
+              how things are tracking without asking in meetings or chat.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Projects with built-in check-ins</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Track projects with regular progress updates. No more chasing people for status.
+              The structure keeps everyone informed automatically.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Flat-rate pricing</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Pay a flat fee regardless of team size. Add people without worrying about your
+              tool bill growing faster than your team.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Open source and self-hostable</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              The entire codebase is open. Use the cloud to get started fast, or self-host
+              when you need data control or compliance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Set up takes less than 5 minutes</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+        >
+          Start free — no credit card needed
+        </a>
+      </div>
+
+      {/* Comparison */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Why not just use Monday.com or Asana?</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            They work, but they are designed for a different scale and a different buyer.
+          </p>
+        </div>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Enterprise tools</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Cost at 20 people</td>
+                <td class="px-6 py-4 text-center text-green-600">$0 (free plan)</td>
+                <td class="px-6 py-4 text-center">$180-300/mo</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Setup time</td>
+                <td class="px-6 py-4 text-center text-green-600">Minutes</td>
+                <td class="px-6 py-4 text-center">Hours to days</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Goals built in</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes, free</td>
+                <td class="px-6 py-4 text-center">Paid add-on or higher tier</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Complexity</td>
+                <td class="px-6 py-4 text-center text-green-600">Focused</td>
+                <td class="px-6 py-4 text-center">Feature-heavy</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Open source</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Self-host option</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Why we built Operately this way</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Most tools either give you total freedom with no structure, or rigid structure with no
+            soul. We think both get it wrong.
+          </p>
+          <p>
+            Small teams need structure. Not because someone read it in a management book, but because
+            when you are 10 or 20 people, you cannot afford to lose track of what matters. You need
+            goals. You need to know if you are making progress or just staying busy. You need honest
+            self-evaluation, not just vibes.
+          </p>
+          <p>
+            But structure should work for you, not the other way around. Operately gives your team a
+            clear system for accountability and focus without turning work into a reporting exercise.
+            Goals connect to projects. Progress is visible. People know what they own and how it is
+            going.
+          </p>
+          <p>
+            We believe that 99% of teams need this. Not because they are broken, but because doing
+            great work together is genuinely hard, and good tools should make it easier.
+          </p>
+          <p>
+            Today, Operately is used by technology companies, nonprofits, consulting firms, and
+            compliance-focused organizations. What they share is a need to coordinate work across a
+            growing team without the overhead of enterprise software.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately with your team</h2>
+        <p class="mt-4 text-gray-600">
+          Free to start. No per-seat pricing. Ready in minutes.
+          No credit card required.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>
