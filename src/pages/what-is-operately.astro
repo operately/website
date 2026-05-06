@@ -1,0 +1,283 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "What is Operately? Open Source Goal and Project Management";
+const pageDescription =
+  "Operately is open source goal and project management software. Built-in OKRs, project check-ins, and team alignment for teams of 5 to 100. Free to start, self-hostable.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Operately?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately is open source goal and project management software. It combines OKR goal tracking with project management and built-in check-ins to keep teams aligned on outcomes. It is free to start, offers flat-rate pricing with no per-seat fees, and can be self-hosted or used as a cloud service.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What makes Operately different from Monday.com or Asana?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately is open source and self-hostable. It has built-in goal/OKR tracking as a first-class feature (not a paid add-on). It uses flat-rate pricing instead of per-seat fees. It is designed for teams of 5 to 100 rather than large enterprises, and it connects goals directly to projects with automated progress tracking.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is Operately free?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Operately has a free plan with no per-seat costs. The entire product is open source under the Apache 2.0 license. You can use Operately Cloud for free or self-host it on your own infrastructure at no cost.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I self-host Operately?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Operately is fully self-hostable. It runs on Docker and can be installed on any Linux server in about 5 minutes. Self-hosting gives you complete control over your data.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What kind of teams use Operately?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately is used by technology companies, nonprofits, consulting firms, and compliance-focused organizations. It works best for teams of 5 to 100 people who need goal tracking, project management, and regular progress visibility without enterprise complexity.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Operately support OKRs?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Operately has built-in OKR goal tracking as a first-class feature. You can set goals with measurable targets, connect them to projects, and track progress automatically through project check-ins. OKR functionality is included in all plans, including the free tier.",
+        },
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Operately",
+    applicationCategory: "ProjectManagement",
+    operatingSystem: "Web, Linux (self-hosted)",
+    url: "https://operately.com/",
+    description: pageDescription,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free plan available. Flat-rate pricing, no per-seat fees.",
+    },
+    featureList: [
+      "OKR goal tracking with measurable targets",
+      "Project management with milestones",
+      "Built-in progress check-ins",
+      "Team alignment and accountability",
+      "Open source (Apache 2.0)",
+      "Self-hostable on Docker",
+      "CLI and API for automation",
+      "AI agent support via published skills",
+      "Flat-rate pricing, no per-seat fees",
+    ],
+  },
+];
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          What is Operately?
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately is open source goal and project management software. It connects OKR goal
+          tracking with project execution and built-in check-ins so your team stays aligned on
+          outcomes, not just tasks.
+        </p>
+      </div>
+
+      {/* Quick facts */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-2xl bg-gray-50 p-8">
+        <h2 class="text-lg font-semibold text-gray-900">At a glance</h2>
+        <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Category</dt>
+            <dd class="mt-1 text-sm text-gray-900">Goal and project management software</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">License</dt>
+            <dd class="mt-1 text-sm text-gray-900">Open source (Apache 2.0)</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Pricing</dt>
+            <dd class="mt-1 text-sm text-gray-900">Free plan available. Flat-rate, no per-seat fees.</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Deployment</dt>
+            <dd class="mt-1 text-sm text-gray-900">Cloud (hosted) or self-hosted on Docker</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Best for</dt>
+            <dd class="mt-1 text-sm text-gray-900">Teams of 5 to 100 people</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Setup time</dt>
+            <dd class="mt-1 text-sm text-gray-900">Under 5 minutes (cloud or self-hosted)</dd>
+          </div>
+        </dl>
+      </div>
+
+      {/* Core capabilities */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Core capabilities</h2>
+        <div class="mt-8 space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Goal tracking (OKRs)</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Set company and team goals with measurable targets. Track progress automatically as
+              connected projects advance. See at a glance which goals are on track and which need
+              attention. OKR functionality is built in and available on all plans, including free.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Project management</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Run projects with milestones, owners, and timelines. Projects connect to goals so
+              your team always knows how daily work contributes to larger objectives. No Gantt chart
+              complexity — just clear ownership and progress.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Built-in check-ins</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Regular progress updates happen inside the tool. Project owners post check-ins on a
+              schedule. Everyone sees status without asking in meetings or chat. This is how
+              Operately replaces status meetings with async visibility.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Team alignment</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Every team member sees the company goals, the projects they contribute to, and how
+              everything connects. No more scattered docs, forgotten spreadsheets, or processes
+              held together by willpower.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">AI and automation</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Operately has a full CLI and API that AI agents can use to create goals, update
+              projects, and post check-ins. Published skills work with agent frameworks like
+              OpenClaw, Codex, and Claude Code. Alfred, the built-in AI coach (beta), reviews
+              your goals and gives execution feedback.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Who it's for */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Who uses Operately</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately is built for teams of 5 to 100 people who need structured goal tracking and
+            project management without enterprise complexity or per-seat pricing.
+          </p>
+          <p>
+            It is used by technology companies, nonprofits, consulting firms, event companies, and
+            compliance-focused organizations. Teams choose Operately when they want:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Goals and projects in one system (not scattered across tools)</li>
+            <li>Built-in progress tracking without manual reporting</li>
+            <li>Open source transparency and self-hosting option</li>
+            <li>Flat pricing that does not punish team growth</li>
+            <li>A focused tool instead of an enterprise feature maze</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* How it compares */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How Operately compares</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            <strong>vs Monday.com:</strong> Operately is open source, self-hostable, and includes
+            goal tracking as a core feature. Monday.com is closed-source with per-seat pricing
+            and goals only on higher tiers.
+            <a href="/vs/monday" class="text-operately-blue hover:underline">Full comparison →</a>
+          </p>
+          <p>
+            <strong>vs Asana:</strong> Operately connects goals to projects with built-in check-ins.
+            Asana separates goals into a paid add-on. Operately is open source with flat pricing;
+            Asana is closed-source with per-seat pricing.
+            <a href="/vs/asana" class="text-operately-blue hover:underline">Full comparison →</a>
+          </p>
+          <p>
+            <strong>vs Notion:</strong> Notion gives you a blank canvas. Operately gives you a
+            defined system: goals, projects, check-ins, and accountability built into the
+            structure. Less flexibility, more clarity.
+          </p>
+          <p>
+            <strong>vs Basecamp:</strong> Both are opinionated about simplicity. Operately adds
+            structured goal tracking and measurable targets, which Basecamp does not offer.
+            Operately is open source; Basecamp is not.
+          </p>
+        </div>
+      </div>
+
+      {/* Open source */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Open source and self-hostable</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            The entire Operately codebase is open source under the Apache 2.0 license. You can
+            inspect the code, contribute, or run it on your own infrastructure. Self-hosting uses
+            Docker and takes about 5 minutes to set up.
+          </p>
+          <p>
+            Source code: <a href="https://github.com/operately/operately" class="text-operately-blue hover:underline">github.com/operately/operately</a>
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately</h2>
+        <p class="mt-4 text-gray-600">
+          Free to start. No per-seat pricing. Ready in minutes.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
