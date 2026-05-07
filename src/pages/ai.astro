@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "AI Project Management | Operately";
+const pageDescription =
+  "Operately works with AI agents like OpenClaw, Codex, and Claude Code. CLI, API, and published skills let agents control Operately the same way humans do.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/ai/#webpage",
+  url: "https://operately.com/ai/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-white py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          AI + Operately
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Your AI agent can use Operately like you do
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately has a full <a href="/help/cli" class="text-operately-blue hover:underline">CLI</a>,
+          <a href="/help/api" class="text-operately-blue hover:underline">API</a>, and
+          <a href="https://github.com/operately/skills" class="text-operately-blue hover:underline">skills</a>
+          that let AI agents create goals, update projects, and post check-ins. If your agent
+          can run shell commands, it can operate Operately the same way a human would.
+        </p>
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Full API
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          CLI for agents
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Published skills
+        </span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Open source
+        </span>
+      </div>
+
+      {/* The approach */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How AI agents work with Operately</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately exposes every operation through a CLI and API.
+            When an AI agent like OpenClaw, Codex, or Claude Code needs to interact with your
+            goals and projects, it authenticates with a token and runs the same commands a human
+            would in the terminal.
+          </p>
+          <p>
+            There is no special "AI mode." An agent that can run shell commands is already a full
+            Operately user. It can create goals, update project status, write check-ins, and query
+            progress. The structured data (typed targets, milestones, status fields) makes it easy
+            for agents to read and reason about your team's work.
+          </p>
+        </div>
+      </div>
+
+      {/* How it works — cards */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">The toolchain</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="/help/cli" class="text-operately-blue hover:underline">CLI</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Install the Operately CLI (<code class="text-xs bg-gray-100 px-1 py-0.5 rounded">@operately/operately-cli</code>)
+              from npm. Authenticate with a token. Every operation is a command:
+              goals, projects, check-ins, people, spaces.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="https://github.com/operately/skills" class="text-operately-blue hover:underline">Agent skills</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Operately publishes agent skills that teach compatible tools how to work with
+              Operately workflows. Install with
+              <code class="text-xs bg-gray-100 px-1 py-0.5 rounded">npx skills add</code> and your
+              agent already knows the commands. Also available on
+              <a href="https://clawhub.ai/markoa/operately-cli" class="text-operately-blue hover:underline">ClawHub</a> for OpenClaw.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="/help/api" class="text-operately-blue hover:underline">API</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              The full external API is documented and stable. Everything the web interface can do,
+              the API can do. Agents can query goals, post check-ins, and update project status
+              programmatically.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Structured data</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Goals have measurable targets. Projects have milestones and owners. Check-ins have
+              status fields. Everything is structured, not freeform text. Agents can read, reason
+              about, and update this data without parsing documents.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Code example */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">What this looks like in practice</h2>
+        <div class="mt-6 rounded-xl bg-gray-900 p-6 font-mono text-sm text-gray-100 overflow-x-auto">
+          <pre class="whitespace-pre"><code><span class="text-gray-500"># Install the CLI</span>
+npm install -g @operately/operately-cli
+
+<span class="text-gray-500"># Authenticate</span>
+operately auth login --token $OPERATELY_TOKEN
+
+<span class="text-gray-500"># An agent creates a goal</span>
+operately goals create --name "Ship v2 by March" --target "100%" --space engineering
+
+<span class="text-gray-500"># An agent posts a weekly check-in</span>
+operately projects check_in --project website-redesign --status on_track \
+  --description "Completed homepage, starting landing pages next week"
+
+<span class="text-gray-500"># An agent reviews goal progress</span>
+operately goals list --space engineering</code></pre>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">
+          Any agent that can run shell commands can operate Operately. No custom integrations,
+          no proprietary SDKs, no API wrappers to maintain.
+        </p>
+      </div>
+
+      {/* Compatible agents */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Works with the agents you already use</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately integrates with AI agents that can execute commands and interact with APIs:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>OpenClaw</strong> — Install the Operately skill and your OpenClaw agent manages goals and projects alongside everything else it does for your team.</li>
+            <li><strong>OpenAI Codex</strong> — Codex can use the CLI to update project progress after completing coding tasks.</li>
+            <li><strong>Claude Code</strong> — Same approach: install skills, authenticate, and Claude Code becomes a full Operately participant.</li>
+            <li><strong>Any tool with shell access</strong> — If it can run <code class="text-xs bg-gray-100 px-1 py-0.5 rounded">operately</code> commands, it works.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Comparison */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How this compares to "AI features" in other tools</h2>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Typical PM tools</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Agent access</td>
+                <td class="px-6 py-4 text-center text-green-600">Full CLI + API</td>
+                <td class="px-6 py-4 text-center">Chat widget or copilot</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">What agents can do</td>
+                <td class="px-6 py-4 text-center text-green-600">Everything a human can</td>
+                <td class="px-6 py-4 text-center">Summarize, suggest</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Works with any agent</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes (CLI/API)</td>
+                <td class="px-6 py-4 text-center text-gray-400">Vendor-locked AI</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Data structure</td>
+                <td class="px-6 py-4 text-center text-green-600">Typed + structured</td>
+                <td class="px-6 py-4 text-center">Freeform text</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Open source</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Self-hostable</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Why this approach works</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Most tools add AI as a feature inside their interface: a copilot that summarizes, a
+            chatbot that answers questions about your data. That helps, but it is limited to what
+            the vendor decides to build.
+          </p>
+          <p>
+            Operately takes a different approach. The CLI and API treat agents the same way they
+            treat humans. An agent authenticated with a token has the same capabilities as someone
+            logged into the web interface. This means any new agent tool, any new AI framework,
+            any custom automation you build can immediately work with Operately without waiting
+            for us to build an integration.
+          </p>
+          <p>
+            Your coding agent finishes a milestone? It updates the project. Your operations agent
+            does a weekly review? It posts a check-in. The tool gets out of the way and lets agents
+            participate in your team's workflow naturally.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Try Operately with your agents</h2>
+        <p class="mt-4 text-gray-600">
+          Free to start. Full API access on every plan.
+          Open source, self-hostable, ready in minutes.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-edgy-blue px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/help/cli"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Explore the CLI docs
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
