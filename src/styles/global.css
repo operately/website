@@ -1,7 +1,53 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Custom color utilities - ensure they're available */
+/* ─── Base refinements ─── */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Slightly warm white — breaks the sterile "Tailwind gray" look */
+body {
+  background-color: #FAFAF9;
+}
+
+/* Brand-colored text selection */
+::selection {
+  background-color: #3185FF;
+  color: white;
+}
+
+/* Smoother transitions globally */
+a, button {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* ─── Custom scrollbar (subtle, non-default) ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d4d4d4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a3a3a3;
+}
+
+/* ─── Focus states that look intentional ─── */
+:focus-visible {
+  outline: 2px solid #3185FF;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Custom color utilities ─── */
 .text-operately-blue { color: #3185FF; }
 .bg-operately-blue { background-color: #3185FF; }
 .border-operately-blue { border-color: #3185FF; }
@@ -21,3 +67,43 @@
 .text-edgy-blue { color: #0055FF; }
 .bg-edgy-blue { background-color: #0055FF; }
 .border-edgy-blue { border-color: #0055FF; }
+/* ─── Typographic refinements ─── */
+
+/* Tighter heading tracking for large text */
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+}
+
+/* Slightly looser body text for readability */
+p {
+  letter-spacing: 0.01em;
+}
+
+/* ─── Subtle depth (non-default shadows) ─── */
+
+.shadow-lifted {
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.06);
+}
+
+.shadow-lifted-lg {
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ─── Divider with character (not just border-gray-200) ─── */
+
+.divider-dot {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.divider-dot::before,
+.divider-dot::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e5e5, transparent);
+}
