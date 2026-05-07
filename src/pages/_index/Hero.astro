@@ -13,80 +13,50 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
 ---
 
 <div class="bg-white">
-  <div class="relative isolate x-4 sm:px-6 pt-10 sm:pt-14 lg:px-8">
-    <div
-      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-      aria-hidden="true"
-    >
-      <div
-        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3185FF] to-[#FF6F61] opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-      >
-      </div>
-    </div>
-
-    <div class="mx-auto max-w-3xl py-8 sm:py-12 lg:py-18">
+  <div class="relative isolate px-6 pt-10 sm:pt-14 lg:px-8">
+    <div class="mx-auto max-w-4xl py-12 sm:py-16 lg:py-24">
       {
         latestRelease && (
-          <div class="mb-6 sm:mb-8 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
-            {/* <GitHubStarButton username="operately" repo="operately" /> */}
-            <div class="text-center rounded-full px-3 py-1 text-sm leading-6 text-gray-600 bg-white/90 backdrop-blur-sm ring-1 ring-gray-900/20 hover:ring-gray-900/30 shadow-sm">
-              <span class="inline-flex items-center flex-wrap justify-center">
-                🚀 Operately {latestRelease.version} now available •
-                <span class="sm:hidden">
-                  <br />
-                </span>
-                <a
-                  href={`/releases/${latestRelease.slug}`}
-                  class="text-operately-blue hover:text-operately-dark-blue ml-1"
-                >
-                  See what's new →
-                </a>
-              </span>
-            </div>
+          <div class="mb-8 sm:mb-10 flex justify-center">
+            <a
+              href={`/releases/${latestRelease.slug}`}
+              class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-600 ring-1 ring-gray-200 hover:ring-gray-300 transition-all"
+            >
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              v{latestRelease.version} released
+              <span class="text-operately-blue">See what's new &rarr;</span>
+            </a>
           </div>
         )
       }
 
       <div class="text-center">
-        <h1
-          class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
-        >
-          Stop burning energy on keeping your teams together.
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+          Your team doesn't need another<br class="hidden sm:block" />
+          blank canvas. It needs a system.
         </h1>
-        <p
-          class="max-w-2xl mx-auto mt-6 text-lg leading-8 text-gray-600 px-4 sm:px-0"
-        >
-          Operately is an open source system for running goals and projects. Use Operately Cloud or self-host it in minutes.
+        <p class="max-w-2xl mx-auto mt-8 text-xl leading-8 text-gray-600">
+          Operately connects goals to projects with built-in check-ins and progress tracking.
+          Your team stays aligned without you holding everything together.
         </p>
-        <div
-          class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-y-4 sm:gap-y-0 gap-x-6"
-        >
+        <p class="max-w-xl mx-auto mt-4 text-base text-gray-500">
+          Open source. Self-host or use the cloud. Free to start.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={signUpUrl}
-            class="rounded-md bg-edgy-blue px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue w-auto inline-block"
+            class="rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
           >
-            Sign up free
+            Start free
           </a>
           <a
             href="/install"
-            class="text-sm font-semibold leading-6 text-gray-900"
+            class="text-sm font-semibold leading-6 text-gray-700 hover:text-gray-900 transition-colors"
           >
-            Self-Host in 5 minutes <span aria-hidden="true">→</span>
+            Self-host in 5 minutes <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
-
-      </div>
-    </div>
-
-    <div
-      class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-      aria-hidden="true"
-    >
-      <div
-        class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#E3F2FF] to-[#3185FF] opacity-60 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-      >
       </div>
     </div>
   </div>
