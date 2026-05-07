@@ -110,6 +110,14 @@ Due to Tailwind v4 config reliability issues, custom colors are defined as expli
 
 When working on this website, you should act as both a frontend engineer/designer and a content creator. The extensive product documentation in `/src/content/docs/help/` contains detailed descriptions of Operately's features, use cases, and workflows that you can leverage when creating or updating marketing content, landing pages, or other site content.
 
+## Page Linking Rule
+
+Every new page must be linked from at least one existing page's content (body text, not just footer or navigation). A page that exists only in the footer is effectively invisible to both users and search engines. When creating a new page:
+
+1. Add it to the footer in the appropriate section
+2. Add at least one contextual link from a related page's body content (e.g., a comparison page links from relevant feature pages, an audience page links from the homepage or related pages)
+3. If the page replaces or relates to existing pages, cross-link between them
+
 ## File Structure Notes
 - `/src/pages/` - Main site pages (marketing, landing pages, etc.)
 - `/src/content/docs/help/` - Comprehensive end-user product documentation (step-by-step guides, feature overviews, tutorials)
