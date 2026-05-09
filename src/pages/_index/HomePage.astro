@@ -1,21 +1,17 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "./goal.png";
+import projectScreenshot from "./project.png";
+import mainScreenshot from "./operately-v4-screenshot.png";
 
 const pageTitle = "Operately: Open Source OKR and Project Management Software";
 const pageDescription =
   "Open source project management with built-in OKR goal tracking. Run goals, projects, and check-ins with structure that keeps your team aligned. Free to start, self-host in minutes.";
 
-import Hero from "./Hero.astro";
-import Intro from "./Intro.astro";
-import Goals from "./Goals.astro";
-import Projects from "./Projects.astro";
-import Alfred from "./Alfred.astro";
-import Security from "../_features/Security.astro";
-import CTA from "../_features/CTA.astro";
-
 import { getLatestRelease } from "../../utils/releases";
-
 const latestRelease = await getLatestRelease();
+const signUpUrl = import.meta.env.SIGN_UP_URL;
 
 const schema = [
   {
@@ -72,13 +68,242 @@ const schema = [
   twitterCardType="summary_large_image"
   schema={schema}
 >
-  <main>
-    <Hero latestRelease={latestRelease} />
-    <Intro />
-    <Goals />
-    <Projects />
-    <Alfred />
-    <Security />
-    <CTA />
+  <main class="bg-[#FAFAF8]">
+
+    {/* ─── Hero ─── */}
+    <section class="px-6 pt-12 sm:pt-20 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        {latestRelease && (
+          <a
+            href={`/releases/${latestRelease.slug}`}
+            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-600 ring-1 ring-gray-200 hover:ring-gray-300 transition-all mb-8"
+          >
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            v{latestRelease.version} released
+            <span class="text-operately-blue">What's new &rarr;</span>
+          </a>
+        )}
+
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+          Your team doesn't need another<br class="hidden sm:block" />
+          blank canvas. It needs a system.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+          Operately connects goals to projects with built-in check-ins and progress tracking.
+          Open source. Self-host or use the cloud. Free to start.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Start free
+          </a>
+          <a
+            href="/install"
+            class="text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            Self-host in 5 minutes &rarr;
+          </a>
+        </div>
+      </div>
+
+      {/* Hero screenshot */}
+      <div class="mx-auto mt-16 max-w-5xl">
+        <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+          <Image
+            src={mainScreenshot}
+            alt="Operately dashboard showing goals and projects"
+            class="w-full rounded-xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 1 ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "We finally have one place where goals and daily work are connected. No more status
+          meetings just to figure out where things stand."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Sarah Chen</span> · Head of Product, TechCo
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Goals section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Goals that stay alive
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-600">
+              Set goals with measurable targets. Connect them to projects.
+              See progress automatically as work advances. No more goals
+              forgotten in a spreadsheet until the quarterly review.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Measurable targets</strong> — not vague aspirations</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Automatic progress</strong> — from connected projects</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Regular reviews</strong> — with built-in reminders</p>
+              </div>
+            </dl>
+          </div>
+          <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={goalScreenshot}
+              alt="Goal tracking in Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 2 ─── */}
+    <section class="px-6 py-12 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "The weekly check-ins changed our culture. People actually know what others are
+          working on now without asking."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">James Rivera</span> · CTO, BuildFast
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Projects section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={projectScreenshot}
+              alt="Project management in Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Projects that don't need babysitting
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-600">
+              Every project has an owner, milestones, and regular check-ins.
+              Progress flows upward automatically. No one has to chase anyone
+              for status.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Clear ownership</strong> — every project has a champion</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Built-in check-ins</strong> — async progress updates on schedule</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Tied to goals</strong> — project work feeds goal progress</p>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Dark section: why Operately ─── */}
+    <section class="bg-gray-900 px-6 py-20 lg:px-8 mt-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Structure that works for you,<br class="hidden sm:block" /> not the other way around
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          Most tools give you infinite flexibility and zero guidance. Operately gives your team
+          a clear system: goals with targets, projects with owners, and check-ins that happen
+          on schedule. You get alignment without micromanagement.
+        </p>
+        <div class="mt-12 grid gap-8 sm:grid-cols-3">
+          <div>
+            <p class="text-3xl font-bold text-white">Open source</p>
+            <p class="mt-2 text-sm text-gray-400">Apache 2.0 license. Full transparency.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Self-hostable</p>
+            <p class="mt-2 text-sm text-gray-400">Deploy on your infrastructure in 5 minutes.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Flat pricing</p>
+            <p class="mt-2 text-sm text-gray-400">No per-seat fees. Add people freely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 3 ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "Open source mattered to us for compliance reasons, but honestly we stayed because
+          the structure just works. Our team of 12 runs smoother than when we were 6 and
+          using Notion."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Priya Sharma</span> · Operations Lead, Compliance.io
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── CTA ─── */}
+    <section class="px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Try it with your team
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Free to start. No credit card. Ready in minutes.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Start free on Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
+          >
+            Self-host Operately
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
