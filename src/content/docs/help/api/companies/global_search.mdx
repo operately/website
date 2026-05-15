@@ -51,6 +51,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
+| `spaces` | array of `space` object | Yes | No |
 | `projects` | array of `project` object | Yes | No |
 | `goals` | array of `goal` object | Yes | No |
 | `milestones` | array of `milestone` object | Yes | No |
@@ -228,6 +229,33 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "tasks_kanban_state": "value",
       "timeframe": "<timeframe>",
       "updated_at": "2026-01-01"
+    }
+  ],
+  "spaces": [
+    {
+      "access_levels": "<access_levels>",
+      "color": "value",
+      "icon": "value",
+      "id": "value",
+      "is_company_space": true,
+      "is_member": true,
+      "members": [
+        "<person>"
+      ],
+      "mission": "value",
+      "name": "value",
+      "notifications": [
+        "<notification>"
+      ],
+      "permissions": "<space_permissions>",
+      "potential_subscribers": [
+        "<subscriber>"
+      ],
+      "private_space": true,
+      "task_statuses": [
+        "<task_status>"
+      ],
+      "tasks_kanban_state": "value"
     }
   ],
   "tasks": [
