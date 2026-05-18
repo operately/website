@@ -1,0 +1,43 @@
+---
+title: Export company data
+description: Learn how to export all your company data as a ZIP package for migration or backup purposes.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Exporting your company data creates a downloadable ZIP package containing all company data and associated files. This is primarily used to migrate a company from one Operately installation to another or from the cloud version to a self-hosted installation (or vice versa).
+
+## Who can export company data
+
+Only company owners can export company data.
+
+## How to export your company data
+
+<Steps>
+
+1. Click on your company name in the top navigation bar to open the company menu.
+
+2. Select **Company Admin** from the dropdown menu.
+
+3. Click **Export company data** in the list of admin actions.
+
+4. Click the **Start export** button.
+
+5. Wait for the export job to finish. A progress bar and percentage indicator show the current status.
+
+6. Once the status changes to **completed**, click **Download** to save the ZIP package to your computer.
+
+</Steps>
+
+## Things to know
+
+- Export runs asynchronously in the background — you can navigate away and return to the Export page to check progress.
+- The Export page shows a history of all export runs with their date and status.
+- To use the exported ZIP to set up a company on another Operately instance, see [Import company data](/help/import-company).
+
+## Version compatibility
+
+Importing an export package into a different Operately version may fail. Keep the following in mind:
+
+- **Self-hosted to self-hosted:** both the source and destination installations should run the same Operately version before exporting and importing.
+- **Cloud to self-hosted (or vice versa):** the Operately cloud always runs the latest version. Make sure your self-hosted installation is updated to the latest version before performing the migration. See [Update a self-hosted installation](/help/self-hosted-update).

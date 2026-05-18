@@ -1,0 +1,47 @@
+---
+title: Import company data
+description: Learn how to import an exported company ZIP package into an Operately instance.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Importing a company loads an exported ZIP package into an Operately instance, recreating the company with all its data including spaces, projects, goals, tasks, discussions, and files.
+
+## Prerequisites
+
+You need a completed export ZIP file from the source Operately instance. See [Export company data](/help/export-company) for instructions on how to create one.
+
+## How to import company data
+
+<Steps>
+
+1. From the Operately Lobby, click **Create Organization**.
+
+2. At the bottom of the form, click the link **Import it here**.
+
+3. Under the **Package** section, click **Choose ZIP** and select the export file from your computer.
+
+4. Wait for the file to finish uploading. The status badge changes to **Uploaded** and the progress bar completes.
+
+5. Click the **Start import** button.
+
+6. Monitor the progress — a percentage and the current step are displayed as the import runs.
+
+7. Once the status changes to **completed**, click **Open company** to enter the newly imported company.
+
+</Steps>
+
+## Things to know
+
+- Import runs asynchronously in the background — the page updates automatically every few seconds.
+- A history of all import runs is shown below the package upload section.
+- The imported company will be available at the Operately Lobby, just like any other company.
+- To create the export ZIP in the first place, see [Export company data](/help/export-company).
+
+## Version compatibility
+
+Importing an export package into a different Operately version may fail. Keep the following in mind:
+
+- **Self-hosted to self-hosted:** both the source and destination installations should run the same Operately version before exporting and importing.
+- **Cloud to self-hosted (or vice versa):** the Operately cloud always runs the latest version. Make sure your self-hosted installation is updated to the latest version before performing the migration. See [Update a self-hosted installation](/help/self-hosted-update).
+
