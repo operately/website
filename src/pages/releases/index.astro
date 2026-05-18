@@ -41,7 +41,7 @@ const { Content: LatestReleaseContent } = latestRelease
           </a>
         </h2>
         <p class="text-gray-500 mb-2">{formatDate(latestRelease.data.date)}</p>
-        <div class="prose max-w-none">
+        <div class="prose max-w-none prose-a:!text-operately-blue prose-pre:bg-[#F0EDE8] prose-pre:text-gray-800 prose-pre:rounded-xl">
           {LatestReleaseContent && <LatestReleaseContent />}
         </div>
       </article>

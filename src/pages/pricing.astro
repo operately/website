@@ -16,7 +16,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
 >
-  <main class="bg-white py-8 sm:py-16">
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       {/* Header */}
       <div class="mx-auto max-w-4xl text-center">
@@ -72,7 +72,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
         class="isolate mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3"
       >
         {/* Free Plan */}
-        <div class="rounded-3xl p-8 ring-2 ring-gray-300 shadow-lg xl:p-10">
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md xl:p-10">
           <div class="flex items-center justify-between gap-x-4">
             <h3 class="text-lg/8 font-semibold text-gray-900">Free</h3>
           </div>
@@ -92,17 +92,13 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
           >
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              <span class="bg-yellow-300 px-1 rounded">All core features</span>
+              All core features
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              <span class="bg-yellow-300 px-1 rounded">Up to 20 users</span>
+              Up to 20 users
             </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              AI agents - 25 messages/mo
-            </li>
-            <li class="flex gap-x-3">
+                        <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               1GB storage
             </li>
@@ -117,7 +113,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
           </ul>
           <a
             href={signUpUrl + "?plan=free"}
-            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
           >
             Get started
           </a>
@@ -125,7 +121,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
 
         {/* Team Plan */}
         <div
-          class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-xl xl:p-10"
+          class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-2xl xl:p-10"
         >
           <div class="flex items-center justify-between gap-x-4">
             <h3 class="text-lg/8 font-semibold text-operately-blue">Team</h3>
@@ -156,11 +152,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               Up to 50 users
             </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              AI agents - 500 messages/mo
-            </li>
-            <li class="flex gap-x-3">
+                        <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               100 GB storage
             </li>
@@ -168,21 +160,17 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               Priority support
             </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              AI, storage packs available
-            </li>
           </ul>
           <a
             href={signUpUrl + "?plan=team"}
-            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+            class="mt-8 block rounded-md bg-gray-900 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
           >
             Get started
           </a>
         </div>
 
         {/* Business Plan */}
-        <div class="rounded-3xl p-8 ring-2 ring-gray-300 shadow-lg xl:p-10">
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md xl:p-10">
           <div class="flex items-center justify-between gap-x-4">
             <h3 class="text-lg/8 font-semibold text-gray-900">Business</h3>
           </div>
@@ -209,11 +197,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               Up to 200 users
             </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              AI agents - 2,500 messages/mo
-            </li>
-            <li class="flex gap-x-3">
+                        <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               1 TB storage
             </li>
@@ -228,7 +212,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
           </ul>
           <a
             href={signUpUrl + "?plan=business"}
-            class="mt-8 block rounded-md bg-edgy-blue px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
           >
             Get started
           </a>
@@ -238,7 +222,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
       {/* Self-hosted CTA */}
       <div class="mx-auto mt-16 max-w-2xl">
         <div
-          class="rounded-3xl bg-slate-100 p-8 text-center shadow-lg ring-1 ring-slate-200"
+          class="rounded-3xl bg-[#F5F5F0] p-8 text-center shadow-lg ring-1 ring-gray-200"
         >
           <h3 class="text-lg font-semibold text-gray-900">
             Looking for a commercial self-hosted license?
@@ -256,7 +240,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
             </a>
             <a
               href="/contact?help-type=commercial-license"
-              class="inline-block rounded-md bg-edgy-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-dark-blue transition-colors"
+              class="inline-block rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
             >
               Contact us
             </a>
@@ -269,8 +253,8 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
         <h2 class="text-3xl font-bold text-center text-gray-900">
           Frequently Asked Questions
         </h2>
-        <div class="mt-12 space-y-8">
-          <div>
+        <div class="mt-12 space-y-0 divide-y divide-gray-200">
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               Is there really no per-seat pricing?
             </h3>
@@ -280,7 +264,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               costs or surprise bills.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               What happens if I exceed my user limit?
             </h3>
@@ -290,7 +274,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               you'll only pay the difference.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               Can I self-host Operately?
             </h3>
@@ -310,7 +294,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               >.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               Do I need a credit card to start?
             </h3>
@@ -319,7 +303,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               Operately immediately and upgrade when you're ready.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               Can I cancel anytime?
             </h3>
@@ -330,7 +314,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               required.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               What's included in the annual discount?
             </h3>
@@ -340,7 +324,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
               the same features with no additional costs.
             </p>
           </div>
-          <div>
+          <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
               What if I need more than 200 users?
             </h3>

@@ -6,7 +6,7 @@ export default {
       /* FIXME: this for some reason is not working after upgrading to Tailwind 4 */
       /* we have colors defined in global.css */
       colors: {
-        "operately-blue": "#3185FF",
+        "operately-blue": "#0055FF",
         "operately-dark-blue": "#024FAC",
         "operately-blue-tint-1": "#E3F2FF",
         "operately-blue-tint-2": "#98C9FF",

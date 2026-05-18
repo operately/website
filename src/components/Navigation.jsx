@@ -77,7 +77,6 @@ const about = [
     ),
     href: "/open-source",
   },
-  { name: "Jobs", href: "/jobs" },
   { name: "Blog", href: blogUrl },
   { name: "Discord", href: discordUrl },
 ];
@@ -201,7 +200,7 @@ export default function Navigation() {
           <a
             href={signUpUrl}
             rel="nofollow"
-            className="inline-flex items-center gap-x-1.5 rounded-md bg-edgy-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-operately-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue whitespace-nowrap"
+            className="inline-flex items-center gap-x-1.5 rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 whitespace-nowrap"
           >
             Sign up free
           </a>
@@ -307,7 +306,7 @@ export default function Navigation() {
                 <a
                   href={signUpUrl}
                   rel="nofollow"
-                  className="mt-4 block rounded-md bg-edgy-blue px-3 py-2 text-center text-base/7 font-semibold text-white shadow-sm hover:bg-operately-blue"
+                  className="mt-4 block rounded-md bg-gray-900 px-3 py-2 text-center text-base/7 font-semibold text-white shadow-sm hover:bg-gray-800"
                 >
                   Sign up free
                 </a>
