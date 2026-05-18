@@ -1,10 +1,13 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Global warm background */
+body { background-color: #FAFAF8; }
+
 /* Custom color utilities - ensure they're available */
-.text-operately-blue { color: #3185FF; }
-.bg-operately-blue { background-color: #3185FF; }
-.border-operately-blue { border-color: #3185FF; }
+.text-operately-blue { color: #0055FF; }
+.bg-operately-blue { background-color: #0055FF; }
+.border-operately-blue { border-color: #0055FF; }
 
 .text-operately-dark-blue { color: #024FAC; }
 .bg-operately-dark-blue { background-color: #024FAC; }
