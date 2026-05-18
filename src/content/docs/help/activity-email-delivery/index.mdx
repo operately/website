@@ -1,0 +1,34 @@
+---
+title: Activity email delivery
+description: Choose between batched email notifications or instant delivery for direct mentions, and set your buffer window.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Operately batches activity emails to reduce noise. You can choose whether direct mentions should also be batched or arrive right away, and how long the batch window lasts.
+
+## Delivery mode
+
+There are two options:
+
+**Batched notifications** — All activity emails wait for the buffer window, are grouped together, and sent as a single email. This is the default.
+
+**Direct mentions are instant** — Emails for direct mentions are sent right away. All other activity emails still wait for the buffer window and are sent together.
+
+### How to change your delivery mode
+
+<Steps>
+1. Click on your avatar or initials in the top-right corner of the screen.
+2. Select **Settings** from the dropdown menu.
+3. Click **Notification Settings**.
+4. Under **Activity emails**, select your preferred option.
+5. Click **Save Changes**.
+</Steps>
+
+## Buffer window
+
+The buffer window controls how long Operately waits before sending batched emails. A shorter window means more frequent emails; a longer window groups more activity into each email.
+
+Available options: **5**, **10**, **15**, **30**, or **60 minutes**.
+
+The buffer window applies to all batched emails — including activity emails in "Direct mentions are instant" mode.
