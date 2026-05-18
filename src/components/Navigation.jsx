@@ -77,7 +77,6 @@ const about = [
     ),
     href: "/open-source",
   },
-  { name: "Jobs", href: "/jobs" },
   { name: "Blog", href: blogUrl },
   { name: "Discord", href: discordUrl },
 ];
