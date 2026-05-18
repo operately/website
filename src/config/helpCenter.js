@@ -69,10 +69,6 @@ export default function helpCenterSidebar() {
             link: "/help/update-profile-picture",
           },
           {
-            label: "Disable daily assignments email",
-            link: "/help/disable-assignments-email",
-          },
-          {
             label: "Set appearance to light or dark mode",
             link: "/help/set-light-dark-mode",
           },
@@ -493,6 +489,27 @@ export default function helpCenterSidebar() {
           {
             label: "Import company data",
             link: "/help/import-company",
+          },
+        ],
+      },
+      {
+        label: "Notifications",
+        items: [
+          {
+            label: "Notification settings overview",
+            link: "/help/notification-settings",
+          },
+          {
+            label: "Activity email delivery",
+            link: "/help/activity-email-delivery",
+          },
+          {
+            label: "Daily summary email",
+            link: "/help/daily-summary-email",
+          },
+          {
+            label: "Assignments email",
+            link: "/help/assignments-email",
           },
         ],
       },
