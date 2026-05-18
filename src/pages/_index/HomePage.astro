@@ -10,7 +10,7 @@ const pageDescription =
 
 import { getLatestRelease } from "../../utils/releases";
 const latestRelease = await getLatestRelease();
-const signUpUrl = import.meta.env.SIGN_UP_URL;
+const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
 
 const schema = [
   {
