@@ -486,6 +486,14 @@ export default function helpCenterSidebar() {
             label: "Delete company",
             link: "/help/delete-company",
           },
+          {
+            label: "Export company data",
+            link: "/help/export-company",
+          },
+          {
+            label: "Import company data",
+            link: "/help/import-company",
+          },
         ],
       },
       {
