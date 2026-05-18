@@ -1,29 +1,17 @@
 ---
 title: CLI authentication
-description: Learn how to authenticate the Operately CLI with API tokens, profiles, and environment variables.
+description: Learn how to authenticate the Operately CLI using API tokens, password, email code, or Google OAuth.
 ---
 
-The Operately CLI uses API tokens to authenticate requests.
+The Operately CLI supports four ways to log in. All methods save credentials to a local profile so subsequent commands are authenticated automatically.
 
-## Create an API token
-
-Before you log in with the CLI, [create an API token](/help/create-api-token) in Operately and copy it from the confirmation modal.
-
-## Log in
-
-Save a token to your default profile:
-
-```bash
-operately auth login --token <your-token>
-```
-
-After logging in, verify which account the CLI is using:
+After logging in with any method, verify the session:
 
 ```bash
 operately auth whoami
 ```
 
-You can inspect the current profile and base URL at any time:
+To check the current profile and base URL:
 
 ```bash
 operately auth status
@@ -34,6 +22,41 @@ To remove the saved token from a profile:
 ```bash
 operately auth logout
 ```
+
+## Log in
+
+Run the login command and follow the prompts:
+
+```bash
+operately auth login
+```
+
+The CLI will ask which method you want to use. The four options are:
+
+- **API token** — You provide a pre-created API token. [Create a token](/help/create-api-token) in Operately first.
+- **Email and password** — You provide your email address and password.
+- **Email verification code** — You provide your email address; the CLI sends a one-time code to it and prompts you to enter it.
+- **Google** — The CLI opens a browser window for Google sign-in and waits for you to complete it.
+
+## Skip interactive steps with flags
+
+If you prefer, you can pass options as flags to avoid being prompted. The `--method` flag selects the login method directly:
+
+```bash
+# API token — pass the token directly and skip all prompts
+operately auth login --token <your-token>
+
+# Email and password — pass credentials as flags
+operately auth login --method email-password --email you@example.com --password yourpassword
+
+# Email code — pass email as a flag; the code prompt still appears
+operately auth login --method email-code --email you@example.com
+
+# Google — opens the browser; the browser confirmation step cannot be skipped
+operately auth login --method google
+```
+
+The two interactive steps that can never be avoided are the browser confirmation for Google OAuth and entering the email verification code — both require a human action to complete.
 
 ## Use another base URL
 

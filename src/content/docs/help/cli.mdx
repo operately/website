@@ -14,28 +14,42 @@ Use the CLI when you want to query or update Operately from scripts, local autom
 
 ## Quick start
 
+##### Install the CLI
 ```bash
-# Install the CLI
 npm install -g @operately/operately-cli
+```
 
-# Save a token to your default profile
-operately auth login --token <your-token>
+##### New user? Sign up and create a company interactively
+```bash
+operately auth signup
+```
 
-# Verify authentication
+##### Existing user? Log in (token, password, email code, or Google)
+```bash
+operately auth login
+```
+
+##### Verify authentication
+```bash
 operately auth whoami
+```
 
-# Discover commands
+##### Discover commands
+```bash
 operately help
 operately help projects
+```
 
-# Run an API command
+##### Run an API command
+```bash
 operately people get_me
 ```
 
 ## What to read next
 
 - [Install and update the CLI](/help/cli-installation)
-- [Install Operately skills](/help/cli-skills)
+- [Sign up and create a company](/help/cli-signup)
 - [Authenticate the CLI](/help/cli-authentication)
+- [Install Operately skills](/help/cli-skills)
 - [Learn the command shape and help system](/help/cli-usage)
 - [Browse the API docs](/help/api)

@@ -1,0 +1,38 @@
+---
+title: Sign up and create a company with the CLI
+description: Create a new Operately account, set up a company, or join an existing one — all from the terminal.
+---
+
+If you don't have an Operately account yet, you can complete the full setup from the CLI. All commands are interactive and will guide you through each step.
+
+## Sign up for a new account
+
+```bash
+operately auth signup
+```
+
+The CLI will ask for your name, email, and password (or offer Google sign-in). After signing up, you can create a new company or join an existing one.
+
+## Create a company
+
+If you already have an account but no company, or if you want to create an additional company:
+
+```bash
+operately auth create-company
+```
+
+You'll be prompted to log in and then choose a name for your company.
+
+## Join a company with an invite
+
+If you received an invite link, you can join the company directly from the CLI. Copy the invite token from the link and run:
+
+```bash
+operately auth join --invite-token <token>
+```
+
+The CLI will prompt you to log in (or create an account) and then accept the invite.
+
+## Next step
+
+Once your account and company are set up, [learn how to discover and run commands](/help/cli-usage).

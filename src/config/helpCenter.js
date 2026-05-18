@@ -558,6 +558,10 @@ export default function helpCenterSidebar() {
             link: "/help/create-api-token",
           },
           {
+            label: "Sign up and create a company",
+            link: "/help/cli-signup",
+          },
+          {
             label: "Authentication",
             link: "/help/cli-authentication",
           },
