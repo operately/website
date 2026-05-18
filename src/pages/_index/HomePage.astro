@@ -3,7 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import goalScreenshot from "./goal.png";
 import projectScreenshot from "./project.png";
-import mainScreenshot from "./operately-v4-screenshot.png";
 
 const pageTitle = "Operately: Open Source OKR and Project Management Software";
 const pageDescription =
@@ -109,14 +108,21 @@ const schema = [
         </div>
       </div>
 
-      {/* Hero screenshot */}
+      {/* Hero screencast */}
       <div class="mx-auto mt-16 max-w-5xl">
         <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
-          <Image
-            src={mainScreenshot}
-            alt="Operately dashboard showing goals and projects"
-            class="w-full rounded-xl"
-          />
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full rounded-xl aspect-video"
+          >
+            <source
+              src="https://website-assets.operately.com/operately-homepage-screencast-v1.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
       </div>
     </section>
