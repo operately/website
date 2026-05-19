@@ -1,6 +1,7 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
 import { getPublishedReleases } from "../../utils/releases";
+import { releaseOgImagePath } from "../../utils/releaseOgImage";
 import { Rss, Link } from "lucide-react";
 import "../../styles/anchor-links.css";
 
@@ -24,6 +25,7 @@ const { Content: LatestReleaseContent } = latestRelease
 <ReleasesLayout
   title="Operately Releases"
   description="All product releases and updates from Operately"
+  image={latestRelease ? releaseOgImagePath(`/releases/${latestRelease.slug}/`) : undefined}
 >
   <h1 class="text-4xl font-bold mb-8">Operately Releases</h1>
 
