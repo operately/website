@@ -1,16 +1,25 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import releaseCard from "../content/releases/assets/releases-card.jpeg";
 import "../styles/global.css";
 import "../styles/anchor-links.css";
 
-const { title, description } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  image = "/images/social/card-summary-large.png",
+} = Astro.props as Props;
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  image={releaseCard.src}
+  image={image}
   twitterCardType="summary_large_image"
 >
   <slot name="head" slot="head">
@@ -18,7 +27,6 @@ const { title, description } = Astro.props;
       rel="alternate"
       type="application/rss+xml"
       title="Operately Releases"
-      why
       href={new URL("/releases/rss.xml", Astro.site)}
     />
     <!-- we can't use `head` in further pages as it would override the above, hence a new slot -->

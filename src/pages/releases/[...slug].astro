@@ -1,6 +1,7 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
 import { getPublishedReleases } from "../../utils/releases";
+import { releaseOgImagePath } from "../../utils/releaseOgImage";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { YouTubeEmbed } from "../../components/YouTubeEmbed";
 
@@ -27,7 +28,9 @@ const formatDate = (date) => {
   });
 };
 
-const canonicalURL = new URL(`/releases/${entry.slug}/`, Astro.site);
+const releasePathname = Astro.url.pathname;
+const canonicalURL = new URL(releasePathname, Astro.site);
+const ogImagePath = releaseOgImagePath(releasePathname);
 const breadcrumbId = `${canonicalURL.toString()}#breadcrumb`;
 
 const jsonLd = JSON.stringify({
@@ -83,7 +86,7 @@ const jsonLd = JSON.stringify({
 <ReleasesLayout
   title={entry.data.title}
   description={entry.data.description}
-  youtubeId={entry.data.youtubeId}
+  image={ogImagePath}
 >
   <Fragment slot="head-releases">
     <meta name="author" content="Operately Team" />
