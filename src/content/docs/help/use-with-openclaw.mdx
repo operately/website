@@ -1,0 +1,149 @@
+---
+title: Use Operately with OpenClaw
+description: How to connect OpenClaw to Operately so your AI agent can manage goals, projects, tasks, and check-ins autonomously.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+OpenClaw is an open source AI agent runtime that connects to your tools via skills. With the Operately skill installed, your OpenClaw agent can manage goals, projects, tasks, milestones, and check-ins through natural conversation or autonomous workflows.
+
+## What becomes possible
+
+Once connected, your OpenClaw agent can:
+
+- Create and track goals (OKRs)
+- Open projects, add milestones, and manage tasks
+- Post check-ins and status updates
+- Close milestones and projects with retrospectives
+- Query spaces, people, and notifications
+- Run autonomous workflows that combine Operately with other tools
+
+All operations go through the same CLI and API that human users have access to.
+
+## Setup
+
+### 1. Install the Operately skill
+
+```bash
+openclaw skills install operately/operately-cli
+```
+
+This teaches your OpenClaw agent all available Operately commands.
+
+### 2. Install the CLI
+
+If not already installed:
+
+```bash
+npm install -g @operately/operately-cli
+```
+
+### 3. Authenticate
+
+Create an API token in Operately (Account Settings > API Tokens), then configure it:
+
+```bash
+operately auth login --token <your-token>
+```
+
+Or set it as an environment variable in your OpenClaw config:
+
+```json
+{
+  "env": {
+    "OPERATELY_API_TOKEN": "your-token-here"
+  }
+}
+```
+
+<Aside type="tip">
+  For self-hosted Operately instances, also set `OPERATELY_BASE_URL` to point to your server.
+</Aside>
+
+### 4. Verify
+
+Ask your agent to check the connection:
+
+```
+You: "What spaces do I have in Operately?"
+```
+
+The agent will run `operately spaces list` and show results.
+
+## Example workflows
+
+### Daily standup automation
+
+Your OpenClaw agent can post check-ins on your behalf:
+
+```
+You: "Post a check-in on the Website Refresh project. 
+      Status: on track. We shipped the homepage redesign 
+      and started the /vs/clickup page."
+```
+
+The agent runs the appropriate CLI commands to create the check-in with the right project ID and content.
+
+### Goal tracking
+
+```
+You: "Create a goal called 'Reach 50 self-hosted installs' 
+      in the Growth space. Target: 50, current: 20."
+```
+
+### Project management
+
+```
+You: "List all tasks in the SEO Sprint project that are 
+      not started yet, then mark the first three as in progress."
+```
+
+### Autonomous execution
+
+OpenClaw agents can also work autonomously via cron jobs or heartbeat checks. For example, an agent can:
+
+1. Check project milestones every morning
+2. Post a summary of what is due this week
+3. Flag overdue tasks and notify the team
+
+```json
+{
+  "schedule": { "kind": "cron", "expr": "0 9 * * 1-5", "tz": "Europe/Belgrade" },
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Check all active projects in Operately. Post a Monday summary of due milestones and overdue tasks."
+  }
+}
+```
+
+## Tips
+
+- **Batch operations**: The agent can combine multiple Operately commands in one turn (create a project, add milestones, assign tasks).
+- **Cross-tool workflows**: Combine Operately with other skills (email, calendar, GitHub) for end-to-end automation.
+- **Check-in discipline**: Set up a recurring cron job to remind you (or auto-post) weekly check-ins.
+- **Read-only exploration**: The agent can safely query all data without modifying anything. Start there to build confidence.
+
+## Available commands
+
+The Operately CLI exposes 200+ commands across these namespaces:
+
+| Namespace | What it does |
+| --- | --- |
+| `goals` | Create, list, update, close goals and OKRs |
+| `projects` | Manage projects, milestones, check-ins, retrospectives |
+| `tasks` | Create, list, update, assign tasks |
+| `spaces` | List and manage workspace spaces |
+| `documents` | Create and manage docs in resource hubs |
+| `people` | Query team members and profiles |
+| `notifications` | List and manage notifications |
+| `comments` | Add comments to goals, projects, milestones |
+
+Run `operately help <namespace>` for the full command list.
+
+## Learn more
+
+- [Operately CLI overview](/help/cli)
+- [Install and update the CLI](/help/cli-installation)
+- [Create API tokens](/help/create-api-token)
+- [Agent skills source code](https://github.com/operately/skills)
+- [OpenClaw documentation](https://docs.openclaw.ai)
