@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "name": "Operately",
+  "description": "Open source company operating system. Manage goals, projects, tasks, milestones, check-ins, spaces, and processes through CLI, API, or agent skills.",
+  "homepage": "https://operately.com",
+  "repository": "https://github.com/operately/operately",
+  "license": "MIT AND Apache-2.0",
+  "capabilities": [
+    "goals",
+    "projects",
+    "tasks",
+    "milestones",
+    "check-ins",
+    "spaces",
+    "documents",
+    "notifications",
+    "people"
+  ],
+  "interfaces": {
+    "cli": {
+      "package": "@operately/operately-cli",
+      "install": "npm install -g @operately/operately-cli",
+      "binary": "operately",
+      "docs": "https://operately.com/help/api"
+    },
+    "api": {
+      "type": "REST",
+      "base_url": "https://app.operately.com/api/external/v1",
+      "auth": "Bearer token",
+      "docs": "https://operately.com/help/api"
+    },
+    "skills": {
+      "registry": "clawhub",
+      "slug": "operately/operately-cli",
+      "install": "openclaw skills install operately/operately-cli",
+      "source": "https://github.com/operately/skills"
+    }
+  },
+  "agent_frameworks": [
+    {
+      "name": "OpenClaw",
+      "integration": "skill",
+      "install": "openclaw skills install operately/operately-cli",
+      "docs": "https://github.com/operately/skills"
+    },
+    {
+      "name": "Claude Code",
+      "integration": "cli",
+      "usage": "The operately CLI works directly in Claude Code sessions"
+    },
+    {
+      "name": "Codex",
+      "integration": "cli",
+      "usage": "The operately CLI works directly in Codex sessions"
+    }
+  ],
+  "self_hosted": true,
+  "cloud_available": true,
+  "sign_up_url": "https://app.operately.com/sign_up",
+  "install_docs": "https://operately.com/self-hosted"
+}
