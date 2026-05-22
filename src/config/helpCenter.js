@@ -569,6 +569,10 @@ export default function helpCenterSidebar() {
             label: "Use the CLI",
             link: "/help/cli-usage",
           },
+          {
+            label: "Use with OpenClaw",
+            link: "/help/use-with-openclaw",
+          },
         ],
       },
       {
