@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const pageTitle = "Operately vs Asana";
+const pageTitle = "Operately vs ClickUp";
 const pageDescription =
-  "Comparing Operately and Asana: open source vs closed, goal-driven vs task-driven, flat pricing vs per-seat. Find out which fits your team.";
+  "Comparing Operately and ClickUp: open source vs closed, focused simplicity vs feature overload, flat pricing vs per-seat tiers. Find the right fit for your team.";
 
 const schema = {
   "@type": "WebPage",
-  "@id": "https://operately.com/vs/asana/#webpage",
-  url: "https://operately.com/vs/asana/",
+  "@id": "https://operately.com/vs/clickup/#webpage",
+  url: "https://operately.com/vs/clickup/",
   name: pageTitle,
   description: pageDescription,
   isPartOf: {
@@ -37,11 +37,11 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           Comparison
         </p>
         <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-          Operately vs Asana
+          Operately vs ClickUp
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">
-          Asana is one of the largest project management platforms. Operately is an open source
-          alternative that focuses on goals, projects, and structured execution without per-seat pricing.
+          ClickUp is an all-in-one productivity platform packed with features. Operately is an open source
+          alternative for teams that want goals, projects, and execution without the complexity.
         </p>
       </div>
 
@@ -61,14 +61,14 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         </span>
         <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
           <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          Goals-first design
+          Focused, not bloated
         </span>
       </div>
 
       {/* Quick summary */}
       <div class="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2">
         <div class="rounded-2xl border border-gray-200 p-6">
-          <h3 class="text-lg font-semibold text-gray-900">Asana</h3>
+          <h3 class="text-lg font-semibold text-gray-900">ClickUp</h3>
           <ul class="mt-4 space-y-2 text-sm text-gray-600">
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-gray-400">&#x2022;</span>
@@ -76,19 +76,19 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-gray-400">&#x2022;</span>
-              Per-seat pricing, starts at $10.99/user/mo
+              Per-seat pricing, starts at $7/seat/mo
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-gray-400">&#x2022;</span>
-              Task, project, and portfolio management
+              All-in-one: docs, whiteboards, chat, time tracking, goals
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-gray-400">&#x2022;</span>
-              Goals feature available on Business plan and above
+              Feature-rich but complex to configure
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-gray-400">&#x2022;</span>
-              Large ecosystem of integrations
+              Large team, rapid feature development
             </li>
           </ul>
         </div>
@@ -106,15 +106,15 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-operately-blue">&#x2022;</span>
-              Goals and OKRs are core, not an add-on
+              Focused on goals, projects, and processes
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-operately-blue">&#x2022;</span>
-              CLI, API, and AI agent integration built in
+              Simple to set up, minimal configuration needed
             </li>
             <li class="flex items-start gap-2">
               <span class="mt-0.5 text-operately-blue">&#x2022;</span>
-              Structured check-ins and progress workflows
+              CLI, API, and AI agent-friendly
             </li>
           </ul>
         </div>
@@ -129,7 +129,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               <tr class="border-b border-gray-200 bg-gray-50">
                 <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
                 <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
-                <th class="px-6 py-3 text-center font-medium text-gray-900">Asana</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">ClickUp</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
@@ -146,17 +146,17 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">Pricing model</td>
                 <td class="px-6 py-4 text-center">Flat rate</td>
-                <td class="px-6 py-4 text-center">Per seat</td>
+                <td class="px-6 py-4 text-center">Per seat ($7-12/mo)</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">OKRs and goals</td>
-                <td class="px-6 py-4 text-center text-green-600">Core feature</td>
-                <td class="px-6 py-4 text-center">Business+ plans only</td>
+                <td class="px-6 py-4 text-center text-green-600">Built-in</td>
+                <td class="px-6 py-4 text-center">Built-in (Business+ plan)</td>
               </tr>
               <tr>
-                <td class="px-6 py-4 font-medium text-gray-900">Structured check-ins</td>
+                <td class="px-6 py-4 font-medium text-gray-900">Projects with check-ins</td>
                 <td class="px-6 py-4 text-center text-green-600">Built-in</td>
-                <td class="px-6 py-4 text-center">Status updates</td>
+                <td class="px-6 py-4 text-center">Via status updates</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">CLI access</td>
@@ -171,27 +171,27 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">AI agent integration</td>
                 <td class="px-6 py-4 text-center text-green-600">Native</td>
-                <td class="px-6 py-4 text-center">AI features (Asana Intelligence)</td>
+                <td class="px-6 py-4 text-center">ClickUp Brain (add-on)</td>
               </tr>
               <tr>
-                <td class="px-6 py-4 font-medium text-gray-900">Task management</td>
-                <td class="px-6 py-4 text-center text-green-600">Yes</td>
-                <td class="px-6 py-4 text-center text-green-600">Yes (extensive)</td>
+                <td class="px-6 py-4 font-medium text-gray-900">Setup complexity</td>
+                <td class="px-6 py-4 text-center text-green-600">Minimal</td>
+                <td class="px-6 py-4 text-center">High (many options)</td>
               </tr>
               <tr>
-                <td class="px-6 py-4 font-medium text-gray-900">Portfolios</td>
+                <td class="px-6 py-4 font-medium text-gray-900">Built-in docs</td>
                 <td class="px-6 py-4 text-center text-gray-400">No</td>
                 <td class="px-6 py-4 text-center text-green-600">Yes</td>
               </tr>
               <tr>
-                <td class="px-6 py-4 font-medium text-gray-900">Timeline / Gantt</td>
+                <td class="px-6 py-4 font-medium text-gray-900">Time tracking</td>
                 <td class="px-6 py-4 text-center text-gray-400">No</td>
                 <td class="px-6 py-4 text-center text-green-600">Yes</td>
               </tr>
               <tr>
-                <td class="px-6 py-4 font-medium text-gray-900">Third-party integrations</td>
-                <td class="px-6 py-4 text-center">Growing</td>
-                <td class="px-6 py-4 text-center text-green-600">200+ native</td>
+                <td class="px-6 py-4 font-medium text-gray-900">Whiteboards</td>
+                <td class="px-6 py-4 text-center text-gray-400">No</td>
+                <td class="px-6 py-4 text-center text-green-600">Yes</td>
               </tr>
             </tbody>
           </table>
@@ -217,61 +217,61 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You want open source software you can self-host and control</span>
+            <span>You want an open source tool you can inspect, modify, and self-host</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>Goals and OKRs are central to how your team works, not a bolt-on</span>
+            <span>You find ClickUp overwhelming and want something simpler</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>Per-seat pricing is a concern as your team grows</span>
+            <span>Your team cares about goals and outcomes, not just tasks and subtasks</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You work with or plan to use AI agents in your workflow</span>
+            <span>You use or plan to use AI agents and want native CLI and API access</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You want a lighter tool without enterprise complexity you do not use</span>
+            <span>You prefer flat pricing over per-seat costs that scale with headcount</span>
           </li>
         </ul>
       </div>
 
       <div class="mx-auto mt-12 max-w-4xl">
-        <h2 class="text-2xl font-semibold text-gray-900">When Asana might be better</h2>
+        <h2 class="text-2xl font-semibold text-gray-900">When ClickUp might be better</h2>
         <ul class="mt-6 space-y-3 text-gray-600">
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You need advanced task management with subtasks, dependencies, and timelines</span>
+            <span>You want docs, whiteboards, time tracking, and chat in one tool</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You need a large library of native integrations (Slack, Salesforce, Jira, etc.)</span>
+            <span>You need advanced custom fields, views, and automations</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>Your organization is large and needs portfolio-level visibility across many teams</span>
+            <span>Your team spans multiple departments with very different workflows</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="mt-1 h-5 w-5 flex-shrink-0 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
             </svg>
-            <span>You need Gantt charts, workload management, and resource planning</span>
+            <span>You need built-in time tracking and resource management</span>
           </li>
         </ul>
       </div>
@@ -281,20 +281,19 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         <h2 class="text-2xl font-semibold text-gray-900">Different philosophies</h2>
         <div class="mt-6 space-y-4 text-gray-600 leading-7">
           <p>
-            Asana is a comprehensive work management platform built for organizations that need
-            to coordinate complex projects across many teams. It excels at task management, timelines,
-            and portfolio visibility, with goals added as a higher-tier feature.
+            ClickUp tries to be everything: project management, docs, whiteboards, chat, time tracking,
+            goals, and more. This works for teams that want a single subscription to cover all their
+            productivity needs, but it comes with complexity. New users often report a steep learning curve.
           </p>
           <p>
-            Operately starts from the other direction: goals and outcomes first, with projects and tasks
-            in service of those goals. Structured check-ins make progress visible without requiring teams
-            to maintain complex board configurations. And because it is open source, you always have
-            the option to self-host, inspect the code, or extend it.
+            Operately takes the opposite approach. It focuses on the core loop of running a company:
+            set goals, execute through projects, run recurring processes, and check in on progress. It does
+            fewer things, but does them with clarity and without requiring hours of configuration.
           </p>
           <p>
-            The core trade-off: Asana offers a wider, more mature feature set with a large ecosystem.
-            Operately offers a focused, opinionated approach to goal-driven execution with open source
-            transparency, flat pricing, and a developer-friendly architecture.
+            The trade-off: ClickUp has more features and covers more use cases out of the box.
+            Operately is simpler to adopt, open source, self-hostable, and designed for teams that
+            value transparency and developer-friendly tooling over feature breadth.
           </p>
         </div>
       </div>
@@ -324,8 +323,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         <p class="mt-6 text-sm text-gray-500">
           Also see: <a href="/okr-software" class="text-operately-blue hover:underline">OKR Software</a> ·
           <a href="/vs/monday" class="text-operately-blue hover:underline">Operately vs Monday.com</a> ·
-          <a href="/vs/clickup" class="text-operately-blue hover:underline">Operately vs ClickUp</a> ·
-          <a href="/for/startups" class="text-operately-blue hover:underline">For Startups</a>
+          <a href="/vs/asana" class="text-operately-blue hover:underline">Operately vs Asana</a>
         </p>
       </div>
     </div>
