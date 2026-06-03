@@ -1,6 +1,6 @@
 ---
-title: "Tasks API: Update milestone"
-description: "Update milestone with the Operately Tasks API."
+title: "Tasks API: Update reminders"
+description: "Update reminders with the Operately Tasks API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/tasks/update_milestone` |
-| Handler | `OperatelyWeb.Api.Tasks.UpdateMilestone` |
+| Path | `/api/external/v1/tasks/update_reminders` |
+| Handler | `OperatelyWeb.Api.Tasks.UpdateReminders` |
 
 ## Authentication
 
@@ -44,10 +44,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>milestone_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>reminders</code></td>
+  <td style={{ whiteSpace: "normal" }}>array of <code>task_reminder</code> object</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>task_type</code> enum (<code>space</code>, <code>project</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -65,7 +73,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_milestone\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"milestone_id\":\"value\", \"task_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_reminders\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"reminders\":[{\"date\":\"2026-01-01\", \"days\":123, \"type\":\"before_due\"}], \"task_id\":\"value\", \"type\":\"space\"}'"} />
 
 ## Response Example
 
