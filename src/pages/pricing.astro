@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Pricing";
 const pageDescription =
-  "Simple, transparent pricing for teams of all sizes. Start free, scale as you grow. No hidden fees, cancel anytime.";
+  "Simple, transparent pricing for teams of all sizes. Start free, scale as you grow. No per-seat fees, no hidden costs.";
 
 import { Check } from "lucide-react";
 
@@ -24,13 +24,12 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         <p
           class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
         >
-          Simple pricing for every team
+          Flat pricing, no per-seat fees
         </p>
         <p
           class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
         >
-          Flat-rate pricing with no per-seat costs. Start free and scale as you
-          grow.
+          One price for your whole team. Add people without adding costs.
         </p>
       </div>
 
@@ -61,7 +60,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               >Annual billing</label
             >
             <span id="annual-billing-description" class="text-gray-500"
-              >(get two months free)</span
+              >(two months free)</span
             >
           </div>
         </div>
@@ -69,15 +68,15 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
 
       {/* Pricing Tiers */}
       <div
-        class="isolate mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3"
+        class="isolate mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
       >
         {/* Free Plan */}
-        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md xl:p-10">
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
           <div class="flex items-center justify-between gap-x-4">
             <h3 class="text-lg/8 font-semibold text-gray-900">Free</h3>
           </div>
           <p class="mt-4 text-sm/6 text-gray-800">
-            Perfect for small teams getting started
+            For small teams getting started
           </p>
           <p class="mt-6 flex items-baseline gap-x-1">
             <span class="text-4xl font-semibold tracking-tight text-gray-900"
@@ -88,27 +87,23 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
 
           <ul
             role="list"
-            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800"
           >
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Up to 10 users
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              10 GB storage
+            </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               All core features
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Up to 20 users
-            </li>
-                        <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              1GB storage
-            </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
               Community support
-            </li>
-            <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Self-hosting option available
             </li>
           </ul>
           <a
@@ -119,42 +114,42 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           </a>
         </div>
 
-        {/* Team Plan */}
+        {/* Pro Plan */}
         <div
-          class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-2xl xl:p-10"
+          class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-2xl"
         >
           <div class="flex items-center justify-between gap-x-4">
-            <h3 class="text-lg/8 font-semibold text-operately-blue">Team</h3>
+            <h3 class="text-lg/8 font-semibold text-operately-blue">Pro</h3>
             <p
               class="rounded-full bg-operately-blue/10 px-2.5 py-1 text-xs/5 font-semibold text-operately-blue"
             >
               Most popular
             </p>
           </div>
-          <p class="mt-4 text-sm/6 text-gray-800">Ideal for growing teams</p>
+          <p class="mt-4 text-sm/6 text-gray-800">For growing teams</p>
           <p class="mt-6 flex items-baseline gap-x-1">
             <span
               class="text-4xl font-semibold tracking-tight text-gray-900"
-              id="team-price">$99</span
+              id="pro-price">$49</span
             >
             <span class="text-sm/6 font-semibold text-gray-600">/month</span>
           </p>
 
           <ul
             role="list"
-            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800"
           >
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              All Free features, plus
+              Up to 30 users
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Up to 50 users
-            </li>
-                        <li class="flex gap-x-3">
-              <Check className="h-6 w-5 flex-none text-operately-blue" />
               100 GB storage
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              All core features
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
@@ -162,7 +157,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             </li>
           </ul>
           <a
-            href={signUpUrl + "?plan=team"}
+            href={signUpUrl + "?plan=pro"}
             class="mt-8 block rounded-md bg-gray-900 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
           >
             Get started
@@ -170,36 +165,81 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         </div>
 
         {/* Business Plan */}
-        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md xl:p-10">
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
           <div class="flex items-center justify-between gap-x-4">
             <h3 class="text-lg/8 font-semibold text-gray-900">Business</h3>
           </div>
           <p class="mt-4 text-sm/6 text-gray-800">
-            For established teams and organizations
+            For established organizations
           </p>
           <p class="mt-6 flex items-baseline gap-x-1">
             <span
               class="text-4xl font-semibold tracking-tight text-gray-900"
-              id="business-price">$299</span
+              id="business-price">$149</span
             >
             <span class="text-sm/6 font-semibold text-gray-600">/month</span>
           </p>
 
           <ul
             role="list"
-            class="mt-8 space-y-3 text-sm/6 text-gray-800 xl:mt-10"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800"
           >
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              All Team features, plus
+              Up to 100 users
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
-              Up to 200 users
+              500 GB storage
             </li>
-                        <li class="flex gap-x-3">
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              All core features
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Dedicated support
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=business"}
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
+          >
+            Get started
+          </a>
+        </div>
+
+        {/* Unlimited Plan */}
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Unlimited</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            For large teams, no limits
+          </p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="unlimited-price">$249</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/month</span>
+          </p>
+
+          <ul
+            role="list"
+            class="mt-8 space-y-3 text-sm/6 text-gray-800"
+          >
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Unlimited users
+            </li>
+            <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
               1 TB storage
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              All core features
             </li>
             <li class="flex gap-x-3">
               <Check className="h-6 w-5 flex-none text-operately-blue" />
@@ -211,12 +251,19 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             </li>
           </ul>
           <a
-            href={signUpUrl + "?plan=business"}
+            href={signUpUrl + "?plan=unlimited"}
             class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
           >
             Get started
           </a>
         </div>
+      </div>
+
+      {/* Storage add-on */}
+      <div class="mx-auto mt-10 max-w-6xl text-center">
+        <p class="text-sm text-gray-600">
+          Need more storage? Add 1 TB for $49/month to any plan.
+        </p>
       </div>
 
       {/* Self-hosted CTA */}
@@ -225,11 +272,10 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           class="rounded-3xl bg-[#F5F5F0] p-8 text-center shadow-lg ring-1 ring-gray-200"
         >
           <h3 class="text-lg font-semibold text-gray-900">
-            Looking for a commercial self-hosted license?
+            Prefer to self-host?
           </h3>
           <p class="mt-2 text-sm text-gray-800">
-            Self-host Operately on your own infrastructure with unlimited users
-            and full control.
+            Run Operately on your own infrastructure. Free and open source, with optional commercial support.
           </p>
           <div class="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -259,9 +305,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               Is there really no per-seat pricing?
             </h3>
             <p class="mt-2 text-gray-600">
-              Correct! We offer flat-rate pricing with no per-seat costs. Add as
-              many team members as you need without worrying about escalating
-              costs or surprise bills.
+              Correct. Each plan covers a fixed number of users for one flat price. Add team members freely within your tier without worrying about escalating costs.
             </p>
           </div>
           <div class="py-8">
@@ -269,29 +313,23 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               What happens if I exceed my user limit?
             </h3>
             <p class="mt-2 text-gray-600">
-              If you need more users than your current plan allows, you can
-              upgrade to the next tier at any time. We'll prorate the cost and
-              you'll only pay the difference.
+              You can upgrade to the next tier at any time. We prorate the cost so you only pay the difference for the remainder of your billing period.
             </p>
           </div>
           <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
-              Can I self-host Operately?
+              Can I self-host Operately for free?
             </h3>
             <p class="mt-2 text-gray-600">
-              Yes. If you are comparing deployment options, start with the <a
+              Yes. Operately is open source and free to self-host with unlimited users. Cloud pricing applies only to our hosted service. See the <a
                 href="/self-hosted"
                 class="text-operately-blue hover:underline"
                 >self-hosted overview</a
-              >. If you are ready to deploy, use the <a
+              > or the <a
                 href="/install"
                 class="text-operately-blue hover:underline"
                 >installation guide</a
-              > and the <a
-                href="/help/self-hosted-installation"
-                class="text-operately-blue hover:underline"
-                >self-hosting help docs</a
-              >.
+              > to get started.
             </p>
           </div>
           <div class="py-8">
@@ -299,8 +337,15 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               Do I need a credit card to start?
             </h3>
             <p class="mt-2 text-gray-600">
-              No credit card required for the Free plan. You can start using
-              Operately immediately and upgrade when you're ready.
+              No credit card required for the Free plan. Start using Operately immediately and upgrade when you are ready.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              What does annual billing save?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Annual billing gives you two months free compared to monthly billing. You pay for 10 months and get 12.
             </p>
           </div>
           <div class="py-8">
@@ -308,32 +353,15 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               Can I cancel anytime?
             </h3>
             <p class="mt-2 text-gray-600">
-              Yes, you can cancel anytime! Your subscription remains active
-              until the end of your current billing period with no refunds, but
-              you keep access. No cancellation fees or long-term contracts
-              required.
+              Yes. Cancel anytime with no fees. Your subscription stays active until the end of your billing period.
             </p>
           </div>
           <div class="py-8">
             <h3 class="text-lg font-semibold text-gray-900">
-              What's included in the annual discount?
+              What if I need more storage?
             </h3>
             <p class="mt-2 text-gray-600">
-              Annual plans include a 17% discount compared to monthly billing,
-              which is essentially two months free. You'll save money and get
-              the same features with no additional costs.
-            </p>
-          </div>
-          <div class="py-8">
-            <h3 class="text-lg font-semibold text-gray-900">
-              What if I need more than 200 users?
-            </h3>
-            <p class="mt-2 text-gray-600">
-              For teams larger than 200 users, we offer custom enterprise plans
-              with dedicated support, custom training, and more. <a
-                href="/contact?help-type=commercial-license"
-                class="text-operately-blue hover:underline">Contact us</a
-              > to discuss your needs.
+              You can add storage in 1 TB blocks for $49/month each. Most teams never exceed the included storage.
             </p>
           </div>
         </div>
@@ -342,31 +370,30 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   </main>
 
   <script>
-    // Make function globally accessible
     window.togglePricing = function (period) {
-      const teamPrice = document.getElementById("team-price");
+      const proPrice = document.getElementById("pro-price");
       const businessPrice = document.getElementById("business-price");
+      const unlimitedPrice = document.getElementById("unlimited-price");
       const toggleContainer = document.getElementById("toggle-container");
       const toggleSlider = document.getElementById("toggle-slider");
 
       if (period === "monthly") {
-        teamPrice.textContent = "$99";
-        businessPrice.textContent = "$299";
-        // Reset toggle to off state
+        proPrice.textContent = "$49";
+        businessPrice.textContent = "$149";
+        unlimitedPrice.textContent = "$249";
         toggleContainer.classList.remove("bg-operately-blue");
         toggleContainer.classList.add("bg-slate-200");
         toggleSlider.classList.remove("translate-x-5");
       } else {
-        teamPrice.textContent = "$82";
-        businessPrice.textContent = "$249";
-        // Set toggle to on state
+        proPrice.textContent = "$41";
+        businessPrice.textContent = "$125";
+        unlimitedPrice.textContent = "$199";
         toggleContainer.classList.remove("bg-slate-200");
         toggleContainer.classList.add("bg-operately-blue");
         toggleSlider.classList.add("translate-x-5");
       }
     };
 
-    // Initialize with monthly pricing
     document.addEventListener("DOMContentLoaded", function () {
       window.togglePricing("monthly");
     });
