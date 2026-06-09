@@ -1,6 +1,6 @@
 ---
-title: "Projects API: Acknowledge check in"
-description: "Acknowledge check in with the Operately Projects API."
+title: "Goals API: Delete check in"
+description: "Delete check in with the Operately Goals API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/projects/acknowledge_check_in` |
-| Handler | `OperatelyWeb.Api.Projects.AcknowledgeCheckIn` |
+| Path | `/api/external/v1/goals/delete_check_in` |
+| Handler | `OperatelyWeb.Api.Goals.DeleteCheckIn` |
 
 ## Authentication
 
@@ -52,41 +52,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `check_in` | `project_check_in` object | Yes | No |
+| `success` | `boolean` | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/acknowledge_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/delete_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "check_in": {
-    "acknowledged_at": "2026-01-01T09:30:00Z",
-    "acknowledged_by": "<person>",
-    "author": "<person>",
-    "comments_count": 123,
-    "description": "value",
-    "id": "value",
-    "inserted_at": "2026-01-01",
-    "notifications": [
-      "<notification>"
-    ],
-    "potential_subscribers": [
-      "<subscriber>"
-    ],
-    "project": "<project>",
-    "published_at": "2026-01-01T09:30:00Z",
-    "reactions": [
-      "<reaction>"
-    ],
-    "space": "<space>",
-    "state": "draft",
-    "status": "on_track",
-    "subscription_list": "<subscription_list>"
-  }
+  "success": true
 }
 ```
 

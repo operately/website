@@ -59,6 +59,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>state</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>check_in_state</code> enum (<code>draft</code>, <code>published</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -73,7 +81,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"check_in_id\":\"value\", \"description\":\"value\", \"status\":\"on_track\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/update_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"check_in_id\":\"value\", \"description\":\"value\", \"state\":\"draft\", \"status\":\"on_track\"}'"} />
 
 ## Response Example
 
@@ -94,10 +102,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "<subscriber>"
     ],
     "project": "<project>",
+    "published_at": "2026-01-01T09:30:00Z",
     "reactions": [
       "<reaction>"
     ],
     "space": "<space>",
+    "state": "draft",
     "status": "on_track",
     "subscription_list": "<subscription_list>"
   }

@@ -68,6 +68,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>state</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>check_in_state</code> enum (<code>draft</code>, <code>published</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>new_target_values</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -97,7 +105,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"checklist\":[{\"completed\":true, \"id\":\"value\", \"index\":123, \"name\":\"value\"}], \"content\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"new_target_values\":\"value\", \"status\":\"on_track\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/update_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"checklist\":[{\"completed\":true, \"id\":\"value\", \"index\":123, \"name\":\"value\"}], \"content\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"new_target_values\":\"value\", \"state\":\"draft\", \"status\":\"on_track\"}'"} />
 
 ## Response Example
 
@@ -126,9 +134,11 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "potential_subscribers": [
       "<subscriber>"
     ],
+    "published_at": "2026-01-01T09:30:00Z",
     "reactions": [
       "<reaction>"
     ],
+    "state": "draft",
     "status": "on_track",
     "subscription_list": "<subscription_list>",
     "timeframe": "<timeframe>"

@@ -60,6 +60,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>post_as_draft</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>false</code></td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>send_notifications_to_everyone</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -89,7 +97,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/create_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"project_id\":\"value\", \"send_notifications_to_everyone\":true, \"status\":\"on_track\", \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/projects/create_check_in\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"post_as_draft\":true, \"project_id\":\"value\", \"send_notifications_to_everyone\":true, \"status\":\"on_track\", \"subscriber_ids\":[\"value\"]}'"} />
 
 ## Response Example
 
@@ -110,10 +118,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "<subscriber>"
     ],
     "project": "<project>",
+    "published_at": "2026-01-01T09:30:00Z",
     "reactions": [
       "<reaction>"
     ],
     "space": "<space>",
+    "state": "draft",
     "status": "on_track",
     "subscription_list": "<subscription_list>"
   }
