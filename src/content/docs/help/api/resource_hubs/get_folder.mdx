@@ -59,6 +59,22 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_folder</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -96,7 +112,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/get_folder?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_resource_hub=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/get_folder?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_resource_hub=true&include_space=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -118,8 +134,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "potential_subscribers": [
       "<subscriber>"
     ],
+    "project": "<project>",
     "resource_hub": "<resource_hub>",
-    "resource_hub_id": "value"
+    "resource_hub_id": "value",
+    "space": "<space>"
   }
 }
 ```
