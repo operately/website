@@ -115,6 +115,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_contributors_access_levels</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -193,7 +201,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get?id=value&include_access_levels=true&include_champion=true&include_contributors=true&include_contributors_access_levels=true&include_goal=true&include_key_resources=true&include_last_check_in=true&include_markdown=true&include_milestones=true&include_permissions=true&include_potential_subscribers=true&include_privacy=true&include_retrospective=true&include_reviewer=true&include_space=true&include_subscription_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/get?id=value&include_access_levels=true&include_champion=true&include_contributors=true&include_contributors_access_levels=true&include_goal=true&include_key_resources=true&include_last_check_in=true&include_markdown=true&include_milestones=true&include_permissions=true&include_potential_subscribers=true&include_privacy=true&include_resource_hub=true&include_retrospective=true&include_reviewer=true&include_space=true&include_subscription_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -239,6 +247,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "<subscriber>"
     ],
     "privacy": "value",
+    "resource_hub": "<resource_hub>",
     "retrospective": "<project_retrospective>",
     "reviewer": "<person>",
     "space": "<space>",

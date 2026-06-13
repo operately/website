@@ -59,6 +59,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -136,7 +144,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/documents/get?id=value&include_author=true&include_parent_folder=true&include_path_to_document=true&include_permissions=true&include_potential_subscribers=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/documents/get?id=value&include_author=true&include_parent_folder=true&include_path_to_document=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -161,11 +169,13 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "potential_subscribers": [
       "<subscriber>"
     ],
+    "project": "<project>",
     "reactions": [
       "<reaction>"
     ],
     "resource_hub": "<resource_hub>",
     "resource_hub_id": "value",
+    "space": "<space>",
     "state": "value",
     "subscription_list": "<subscription_list>",
     "updated_at": "2026-01-01"
