@@ -1,6 +1,6 @@
 ---
-title: "Documents API: Publish"
-description: "Publish with the Operately Documents API."
+title: "Documents API: Update file"
+description: "Update file with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/documents/publish` |
-| Handler | `OperatelyWeb.Api.Documents.Publish` |
+| Path | `/api/external/v1/documents/update_file` |
+| Handler | `OperatelyWeb.Api.Files.Update` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>file_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -46,32 +46,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>content</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
   <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>send_notifications_to_everyone</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>subscriber_ids</code></td>
-  <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -84,30 +68,28 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `document` | `resource_hub_document` object | Yes | No |
+| `file` | `resource_hub_file` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/publish\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"document_id\":\"value\", \"name\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/update_file\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"file_id\":\"value\", \"name\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "document": {
+  "file": {
     "author": "<person>",
+    "blob": "<blob>",
     "comments_count": 123,
-    "content": "value",
+    "description": "value",
     "id": "value",
     "inserted_at": "value",
     "name": "value",
-    "notifications": [
-      "<notification>"
-    ],
     "parent_folder": "<resource_hub_folder>",
     "parent_folder_id": "value",
-    "path_to_document": [
+    "path_to_file": [
       "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
@@ -120,10 +102,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     ],
     "resource_hub": "<resource_hub>",
     "resource_hub_id": "value",
+    "size": 123,
     "space": "<space>",
-    "state": "value",
     "subscription_list": "<subscription_list>",
-    "updated_at": "2026-01-01"
+    "type": "value"
   }
 }
 ```

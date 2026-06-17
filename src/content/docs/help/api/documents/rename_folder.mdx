@@ -1,6 +1,6 @@
 ---
-title: "Resource Hubs API: Update parent folder"
-description: "Update parent folder with the Operately Resource Hubs API."
+title: "Documents API: Rename folder"
+description: "Rename folder with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/resource_hubs/update_parent_folder` |
-| Handler | `OperatelyWeb.Api.ResourceHubs.UpdateParentFolder` |
+| Path | `/api/external/v1/documents/rename_folder` |
+| Handler | `OperatelyWeb.Api.ResourceHubs.RenameFolder` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>resource_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>folder_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -44,18 +44,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>resource_type</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>new_name</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>new_folder_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -73,7 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/update_parent_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"new_folder_id\":\"value\", \"resource_id\":\"value\", \"resource_type\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/rename_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\", \"new_name\":\"value\"}'"} />
 
 ## Response Example
 

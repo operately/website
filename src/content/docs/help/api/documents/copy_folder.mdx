@@ -1,6 +1,6 @@
 ---
-title: "Resource Hubs API: Copy folder"
-description: "Copy folder with the Operately Resource Hubs API."
+title: "Documents API: Copy folder"
+description: "Copy folder with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,7 +11,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/resource_hubs/copy_folder` |
+| Path | `/api/external/v1/documents/copy_folder` |
 | Handler | `OperatelyWeb.Api.ResourceHubs.CopyFolder` |
 
 ## Authentication
@@ -73,7 +73,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/copy_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"dest_parent_folder_id\":\"value\", \"folder_id\":\"value\", \"folder_name\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/copy_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"dest_parent_folder_id\":\"value\", \"folder_id\":\"value\", \"folder_name\":\"value\"}'"} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "Documents API: Update"
-description: "Update with the Operately Documents API."
+title: "Documents API: Update document"
+description: "Update document with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,7 +11,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/documents/update` |
+| Path | `/api/external/v1/documents/update_document` |
 | Handler | `OperatelyWeb.Api.Documents.Update` |
 
 ## Authentication
@@ -89,7 +89,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"document_id\":\"value\", \"name\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/update_document\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"document_id\":\"value\", \"name\":\"value\", \"send_notifications_to_everyone\":true, \"subscriber_ids\":[\"value\"]}'"} />
 
 ## Response Example
 

@@ -1,6 +1,6 @@
 ---
-title: "Documents API: Create"
-description: "Create with the Operately Documents API."
+title: "Documents API: Create document"
+description: "Create document with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/documents/create` |
-| Handler | `OperatelyWeb.Api.Documents.Create` |
+| Path | `/api/external/v1/documents/create_document` |
+| Handler | `OperatelyWeb.Api.Wrappers.DocsAndFiles.CreateDocument` |
 
 ## Authentication
 
@@ -36,14 +36,6 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>resource_hub_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>space_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -129,7 +121,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"copied_document_id\":\"value\", \"folder_id\":\"value\", \"name\":\"value\", \"post_as_draft\":true, \"project_id\":\"value\", \"resource_hub_id\":\"value\", \"send_notifications_to_everyone\":true, \"space_id\":\"value\", \"subscriber_ids\":[\"value\"]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/create_document\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"content\":\"value\", \"copied_document_id\":\"value\", \"folder_id\":\"value\", \"name\":\"value\", \"post_as_draft\":true, \"project_id\":\"value\", \"send_notifications_to_everyone\":true, \"space_id\":\"value\", \"subscriber_ids\":[\"value\"]}'"} />
 
 ## Response Example
 

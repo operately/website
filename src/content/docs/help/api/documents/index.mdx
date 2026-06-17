@@ -3,8 +3,6 @@ title: Documents API
 description: Browse endpoints in the Operately Documents API.
 ---
 
-Get, create and manage documents in resource hubs
-
 
 <div style={{ overflowX: "auto" }}>
   <table style={{ minWidth: "52rem", whiteSpace: "nowrap" }}>
@@ -18,38 +16,136 @@ Get, create and manage documents in resource hubs
     </thead>
     <tbody>
       <tr>
-  <td><a href="./create">Create</a></td>
+  <td><a href="./copy_folder">Copy folder</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
-  <td><code>/api/external/v1/documents/create</code></td>
+  <td><code>/api/external/v1/documents/copy_folder</code></td>
 </tr>
 
 <tr>
-  <td><a href="./delete">Delete</a></td>
+  <td><a href="./create_document">Create document</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
-  <td><code>/api/external/v1/documents/delete</code></td>
+  <td><code>/api/external/v1/documents/create_document</code></td>
 </tr>
 
 <tr>
-  <td><a href="./get">Get</a></td>
+  <td><a href="./create_folder">Create folder</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/create_folder</code></td>
+</tr>
+
+<tr>
+  <td><a href="./create_link">Create link</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/create_link</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_document">Delete document</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/delete_document</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_file">Delete file</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/delete_file</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_folder">Delete folder</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/delete_folder</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_link">Delete link</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/delete_link</code></td>
+</tr>
+
+<tr>
+  <td><a href="./get_document">Get document</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
-  <td><code>/api/external/v1/documents/get</code></td>
+  <td><code>/api/external/v1/documents/get_document</code></td>
 </tr>
 
 <tr>
-  <td><a href="./publish">Publish</a></td>
-  <td><code>POST</code></td>
-  <td><code>mutation</code></td>
-  <td><code>/api/external/v1/documents/publish</code></td>
+  <td><a href="./get_file">Get file</a></td>
+  <td><code>GET</code></td>
+  <td><code>query</code></td>
+  <td><code>/api/external/v1/documents/get_file</code></td>
 </tr>
 
 <tr>
-  <td><a href="./update">Update</a></td>
+  <td><a href="./get_folder">Get folder</a></td>
+  <td><code>GET</code></td>
+  <td><code>query</code></td>
+  <td><code>/api/external/v1/documents/get_folder</code></td>
+</tr>
+
+<tr>
+  <td><a href="./get_link">Get link</a></td>
+  <td><code>GET</code></td>
+  <td><code>query</code></td>
+  <td><code>/api/external/v1/documents/get_link</code></td>
+</tr>
+
+<tr>
+  <td><a href="./list_contents">List contents</a></td>
+  <td><code>GET</code></td>
+  <td><code>query</code></td>
+  <td><code>/api/external/v1/documents/list_contents</code></td>
+</tr>
+
+<tr>
+  <td><a href="./publish_document">Publish document</a></td>
   <td><code>POST</code></td>
   <td><code>mutation</code></td>
-  <td><code>/api/external/v1/documents/update</code></td>
+  <td><code>/api/external/v1/documents/publish_document</code></td>
+</tr>
+
+<tr>
+  <td><a href="./rename_folder">Rename folder</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/rename_folder</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_document">Update document</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/update_document</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_file">Update file</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/update_file</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_link">Update link</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/update_link</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_parent_folder">Update parent folder</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/documents/update_parent_folder</code></td>
 </tr>
 
     </tbody>

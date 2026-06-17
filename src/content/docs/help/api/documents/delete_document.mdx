@@ -1,6 +1,6 @@
 ---
-title: "Resource Hubs API: Rename folder"
-description: "Rename folder with the Operately Resource Hubs API."
+title: "Documents API: Delete document"
+description: "Delete document with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/resource_hubs/rename_folder` |
-| Handler | `OperatelyWeb.Api.ResourceHubs.RenameFolder` |
+| Path | `/api/external/v1/documents/delete_document` |
+| Handler | `OperatelyWeb.Api.Documents.Delete` |
 
 ## Authentication
 
@@ -36,16 +36,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>folder_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>new_name</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
@@ -60,18 +52,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `success` | `boolean` | Yes | No |
+| `document` | `document` | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/resource_hubs/rename_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"folder_id\":\"value\", \"new_name\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/delete_document\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"document_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "success": true
+  "document": "<document>"
 }
 ```
 

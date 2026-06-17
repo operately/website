@@ -1,6 +1,6 @@
 ---
-title: "Links API: Update"
-description: "Update with the Operately Links API."
+title: "Documents API: Update link"
+description: "Update link with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,7 +11,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/links/update` |
+| Path | `/api/external/v1/documents/update_link` |
 | Handler | `OperatelyWeb.Api.Links.Update` |
 
 ## Authentication
@@ -89,7 +89,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/links/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"airtable\", \"url\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/update_link\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"link_id\":\"value\", \"name\":\"value\", \"type\":\"airtable\", \"url\":\"value\"}'"} />
 
 ## Response Example
 

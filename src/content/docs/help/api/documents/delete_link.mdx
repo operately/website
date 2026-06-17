@@ -1,6 +1,6 @@
 ---
-title: "Links API: Delete"
-description: "Delete with the Operately Links API."
+title: "Documents API: Delete link"
+description: "Delete link with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,7 +11,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/links/delete` |
+| Path | `/api/external/v1/documents/delete_link` |
 | Handler | `OperatelyWeb.Api.Links.Delete` |
 
 ## Authentication
@@ -57,7 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/links/delete\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"link_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/delete_link\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"link_id\":\"value\"}'"} />
 
 ## Response Example
 

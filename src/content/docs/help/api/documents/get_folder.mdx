@@ -1,6 +1,6 @@
 ---
-title: "Documents API: Get"
-description: "Get with the Operately Documents API."
+title: "Documents API: Get folder"
+description: "Get folder with the Operately Documents API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/documents/get` |
-| Handler | `OperatelyWeb.Api.Documents.Get` |
+| Path | `/api/external/v1/documents/get_folder` |
+| Handler | `OperatelyWeb.Api.ResourceHubs.GetFolder` |
 
 ## Authentication
 
@@ -43,26 +43,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_author</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_nodes</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -70,23 +54,31 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_resource_hub</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_parent_folder</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_space</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_reactions</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_project</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_folder</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -94,15 +86,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_subscriptions_list</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -110,23 +94,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>include_potential_subscribers</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_unread_notifications</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>include_path_to_document</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -139,30 +107,27 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `document` | `resource_hub_document` object | Yes | No |
+| `folder` | `resource_hub_folder` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/documents/get?id=value&include_author=true&include_parent_folder=true&include_path_to_document=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_reactions=true&include_resource_hub=true&include_space=true&include_subscriptions_list=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/documents/get_folder?id=value&include_nodes=true&include_path_to_folder=true&include_permissions=true&include_potential_subscribers=true&include_project=true&include_resource_hub=true&include_space=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
-  "document": {
-    "author": "<person>",
-    "comments_count": 123,
-    "content": "value",
+  "folder": {
+    "children_count": 123,
+    "description": "value",
     "id": "value",
-    "inserted_at": "value",
     "name": "value",
-    "notifications": [
-      "<notification>"
+    "nodes": [
+      "<resource_hub_node>"
     ],
-    "parent_folder": "<resource_hub_folder>",
     "parent_folder_id": "value",
-    "path_to_document": [
+    "path_to_folder": [
       "<resource_hub_folder>"
     ],
     "permissions": "<resource_hub_permissions>",
@@ -170,15 +135,9 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "<subscriber>"
     ],
     "project": "<project>",
-    "reactions": [
-      "<reaction>"
-    ],
     "resource_hub": "<resource_hub>",
     "resource_hub_id": "value",
-    "space": "<space>",
-    "state": "value",
-    "subscription_list": "<subscription_list>",
-    "updated_at": "2026-01-01"
+    "space": "<space>"
   }
 }
 ```
