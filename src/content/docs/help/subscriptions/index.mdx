@@ -3,7 +3,7 @@ title: "Subscriptions"
 description: "Learn how to subscribe and unsubscribe to projects, milestones, and tasks to receive notifications."
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Steps } from '@astrojs/starlight/components';
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
 
 <ImageEnhancer />
@@ -12,15 +12,14 @@ You can subscribe to any project, milestone, or task to receive notifications wh
 
 ## How to subscribe
 
-To subscribe to a resource:
-
-1. Navigate to the Project, Milestone, or Task page you want to follow.
-2. Look for the **Subscribe** button in the sidebar.
-3. Click the button to start receiving notifications.
+<Steps>
+1. Open the project, milestone, or task you want to follow.
+2. In the task or resource sidebar, find the subscription section labeled **Subscribers**.
+3. Click **Subscribe me** to follow updates yourself.
+4. To stop following, click **Unsubscribe me**.
+</Steps>
 
 ![Screenshot: Subscriptions list](./subscriptions.png)
-
-You can unsubscribe at any time by clicking the same button, which will now say **Unsubscribe**.
 
 ## Automatic subscriptions
 

@@ -52,6 +52,7 @@ export default function helpCenterSidebar() {
           { label: "Introduction", link: "/help" },
           { label: "Features overview", link: "/help/features-overview" },
           { label: "Quick tour", link: "/help/quick-tour" },
+          { label: "Keyboard shortcuts", link: "/help/keyboard-shortcuts" },
         ],
       },
       {
@@ -181,6 +182,10 @@ export default function helpCenterSidebar() {
             link: "/help/view-goal-activity",
           },
           {
+            label: "Docs and files on a goal",
+            link: "/help/goal-docs-and-files",
+          },
+          {
             label: "Manage goal access",
             link: "/help/manage-goal-access",
           },
@@ -234,8 +239,8 @@ export default function helpCenterSidebar() {
             link: "/help/customize-project-statuses",
           },
           {
-            label: "Add resource",
-            link: "/help/add-project-resource",
+            label: "Docs and files on a project",
+            link: "/help/project-docs-and-files",
           },
           {
             label: "Start project discussions",
@@ -353,6 +358,10 @@ export default function helpCenterSidebar() {
           { label: "Introduction", link: "/help/kanban-board-introduction" },
           { label: "Add tasks", link: "/help/kanban-board-add-task" },
           { label: "Edit a task", link: "/help/kanban-board-edit-task" },
+          {
+            label: "Configure task reminders",
+            link: "/help/configure-task-reminders",
+          },
           {
             label: "Customize statuses",
             link: "/help/kanban-board-customize-statuses",

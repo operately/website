@@ -1,14 +1,14 @@
 ---
 title: Edit a task
-description: Learn how to edit task details in the Kanban board.
+description: Learn how to edit task details from the task slide-in in Kanban boards, project lists, and milestone lists.
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Aside } from '@astrojs/starlight/components';
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
 
 <ImageEnhancer />
 
-Clicking on any task card in the Kanban board opens a slide-in view containing all the task's information. From here, you can update various details, manage actions, and collaborate with your team.
+Clicking a task opens a slide-in view with the task's details. You can open tasks from Kanban boards, project task lists, milestone task lists, and other task views. Use [keyboard shortcuts](/help/keyboard-shortcuts) to move between tasks quickly in supported views.
 
 ## Updating task details
 
@@ -50,22 +50,27 @@ You can modify key information directly from the slide-in view:
 3. Click **Confirm**.
 </Steps>
 
-### Edit assignee
+### Edit assignees
 
-**Assign a person:**
+Tasks support multiple assignees.
+
+**Assign people:**
 
 <Steps>
 1. Click **Assign task**.
-2. Select a person from the list.
+2. Select one or more people from the list.
 </Steps>
 
-**Change assignee:**
+**Change assignees:**
 
 <Steps>
-1. Click the current assignee's name.
-2. Select **Select someone else**.
-3. Choose the new assignee from the list.
+1. Click the current assignee area.
+2. Add or remove assignees from the list.
 </Steps>
+
+### Reminders
+
+In the sidebar, open **Reminders** and click **Add reminder** to configure timing. The task needs at least one assignee before reminders appear. See [Configure task reminders](/help/configure-task-reminders).
 
 ### Edit milestone (Project tasks only)
 
@@ -97,3 +102,7 @@ The slide-in view also shows the task's timeline:
 
 - **Timeline**: View a chronological history of all events and changes related to the task.
 - **Comments**: Add comments to discuss the task, ask questions, or provide updates to your team.
+
+## Subscriptions
+
+Use the subscription section in the sidebar to manage who receives notifications. See [Subscriptions](/help/subscriptions).
