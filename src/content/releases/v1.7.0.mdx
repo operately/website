@@ -7,14 +7,11 @@ published: true
 youtubeId: ""
 ---
 
-{/* Screenshots needed — capture before publish and wire up BigImage imports:
-  - assets/v170/project-docs-and-files.png — Docs & Files tab on a project with Add menu open
-  - assets/v170/goal-docs-and-files.png — Docs & Files tab on a goal
-  - assets/v170/draft-check-in.png — draft check-in with Save as draft / Submit actions visible
-  - assets/v170/task-reminders.png — Reminders section in task slide-in sidebar
-  - assets/v170/keyboard-shortcuts.png — Keyboard Shortcuts Cheatsheet modal
-  - assets/v170/work-map-timeline.png — Work Map projects tab in Timeline view
-*/}
+import BigImage from '../../components/BigImage.astro';
+import projectDocsAndFiles from './assets/v170/project-docs-and-files.png';
+import taskReminders from './assets/v170/task-reminders.png';
+import draftCheckIn from './assets/v170/draft-check-in.png';
+import workMapTimeline from './assets/v170/work-map-timeline.png';
 
 Operately v1.7 is here. This release brings five major features: **Docs & Files** tabs on goals and projects for keeping supporting materials close to the work, **draft check-ins** so champions can save progress updates before publishing, **configurable task reminders** that notify assignees at the right time, a **Work Map Timeline** view for schedule-oriented planning, and **keyboard shortcuts** for faster navigation across the app. Project links and resources that previously lived on the Overview tab now live on **Docs & Files**.
 
@@ -22,15 +19,21 @@ Operately v1.7 is here. This release brings five major features: **Docs & Files*
 
 Projects and goals now have a dedicated **Docs & Files** tab. Instead of a simple list of links at the bottom of the project Overview, you can organize documents, folders, file uploads, and external links in one place — with activity tracked in the project or goal feed.
 
-On projects, existing key resources were migrated automatically. Nothing was lost; they simply moved to the new tab. 
+On projects, existing key resources were migrated automatically. Nothing was lost; they simply moved to the new tab.
+
+<BigImage src={projectDocsAndFiles} alt="Docs & Files tab on a project with Add menu open" />
 
 See the guides for [docs and files on a project](/help/project-docs-and-files) and [docs and files on a goal](/help/goal-docs-and-files).
 
-## Draft Check-ins: Save progress updates before you publish
+## Check-ins: Save drafts and write with context
 
-Check-ins on goals and projects can now be saved as drafts. If your update isn't ready to share, use **Save as draft** instead of submitting. Drafts are visible only to you until you publish.
+This release improves how champions write check-ins on goals and projects.
 
-Each goal or project can have one draft check-in at a time. Reopen it from the **Check-ins** tab to edit, discard, or submit when you're ready.
+If your update isn't ready to share, use **Save as draft** instead of submitting. Drafts are visible only to you until you publish. Each goal or project can have one draft check-in at a time — reopen it from the **Check-ins** tab to edit, discard, or submit when you're ready.
+
+While you draft the next update, the latest published check-in appears inline above the editor. You can read what you wrote last time without leaving the page or opening another tab.
+
+<BigImage src={draftCheckIn} alt="Draft check-in with Save as draft and Submit actions visible" />
 
 See [check-in on a goal](/help/check-in-goal) and [check-in on a project](/help/check-in-project) for the full workflow.
 
@@ -40,17 +43,21 @@ Tasks now support configurable reminders. From the task sidebar, assignees can b
 
 Reminders are available for both project and space tasks wherever you open them: kanban boards, project task lists and milestone lists. The task needs at least one assignee before reminder controls appear. See [Configure task reminders](/help/configure-task-reminders) for details.
 
-## Keyboard Shortcuts: Move faster through search and tasks
-
-Operately now has a keyboard shortcuts cheatsheet. Press **?** from anywhere in the app, or open **Help → Keyboard shortcuts**, to see the full list.
-
-In task lists and boards that support keyboard selection, use **j** and **k** to move between tasks, **Return** to open the selected task, and **a**, **s**, or **d** to quickly edit assignees, status, or due date. See [Keyboard shortcuts](/help/keyboard-shortcuts) and [Global Search](/help/global-search).
+<BigImage src={taskReminders} alt="Reminders section in task slide-in sidebar" />
 
 ## Work Map Timeline: See projects on a schedule
 
 Company and Space Work Maps now offer a **Timeline** view on the projects tab, alongside the familiar **Table** list. Switch **Work map view** to place dated projects on a timeline — useful for quarterly planning, cross-team reviews, and spotting schedule conflicts at a glance.
 
 **Table** remains the default, with status, progress, and next steps in a compact list. **Timeline** is there when you need to think in dates rather than rows. See [Work Maps](/help/work-map-overview).
+
+<BigImage src={workMapTimeline} alt="Work Map projects tab in Timeline view" />
+
+## Keyboard Shortcuts: Move faster through search and tasks
+
+Operately now has a keyboard shortcuts cheatsheet. Press **?** from anywhere in the app, or open **Help → Keyboard shortcuts**, to see the full list.
+
+In task lists and boards that support keyboard selection, use **j** and **k** to move between tasks, **Return** to open the selected task, and **a**, **s**, or **d** to quickly edit assignees, status, or due date. See [Keyboard shortcuts](/help/keyboard-shortcuts) and [Global Search](/help/global-search).
 
 ## Additional Features
 
@@ -59,8 +66,6 @@ This release also includes several improvements across the product:
 **Multiple task assignees** — Assign more than one person to a task. The CLI supports multiple assignees too.
 
 **12-hour and 24-hour time format** — Choose how times are displayed in your profile, separate from your timezone setting.
-
-**Show previous check-in while writing** — Read the latest check-in inline while drafting the next one on goals and projects.
 
 **Subscriptions for space-level tasks** — Subscribe to space tasks the same way you follow project and milestone work.
 
