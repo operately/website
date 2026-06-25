@@ -90,6 +90,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_markdown</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>false</code></td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -100,16 +108,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
 | `space` | `space` object | Yes | No |
+| `markdown` | `string` | No | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/get?id=value&include_access_levels=true&include_members=true&include_members_access_levels=true&include_permissions=true&include_potential_subscribers=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/get?id=value&include_access_levels=true&include_markdown=true&include_members=true&include_members_access_levels=true&include_permissions=true&include_potential_subscribers=true&include_unread_notifications=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
+  "markdown": "value",
   "space": {
     "access_levels": "<access_levels>",
     "color": "value",
