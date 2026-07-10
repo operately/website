@@ -1,0 +1,86 @@
+---
+title: "Goals API: Acknowledge retrospective"
+description: "Acknowledge retrospective with the Operately Goals API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/goals/acknowledge_retrospective` |
+| Handler | `OperatelyWeb.Api.Goals.AcknowledgeRetrospective` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `activity` | `activity` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/acknowledge_retrospective\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "activity": {
+    "action": "value",
+    "author": "<person>",
+    "comment_thread": "<comment_thread>",
+    "content": "<activity_content>",
+    "event_data": "<activity_data_union>",
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "notifications": [
+      "<notification>"
+    ],
+    "permissions": "<activity_permissions>",
+    "person": "<person>",
+    "resource": "<activity_resource_union>",
+    "scope_id": "value",
+    "scope_type": "value",
+    "updated_at": "2026-01-01T09:30:00Z"
+  }
+}
+```
+
