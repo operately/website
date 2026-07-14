@@ -137,13 +137,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":\"<access_options_int>\", \"champion_id\":\"value\", \"company_access_level\":\"<access_options_int>\", \"description\":\"value\", \"name\":\"value\", \"parent_goal_id\":\"value\", \"reviewer_id\":\"value\", \"space_access_level\":\"<access_options_int>\", \"space_id\":\"value\", \"targets\":[{\"from\":12.34, \"index\":123, \"name\":\"value\", \"to\":12.34, \"unit\":\"value\"}], \"timeframe\":{\"contextual_end_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"contextual_start_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}}}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/goals/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":\"<access_options_int>\", \"champion_id\":\"value\", \"company_access_level\":\"<access_options_int>\", \"description\":\"value\", \"name\":\"value\", \"parent_goal_id\":\"value\", \"reviewer_id\":\"value\", \"space_access_level\":\"<access_options_int>\", \"space_id\":\"value\", \"targets\":[{\"from\":12.34, \"index\":123, \"name\":\"value\", \"to\":12.34, \"unit\":\"value\"}], \"timeframe\":{\"__typename\":\"value\", \"contextual_end_date\":{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"contextual_start_date\":{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}}}'"} />
 
 ## Response Example
 
 ```json
 {
   "goal": {
+    "__typename": "value",
     "access_levels": "<access_levels>",
     "archived_at": "2026-01-01",
     "champion": "<person>",

@@ -123,13 +123,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"assignee_ids\":[\"value\"], \"description\":\"value\", \"due_date\":{\"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"assignee_ids\":[\"value\"], \"description\":\"value\", \"due_date\":{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />
 
 ## Response Example
 
 ```json
 {
   "task": {
+    "__typename": "value",
     "assignees": [
       "<person>"
     ],
@@ -160,6 +161,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "updated_at": "2026-01-01"
   },
   "updated_milestone": {
+    "__typename": "value",
     "available_statuses": [
       "<task_status>"
     ],
@@ -185,6 +187,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "title": "value"
   },
   "updated_space": {
+    "__typename": "value",
     "access_levels": "<access_levels>",
     "color": "value",
     "icon": "value",
