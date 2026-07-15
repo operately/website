@@ -1,0 +1,42 @@
+---
+title: "MCP connections"
+description: "Learn how Operately connects to AI clients through remote MCP and OAuth."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Operately exposes a hosted remote MCP server so AI clients can read and optionally write workspace data on your behalf. A connected client uses the access you approve during OAuth, while your existing Operately permissions still apply.
+
+Each connection is linked to one company. To use a different company, connect the client again and select that company during authorization.
+
+## Choose the access level
+
+AI clients request one or both of these access levels:
+
+- **View data** lets the client read Operately data, such as search results and resource details.
+- **Create, update, delete, and archive content** lets the client make changes to resources.
+
+If a client does not request an access level, it receives read-only access by default. 
+
+The client cannot choose a company while calling a tool. It uses the company that was selected when you connected it.
+
+<Aside type="caution">
+Only approve a connection from a client you trust. Grant write access only when you want that client to make changes in Operately.
+</Aside>
+
+## Connect a client
+
+Add Operately as a remote MCP server in your AI client, then complete the OAuth flow: sign in and approve the requested access.
+
+If you belong to only one company, Operately selects it automatically. If you belong to more than one, you must choose a company during authorization. Every tool call from that connection runs against the selected company. To use a different company, connect the client again and choose that company.
+
+Use the MCP server URL for your Operately instance. On Operately Cloud, that is `https://app.operately.com/mcp`. For a self-hosted installation, use `https://YOUR_INSTANCE/mcp`.
+
+## Related guides
+
+- [Connect ChatGPT](/help/mcp-chatgpt)
+- [Connect Claude](/help/mcp-claude)
+- [Review or revoke a connection](/help/mcp-revoke-connection)
+- [Create an API token](/help/create-api-token) for scripts, the CLI, and direct API requests
+- [How permissions work](/help/permissions-overview)
+- [Operately API docs](/help/api)

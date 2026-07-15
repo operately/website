@@ -1,0 +1,43 @@
+---
+title: "Connect Claude"
+description: "Learn how to connect Claude to Operately with a custom remote MCP connector."
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Claude can use Operately through a custom remote MCP connector. After you add the connector and complete OAuth, Claude can read and optionally update Operately data based on the access you grant and your Operately permissions.
+
+## Before you start
+
+- Have access to an Operately company you can authorize.
+- Use this MCP server URL on Operately Cloud: `https://app.operately.com/mcp`
+- For a self-hosted installation, use `https://YOUR_INSTANCE/mcp`
+
+## Connect Operately
+
+<Steps>
+1. Open **Customize** → **Connectors** or go to [claude.ai/customize/connectors](https://claude.ai/customize/connectors).
+2. Click **+**, then select **Add custom connector**.
+3. Enter a name such as **Operately** and the Operately MCP server URL.
+4. Leave **Advanced settings** empty.
+5. Click **Add**.
+6. Click **Connect**, then sign in to Operately, select the company, and approve the requested access.
+</Steps>
+
+## Use Operately in a conversation
+
+Adding the connector does not automatically turn it on for every chat.
+
+<Steps>
+1. Open a conversation and click the **+** button in the lower left of the chat interface.
+2. Choose **Connectors**.
+3. Toggle **Operately** on for that conversation.
+</Steps>
+
+Write actions usually require confirmation in Claude. Review the tool input carefully before you approve changes.
+
+## Related guides
+
+- [MCP connections](/help/mcp-connections)
+- [Connect ChatGPT](/help/mcp-chatgpt)
+- [Review or revoke a connection](/help/mcp-revoke-connection)

@@ -394,7 +394,7 @@ export default function helpCenterSidebar() {
             label: "Format text and embed images",
             link: "/help/format-document-text",
           },
-          { label: "Upload a file", link: "/help/upload-file" },
+          { label: "Upload files", link: "/help/upload-file" },
           { label: "Add an external link", link: "/help/add-external-link" },
           { label: "Create a folder", link: "/help/create-folder" },
           { label: "Copy a document", link: "/help/copy-document" },
@@ -544,6 +544,27 @@ export default function helpCenterSidebar() {
           {
             label: "Google Sign-In",
             link: "/help/self-hosted-google-sign-in",
+          },
+        ],
+      },
+      {
+        label: "MCP",
+        items: [
+          {
+            label: "Overview",
+            link: "/help/mcp-connections",
+          },
+          {
+            label: "Connect ChatGPT",
+            link: "/help/mcp-chatgpt",
+          },
+          {
+            label: "Connect Claude",
+            link: "/help/mcp-claude",
+          },
+          {
+            label: "Review or revoke a connection",
+            link: "/help/mcp-revoke-connection",
           },
         ],
       },

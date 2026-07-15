@@ -1,0 +1,42 @@
+---
+title: "Connect ChatGPT"
+description: "Learn how to connect ChatGPT to Operately through MCP developer mode."
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+ChatGPT can use Operately through remote MCP when **Developer mode** is enabled. After you add the app and complete OAuth, ChatGPT can read and optionally update Operately data based on the access you grant and your Operately permissions.
+
+## Before you start
+
+- Have access to an Operately company you can authorize.
+- Use this MCP server URL on Operately Cloud: `https://app.operately.com/mcp`
+- For a self-hosted installation, use `https://YOUR_INSTANCE/mcp`
+
+## Connect Operately in ChatGPT
+
+<Steps>
+1. In ChatGPT, open **Settings** → **Security and login** and turn on **Developer mode**.
+2. Select **Plugins** in the sidebar or go to [chatgpt.com/plugins](https://chatgpt.com/plugins).
+3. Select the **+** button.
+4. Enter a name such as **Operately**, paste the Operately MCP server URL, and choose **OAuth** as the authentication method.
+5. Optionally add an icon and a description.
+6. Confirm that you trust the application.
+7. Click **Create** to start the connection.
+8. Sign in to Operately, select the company, and approve the requested access.
+</Steps>
+
+## Use Operately tools in a conversation
+
+<Steps>
+1. Start a chat and open the **+** menu.
+2. Select the Operately app for that conversation.
+</Steps>
+
+Write actions usually require confirmation in ChatGPT. Review the tool input carefully before you approve changes.
+
+## Related guides
+
+- [MCP connections](/help/mcp-connections)
+- [Connect Claude](/help/mcp-claude)
+- [Review or revoke a connection](/help/mcp-revoke-connection)
