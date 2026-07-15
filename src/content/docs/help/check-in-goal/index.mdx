@@ -3,7 +3,7 @@ title: "Check-in on a goal"
 description: "Learn how to provide monthly updates on goal progress through Operately's check-in system."
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Aside } from '@astrojs/starlight/components';
 import ImageEnhancer from '@/components/ImageEnhancer.astro';
 
 <ImageEnhancer />
@@ -25,6 +25,23 @@ Operately prompts [champions](/help/assign-goal-champion) to check-in at least o
 6. Choose who to notify about the check-in
 7. Click **Check-in** to submit
 </Steps>
+
+<Aside>
+While writing your check-in, click **Show previous check-in** to read the latest update inline.
+</Aside>
+
+## Schedule a check-in
+
+Use **Schedule for later** to prepare a goal check-in now and publish it at a future date and time.
+
+<Steps>
+1. Open the posting options and choose **Schedule for later**.
+![Screenshot: Check-in posting options with Schedule for later](./post-options.png)
+2. Select a **date** and **time**.
+3. Click **Confirm** to save the check-in.
+</Steps>
+
+The scheduled time uses your configured timezone and must be in the future. Until it publishes, you can reopen the check-in to edit the content or change the publish date. You can also choose the options **Publish now** or **Save as draft**.
 
 ## Save a draft
 
@@ -61,7 +78,7 @@ Use the rich text editor to provide context about:
 
 ## Reviewer acknowledgment
 
-After submitting a check-in, the reviewer must explicitly acknowledge it by clicking **Acknowledge this Check-In**. This ensures the reviewer has seen and acknowledged the update.
+After submitting a check-in, an eligible reviewer or champion can explicitly acknowledge it by clicking **Acknowledge this Check-In**. This ensures the update has been seen and acknowledged.
 
 ## Additional check-ins
 
@@ -69,4 +86,4 @@ While monthly check-ins are required, you can submit additional check-ins anytim
 
 ## Continuous target updates
 
-Don't wait for monthly check-ins to update target values. Update them continuously as you make progress to keep the goal's progress bar accurate and up-to-date. 
+Don't wait for monthly check-ins to update target values. Update them continuously as you make progress to keep the goal's progress bar accurate and up-to-date.
