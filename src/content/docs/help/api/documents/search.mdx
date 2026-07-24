@@ -59,7 +59,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `results` | array of `search_result` object | Yes | No |
+| `nodes` | array of `resource_hub_node` object | Yes | No |
 
 
 ## cURL Example
@@ -70,16 +70,18 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ```json
 {
-  "results": [
+  "nodes": [
     {
       "__typename": "value",
-      "context": "value",
+      "document": "<resource_hub_document>",
+      "file": "<resource_hub_file>",
+      "folder": "<resource_hub_folder>",
       "id": "value",
-      "matched_field": "title",
-      "navigation_target": "<search_navigation_target>",
-      "snippet": "value",
-      "title": "value",
-      "type": "resource_hub_folder"
+      "inserted_at": "value",
+      "link": "<resource_hub_link>",
+      "name": "value",
+      "type": "value",
+      "updated_at": "value"
     }
   ]
 }
