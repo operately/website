@@ -1,6 +1,6 @@
 ---
-title: "Projects API: Count children"
-description: "Count children with the Operately Projects API."
+title: "Goals API: Count children"
+description: "Count children with the Operately Goals API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `query` |
 | Method | `GET` |
-| Path | `/api/external/v1/projects/count_children` |
-| Handler | `OperatelyWeb.Api.Projects.CountChildren` |
+| Path | `/api/external/v1/goals/count_children` |
+| Handler | `OperatelyWeb.Api.Goals.CountChildren` |
 
 ## Authentication
 
@@ -42,22 +42,6 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>use_task_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>use_milestone_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
     </tbody>
   </table>
 </div>
@@ -67,12 +51,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `children_count` | `project_children_count` object | Yes | No |
+| `children_count` | `goal_children_count` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/projects/count_children?id=value&use_milestone_id=true&use_task_id=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/goals/count_children?id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -81,8 +65,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   "children_count": {
     "check_ins_count": 123,
     "discussions_count": 123,
-    "docs_and_files_count": 123,
-    "tasks_count": 123
+    "docs_and_files_count": 123
   }
 }
 ```
