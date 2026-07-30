@@ -12,7 +12,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | Type | `query` |
 | Method | `GET` |
 | Path | `/api/external/v1/companies/global_search` |
-| Handler | `OperatelyWeb.Api.Companies.GlobalSearch` |
+| Handler | `OperatelyWeb.Api.Wrappers.Companies.GlobalSearch` |
 
 ## Authentication
 
@@ -57,7 +57,11 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | `milestones` | array of `milestone` object | Yes | No |
 | `tasks` | array of `task` object | Yes | No |
 | `people` | array of `person` object | Yes | No |
-| `full_text_results` | array of `search_result` object | Yes | No |
+| `discussions` | array of `quick_search_discussion` object | Yes | No |
+| `folders` | array of `quick_search_resource` object | Yes | No |
+| `documents` | array of `quick_search_resource` object | Yes | No |
+| `files` | array of `quick_search_resource` object | Yes | No |
+| `links` | array of `quick_search_resource` object | Yes | No |
 
 
 ## cURL Example
@@ -68,17 +72,32 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ```json
 {
-  "full_text_results": [
+  "discussions": [
     {
-      "__typename": "value",
       "context": "value",
       "id": "value",
-      "matched_field": "title",
-      "navigation_target": "<search_navigation_target>",
-      "snippet": "value",
-      "state": "closed",
-      "title": "value",
-      "type": "resource_hub_folder"
+      "title": "value"
+    }
+  ],
+  "documents": [
+    {
+      "context": "value",
+      "id": "value",
+      "name": "value"
+    }
+  ],
+  "files": [
+    {
+      "context": "value",
+      "id": "value",
+      "name": "value"
+    }
+  ],
+  "folders": [
+    {
+      "context": "value",
+      "id": "value",
+      "name": "value"
     }
   ],
   "goals": [
@@ -128,6 +147,13 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       ],
       "timeframe": "<timeframe>",
       "updated_at": "2026-01-01"
+    }
+  ],
+  "links": [
+    {
+      "context": "value",
+      "id": "value",
+      "name": "value"
     }
   ],
   "milestones": [
