@@ -57,6 +57,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | `milestones` | array of `milestone` object | Yes | No |
 | `tasks` | array of `task` object | Yes | No |
 | `people` | array of `person` object | Yes | No |
+| `full_text_results` | array of `search_result` object | Yes | No |
 
 
 ## cURL Example
@@ -67,6 +68,19 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ```json
 {
+  "full_text_results": [
+    {
+      "__typename": "value",
+      "context": "value",
+      "id": "value",
+      "matched_field": "title",
+      "navigation_target": "<search_navigation_target>",
+      "snippet": "value",
+      "state": "closed",
+      "title": "value",
+      "type": "resource_hub_folder"
+    }
+  ],
   "goals": [
     {
       "__typename": "value",
