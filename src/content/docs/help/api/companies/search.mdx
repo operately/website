@@ -42,6 +42,38 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>space_ids</code></td>
+  <td style={{ whiteSpace: "normal" }}>array of <code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>types</code></td>
+  <td style={{ whiteSpace: "normal" }}>array of <code>search_result_type</code> enum (<code>resource_hub_folder</code>, <code>resource_hub_document</code>, <code>resource_hub_file</code>, <code>resource_hub_link</code>, <code>project</code>, <code>goal</code>, <code>milestone</code>, <code>task</code>, <code>person</code>, <code>discussion</code>, <code>project_check_in</code>, <code>goal_check_in</code>, <code>project_retrospective</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>time_range</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>search_time_range</code> enum (<code>last_7_days</code>, <code>last_30_days</code>, <code>last_90_days</code>, <code>last_12_months</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>sort</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>search_sort</code> enum (<code>best_match</code>, <code>most_recent</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -56,7 +88,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/search?query=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/search?query=value&sort=best_match&space_ids[]=value&time_range=last_7_days&types[]=resource_hub_folder\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
