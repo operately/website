@@ -3,7 +3,7 @@ title: Project Templates API
 description: Browse endpoints in the Operately Project Templates API.
 ---
 
-Read project templates
+Get, list, create and manage project templates
 
 
 <div style={{ overflowX: "auto" }}>
@@ -18,6 +18,41 @@ Read project templates
     </thead>
     <tbody>
       <tr>
+  <td><a href="./create">Create</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/create</code></td>
+</tr>
+
+<tr>
+  <td><a href="./create_milestone">Create milestone</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/create_milestone</code></td>
+</tr>
+
+<tr>
+  <td><a href="./create_task">Create task</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/create_task</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_milestone">Delete milestone</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/delete_milestone</code></td>
+</tr>
+
+<tr>
+  <td><a href="./delete_task">Delete task</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/delete_task</code></td>
+</tr>
+
+<tr>
   <td><a href="./get">Get</a></td>
   <td><code>GET</code></td>
   <td><code>query</code></td>
@@ -29,6 +64,27 @@ Read project templates
   <td><code>GET</code></td>
   <td><code>query</code></td>
   <td><code>/api/external/v1/project_templates/list</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update">Update</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/update</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_milestone">Update milestone</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/update_milestone</code></td>
+</tr>
+
+<tr>
+  <td><a href="./update_task">Update task</a></td>
+  <td><code>POST</code></td>
+  <td><code>mutation</code></td>
+  <td><code>/api/external/v1/project_templates/update_task</code></td>
 </tr>
 
     </tbody>
