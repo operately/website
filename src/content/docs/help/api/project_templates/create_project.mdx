@@ -68,22 +68,6 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>champion_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>reviewer_id</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
-  <td style={{ whiteSpace: "nowrap" }}>-</td>
-</tr>
-
-<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>goal_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -129,7 +113,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":\"<access_options_int>\", \"champion_id\":\"value\", \"company_access_level\":\"<access_options_int>\", \"goal_id\":\"value\", \"name\":\"value\", \"reviewer_id\":\"value\", \"space_access_level\":\"<access_options_int>\", \"space_id\":\"value\", \"start_date\":\"2026-01-01\", \"template_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"anonymous_access_level\":\"<access_options_int>\", \"company_access_level\":\"<access_options_int>\", \"goal_id\":\"value\", \"name\":\"value\", \"space_access_level\":\"<access_options_int>\", \"space_id\":\"value\", \"start_date\":\"2026-01-01\", \"template_id\":\"value\"}'"} />
 
 ## Response Example
 
