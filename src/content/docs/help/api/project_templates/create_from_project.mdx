@@ -1,0 +1,123 @@
+---
+title: "Project Templates API: Create from project"
+description: "Create from project with the Operately Project Templates API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/project_templates/create_from_project` |
+| Handler | `OperatelyWeb.Api.ProjectTemplates.CreateFromProject` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>project_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>description</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `template` | `project_template` object | No | Yes |
+| `schedule_issues` | array of `project_template_schedule_issue` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_from_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"name\":\"value\", \"project_id\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "schedule_issues": [
+    {
+      "date": "2026-01-01",
+      "field": "start_date",
+      "reason": "missing",
+      "resource_id": "value",
+      "resource_name": "value",
+      "resource_type": "project"
+    }
+  ],
+  "template": {
+    "__typename": "value",
+    "archived_at": "2026-01-01T09:30:00Z",
+    "creator": "<person>",
+    "description": "value",
+    "duration_days": 123,
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "milestone_count": 123,
+    "milestones": [
+      "<project_template_milestone>"
+    ],
+    "milestones_ordering_state": [
+      "value"
+    ],
+    "name": "value",
+    "permissions": "<project_template_permissions>",
+    "space": "<space>",
+    "task_count": 123,
+    "task_statuses": [
+      "<task_status>"
+    ],
+    "tasks": [
+      "<project_template_task>"
+    ],
+    "tasks_kanban_state": "value",
+    "updated_at": "2026-01-01T09:30:00Z"
+  }
+}
+```
+
