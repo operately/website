@@ -115,6 +115,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>index</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -129,7 +137,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/update_task\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"due_offset_days\":123, \"milestone_id\":\"value\", \"name\":\"value\", \"priority\":\"value\", \"reminders\":[{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"days\":123, \"type\":\"before_due\"}], \"size\":\"value\", \"task_id\":\"value\", \"task_status\":{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"template_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/update_task\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"due_offset_days\":123, \"index\":123, \"milestone_id\":\"value\", \"name\":\"value\", \"priority\":\"value\", \"reminders\":[{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"days\":123, \"type\":\"before_due\"}], \"size\":\"value\", \"task_id\":\"value\", \"task_status\":{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"template_id\":\"value\"}'"} />
 
 ## Response Example
 
