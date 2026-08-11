@@ -1,6 +1,6 @@
 ---
-title: "Project Templates API: Create"
-description: "Create with the Operately Project Templates API."
+title: "Project Templates API: Create link"
+description: "Create link with the Operately Project Templates API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/project_templates/create` |
-| Handler | `OperatelyWeb.Api.ProjectTemplates.Create` |
+| Path | `/api/external/v1/project_templates/create_link` |
+| Handler | `OperatelyWeb.Api.ProjectTemplates.CreateLink` |
 
 ## Authentication
 
@@ -36,7 +36,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>space_id</code></td>
+  <td style={{ whiteSpace: "nowrap" }}><code>template_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -44,7 +44,23 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>parent_folder_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>url</code></td>
   <td style={{ whiteSpace: "normal" }}><code>string</code></td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -60,10 +76,10 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
-  <td style={{ whiteSpace: "nowrap" }}><code>duration_days</code></td>
-  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
-  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>type</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>project_template_resource_link_type</code> enum (<code>airtable</code>, <code>dropbox</code>, <code>figma</code>, <code>google</code>, <code>google_doc</code>, <code>google_sheet</code>, <code>google_slides</code>, <code>notion</code>, <code>other</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -76,58 +92,28 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `template` | `project_template` object | Yes | No |
+| `link` | `project_template_resource_link` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"duration_days\":123, \"name\":\"value\", \"space_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_link\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"name\":\"value\", \"parent_folder_id\":\"value\", \"template_id\":\"value\", \"type\":\"airtable\", \"url\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "template": {
+  "link": {
     "__typename": "value",
-    "archived_at": "2026-01-01T09:30:00Z",
-    "creator": "<person>",
+    "author": "<person>",
     "description": "value",
-    "discussions": [
-      "<project_template_discussion>"
-    ],
-    "duration_days": 123,
     "id": "value",
-    "inactive_discussion_count": 123,
-    "inactive_people_summary": "<project_template_inactive_people_summary>",
     "inserted_at": "2026-01-01T09:30:00Z",
-    "milestone_count": 123,
-    "milestones": [
-      "<project_template_milestone>"
-    ],
-    "milestones_ordering_state": [
-      "value"
-    ],
     "name": "value",
-    "people": [
-      "<project_template_person>"
-    ],
-    "permissions": "<project_template_permissions>",
-    "resource_nodes": [
-      "<project_template_resource_node>"
-    ],
-    "space": "<space>",
-    "task_assignments": [
-      "<project_template_task_assignment>"
-    ],
-    "task_count": 123,
-    "task_statuses": [
-      "<task_status>"
-    ],
-    "tasks": [
-      "<project_template_task>"
-    ],
-    "tasks_kanban_state": "value",
-    "updated_at": "2026-01-01T09:30:00Z"
+    "node_id": "value",
+    "type": "airtable",
+    "updated_at": "2026-01-01T09:30:00Z",
+    "url": "value"
   }
 }
 ```
