@@ -1,0 +1,86 @@
+---
+title: "Project Templates API: Get discussion"
+description: "Get discussion with the Operately Project Templates API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/project_templates/get_discussion` |
+| Handler | `OperatelyWeb.Api.ProjectTemplates.GetDiscussion` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>template_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>discussion_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `discussion` | `project_template_discussion` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/get_discussion?discussion_id=value&template_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "discussion": {
+    "__typename": "value",
+    "author": "<person>",
+    "body": "value",
+    "id": "value",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "position": 123,
+    "project_template_id": "value",
+    "title": "value",
+    "updated_at": "2026-01-01T09:30:00Z"
+  }
+}
+```
+

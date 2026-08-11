@@ -67,6 +67,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}><code>false</code></td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_discussions</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>true</code></td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -82,7 +90,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_from_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"include_people_and_assignments\":true, \"name\":\"value\", \"project_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/create_from_project\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"include_discussions\":true, \"include_people_and_assignments\":true, \"name\":\"value\", \"project_id\":\"value\"}'"} />
 
 ## Response Example
 
@@ -103,8 +111,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "archived_at": "2026-01-01T09:30:00Z",
     "creator": "<person>",
     "description": "value",
+    "discussions": [
+      "<project_template_discussion>"
+    ],
     "duration_days": 123,
     "id": "value",
+    "inactive_discussion_count": 123,
     "inactive_people_summary": "<project_template_inactive_people_summary>",
     "inserted_at": "2026-01-01T09:30:00Z",
     "milestone_count": 123,
