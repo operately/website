@@ -43,6 +43,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>include_permissions</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>include_access_levels</code></td>
   <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -72,7 +80,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/list?access_level=no_access&include_access_levels=true&include_members=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/spaces/list?access_level=no_access&include_access_levels=true&include_members=true&include_permissions=true\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
