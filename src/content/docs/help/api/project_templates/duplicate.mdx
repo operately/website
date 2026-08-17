@@ -1,0 +1,118 @@
+---
+title: "Project Templates API: Duplicate"
+description: "Duplicate with the Operately Project Templates API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/project_templates/duplicate` |
+| Handler | `OperatelyWeb.Api.ProjectTemplates.Duplicate` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>name</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `template` | `project_template` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/duplicate\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"id\":\"value\", \"name\":\"value\"}'"} />
+
+## Response Example
+
+```json
+{
+  "template": {
+    "__typename": "value",
+    "archived_at": "2026-01-01T09:30:00Z",
+    "creator": "<person>",
+    "description": "value",
+    "discussions": [
+      "<project_template_discussion>"
+    ],
+    "duration_days": 123,
+    "id": "value",
+    "inactive_discussion_count": 123,
+    "inactive_people_summary": "<project_template_inactive_people_summary>",
+    "inserted_at": "2026-01-01T09:30:00Z",
+    "milestone_count": 123,
+    "milestones": [
+      "<project_template_milestone>"
+    ],
+    "milestones_ordering_state": [
+      "value"
+    ],
+    "name": "value",
+    "people": [
+      "<project_template_person>"
+    ],
+    "permissions": "<project_template_permissions>",
+    "resource_nodes": [
+      "<project_template_resource_node>"
+    ],
+    "space": "<space>",
+    "task_assignments": [
+      "<project_template_task_assignment>"
+    ],
+    "task_count": 123,
+    "task_statuses": [
+      "<task_status>"
+    ],
+    "tasks": [
+      "<project_template_task>"
+    ],
+    "tasks_kanban_state": "value",
+    "updated_at": "2026-01-01T09:30:00Z"
+  }
+}
+```
+
