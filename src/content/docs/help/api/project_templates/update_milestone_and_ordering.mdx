@@ -1,6 +1,6 @@
 ---
-title: "Tasks API: Update milestone and ordering"
-description: "Update milestone and ordering with the Operately Tasks API."
+title: "Project Templates API: Update milestone and ordering"
+description: "Update milestone and ordering with the Operately Project Templates API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/tasks/update_milestone_and_ordering` |
-| Handler | `OperatelyWeb.Api.Tasks.UpdateMilestoneAndOrdering` |
+| Path | `/api/external/v1/project_templates/update_milestone_and_ordering` |
+| Handler | `OperatelyWeb.Api.ProjectTemplates.UpdateMilestoneAndOrdering` |
 
 ## Authentication
 
@@ -36,6 +36,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     </thead>
     <tbody>
       <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>template_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>task_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -68,13 +76,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `task` | `task` object | Yes | No |
-| `updated_milestones` | array of `milestone` object | Yes | No |
+| `task` | `project_template_task` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/update_milestone_and_ordering\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"index\":123, \"milestone_id\":\"value\", \"task_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/update_milestone_and_ordering\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"index\":123, \"milestone_id\":\"value\", \"task_id\":\"value\", \"template_id\":\"value\"}'"} />
 
 ## Response Example
 
@@ -82,63 +89,21 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 {
   "task": {
     "__typename": "value",
-    "assignees": [
-      "<person>"
-    ],
-    "available_statuses": [
-      "<task_status>"
-    ],
-    "closed_at": "2026-01-01T09:30:00Z",
-    "comments_count": 123,
-    "creator": "<person>",
     "description": "value",
-    "due_date": "<contextual_date>",
+    "due_offset_days": 123,
     "id": "value",
-    "inserted_at": "2026-01-01",
-    "milestone": "<milestone>",
+    "inserted_at": "2026-01-01T09:30:00Z",
     "name": "value",
-    "permissions": "<project_permissions>",
     "priority": "value",
-    "project": "<project>",
-    "project_space": "<space>",
+    "project_template_id": "value",
+    "project_template_milestone_id": "value",
     "reminders": [
       "<task_reminder>"
     ],
     "size": "value",
-    "space": "<space>",
-    "status": "<task_status>",
-    "subscription_list": "<subscription_list>",
-    "type": "space",
-    "updated_at": "2026-01-01"
-  },
-  "updated_milestones": [
-    {
-      "__typename": "value",
-      "available_statuses": [
-        "<task_status>"
-      ],
-      "comments": [
-        "<milestone_comment>"
-      ],
-      "comments_count": 123,
-      "completed_at": "2026-01-01",
-      "creator": "<person>",
-      "description": "value",
-      "id": "value",
-      "inserted_at": "2026-01-01",
-      "permissions": "<project_permissions>",
-      "project": "<project>",
-      "space": "<space>",
-      "status": "pending",
-      "subscription_list": "<subscription_list>",
-      "tasks_kanban_state": "value",
-      "tasks_ordering_state": [
-        "value"
-      ],
-      "timeframe": "<timeframe>",
-      "title": "value"
-    }
-  ]
+    "task_status": "<task_status>",
+    "updated_at": "2026-01-01T09:30:00Z"
+  }
 }
 ```
 
