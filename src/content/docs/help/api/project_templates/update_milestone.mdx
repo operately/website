@@ -83,6 +83,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>tasks_kanban_state</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>json</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -97,7 +105,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/update_milestone\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"due_offset_days\":123, \"milestone_id\":\"value\", \"tasks_ordering_state\":[\"value\"], \"template_id\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/project_templates/update_milestone\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"description\":\"value\", \"due_offset_days\":123, \"milestone_id\":\"value\", \"tasks_kanban_state\":\"value\", \"tasks_ordering_state\":[\"value\"], \"template_id\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
@@ -110,6 +118,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "id": "value",
     "inserted_at": "2026-01-01T09:30:00Z",
     "project_template_id": "value",
+    "tasks_kanban_state": "value",
     "tasks_ordering_state": [
       "value"
     ],
