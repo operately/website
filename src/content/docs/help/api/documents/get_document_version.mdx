@@ -1,0 +1,89 @@
+---
+title: "Documents API: Get document version"
+description: "Get document version with the Operately Documents API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/documents/get_document_version` |
+| Handler | `OperatelyWeb.Api.Documents.GetVersion` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>version_number</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `version` | `document_version` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/documents/get_document_version?document_id=value&version_number=123\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "version": {
+    "__typename": "value",
+    "content": "value",
+    "content_changed": true,
+    "editor": "<person>",
+    "id": "value",
+    "inserted_at": "value",
+    "is_current": true,
+    "origin": "value",
+    "restored_from_version_number": 123,
+    "title": "value",
+    "title_changed": true,
+    "version_number": 123
+  }
+}
+```
+

@@ -1,0 +1,134 @@
+---
+title: "Documents API: Restore document version"
+description: "Restore document version with the Operately Documents API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `mutation` |
+| Method | `POST` |
+| Path | `/api/external/v1/documents/restore_document_version` |
+| Handler | `OperatelyWeb.Api.Documents.RestoreVersion` |
+
+## Authentication
+
+- Requires a valid API token.
+- Requires a write-enabled token.
+- Read-only tokens return `403`.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>document_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>version_number</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>expected_current_version</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>integer</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `document` | `resource_hub_document` object | Yes | No |
+| `restored_version` | `document_version` object | No | Yes |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/documents/restore_document_version\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"document_id\":\"value\", \"expected_current_version\":123, \"version_number\":123}'"} />
+
+## Response Example
+
+```json
+{
+  "document": {
+    "__typename": "value",
+    "author": "<person>",
+    "comments_count": 123,
+    "content": "value",
+    "current_version": 123,
+    "goal": "<goal>",
+    "id": "value",
+    "inserted_at": "value",
+    "name": "value",
+    "notifications": [
+      "<notification>"
+    ],
+    "parent_folder": "<resource_hub_folder>",
+    "parent_folder_id": "value",
+    "path_to_document": [
+      "<resource_hub_folder>"
+    ],
+    "permissions": "<resource_hub_permissions>",
+    "potential_subscribers": [
+      "<subscriber>"
+    ],
+    "project": "<project>",
+    "published_at": "2026-01-01T09:30:00Z",
+    "reactions": [
+      "<reaction>"
+    ],
+    "resource_hub": "<resource_hub>",
+    "resource_hub_id": "value",
+    "space": "<space>",
+    "state": "draft",
+    "subscription_list": "<subscription_list>",
+    "updated_at": "2026-01-01",
+    "versions_count": 123
+  },
+  "restored_version": {
+    "__typename": "value",
+    "content": "value",
+    "content_changed": true,
+    "editor": "<person>",
+    "id": "value",
+    "inserted_at": "value",
+    "is_current": true,
+    "origin": "value",
+    "restored_from_version_number": 123,
+    "title": "value",
+    "title_changed": true,
+    "version_number": 123
+  }
+}
+```
+
