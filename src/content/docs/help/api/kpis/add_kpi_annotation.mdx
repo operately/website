@@ -1,6 +1,6 @@
 ---
-title: "Kpis API: Delete kpi"
-description: "Delete kpi with the Operately Kpis API."
+title: "Kpis API: Add kpi annotation"
+description: "Add kpi annotation with the Operately Kpis API."
 ---
 
 import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
@@ -11,8 +11,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | --- | --- |
 | Type | `mutation` |
 | Method | `POST` |
-| Path | `/api/external/v1/kpis/delete_kpi` |
-| Handler | `OperatelyWeb.Api.Kpis.DeleteKpi` |
+| Path | `/api/external/v1/kpis/add_kpi_annotation` |
+| Handler | `OperatelyWeb.Api.Kpis.AddKpiAnnotation` |
 
 ## Authentication
 
@@ -43,6 +43,22 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>date</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>date</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>title</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -52,35 +68,24 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `kpi` | `kpi` object | Yes | No |
+| `annotation` | `kpi_annotation` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/kpis/delete_kpi\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"kpi_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/kpis/add_kpi_annotation\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"date\":\"2026-01-01\", \"kpi_id\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
-  "kpi": {
+  "annotation": {
     "__typename": "value",
-    "annotations": [
-      "<kpi_annotation>"
-    ],
-    "cadence": "value",
-    "champion": "<person>",
-    "description": "value",
-    "entries": [
-      "<kpi_entry>"
-    ],
+    "created_by": "<person>",
+    "date": "2026-01-01",
     "id": "value",
     "inserted_at": "2026-01-01T09:30:00Z",
-    "latest_entry": "<kpi_entry>",
-    "name": "value",
-    "space_id": "value",
-    "subscription_list": "<subscription_list>",
-    "unit": "value",
+    "title": "value",
     "updated_at": "2026-01-01T09:30:00Z"
   }
 }
