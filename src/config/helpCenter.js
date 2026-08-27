@@ -79,6 +79,10 @@ export default function helpCenterSidebar() {
           },
           { label: "Reset password", link: "/help/reset-password" },
           { label: "Change your password", link: "/help/change-password" },
+          {
+            label: "Connect an AI client with MCP",
+            link: "/help/mcp-connections",
+          },
           { label: "Log out", link: "/help/log-out" },
         ],
       },
@@ -221,6 +225,14 @@ export default function helpCenterSidebar() {
           {
             label: "Create a project",
             link: "/help/create-project",
+          },
+          {
+            label: "Project templates",
+            link: "/help/project-templates",
+          },
+          {
+            label: "Save a project as a template",
+            link: "/help/save-project-as-template",
           },
           {
             label: "Add project description",
@@ -400,6 +412,10 @@ export default function helpCenterSidebar() {
           { label: "Copy a document", link: "/help/copy-document" },
           { label: "Move a document", link: "/help/move-document" },
           { label: "Edit a document", link: "/help/edit-document" },
+          {
+            label: "View document version history",
+            link: "/help/document-version-history",
+          },
           {
             label: "Edit a file title and description",
             link: "/help/edit-file-details",
@@ -598,6 +614,10 @@ export default function helpCenterSidebar() {
           {
             label: "Use the CLI",
             link: "/help/cli-usage",
+          },
+          {
+            label: "Connect an AI client with MCP",
+            link: "/help/mcp-connections",
           },
           {
             label: "Use with OpenClaw",
