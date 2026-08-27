@@ -20,6 +20,7 @@ Track company-wide progress without the chaos of spreadsheets. Set clear targets
 Keep projects on track with built-in best practices that guide your team to successful delivery.
 
 - Organize work with flexible task boards and clear milestones
+- Reuse [project templates](/help/project-templates) for recurring work
 - Run consistent check-ins that keep everyone accountable
 - Move conversations out of messy email threads into focused discussions
 - See all project resources, action items, and retrospectives in one place
@@ -54,5 +55,5 @@ Create, store, and share all types of content in one centralized system with pro
 
 - Create rich-text documents with formatting and embedded images
 - Upload files of any type to keep resources accessible to your team
-- Organize content with folders and maintain version history
+- Organize content with folders and [maintain version history](/help/document-version-history)
 - Link to external resources and keep everything findable in one place

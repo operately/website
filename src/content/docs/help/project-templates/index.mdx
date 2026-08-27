@@ -1,0 +1,68 @@
+---
+title: "Project templates"
+description: "Learn how to create, browse, and reuse project templates for recurring work."
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import ImageEnhancer from '@/components/ImageEnhancer.astro';
+
+<ImageEnhancer />
+
+Project templates are reusable starting points for recurring work. A template belongs to one space. When you create a project from a template, Operately copies its structure, including milestones, tasks, people, discussions, and Docs & Files, into a new independent project. Dates in a template are relative to the new project's start date.
+
+## How to get there
+
+Open a space and select the **Templates** tool. If you don't see it, a space admin needs to [enable Templates](/help/space-tools).
+
+## Create a blank template
+
+You need Edit Access on the space to create or change templates.
+
+<Steps>
+1. Open the **Templates** tool. Operately opens the space's **Project Templates** page.
+2. Click **New template**.
+3. Enter a **Template name**, then click **Create template**.
+</Steps>
+
+## Edit a template
+
+Open a template to use it like a project shell. Tabs:
+
+- **Overview** — name, description, **Project duration**, milestones, **Champion**, **Reviewer**, and **Contributors**
+- **Tasks** — list or board, relative due dates, assignees, and workflow
+- **Discussions**
+- **Docs & Files**
+
+Relative dates use labels such as **On the project start date** and **N days after project starts**.
+
+## Duplicate, archive, restore, or delete
+
+On a library card menu or the template **Actions** menu:
+
+- **Duplicate** — opens **Duplicate project template**. Default name is `Copy of [name]`. Submit with **Duplicate template**.
+- **Archive** — removes the template from project creation. You can restore it later.
+- **Restore** — returns an archived template to active use.
+- **Delete** — permanently removes the template. Existing projects created from it stay unchanged.
+
+Archived templates do not show **Create project**. Filter the library to **Archived** to find them.
+
+## Create a project from a template
+
+You can start a project from a template in a few places:
+
+- On a library card, click **Create project**
+- On [Create a project](/help/create-project), choose a **Template** and a **Project start date**, then click **Add Project**
+- From a Work Map **Add project** dialog, after you choose a **Space**
+
+To turn an existing project into a template, see [Save a project as a template](/help/save-project-as-template).
+
+## When to use this
+
+- Recurring launches, onboarding, or hiring plans that should start with the same milestones and tasks
+- Copying a well-run project's structure without copying its health, check-ins, or activity
+
+<Aside>
+Generated projects do not stay linked to the template. Later template edits do not change projects already created from it.
+</Aside>
+
+Turn the **Templates** tool on or off in [Space tools](/help/space-tools).
