@@ -62,6 +62,7 @@ export async function GET(context) {
         pubDate: post.data.date,
         link: feedLink,
         content,
+        customData: operatelyVersionElement(post.data.version),
       });
     } catch (error) {
       console.error(`Error processing post ${post.id}:`, error);
@@ -72,6 +73,7 @@ export async function GET(context) {
         pubDate: post.data.date,
         link: `/releases/${post.slug}/`,
         content: post.data.description || "",
+        customData: operatelyVersionElement(post.data.version),
       });
     }
   }
@@ -86,10 +88,25 @@ export async function GET(context) {
     xmlns: {
       atom: "http://www.w3.org/2005/Atom",
       content: "http://purl.org/rss/1.0/modules/content/",
+      operately: "https://operately.com/ns",
     },
     customData: `
       <language>en-us</language>
       <atom:link href="${baseUrl}/releases/rss.xml" rel="self" type="application/rss+xml" />
     `,
   });
+}
+
+function operatelyVersionElement(version) {
+  if (!version) return "";
+  return `<operately:version>${escapeXml(version)}</operately:version>`;
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }

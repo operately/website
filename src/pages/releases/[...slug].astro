@@ -91,6 +91,7 @@ const jsonLd = JSON.stringify({
   <Fragment slot="head-releases">
     <meta name="author" content="Operately Team" />
     <meta name="date" content={entry.data.date.toISOString()} />
+    <meta name="operately:version" content={entry.data.version} />
     <script type="application/ld+json" set:html={jsonLd} />
   </Fragment>
 
