@@ -1,0 +1,39 @@
+---
+title: "Create a KPI"
+description: "Learn how to add a KPI to a space so the team can track a metric over time."
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Create a KPI when a space needs a standing metric to watch, such as monthly revenue or NPS. After you create it, you land on the KPI list and can [log the first update](/help/log-kpi-update) from the KPI's page.
+
+## How to get there
+
+- Space home → **KPIs** tool card → **New KPI** in the page header
+- Empty KPI list → **Add the first KPI**
+- Space home empty **KPIs** card → **Track a KPI** (opens the same KPI list, where you can create)
+
+## Create a KPI
+
+<Steps>
+1. Open the space and click the **KPIs** tool card.
+2. Click **New KPI** (or **Add the first KPI** if the list is empty).
+3. In the **New KPI** dialog, fill in the fields:
+   - **Name** (required) — placeholder example: "e.g. Monthly Recurring Revenue"
+   - **Unit** (required) — placeholder example: "e.g. USD, %, users"
+   - **Cadence** — **Weekly** or **Monthly** (defaults to **Monthly**)
+   - **Champion** — optional; you can leave **No champion**
+4. Click **Create KPI**.
+</Steps>
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space. The **New KPI** button is hidden if you can only view or comment.
+
+## Edge cases
+
+<Aside>
+**Name** and **Unit** are required. If **Cadence** is not **Weekly** or **Monthly**, the form asks you to **Choose a cadence**.
+</Aside>
+
+After the KPI exists, you can [edit its name, description, champion, cadence, and unit](/help/edit-kpi) on its page.

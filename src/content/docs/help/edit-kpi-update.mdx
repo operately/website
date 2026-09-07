@@ -1,0 +1,44 @@
+---
+title: "Edit or delete a KPI update"
+description: "Correct or remove a value you already logged on a KPI."
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+If a logged number or date is wrong, you can edit it. The previous number stays visible on that update. If the update should not exist, you can delete it.
+
+## How to get there
+
+Open the KPI → **Recorded updates** → open the row's **Update options** menu (the ⋮ control).
+
+## Edit a logged value
+
+<Steps>
+1. Open the KPI and scroll to **Recorded updates**.
+2. On the row, open **Update options** and click **Edit**.
+3. In **Edit update —** (the title includes the KPI name), change **Value** and/or **Date**.
+4. Click **Save changes**.
+</Steps>
+
+The dialog says you are correcting the value recorded on that date, and that "The previous number stays visible on this update."
+
+After an edit, the row can show **Edited**. Click **Edited** to see **Previous values**, including who replaced the number and when ("Replaced by … on …").
+
+## Delete a logged value
+
+<Steps>
+1. Open the KPI and scroll to **Recorded updates**.
+2. On the row, open **Update options** and click **Delete**.
+3. Confirm **Delete this update?** The message names the value and date, for example that it "will be permanently removed."
+4. Click **Delete update**, or **Keep update** to cancel.
+</Steps>
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space. Without it, the **Update options** menu is hidden.
+
+<Aside type="caution">
+Deleting an update cannot be undone. If delete fails, you may see **Update not deleted**.
+</Aside>
+
+To discuss a value without changing it, [comment on the update](/help/comment-on-kpi-update).

@@ -37,6 +37,7 @@ Make better decisions with AI-powered insights and recommendations based on your
 Give functions and departments their own home where all their work lives together.
 
 - Keep goals, projects, and documents organized by department or team
+- Track [KPIs](/help/intro-to-kpis) for the numbers each space cares about
 - Add files and documentation that teams reference frequently
 - Give teams autonomy while maintaining company-wide visibility
 - Control access and sharing for sensitive information

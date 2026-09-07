@@ -1,0 +1,40 @@
+---
+title: "Annotate a KPI chart"
+description: "Mark a date on a KPI chart with an event that helps explain the numbers."
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Annotations are dated markers on the KPI chart — a launch, a pricing change, or another event. They are not logged values. Clicking a marker opens it so you can edit or delete it.
+
+## How to get there
+
+Open a KPI. On the chart, click **Add annotation**, or click an existing marker on the chart.
+
+## Add an annotation
+
+<Steps>
+1. Open the KPI.
+2. Click **Add annotation**.
+3. In the **Add annotation** dialog, set **Date** and **Title** (placeholder: "e.g. Launched enterprise plan"). Title is limited to 80 characters.
+4. Click **Add annotation**.
+</Steps>
+
+The dialog explains: "Mark a date on this chart with something that happened — a launch, a pricing change, or another event that helps explain the numbers."
+
+## Edit or delete an annotation
+
+<Steps>
+1. Open the KPI.
+2. Click the annotation marker on the chart.
+3. In **Edit annotation**, change **Date** or **Title**, then click **Save annotation**.
+4. To remove it, click **Delete annotation**.
+</Steps>
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space. Without it, **Add annotation** is hidden and markers are not clickable to edit.
+
+<Aside>
+You must **Choose a date** and **Enter a title**.
+</Aside>
