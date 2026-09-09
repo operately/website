@@ -58,6 +58,22 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>cursor</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>paginate</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>boolean</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}><code>false</code></td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -68,11 +84,12 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
 | `activities` | array of `activity` object | Yes | No |
+| `next_cursor` | `string` | Yes | Yes |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/list_activities?actions[]=value&scope_id=value&scope_type=person\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/companies/list_activities?actions[]=value&cursor=value&paginate=true&scope_id=value&scope_type=person\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
@@ -98,7 +115,8 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       "scope_type": "value",
       "updated_at": "2026-01-01T09:30:00Z"
     }
-  ]
+  ],
+  "next_cursor": "value"
 }
 ```
 
