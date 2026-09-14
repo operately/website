@@ -365,6 +365,25 @@ export default function helpCenterSidebar() {
         ],
       },
       {
+        label: "KPIs",
+        items: [
+          { label: "Introduction to KPIs", link: "/help/intro-to-kpis" },
+          { label: "Create a KPI", link: "/help/create-kpi" },
+          { label: "Log a KPI update", link: "/help/log-kpi-update" },
+          { label: "Edit a KPI", link: "/help/edit-kpi" },
+          { label: "Annotate a KPI chart", link: "/help/annotate-kpi-chart" },
+          {
+            label: "Edit or delete a KPI update",
+            link: "/help/edit-kpi-update",
+          },
+          {
+            label: "Comment on a KPI update",
+            link: "/help/comment-on-kpi-update",
+          },
+          { label: "Delete a KPI", link: "/help/delete-kpi" },
+        ],
+      },
+      {
         label: "Kanban board",
         items: [
           { label: "Introduction", link: "/help/kanban-board-introduction" },

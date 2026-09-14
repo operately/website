@@ -1,0 +1,31 @@
+---
+title: "Delete a KPI"
+description: "Permanently remove a KPI and all of its recorded updates from a space."
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Deleting a KPI removes the metric and every logged value. Use this when the space should no longer track that number.
+
+## How to get there
+
+Open the KPI → sidebar **Actions** → **Delete**.
+
+## Delete a KPI
+
+<Steps>
+1. Open the KPI.
+2. In the sidebar **Actions** list, click **Delete**.
+3. The dialog title is **Delete** followed by the KPI name. Read the warning: **This action cannot be undone**. The description says deleting the KPI "permanently removes the KPI and all of its recorded updates."
+4. Click **Delete forever**, or **Cancel** to keep the KPI.
+</Steps>
+
+After a successful delete you return to the space **KPIs** list.
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space. **Delete** is hidden otherwise.
+
+<Aside type="caution">
+This cannot be undone. To remove a single bad reading instead, [delete that update](/help/edit-kpi-update).
+</Aside>

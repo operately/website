@@ -1,0 +1,40 @@
+---
+title: "Edit a KPI"
+description: "Change a KPI's name, description, champion, cadence, unit, and notification subscription."
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+KPI settings live on the KPI's own page. Name and description are in the main column. Champion, cadence, unit, and notifications are in the sidebar.
+
+## How to get there
+
+Space home → **KPIs** → click the KPI row.
+
+## What you can change
+
+<Steps>
+1. Open the KPI.
+2. Click the **name** at the top to rename it.
+3. In **Description**, click **Add a description...** (or the existing text) to edit. Placeholder while editing: "Describe this KPI..."
+4. In the sidebar:
+   - **Champion**: search and pick a person, or leave it as **No champion**
+   - **Cadence**: click the current value and choose **Weekly** or **Monthly**
+   - **Unit**: click the unit text to change it (for example USD, %, users)
+   - **Notifications**: click **Subscribe** or **Unsubscribe**. The text below the button says whether you are receiving notifications from this KPI.
+5. Under **Actions**, click **Copy URL** to copy the KPI page link. A toast confirms that the URL was copied.
+</Steps>
+
+Changes to name, champion, cadence, and unit save as you edit. Description saves when you finish editing that field.
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space. Without it, name, description, champion, cadence, and unit are read-only. **Copy URL** is still available.
+
+Champion search is limited to people in the space.
+
+## Related
+
+- [Log a KPI update](/help/log-kpi-update)
+- [Annotate a KPI chart](/help/annotate-kpi-chart)
+- [Delete a KPI](/help/delete-kpi)

@@ -1,0 +1,40 @@
+---
+title: "Log a KPI update"
+description: "Record the current value of a KPI for today or another date."
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+Logging an update adds a point to the KPI chart and a row to **Recorded updates**. Log one KPI at a time.
+
+## How to get there
+
+- Open a KPI. Click **Log update** in the page header, or **Log update** on the chart.
+- Open **Review** in the top navigation. If you are the champion, look for **Log update for** followed by the KPI name under that space. That link opens the KPI page so you can log the update.
+
+## Log an update
+
+<Steps>
+1. Open the KPI.
+2. Click **Log update**.
+3. In the **Log update** dialog (its title includes the KPI name), enter **Value** in the KPI's unit.
+4. By default the form logs for **today**. To backfill another day, click **Change date**, then pick a **Date**.
+5. Optionally add a **Note (optional)** (placeholder: "What's behind this number?"). The helper text says it is "Posted as the first comment on this update."
+6. Click **Record update**.
+</Steps>
+
+The dialog reminds you of the unit and, if there is already history, the last recorded value. For the first update it says "This will be the first recorded value."
+
+## Who can do this
+
+You need **Edit Access** or **Full Access** on the space.
+
+KPI champions also see due items on [Review](/help/review-due-actions) when the current weekly or monthly period has no value yet. The assignment is due on the first day of the period and stays until you record an update.
+
+## Edge cases
+
+<Aside type="caution">
+You must **Enter a value** (a number) and **Choose a date**. If the value is saved but the optional note fails, you see **Note not posted**: "The value was recorded, but the note wasn't saved." Do not log the same number again; [add a comment](/help/comment-on-kpi-update) on that update instead.
+</Aside>
+
+You can later [edit or delete a logged value](/help/edit-kpi-update).
