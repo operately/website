@@ -51,7 +51,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
-| `discussions` | array of `discussion` object | Yes | No |
+| `discussions` | array of `goal_discussion` object | Yes | No |
 
 
 ## cURL Example
@@ -65,31 +65,13 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   "discussions": [
     {
       "__typename": "value",
+      "activity_id": "value",
       "author": "<person>",
-      "body": "value",
-      "comments": [
-        "<comment>"
-      ],
-      "comments_count": 123,
+      "comment_count": 123,
+      "content": "value",
       "id": "value",
       "inserted_at": "2026-01-01",
-      "notifications": [
-        "<notification>"
-      ],
-      "permissions": "<space_permissions>",
-      "potential_subscribers": [
-        "<subscriber>"
-      ],
-      "published_at": "2026-01-01",
-      "reactions": [
-        "<reaction>"
-      ],
-      "scheduled_at": "2026-01-01",
-      "space": "<space>",
-      "state": "draft",
-      "subscription_list": "<subscription_list>",
-      "title": "value",
-      "updated_at": "2026-01-01"
+      "title": "value"
     }
   ]
 }
