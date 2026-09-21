@@ -611,6 +611,10 @@ export default function helpCenterSidebar() {
             link: "/help/cli",
           },
           {
+            label: "Get started as an agent",
+            link: "/help/cli-agents",
+          },
+          {
             label: "Install and update",
             link: "/help/cli-installation",
           },
