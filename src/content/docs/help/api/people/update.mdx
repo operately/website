@@ -68,6 +68,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>language</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>language</code> enum (<code>en</code>, <code>pt-BR</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>time_format</code></td>
   <td style={{ whiteSpace: "normal" }}><code>time_format</code> enum (<code>automatic</code>, <code>hour_12</code>, <code>hour_24</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -153,7 +161,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"daily_summary_delivery_time\":\"value\", \"description\":\"value\", \"email_window_minutes\":123, \"full_name\":\"value\", \"id\":\"value\", \"manager_id\":\"value\", \"notify_about_assignments\":true, \"notify_on_mention\":true, \"send_daily_summary\":true, \"theme\":\"value\", \"time_format\":\"automatic\", \"timezone\":\"value\", \"title\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/people/update\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"daily_summary_delivery_time\":\"value\", \"description\":\"value\", \"email_window_minutes\":123, \"full_name\":\"value\", \"id\":\"value\", \"language\":\"en\", \"manager_id\":\"value\", \"notify_about_assignments\":true, \"notify_on_mention\":true, \"send_daily_summary\":true, \"theme\":\"value\", \"time_format\":\"automatic\", \"timezone\":\"value\", \"title\":\"value\"}'"} />
 
 ## Response Example
 
@@ -175,6 +183,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "has_open_invitation": true,
     "id": "value",
     "invite_link": "<invite_link>",
+    "language": "en",
     "manager": "<person>",
     "notify_about_assignments": true,
     "notify_on_mention": true,
