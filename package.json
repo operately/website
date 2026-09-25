@@ -31,8 +31,13 @@
     "sanitize-html": "^2.13.0",
     "satori": "^0.26.0",
     "satori-html": "^0.3.2",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4.0.0",
     "ultrahtml": "^1.5.3"
+  },
+  "overrides": {
+    "astro": {
+      "sharp": "$sharp"
+    }
   }
 }
