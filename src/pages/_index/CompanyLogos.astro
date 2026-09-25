@@ -1,0 +1,56 @@
+---
+const companies = [
+  { name: "Instawork", logo: "instawork", width: 128 },
+  { name: "Moonshot AI", logo: "moonshot-ai", width: 140 },
+  { name: "CoreWeave", logo: "coreweave", width: 140 },
+  { name: "Sential", logo: "sential", width: 38, wordmark: "SENTIAL" },
+  { name: "PwC", logo: "pwc", width: 60 },
+  { name: "Meituan", logo: "meituan", width: 128, extension: "png" },
+  { name: "Semaphore", logo: "semaphore", width: 140 },
+  { name: "Elephantis", logo: "elephantis", width: 28, wordmark: "Elephantis" },
+];
+---
+
+<section aria-labelledby="company-logos-heading" class="px-6 py-16 lg:px-8">
+  <div class="mx-auto max-w-7xl text-center">
+    <h2
+      id="company-logos-heading"
+      class="text-sm font-medium text-balance text-gray-400"
+    >
+      Awesome teams using Operately
+    </h2>
+    <div
+      class="mt-8 overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-500"
+      tabindex="0"
+      role="region"
+      aria-label="Company logos; scroll horizontally to see all companies"
+    >
+      <ul
+        role="list"
+        class="flex min-w-max items-center justify-between gap-6 py-2"
+      >
+        {
+          companies.map(
+            ({ name, logo, width, wordmark, extension = "svg" }) => (
+              <li class="flex h-12 shrink-0 items-center justify-center gap-1.5 text-lg font-semibold text-gray-700 sm:text-xl">
+                <img
+                  src={`/images/companies/${logo}.${extension}`}
+                  alt={wordmark ? "" : name}
+                  width={width}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
+                  class:list={[
+                    "max-h-12 max-w-full object-contain opacity-80",
+                    logo === "moonshot-ai" ? "brightness-0" : "grayscale",
+                  ]}
+                />
+                {wordmark && <span>{wordmark}</span>}
+              </li>
+            ),
+          )
+        }
+      </ul>
+    </div>
+  </div>
+</section>
