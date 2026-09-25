@@ -12,6 +12,17 @@ import { getLatestRelease } from "../../utils/releases";
 const latestRelease = await getLatestRelease();
 const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
 
+const companyLogos = [
+  { name: "Instawork", file: "instawork.svg", width: 186, height: 29 },
+  { name: "Moonshot AI", file: "moonshot-ai.svg", width: 197, height: 33 },
+  { name: "CoreWeave", file: "coreweave.svg", width: 666, height: 155 },
+  { name: "Sential", file: "sential.svg", width: 143, height: 28 },
+  { name: "PwC", file: "pwc.svg", width: 70, height: 53 },
+  { name: "Meituan", file: "meituan.svg", width: 113, height: 40 },
+  { name: "Semaphore", file: "semaphore.svg", width: 164, height: 23 },
+  { name: "Elephantis", file: "elephantis.svg", width: 141, height: 23 },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -124,6 +135,30 @@ const schema = [
             />
           </video>
         </div>
+      </div>
+    </section>
+
+    {/* ─── Community logos ─── */}
+    <section class="px-6 pt-12 pb-6 lg:px-8" aria-labelledby="company-logos-heading">
+      <div class="mx-auto max-w-7xl">
+        <h2 id="company-logos-heading" class="text-center text-sm font-medium text-gray-500">
+          From teams at
+        </h2>
+        <ul role="list" class="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
+          {companyLogos.map(({ name, file, width, height }) => (
+            <li>
+              <img
+                src={`/images/logos/${file}`}
+                alt={name}
+                width={width}
+                height={height}
+                loading="lazy"
+                decoding="async"
+                class="h-8 w-auto max-w-36 object-contain opacity-60 grayscale"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
 
