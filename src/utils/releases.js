@@ -1,5 +1,9 @@
 import { getCollection } from 'astro:content';
 
+export function releaseSlug(release) {
+  return release.id;
+}
+
 export async function getLatestRelease() {
   const allReleases = await getCollection('releases', ({ data }) => {
     return data.published === true;
@@ -11,7 +15,7 @@ export async function getLatestRelease() {
 
   return {
     version: latestRelease.data.version,
-    slug: latestRelease.slug,
+    slug: releaseSlug(latestRelease),
     date: latestRelease.data.date.toISOString()
   };
 }

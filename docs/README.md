@@ -45,6 +45,10 @@ Eg. if you create a React component that uses built-in Astro components and
 call it in a page or another Astro component, the code may not even build
 due to Astro components not rendering on the client[^1].
 
+## Runtime requirements
+
+Astro 7 requires **Node.js 22.12.0 or later**. Use Node 22 in both local development and Cloudflare Pages builds.
+
 ## Dev Server
 
 The development setup uses two servers running concurrently:

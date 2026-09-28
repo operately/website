@@ -646,9 +646,13 @@ export default function helpCenterSidebar() {
       },
       {
         label: "API docs",
-        autogenerate: {
-          directory: "help/api",
-        },
+        items: [
+          {
+            autogenerate: {
+              directory: "help/api",
+            },
+          },
+        ],
       },
     ],
     editLink: {

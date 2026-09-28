@@ -1,6 +1,7 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
-import { getPublishedReleases } from "../../utils/releases";
+import { render } from "astro:content";
+import { getPublishedReleases, releaseSlug } from "../../utils/releases";
 import { releaseOgImagePath } from "../../utils/releaseOgImage";
 import { Rss, Link } from "lucide-react";
 import "../../styles/anchor-links.css";
@@ -18,24 +19,24 @@ const formatDate = (date) => {
 };
 
 const { Content: LatestReleaseContent } = latestRelease
-  ? await latestRelease.render()
+  ? await render(latestRelease)
   : { Content: null };
 ---
 
 <ReleasesLayout
   title="Operately Releases"
   description="All product releases and updates from Operately"
-  image={latestRelease ? releaseOgImagePath(`/releases/${latestRelease.slug}/`) : undefined}
+  image={latestRelease ? releaseOgImagePath(`/releases/${releaseSlug(latestRelease)}/`) : undefined}
 >
   <h1 class="text-4xl font-bold mb-8">Operately Releases</h1>
 
   <!-- Latest Release -->
   {
     latestRelease && (
-      <article id={latestRelease.slug} class="mb-12">
+      <article id={releaseSlug(latestRelease)} class="mb-12">
         <h2 class="text-3xl font-bold mb-2">
           <a
-            href={`/releases/${latestRelease.slug}`}
+            href={`/releases/${releaseSlug(latestRelease)}`}
             class="text-gray-900 hover:text-operately-blue transition-colors group inline-flex items-center"
           >
             {latestRelease.data.title} - v{latestRelease.data.version}
@@ -59,7 +60,7 @@ const { Content: LatestReleaseContent } = latestRelease
       olderReleases.map((release) => (
         <li>
           <a
-            href={`/releases/${release.slug}`}
+            href={`/releases/${releaseSlug(release)}`}
             class="text-operately-blue underline hover:text-operately-dark-blue transition-colors"
           >
             v{release.data.version} - {release.data.title}
