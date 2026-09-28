@@ -1,93 +1,43 @@
-<!doctype html>
-<html>
-  <head>
-    <style>
-      body {
-        background: #666;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      }
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
 
-      .window {
-        background: #fff;
-        border: 2px solid #000;
-        border-radius: 6px;
-        width: 400px;
-        box-shadow: 2px 2px 0px #000;
-      }
-
-      .title-bar {
-        background: repeating-linear-gradient(
-          to right,
-          #000,
-          #000 2px,
-          #fff 2px,
-          #fff 4px
-        );
-        height: 24px;
-        border-bottom: 2px solid #000;
-        display: flex;
-        align-items: center;
-        padding: 0 8px;
-      }
-
-      .title {
-        background: white;
-        padding: 0 8px;
-        font-weight: bold;
-        font-size: 14px;
-      }
-
-      .content {
-        padding: 20px;
-        text-align: center;
-      }
-
-      .icon {
-        font-size: 48px;
-        margin-bottom: 16px;
-      }
-
-      .message {
-        font-size: 14px;
-        margin-bottom: 24px;
-        line-height: 1.4;
-      }
-
-      .button {
-        background: white;
-        border: 2px solid #000;
-        border-radius: 4px;
-        padding: 6px 20px;
-        font-size: 14px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      .button:active {
-        background: #000;
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="window">
-      <div class="title-bar">
-        <div class="title">Error 404</div>
-      </div>
-      <div class="content">
-        <div class="icon">&#128193;</div>
-        <div class="message">
-          The requested resource could not be found.<br /><br />
-          Error ID: 404<br />
-          "Page not found"
-        </div>
-        <button class="button" onclick="window.location.href='/'">OK</button>
+<BaseLayout title="Page not found">
+  <meta slot="head" name="robots" content="noindex" />
+  <main class="px-4 py-12 sm:px-6 sm:py-24 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <p
+        class="text-sm font-semibold uppercase tracking-wide text-operately-blue"
+      >
+        404
+      </p>
+      <h1
+        class="mt-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+      >
+        Page not found
+      </h1>
+      <p
+        class="mx-auto mt-4 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8"
+      >
+        The page may have moved, or the link may be incorrect. Browse the Help
+        Center or return to the homepage.
+      </p>
+      <div
+        class="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center"
+      >
+        <a
+          href="/help"
+          class="inline-flex min-h-11 items-center justify-center rounded-md bg-operately-blue px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-operately-dark-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
+        >
+          Visit Help Center
+        </a>
+        <a
+          href="/"
+          class="inline-flex min-h-11 items-center justify-center rounded-md border border-gray-300 bg-white px-5 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-edgy-blue"
+        >
+          Go to homepage
+        </a>
       </div>
     </div>
-  </body>
-</html>
+  </main>
+</BaseLayout>
