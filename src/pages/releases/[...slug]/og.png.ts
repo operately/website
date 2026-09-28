@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getPublishedReleases } from "../../../utils/releases";
+import { getPublishedReleases, releaseSlug } from "../../../utils/releases";
 import {
   generateReleaseOgImage,
   type ReleaseOgImageInput,
@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   const releases = await getPublishedReleases();
 
   return releases.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: releaseSlug(entry) },
     props: {
       title: entry.data.title,
       version: entry.data.version,

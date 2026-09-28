@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
-import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
-import { getPublishedReleases } from "../../utils/releases";
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
+import { render } from "astro:content";
+import { getPublishedReleases, releaseSlug } from "../../utils/releases";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { loadRenderers } from "astro:container";
 import { transform, walk } from "ultrahtml";
@@ -28,7 +29,7 @@ export async function GET(context) {
   for (const post of sortedReleases) {
     try {
       // Get the content component
-      const { Content } = await post.render();
+      const { Content } = await render(post);
 
       // Render content to string
       const rawContent = await container.renderToString(Content);
@@ -53,7 +54,7 @@ export async function GET(context) {
         ]
       );
 
-      let feedLink = `/releases/${post.slug}/`;
+      let feedLink = `/releases/${releaseSlug(post)}/`;
       let feedTitle = post.data.title;
 
       feedItems.push({
@@ -71,7 +72,7 @@ export async function GET(context) {
         title: post.data.title,
         description: post.data.description || "",
         pubDate: post.data.date,
-        link: `/releases/${post.slug}/`,
+        link: `/releases/${releaseSlug(post)}/`,
         content: post.data.description || "",
         customData: operatelyVersionElement(post.data.version),
       });
