@@ -1,0 +1,32 @@
+---
+import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
+import { PreviewShell } from "../../components/preview-lab/PreviewShell";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+---
+<ReleasesLayout title="Keep your team's metrics in view" description="Track important metrics, see how they change, and discuss the context with KPIs in Operately.">
+  <meta slot="head-releases" name="robots" content="noindex, nofollow" />
+  <article>
+    <p class="font-bold text-lg">Feature preview</p>
+    <div class="border-b-4 border-yellow-300 w-8 mb-8 mt-2"></div>
+    <h1 class="text-4xl font-extrabold mb-2 leading-snug">Keep your team's metrics in view</h1>
+    <p class="text-gray-500 mb-8 text-sm">KPIs in Operately</p>
+    <div class="prose max-w-none text-lg prose-a:!text-operately-blue prose-pre:bg-[#F0EDE8] prose-pre:text-gray-800 prose-pre:rounded-xl">
+      <p>Some numbers need attention every week or month: recurring revenue, customer satisfaction, trial signups. KPIs give your team a place to track those metrics in Operately, alongside the work that influences them.</p>
+      <p>Each KPI belongs to a space. Give it a name and unit, choose a weekly or monthly cadence, and assign a champion to keep it up to date. Unlike a goal target, a KPI tracks an ongoing measure without requiring a start or target value.</p>
+      <div class="not-prose">
+        <PreviewShell client:only="react">
+          <p slot="fallback">Loading the interactive KPI preview…</p>
+        </PreviewShell>
+      </div>
+      <h2>See what changed, and why</h2>
+      <p>Log a value and the date it represents. The chart builds a history of the metric, while the KPI list brings the latest values together. Add a note to an update or place a dated annotation on the chart to explain an event, such as a product launch or pricing change.</p>
+      <p>Discuss a recorded update in its comment thread so the conversation stays with the number. If a value needs correcting, edit it; the update keeps a history of the change.</p>
+      <h2>Make tracking a team habit</h2>
+      <p>A clear champion and cadence make responsibility visible. Champions receive a Review task when their KPI needs an update for the current period. Teammates can subscribe to notifications to follow along.</p>
+      <p>Try logging an update, adding an annotation, or exploring the KPI list above. This preview uses sample data: changes stay in your browser until you reload.</p>
+    </div>
+  </article>
+</ReleasesLayout>
