@@ -15,29 +15,13 @@ export default function helpCenterSidebar() {
       dark: "./src/layouts/square-logo-dense-white.png",
       alt: "Operately Logo",
     },
-    social: [
-      {
-        label: "Discord",
-        icon: "discord",
-        href: "https://discord.com/invite/2ngnragJYV",
-      },
-      {
-        label: "GitHub",
-        icon: "github",
-        href: "https://github.com/operately/operately",
-      },
-      {
-        label: "LinkedIn",
-        icon: "linkedin",
-        href: "https://www.linkedin.com/company/operately-com",
-      },
-      { label: "X", icon: "x.com", href: "https://x.com/operately" },
-      {
-        label: "YouTube",
-        icon: "youtube",
-        href: "https://youtube.com/@operately",
-      },
-    ],
+    social: {
+      discord: "https://discord.com/invite/2ngnragJYV",
+      github: "https://github.com/operately/operately",
+      linkedin: "https://www.linkedin.com/company/operately-com",
+      "x.com": "https://x.com/operately",
+      youtube: "https://youtube.com/@operately",
+    },
     head: [
       {
         tag: "script",
@@ -646,13 +630,9 @@ export default function helpCenterSidebar() {
       },
       {
         label: "API docs",
-        items: [
-          {
-            autogenerate: {
-              directory: "help/api",
-            },
-          },
-        ],
+        autogenerate: {
+          directory: "help/api",
+        },
       },
     ],
     editLink: {

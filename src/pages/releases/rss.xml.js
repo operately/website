@@ -1,6 +1,5 @@
 import rss from "@astrojs/rss";
-import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
-import { render } from "astro:content";
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
 import { getPublishedReleases, releaseSlug } from "../../utils/releases";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { loadRenderers } from "astro:container";
@@ -29,7 +28,7 @@ export async function GET(context) {
   for (const post of sortedReleases) {
     try {
       // Get the content component
-      const { Content } = await render(post);
+      const { Content } = await post.render();
 
       // Render content to string
       const rawContent = await container.renderToString(Content);
@@ -66,7 +65,7 @@ export async function GET(context) {
         customData: operatelyVersionElement(post.data.version),
       });
     } catch (error) {
-      console.error(`Error processing post ${post.id}:`, error);
+      console.error(`Error processing post ${post.slug}:`, error);
       // Fallback to description if content processing fails
       feedItems.push({
         title: post.data.title,

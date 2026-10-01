@@ -1,6 +1,5 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
-import { render } from "astro:content";
 import { getPublishedReleases, releaseSlug } from "../../utils/releases";
 import { releaseOgImagePath } from "../../utils/releaseOgImage";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -19,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, prev, next } = Astro.props;
-const { Content } = await render(entry);
+const { Content } = await entry.render();
 
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString("en-US", {
