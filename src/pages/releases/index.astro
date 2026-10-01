@@ -1,6 +1,5 @@
 ---
 import ReleasesLayout from "../../layouts/ReleasesLayout.astro";
-import { render } from "astro:content";
 import { getPublishedReleases, releaseSlug } from "../../utils/releases";
 import { releaseOgImagePath } from "../../utils/releaseOgImage";
 import { Rss, Link } from "lucide-react";
@@ -19,7 +18,7 @@ const formatDate = (date) => {
 };
 
 const { Content: LatestReleaseContent } = latestRelease
-  ? await render(latestRelease)
+  ? await latestRelease.render()
   : { Content: null };
 ---
 

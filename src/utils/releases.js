@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 export function releaseSlug(release) {
-  return release.id;
+  return release.slug;
 }
 
 export async function getLatestRelease() {
