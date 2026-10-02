@@ -6,7 +6,8 @@
     "dev": "astro dev --port 4321",
     "build": "astro build && node scripts/postprocess-sitemap.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:previews": "tsc -p tsconfig.preview.json && node --test scripts/preview-lab/styles.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.0",
@@ -15,18 +16,24 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/starlight": "^0.42.4",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
     "@fontsource/inter": "^5.2.8",
     "@headlessui/react": "^2.2.0",
+    "@operately/turboui": "0.3.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "astro": "^7.2.8",
     "hast-util-is-element": "^3.0.0",
+    "i18next": "^22.5.1",
     "lucide-react": "^0.454.0",
     "markdown-it": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.3.1",
+    "react-router": "^7.18.4",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "sanitize-html": "^2.13.0",
@@ -35,5 +42,10 @@
     "sharp": "^0.35.4",
     "tailwindcss": "^4.0.0",
     "ultrahtml": "^1.5.3"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.28",
+    "postcss-selector-parser": "^7.1.6",
+    "typescript": "^7.0.2"
   }
 }
