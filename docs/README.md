@@ -1,6 +1,6 @@
 # Developing the Operately website
 
-[Help Center: Product documentation writing guide](help-center.md)
+[Help Center: Product documentation writing guide](help-center/README.md)
 
 ## Best practices
 
