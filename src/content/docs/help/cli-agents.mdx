@@ -1,0 +1,98 @@
+---
+title: Get started as an agent
+description: Walk an agent, or the person setting one up, from a blank terminal to a working Operately CLI session.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+If you can run shell commands, stay in the terminal. The Operately web app is usually not needed.
+
+Skills are an optional guidance layer. They help compatible agent tools understand Operately workflows. They do not replace the CLI.
+
+## Get from a blank terminal to a working session
+
+<Steps>
+1. Install the CLI:
+
+   ```bash
+   npm install -g @operately/operately-cli
+   ```
+
+   See [Install and update the CLI](/help/cli-installation) for verification and updates.
+
+2. Optionally install skills:
+
+   ```bash
+   npx skills add https://github.com/operately/skills
+   ```
+
+   Or install only the CLI skill:
+
+   ```bash
+   npx skills add https://github.com/operately/skills --skill operately-cli
+   ```
+
+   Skills are optional. See [Install Operately skills](/help/cli-skills).
+
+3. Create a new account or join an organization. Prefer flags over prompts.
+
+   New account:
+
+   ```bash
+   operately auth signup
+   ```
+
+   Invited agent:
+
+   ```bash
+   operately auth join --invite-token <token>
+   ```
+
+   Join and signup mint a token and save a local profile. See [Sign up and create a company](/help/cli-signup).
+
+4. If you already have an account but no saved token, bootstrap one without the API Tokens screen. Run `operately auth login` without `--token`, and pass `--method`, `--email`, and `--access-mode`:
+
+   ```bash
+   operately auth login --method email-password --email you@example.com --access-mode full-access
+   ```
+
+   Use `--access-mode read-only` when you only need to fetch data. This bootstrap path is how agents get a token without opening the API Tokens screen.
+
+5. Later sessions: log in with the saved token or `OPERATELY_API_TOKEN`:
+
+   ```bash
+   operately auth login --token <token>
+   ```
+
+   ```bash
+   export OPERATELY_API_TOKEN=<token>
+   ```
+
+   See [CLI authentication](/help/cli-authentication).
+
+6. Prove the session, then use the CLI:
+
+   ```bash
+   operately auth whoami
+   ```
+
+   or
+
+   ```bash
+   operately people get_me
+   ```
+
+   See [Use the Operately CLI](/help/cli-usage).
+</Steps>
+
+## Notes for agents
+
+<Aside>
+Email verification still needs inbox access for the one-time code.
+</Aside>
+
+<Aside type="caution">
+Google opens a browser, so prefer email and password or email code.
+</Aside>
+
+Do not open Account Settings to create a token. Signup, join, or `operately auth login` with `--access-mode` mints the token.
