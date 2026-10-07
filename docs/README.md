@@ -2,6 +2,8 @@
 
 [Help Center: Product documentation writing guide](help-center.md)
 
+[Conversion analytics: Configuration and verification](conversion-analytics.md)
+
 ## Best practices
 
 ### General

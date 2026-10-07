@@ -1,59 +1,33 @@
-// Shared PostHog tracking snippet reused across layouts.
-const posthogSnippet = String.raw`!(function (t, e) {
-  var o, n, p, r;
-  e.__SV ||
-    ((window.posthog = e),
-    (e._i = []),
-    (e.init = function (i, s, a) {
-      function g(t, e) {
-        var o = e.split(".");
-        2 == o.length && ((t = t[o[0]]), (e = o[1])),
-          (t[e] = function () {
-            t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-          });
-      }
-      ((p = t.createElement("script")).type = "text/javascript"),
-        (p.crossOrigin = "anonymous"),
-        (p.async = !0),
-        (p.src =
-          s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
-          "/static/array.js"),
-        (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
-          p,
-          r
-        );
-      var u = e;
-      for (
-        void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-          u.people = u.people || [],
-          u.toString = function (t) {
-            var e = "posthog";
-            return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e;
-          },
-          u.people.toString = function () {
-            return u.toString(1) + ".people (stub)";
-          },
-          o =
-            "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(
-              " "
-            ),
-          n = 0;
-        n < o.length;
-        n++
-      )
-        g(u, o[n]);
-      e._i.push([i, s, a]);
-    }),
-    (e.__SV = 1));
-})(document, window.posthog || []);
-if (
-  !window.location.host.includes("127.0.0.1") &&
-  !window.location.host.includes("localhost")
-) {
-  posthog.init("phc_xf04u2FOMctiPEL4Ra5gH50ercpdlkgbYwBVdLpBtWA", {
-    api_host: "https://us.i.posthog.com",
-    person_profiles: "identified_only",
-  });
-}`;
+import { BrowserAnalytics, createAnalytics } from "./analyticsBrowser.mjs";
 
-export default posthogSnippet;
+// Defaults apply only to production hosts; build-time overrides support local and staging testing.
+export function buildPosthogSnippet(config = {}) {
+  const serialized = JSON.stringify(config).replace(/</g, "\\u003c");
+  return `(() => {
+    if (window.operatelyWebsiteAnalytics) return;
+    const config = ${serialized};
+    const isProduction = ["operately.com", "www.operately.com"].includes(location.hostname);
+    config.enabled ??= isProduction;
+    config.token ??= isProduction ? "phc_xf04u2FOMctiPEL4Ra5gH50ercpdlkgbYwBVdLpBtWA" : "";
+    config.host ??= "https://us.i.posthog.com";
+    config.cookieDomain ??= isProduction ? ".operately.com" : "";
+    if (!config.enabled || !config.token) return;
+
+    const BrowserAnalytics = ${BrowserAnalytics.toString()};
+    const tracker = (${createAnalytics.toString()})(config, { surface: "website" });
+    window.operatelyWebsiteAnalytics = tracker;
+    const visit = () => tracker.visit({ path: location.pathname, key: location.pathname + location.search }).catch(() => {});
+    document.addEventListener("astro:page-load", visit);
+    window.addEventListener("pageshow", visit);
+    visit();
+  })();`;
+}
+
+const enabledOverride = process.env.OPERATELY_ANALYTICS_ENABLED;
+
+export default buildPosthogSnippet({
+  enabled: enabledOverride === undefined ? undefined : enabledOverride === "true",
+  token: process.env.OPERATELY_ANALYTICS_TOKEN,
+  host: process.env.OPERATELY_ANALYTICS_HOST,
+  cookieDomain: process.env.OPERATELY_ANALYTICS_COOKIE_DOMAIN,
+});
