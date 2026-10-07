@@ -1,4 +1,5 @@
 import { test } from "node:test";
+import { randomUUID } from "node:crypto";
 import assert from "node:assert/strict";
 import { createAnalytics } from "./analyticsBrowser.mjs";
 
@@ -7,13 +8,15 @@ function browser({
   sharedCookies,
   denied = false,
   accountId = null,
+  sdkAccountId = accountId,
   optedOut = false,
   syncContext,
   url = "https://app.test/sign_up?utm_source=launch&token=secret",
   surface = "app",
 } = {}) {
   const events = [];
-  let distinctId = accountId || "11111111-1111-4111-8111-111111111111";
+  let identified = Boolean(sdkAccountId);
+  let distinctId = sdkAccountId || "11111111-1111-4111-8111-111111111111";
   let config;
   let resetCount = 0;
   const listeners = new Map();
@@ -45,12 +48,14 @@ function browser({
       options.loaded(sdk);
     },
     get_distinct_id: () => distinctId,
-    get_property: (key) => key === "$user_state" && (accountId ? "identified" : "anonymous"),
+    get_property: (key) => key === "$user_state" && (identified ? "identified" : "anonymous"),
     has_opted_out_capturing: () => denied,
     identify(id) {
+      identified = true;
       distinctId = id;
     },
     reset() {
+      identified = false;
       resetCount++;
       distinctId = "22222222-2222-4222-8222-222222222222";
     },
@@ -75,7 +80,7 @@ function browser({
     location: new URL(url),
     localStorage: { getItem: (key) => localStorage.get(key), setItem: (key, value) => localStorage.set(key, value) },
     posthog: sdk,
-    crypto: { randomUUID: () => "33333333-3333-4333-8333-333333333333" },
+    crypto: { randomUUID },
     addEventListener: (name, listener) => listeners.set(name, listener),
   };
   const tracker = createAnalytics(
@@ -243,4 +248,122 @@ test("cookie metadata is allowlisted before any event is sent", async () => {
   await b.tracker.visit({ path: "/", key: "/" });
   assert.ok(!JSON.stringify(b.events).includes("secret"));
   assert.equal(b.tracker.context().attribution.utm_source, "saved");
+});
+
+function signupEvents(tab) {
+  return tab.events.filter((event) => event.event === "signup_started");
+}
+
+function storedContext(tab) {
+  const cookie = tab.doc.cookie.split("; ").find((value) => value.startsWith("operately_analytics_v1="));
+  return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+}
+
+test("closing an older marketing tab preserves the signup attempt across reload", async () => {
+  const sharedCookies = new Map();
+  const website = browser({ sharedCookies, url: "https://operately.test/?utm_source=launch", surface: "website" });
+  await website.tracker.visit({ path: "/", key: "/" });
+  const signup = browser({ sharedCookies });
+  await signup.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  const attemptId = signup.tracker.context().attempt_id;
+  assert.ok(attemptId);
+  assert.equal(signupEvents(signup).length, 1);
+
+  website.emit("pagehide");
+  assert.equal(storedContext(website).attempt_id, attemptId);
+  assert.equal(storedContext(website).attempt_pending, false);
+
+  const reloaded = browser({ sharedCookies });
+  await reloaded.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  assert.equal(reloaded.tracker.context().attempt_id, attemptId);
+  assert.equal(reloaded.tracker.context().attribution.utm_source, "launch");
+  assert.equal(signupEvents(reloaded).length, 0);
+});
+
+test("website writes preserve a pending signup without emitting or consuming it", async () => {
+  const sharedCookies = new Map();
+  let completeSync;
+  const signup = browser({
+    sharedCookies,
+    syncContext: () =>
+      new Promise((resolve) => {
+        completeSync = resolve;
+      }),
+  });
+  const visit = signup.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  await new Promise((resolve) => setImmediate(resolve));
+  const attemptId = signup.tracker.context().attempt_id;
+
+  const website = browser({ sharedCookies, surface: "website", url: "https://operately.test/" });
+  await website.tracker.visit({ path: "/", key: "/" });
+  website.emit("pagehide");
+  assert.equal(storedContext(website).attempt_id, attemptId);
+  assert.equal(storedContext(website).attempt_pending, true);
+  assert.equal(signupEvents(website).length, 0);
+
+  completeSync({ optedOut: false });
+  await visit;
+  assert.equal(signupEvents(signup).length, 1);
+  // This website tab cached pending=true before the signup event was captured.
+  website.emit("pagehide");
+  assert.equal(storedContext(website).attempt_pending, false);
+});
+
+for (const reset of ["authentication", "account switch", "logout"]) {
+  test(`${reset} clears signup state without stale tabs resurrecting it`, async () => {
+    const sharedCookies = new Map();
+    const signup = browser({ sharedCookies });
+    await signup.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+    const oldAttemptId = signup.tracker.context().attempt_id;
+    const staleTab = browser({ sharedCookies, surface: "website", url: "https://operately.test/" });
+
+    if (reset === "authentication") browser({ sharedCookies, accountId: "account", sdkAccountId: null });
+    else if (reset === "account switch")
+      browser({ sharedCookies, accountId: "new-account", sdkAccountId: "old-account" });
+    else signup.tracker.logout();
+
+    staleTab.emit("pagehide");
+    const context = storedContext(staleTab);
+    assert.equal(context.attempt_id, undefined);
+    assert.equal(context.attempt_started_at, undefined);
+    assert.equal(context.attempt_pending, undefined);
+
+    const newSignup = browser({ sharedCookies });
+    await newSignup.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+    assert.notEqual(newSignup.tracker.context().attempt_id, oldAttemptId);
+    assert.equal(signupEvents(newSignup).length, 1);
+  });
+}
+
+test("an older app tab reuses the shared attempt instead of starting another", async () => {
+  const sharedCookies = new Map();
+  const older = browser({ sharedCookies });
+  const newer = browser({ sharedCookies });
+  await newer.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  await older.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  assert.equal(older.tracker.context().attempt_id, newer.tracker.context().attempt_id);
+  assert.equal(signupEvents(older).length, 0);
+});
+
+test("an expired shared attempt is not restored from an older tab's cache", async () => {
+  const sharedCookies = new Map();
+  const signup = browser({ sharedCookies });
+  await signup.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  const original = storedContext(signup);
+  sharedCookies.set(
+    "operately_analytics_v1",
+    encodeURIComponent(
+      JSON.stringify({
+        ...original,
+        attempt_started_at: Date.now() - 25 * 60 * 60 * 1000,
+      }),
+    ),
+  );
+  signup.emit("pagehide");
+  assert.equal(storedContext(signup).attempt_id, undefined);
+
+  const reloaded = browser({ sharedCookies });
+  await reloaded.tracker.visit({ path: "/sign_up", key: "/sign_up" });
+  assert.notEqual(reloaded.tracker.context().attempt_id, original.attempt_id);
+  assert.equal(signupEvents(reloaded).length, 1);
 });

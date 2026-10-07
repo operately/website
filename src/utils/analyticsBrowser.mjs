@@ -26,7 +26,7 @@ export class BrowserAnalytics {
     this.surface = options.surface || "website";
     this.accountId = options.accountId || null;
     this.accountOptedOut = Boolean(config.optedOut);
-    this.trackingContext = this.readContext();
+    this.trackingContext = this.readContext() || { version: 1, preference: "unspecified" };
     this.sdk = undefined;
     this.lastVisitKey = undefined;
 
@@ -161,8 +161,7 @@ export class BrowserAnalytics {
     }
 
     attribution.source_kind = this.classifyAcquisitionSource(attribution, internal || authRedirect);
-    this.trackingContext.attribution = attribution;
-    this.saveContext();
+    this.saveContext({ attribution });
   }
 
   classifyAcquisitionSource(attribution, ignoredReferrer) {
@@ -176,11 +175,11 @@ export class BrowserAnalytics {
     if (this.surface !== "app" || !/^\/sign_up(?:\/|$)/.test(page.path)) return;
     if (this.accountId || this.trackingContext.attempt_id || this.isTrackingDenied()) return;
 
-    this.trackingContext.attempt_id = this.generateEventId();
-    this.trackingContext.attempt_started_at = Date.now();
-    this.trackingContext.attempt_pending = true;
-
-    this.saveContext();
+    this.saveContext({
+      attempt_id: this.generateEventId(),
+      attempt_started_at: Date.now(),
+      attempt_pending: true,
+    });
   }
 
   visitProperties(page, synchronizedContext) {
@@ -201,7 +200,11 @@ export class BrowserAnalytics {
   }
 
   captureSignupStarted(properties) {
-    if (!this.trackingContext.attempt_pending || this.accountId) return;
+    if (this.surface !== "app" || this.accountId) return;
+
+    // A different signup tab may have already captured this attempt while we awaited the SDK/server.
+    this.saveContext();
+    if (!this.trackingContext.attempt_pending) return;
 
     const isInvitation = new URL(this.environment.location.href).searchParams.has("invite_token");
     this.sdk.capture("signup_started", {
@@ -211,8 +214,7 @@ export class BrowserAnalytics {
       signup_kind: isInvitation ? "invitation" : "self_service",
     });
 
-    delete this.trackingContext.attempt_pending;
-    this.saveContext();
+    this.saveContext({ attempt_pending: false });
   }
 
   sanitize(event) {
@@ -276,29 +278,30 @@ export class BrowserAnalytics {
     if (this.accountId) {
       if (this.sdk.get_property("$user_state") === "identified" && id !== this.accountId) {
         this.sdk.reset();
-        this.trackingContext = { version: 1, preference: this.trackingContext.preference };
+        this.resetContext();
       }
 
       if (!this.trackingContext.anonymous_id && this.sdk.get_property("$user_state") !== "identified") {
-        this.trackingContext.anonymous_id = this.sdk.get_distinct_id();
+        this.saveContext({ anonymous_id: this.sdk.get_distinct_id() });
       }
 
       this.sdk.identify(this.accountId);
-      delete this.trackingContext.attempt_id;
+      this.clearSignupAttempt();
     } else if (this.sdk.get_property("$user_state") !== "identified") {
-      this.trackingContext.anonymous_id = id;
+      this.saveContext({ anonymous_id: id });
     }
+  }
 
-    this.saveContext();
+  clearSignupAttempt() {
+    this.saveContext({ attempt_id: undefined, attempt_started_at: undefined, attempt_pending: undefined });
   }
 
   logout() {
     this.sdk?.reset();
     this.accountId = null;
-    this.trackingContext = { version: 1, preference: this.trackingContext.preference };
     this.lastVisitKey = undefined;
 
-    this.saveContext();
+    this.resetContext();
   }
 
   isTrackingDenied() {
@@ -306,7 +309,7 @@ export class BrowserAnalytics {
       this.browserRequestsOptOut() ||
       this.hasStoredOptOut() ||
       this.trackingContext.preference === "denied" ||
-      this.readContext().preference === "denied" ||
+      this.readContext()?.preference === "denied" ||
       this.accountOptedOut ||
       Boolean(this.sdk?.has_opted_out_capturing())
     );
@@ -330,7 +333,10 @@ export class BrowserAnalytics {
   }
 
   context() {
-    return { ...this.trackingContext, preference: this.isTrackingDenied() ? "denied" : "unspecified" };
+    return {
+      ...(this.readContext() || this.trackingContext),
+      preference: this.isTrackingDenied() ? "denied" : "unspecified",
+    };
   }
 
   async synchronizeContext(page = {}) {
@@ -359,7 +365,7 @@ export class BrowserAnalytics {
       /* Analytics storage is optional. */
     }
 
-    return { version: 1, preference: "unspecified" };
+    return null;
   }
 
   restoreContext(stored) {
@@ -407,11 +413,25 @@ export class BrowserAnalytics {
     return attribution;
   }
 
-  saveContext() {
-    // Another tab or subdomain may have opted out since this tracker read its context.
-    // Every write preserves that denial, including identity resets and page exits.
-    if (this.isTrackingDenied()) this.trackingContext.preference = "denied";
+  saveContext(changes = {}) {
+    // Ordinary writes apply only their own changes to the current shared state.
+    // In particular, a stale tab must not erase, replay, or resurrect a signup attempt.
+    const preference = this.isTrackingDenied() ? "denied" : "unspecified";
+    const sharedContext = this.readContext() || this.trackingContext;
+    this.trackingContext = { ...sharedContext, ...changes, preference };
 
+    this.writeContextCookie();
+  }
+
+  resetContext() {
+    // Account switches and logout intentionally discard shared acquisition/signup state.
+    const preference = this.isTrackingDenied() ? "denied" : "unspecified";
+    this.trackingContext = { version: 1, preference };
+
+    this.writeContextCookie();
+  }
+
+  writeContextCookie() {
     try {
       const domain = this.config.cookieDomain ? "; Domain=" + this.config.cookieDomain : "";
       const secure = this.environment.location.protocol === "https:" ? "; Secure" : "";
