@@ -16,9 +16,18 @@ export function buildPosthogSnippet(config = {}) {
     const BrowserAnalytics = ${BrowserAnalytics.toString()};
     const tracker = (${createAnalytics.toString()})(config, { surface: "website" });
     window.operatelyWebsiteAnalytics = tracker;
-    const visit = () => tracker.visit({ path: location.pathname, key: location.pathname + location.search }).catch(() => {});
+    let restorationCount = 0;
+    const visit = () => tracker.visit({
+      path: location.pathname,
+      key: restorationCount + ":" + location.pathname + location.search,
+    }).catch(() => {});
+
     document.addEventListener("astro:page-load", visit);
-    window.addEventListener("pageshow", visit);
+    window.addEventListener("pageshow", (event) => {
+      // A cached document keeps its tracker; each restore is a new navigation.
+      if (event.persisted) restorationCount += 1;
+      visit();
+    });
     visit();
   })();`;
 }

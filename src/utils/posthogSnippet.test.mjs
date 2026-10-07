@@ -48,7 +48,7 @@ test("embedded tracker initializes once and tracks marketing and help navigation
   runInNewContext(script, globals);
   await finishNavigation();
   runInNewContext(script, globals);
-  listeners.get("pageshow")();
+  listeners.get("pageshow")({ persisted: false });
   await finishNavigation();
 
   window.location.pathname = "/help/getting-started";
@@ -70,23 +70,34 @@ test("embedded tracker initializes once and tracks marketing and help navigation
 
 async function runSnippetAt(hostname, config = {}) {
   const initializations = [];
-  const document = { cookie: "", referrer: "", addEventListener() {} };
+  const events = [];
+  const listeners = new Map();
+  let sdkOptions;
+  const document = {
+    cookie: "",
+    referrer: "",
+    addEventListener: (name, callback) => listeners.set(name, callback),
+  };
   const window = {
     document,
     location: new URL(`https://${hostname}/`),
     navigator: {},
     crypto: { randomUUID: () => "22222222-2222-4222-8222-222222222222" },
-    addEventListener() {},
+    addEventListener: (name, callback) => listeners.set(name, callback),
     posthog: {
       init(token, options) {
         initializations.push({ token, options });
+        sdkOptions = options;
         options.loaded(this);
       },
       get_distinct_id: () => "11111111-1111-4111-8111-111111111111",
       get_property: () => "anonymous",
       has_opted_out_capturing: () => false,
       resetGroups() {},
-      capture() {},
+      capture(event, properties) {
+        const sanitized = sdkOptions.before_send({ event, properties });
+        if (sanitized) events.push(sanitized);
+      },
     },
   };
 
@@ -97,7 +108,16 @@ async function runSnippetAt(hostname, config = {}) {
     URL,
   });
   await new Promise((resolve) => setImmediate(resolve));
-  return { initializations, document };
+  return {
+    initializations,
+    document,
+    window,
+    events,
+    async dispatch(name, event = {}) {
+      listeners.get(name)(event);
+      await new Promise((resolve) => setImmediate(resolve));
+    },
+  };
 }
 
 test("production hosts use the existing project without deployment configuration", async () => {
@@ -164,3 +184,33 @@ test("explicit cookie configuration overrides production defaults", async () => 
   assert.equal(initializations[0].options.cross_subdomain_cookie, false);
   assert.doesNotMatch(document.cookie, /; Domain=/);
 });
+
+for (const path of ["/", "/help/getting-started"]) {
+  test(`back/forward-cache restores count new visits on ${path} without duplicate lifecycle events`, async () => {
+    const browser = await runSnippetAt("operately.com");
+    await browser.dispatch("pageshow", { persisted: false });
+    await browser.dispatch("astro:page-load");
+    assert.equal(browser.events.length, 1);
+
+    if (path !== "/") {
+      browser.window.location.pathname = path;
+      await browser.dispatch("astro:page-load");
+    }
+    const originalCount = browser.events.length;
+
+    await browser.dispatch("pageshow", { persisted: true });
+    assert.equal(browser.events.length, originalCount + 1);
+    assert.equal(browser.events.at(-1).event, "$pageview");
+    assert.equal(browser.events.at(-1).properties.page, path);
+
+    await browser.dispatch("astro:page-load");
+    await browser.dispatch("pageshow", { persisted: false });
+    browser.window.location.hash = "#section";
+    await browser.dispatch("astro:page-load");
+    assert.equal(browser.events.length, originalCount + 1);
+
+    await browser.dispatch("pageshow", { persisted: true });
+    assert.equal(browser.events.length, originalCount + 2);
+    assert.equal(browser.initializations.length, 1);
+  });
+}
