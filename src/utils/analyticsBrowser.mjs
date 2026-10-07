@@ -1,31 +1,26 @@
-// Kept byte-for-byte in operately-website/src/utils/analyticsBrowser.mjs.
+// Website pageviews and acquisition context; app tracking lives in its own repository.
 // The class has no module dependencies: Astro/Starlight embed its source alongside the factory.
 export function createAnalytics(config, options = {}) {
-  if (!config?.enabled || !config.token || !config.host || config.internal) {
-    return { visit: async () => {}, logout() {}, context: () => ({}) };
+  if (!config?.enabled || !config.token || !config.host) {
+    return { visit: async () => {}, context: () => ({}) };
   }
 
-  const tracker = new BrowserAnalytics(config, options);
+  const tracker = new BrowserAnalytics(config, options.environment);
   tracker.start();
 
   return {
     visit: (page) => tracker.visit(page),
-    logout: () => tracker.logout(),
     context: () => tracker.context(),
   };
 }
 
 export class BrowserAnalytics {
-  constructor(config, options = {}) {
+  constructor(config, environment = window) {
     this.config = config;
-    this.options = options;
-    this.environment = options.environment || window;
+    this.environment = environment;
     this.document = this.environment.document;
 
     this.cookieName = "operately_analytics_v1";
-    this.surface = options.surface || "website";
-    this.accountId = options.accountId || null;
-    this.accountOptedOut = Boolean(config.optedOut);
     this.trackingContext = this.readContext() || { version: 1, preference: "unspecified" };
     this.sdk = undefined;
     this.lastVisitKey = undefined;
@@ -92,8 +87,7 @@ export class BrowserAnalytics {
       advanced_disable_feature_flags: true,
       advanced_disable_feature_flags_on_first_load: true,
       respect_dnt: true,
-      opt_out_capturing_by_default:
-        this.browserRequestsOptOut() || this.trackingContext.preference === "denied" || this.accountOptedOut,
+      opt_out_capturing_by_default: this.isTrackingDenied(),
       before_send: (event) => this.sanitize(event),
       loaded: (instance) => this.onSdkLoaded(instance),
     });
@@ -102,7 +96,7 @@ export class BrowserAnalytics {
   onSdkLoaded(instance) {
     this.sdk = instance;
     this.saveContext();
-    this.identifyAccount();
+    this.rememberVisitor();
 
     this.resolveReady();
   }
@@ -112,29 +106,22 @@ export class BrowserAnalytics {
   }
 
   async visit(page) {
-    // Save context before SDK loading so a fast signup/OAuth navigation retains attribution.
+    // Preserve attribution even if the visitor leaves before the SDK finishes loading.
     this.saveContext();
     this.recordFirstTouch(page.path);
-    this.startSignupAttempt(page);
-
-    if (this.isTrackingDenied()) {
-      await this.synchronizeContext(page);
-      return;
-    }
+    if (this.isTrackingDenied()) return;
 
     await this.ready;
-    if (!this.sdk) return;
+    if (!this.sdk || this.isTrackingDenied()) return;
 
-    this.identifyAccount();
-    const synchronizedContext = await this.synchronizeContext(page);
-    if (this.isTrackingDenied() || synchronizedContext.excluded || page.excluded) return;
+    this.saveContext();
+    this.rememberVisitor();
     if (this.lastVisitKey === page.key) return;
-
     this.lastVisitKey = page.key;
+
+    // Marketing visits must not inherit a workspace group from the app.
     this.sdk.resetGroups();
-    const properties = this.visitProperties(page, synchronizedContext);
-    this.sdk.capture("$pageview", { ...properties, $insert_id: this.generateEventId() });
-    this.captureSignupStarted(properties);
+    this.sdk.capture("$pageview", this.visitProperties(page));
   }
 
   recordFirstTouch(path) {
@@ -171,54 +158,21 @@ export class BrowserAnalytics {
     return "direct";
   }
 
-  startSignupAttempt(page) {
-    if (this.surface !== "app" || !/^\/sign_up(?:\/|$)/.test(page.path)) return;
-    if (this.accountId || this.trackingContext.attempt_id || this.isTrackingDenied()) return;
-
-    this.saveContext({
-      attempt_id: this.generateEventId(),
-      attempt_started_at: Date.now(),
-      attempt_pending: true,
-    });
-  }
-
-  visitProperties(page, synchronizedContext) {
-    const companyId = page.companyId || synchronizedContext.companyId || null;
-    const acquisition = this.accountId ? synchronizedContext.acquisition : this.trackingContext.attribution;
-
+  visitProperties(page) {
     return {
       schema_version: 1,
-      surface: this.surface,
+      surface: "website",
       channel: "web",
       page: page.path,
-      account_id: this.accountId,
-      company_id: companyId,
-      $groups: companyId ? { company: companyId } : {},
-      acquisition: acquisition || { source_kind: "unknown" },
+      $groups: {},
+      acquisition: this.trackingContext.attribution || { source_kind: "unknown" },
       occurred_at: new Date().toISOString(),
+      $insert_id: this.environment.crypto.randomUUID(),
     };
   }
 
-  captureSignupStarted(properties) {
-    if (this.surface !== "app" || this.accountId) return;
-
-    // A different signup tab may have already captured this attempt while we awaited the SDK/server.
-    this.saveContext();
-    if (!this.trackingContext.attempt_pending) return;
-
-    const isInvitation = new URL(this.environment.location.href).searchParams.has("invite_token");
-    this.sdk.capture("signup_started", {
-      ...properties,
-      $insert_id: this.trackingContext.attempt_id,
-      attempt_id: this.trackingContext.attempt_id,
-      signup_kind: isInvitation ? "invitation" : "self_service",
-    });
-
-    this.saveContext({ attempt_pending: false });
-  }
-
   sanitize(event) {
-    if (!event || this.isTrackingDenied() || !["$pageview", "signup_started", "$identify"].includes(event.event)) {
+    if (!event || this.isTrackingDenied() || event.event !== "$pageview") {
       return null;
     }
 
@@ -229,7 +183,6 @@ export class BrowserAnalytics {
       "$session_id",
       "$window_id",
       "$is_identified",
-      "$anon_distinct_id",
       "$process_person_profile",
       "$lib",
       "$lib_version",
@@ -246,13 +199,9 @@ export class BrowserAnalytics {
       "schema_version",
       "surface",
       "channel",
-      "account_id",
-      "company_id",
       "$groups",
       "page",
       "acquisition",
-      "attempt_id",
-      "signup_kind",
       "occurred_at",
     ]);
 
@@ -267,41 +216,11 @@ export class BrowserAnalytics {
     return { uuid: event.uuid, event: event.event, properties: event.properties, timestamp: event.timestamp };
   }
 
-  generateEventId() {
-    return this.environment.crypto.randomUUID();
-  }
-
-  identifyAccount() {
+  rememberVisitor() {
     if (this.isTrackingDenied()) return;
+    if (this.sdk.get_property("$user_state") === "identified") return;
 
-    const id = this.sdk.get_distinct_id();
-    if (this.accountId) {
-      if (this.sdk.get_property("$user_state") === "identified" && id !== this.accountId) {
-        this.sdk.reset();
-        this.resetContext();
-      }
-
-      if (!this.trackingContext.anonymous_id && this.sdk.get_property("$user_state") !== "identified") {
-        this.saveContext({ anonymous_id: this.sdk.get_distinct_id() });
-      }
-
-      this.sdk.identify(this.accountId);
-      this.clearSignupAttempt();
-    } else if (this.sdk.get_property("$user_state") !== "identified") {
-      this.saveContext({ anonymous_id: id });
-    }
-  }
-
-  clearSignupAttempt() {
-    this.saveContext({ attempt_id: undefined, attempt_started_at: undefined, attempt_pending: undefined });
-  }
-
-  logout() {
-    this.sdk?.reset();
-    this.accountId = null;
-    this.lastVisitKey = undefined;
-
-    this.resetContext();
+    this.saveContext({ anonymous_id: this.sdk.get_distinct_id() });
   }
 
   isTrackingDenied() {
@@ -310,7 +229,6 @@ export class BrowserAnalytics {
       this.hasStoredOptOut() ||
       this.trackingContext.preference === "denied" ||
       this.readContext()?.preference === "denied" ||
-      this.accountOptedOut ||
       Boolean(this.sdk?.has_opted_out_capturing())
     );
   }
@@ -339,23 +257,6 @@ export class BrowserAnalytics {
     };
   }
 
-  async synchronizeContext(page = {}) {
-    this.saveContext();
-    if (!this.options.syncContext) return {};
-
-    try {
-      const result = await this.options.syncContext(this.context(), page);
-
-      this.accountOptedOut = Boolean(result.optedOut);
-      this.saveContext();
-
-      return result;
-    } catch {
-      // Fail closed for analytics only; app navigation remains independent.
-      return { excluded: true };
-    }
-  }
-
   readContext() {
     try {
       const cookie = this.document.cookie.split("; ").find((value) => value.startsWith(this.cookieName + "="));
@@ -378,12 +279,10 @@ export class BrowserAnalytics {
       if (typeof stored[key] === "string" && /^[a-f0-9-]{36}$/i.test(stored[key])) context[key] = stored[key];
     }
 
-    const signupAttemptLifetime = 24 * 60 * 60 * 1000;
-    if (context.attempt_id && Date.now() - stored.attempt_started_at < signupAttemptLifetime) {
-      context.attempt_started_at = stored.attempt_started_at;
-      context.attempt_pending = stored.attempt_pending === true;
-    } else {
-      delete context.attempt_id;
+    // The app owns signup attempts. Carry its fields through without starting, expiring, or completing them.
+    if (context.attempt_id) {
+      if (Number.isFinite(stored.attempt_started_at)) context.attempt_started_at = stored.attempt_started_at;
+      if (typeof stored.attempt_pending === "boolean") context.attempt_pending = stored.attempt_pending;
     }
 
     if (stored.attribution && typeof stored.attribution === "object") {
@@ -419,14 +318,6 @@ export class BrowserAnalytics {
     const preference = this.isTrackingDenied() ? "denied" : "unspecified";
     const sharedContext = this.readContext() || this.trackingContext;
     this.trackingContext = { ...sharedContext, ...changes, preference };
-
-    this.writeContextCookie();
-  }
-
-  resetContext() {
-    // Account switches and logout intentionally discard shared acquisition/signup state.
-    const preference = this.isTrackingDenied() ? "denied" : "unspecified";
-    this.trackingContext = { version: 1, preference };
 
     this.writeContextCookie();
   }

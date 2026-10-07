@@ -14,7 +14,7 @@ export function buildPosthogSnippet(config = {}) {
     if (!config.enabled || !config.token) return;
 
     const BrowserAnalytics = ${BrowserAnalytics.toString()};
-    const tracker = (${createAnalytics.toString()})(config, { surface: "website" });
+    const tracker = (${createAnalytics.toString()})(config);
     window.operatelyWebsiteAnalytics = tracker;
     let restorationCount = 0;
     const visit = () => tracker.visit({

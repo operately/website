@@ -18,6 +18,7 @@ changes. The app requires separate configuration with the same project and cooki
 Tracking sends sanitized pageviews and respects opt-outs, DNT, and GPC; replay and
 autocapture are disabled. Shared denials are preserved across tabs and subdomains.
 
-Keep `src/utils/analyticsBrowser.mjs` identical to the app's
-`app/assets/js/analytics/browser.mjs`. Run `npm test` and verify visitor identity
-and campaign continuity across marketing → `/help` → app.
+The website and app have separate trackers. Keep the `operately_analytics_v1`
+cookie format compatible; the website preserves app-owned signup fields without
+changing them. Run `npm test` and verify visitor identity and campaign continuity
+across marketing → `/help` → app.
