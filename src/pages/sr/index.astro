@@ -5,13 +5,15 @@ import goalScreenshot from "../_index/goal.png";
 import projectScreenshot from "../_index/project.png";
 import CompanyLogos from "../_index/CompanyLogos.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
 
 const pageTitle = "Operately: OKR i upravljanje projektima otvorenog koda";
 const pageDescription =
   "Upravljanje projektima otvorenog koda sa ugrađenim praćenjem OKR ciljeva. Vodite ciljeve, projekte i izveštaje uz strukturu koja drži tim usklađenim. Besplatno za početak, samostalno hostovanje za par minuta.";
 
 import { getLatestRelease } from "../../utils/releases";
+
+const sr = serbianPage(Astro.url.pathname);
 const latestRelease = await getLatestRelease();
 const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
 
@@ -33,11 +35,11 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://operately.com/sr/#website",
+    "@id": `${sr.url("/")}#website`,
     name: "Operately",
-    url: "https://operately.com/sr/",
+    url: sr.url("/"),
     description: pageDescription,
-    inLanguage: "sr",
+    inLanguage: sr.lang,
     publisher: {
       "@id": "https://operately.com/#organization",
     },
@@ -45,14 +47,14 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "@id": "https://operately.com/sr/#software",
+    "@id": `${sr.url("/")}#software`,
     name: "Operately",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    url: "https://operately.com/sr/",
+    url: sr.url("/"),
     description: pageDescription,
     image: "https://operately.com/images/social/card-summary-large.png",
-    inLanguage: "sr",
+    inLanguage: sr.lang,
     publisher: {
       "@id": "https://operately.com/#organization",
     },
@@ -71,8 +73,8 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -114,7 +116,7 @@ const schema = [
           </a>
         </div>
 
-        <LanguageLink href="/" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Hero screencast */}
@@ -316,7 +318,7 @@ const schema = [
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/sr/self-hosted"
+            href={sr.href("/self-hosted")}
             class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
           >
             Samostalno hostujte Operately
@@ -324,12 +326,12 @@ const schema = [
         </div>
         <p class="mt-8 text-sm text-gray-500">
           Saznajte više:
-          <a href="/sr/what-is-operately" class="text-operately-blue hover:underline">Šta je Operately</a> ·
-          <a href="/sr/features" class="text-operately-blue hover:underline">Funkcije</a> ·
-          <a href="/sr/pricing" class="text-operately-blue hover:underline">Cene</a> ·
-          <a href="/sr/okr-software" class="text-operately-blue hover:underline">OKR softver</a> ·
-          <a href="/sr/ai" class="text-operately-blue hover:underline">AI agenti</a> ·
-          <a href="/sr/open-source" class="text-operately-blue hover:underline">Otvoreni kod</a>
+          <a href={sr.href("/what-is-operately")} class="text-operately-blue hover:underline">Šta je Operately</a> ·
+          <a href={sr.href("/features")} class="text-operately-blue hover:underline">Funkcije</a> ·
+          <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Cene</a> ·
+          <a href={sr.href("/okr-software")} class="text-operately-blue hover:underline">OKR softver</a> ·
+          <a href={sr.href("/ai")} class="text-operately-blue hover:underline">AI agenti</a> ·
+          <a href={sr.href("/open-source")} class="text-operately-blue hover:underline">Otvoreni kod</a>
         </p>
       </div>
     </section>

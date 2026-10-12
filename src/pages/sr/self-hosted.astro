@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const pageTitle = "Softver za upravljanje projektima koji hostujete sami | Operately";
 const pageDescription =
@@ -9,11 +11,11 @@ const pageDescription =
 
 const schema = {
   "@type": "WebPage",
-  "@id": "https://operately.com/sr/self-hosted/#webpage",
-  url: "https://operately.com/sr/self-hosted/",
+  "@id": `${sr.url("/self-hosted")}#webpage`,
+  url: sr.url("/self-hosted"),
   name: pageTitle,
   description: pageDescription,
-  inLanguage: "sr",
+  inLanguage: sr.lang,
   isPartOf: {
     "@id": "https://operately.com/#website",
   },
@@ -32,8 +34,8 @@ const cardClass =
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/self-hosted")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
@@ -50,7 +52,7 @@ const cardClass =
           usklađenost tima. Bez zavisnosti od dobavljača, potpuna kontrola nad podacima,
           instalacija za par minuta.
         </p>
-        <LanguageLink href="/self-hosted" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       <div class="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:justify-center">
@@ -201,7 +203,7 @@ const cardClass =
             </p>
           </a>
 
-          <a href="/sr/pricing" class={cardClass}>
+          <a href={sr.href("/pricing")} class={cardClass}>
             <div class="flex items-start justify-between gap-4">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Pogledajte cene</p>
@@ -215,7 +217,7 @@ const cardClass =
             </p>
           </a>
 
-          <a href="/sr/open-source" class={cardClass}>
+          <a href={sr.href("/open-source")} class={cardClass}>
             <div class="flex items-start justify-between gap-4">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Pročitajte kontekst</p>
@@ -249,7 +251,7 @@ const cardClass =
           <div>
             <h3 class="text-lg font-semibold text-gray-900">Šta ako mi je potrebno komercijalno samostalno hostovanje?</h3>
             <p class="mt-2 text-gray-700">
-              Počnite od stranice sa <a href="/sr/pricing" class="text-operately-blue hover:underline">cenama</a>, a zatim nas <a href="/contact?help-type=commercial-license" class="text-operately-blue hover:underline">kontaktirajte</a> ako vam je potreban razgovor o komercijalnoj licenci ili podršci.
+              Počnite od stranice sa <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">cenama</a>, a zatim nas <a href="/contact?help-type=commercial-license" class="text-operately-blue hover:underline">kontaktirajte</a> ako vam je potreban razgovor o komercijalnoj licenci ili podršci.
             </p>
           </div>
         </div>

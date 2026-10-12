@@ -11,6 +11,7 @@ import {
   Target,
 } from "lucide-react";
 import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianLinksFor } from "../../utils/i18n.js";
 ---
 
 <div class="py-8 sm:py-12">
@@ -28,7 +29,7 @@ import LanguageLink from "../../components/LanguageLink.astro";
         management in one tool to help your organization execute at peak
         performance.
       </p>
-      <LanguageLink href="/sr/features" label="Srpski" hreflang="sr" />
+      <LanguageLink links={serbianLinksFor("/features")} />
     </div>
   </div>
   <!-- big screenshot / video prompt -->

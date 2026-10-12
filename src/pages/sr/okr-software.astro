@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
 import { Image } from "astro:assets";
 import goalScreenshot from "../_index/goal.png";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const pageTitle = "OKR softver";
 const pageDescription =
@@ -11,11 +13,11 @@ const pageDescription =
 
 const schema = {
   "@type": "WebPage",
-  "@id": "https://operately.com/sr/okr-software/#webpage",
-  url: "https://operately.com/sr/okr-software/",
+  "@id": `${sr.url("/okr-software")}#webpage`,
+  url: sr.url("/okr-software"),
   name: pageTitle,
   description: pageDescription,
-  inLanguage: "sr",
+  inLanguage: sr.lang,
   isPartOf: {
     "@id": "https://operately.com/#website",
   },
@@ -63,8 +65,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/okr-software")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
@@ -81,7 +83,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           projektima koji ih ostvaruju. Operately je otvorenog koda, može se hostovati samostalno i
           napravljen je za timove koji više vole transparentnost nego SaaS crnu kutiju.
         </p>
-        <LanguageLink href="/okr-software" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Key differentiators */}
@@ -295,7 +297,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/sr/self-hosted"
+            href={sr.href("/self-hosted")}
             class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
           >
             Samostalno hostujte Operately
@@ -303,7 +305,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         </div>
 
         <p class="mt-6 text-sm text-gray-500">
-          Pogledajte i: <a href="/sr/what-is-operately" class="text-operately-blue hover:underline">Šta je Operately</a> ·
+          Pogledajte i: <a href={sr.href("/what-is-operately")} class="text-operately-blue hover:underline">Šta je Operately</a> ·
           <a href="/vs/monday" class="text-operately-blue hover:underline">Operately vs Monday.com</a> ·
           <a href="/vs/asana" class="text-operately-blue hover:underline">Operately vs Asana</a> (na engleskom)
         </p>

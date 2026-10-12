@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LanguageLink from "../components/LanguageLink.astro";
-import { languageAlternates } from "../utils/i18n.js";
+import { languageAlternates, serbianLinksFor } from "../utils/i18n.js";
 
 const pageTitle = "What is Operately? Open Source Goal and Project Management";
 const pageDescription =
@@ -113,7 +113,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           tracking with project execution and built-in check-ins so your team stays aligned on
           outcomes, not just tasks.
         </p>
-        <LanguageLink href="/sr/what-is-operately" label="Srpski" hreflang="sr" />
+        <LanguageLink links={serbianLinksFor("/what-is-operately")} />
       </div>
 
       {/* Quick facts */}

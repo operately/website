@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const pageTitle = "Šta je Operately? Upravljanje ciljevima i projektima otvorenog koda";
 const pageDescription =
@@ -11,7 +13,7 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    inLanguage: "sr",
+    inLanguage: sr.lang,
     mainEntity: [
       {
         "@type": "Question",
@@ -69,9 +71,9 @@ const schema = [
     name: "Operately",
     applicationCategory: "ProjectManagement",
     operatingSystem: "Web, Linux (self-hosted)",
-    url: "https://operately.com/sr/",
+    url: sr.url("/"),
     description: pageDescription,
-    inLanguage: "sr",
+    inLanguage: sr.lang,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -101,8 +103,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/what-is-operately")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
@@ -116,7 +118,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           praćenje OKR ciljeva sa realizacijom projekata i ugrađenim izveštajima o napretku, tako da
           vaš tim ostaje usklađen oko rezultata, a ne samo oko zadataka.
         </p>
-        <LanguageLink href="/what-is-operately" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Quick facts */}
@@ -135,7 +137,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <dt class="text-sm font-medium text-gray-500">Cene</dt>
             <dd class="mt-1 text-sm text-gray-900">
               Dostupan besplatan plan. Fiksne cene, bez naknade po korisniku.
-              <a href="/sr/pricing" class="text-operately-blue hover:underline">Pogledajte cene →</a>
+              <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Pogledajte cene →</a>
             </dd>
           </div>
           <div>
@@ -164,7 +166,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               kako povezani projekti napreduju. Na prvi pogled vidite koji su ciljevi na dobrom putu,
               a kojima je potrebna pažnja. OKR funkcionalnost je ugrađena i dostupna u svim
               planovima, uključujući besplatan.
-              <a href="/sr/okr-software" class="text-operately-blue hover:underline">Više o OKR-u →</a>
+              <a href={sr.href("/okr-software")} class="text-operately-blue hover:underline">Više o OKR-u →</a>
             </p>
           </div>
           <div>
@@ -198,7 +200,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               ažuriranje projekata i objavljivanje izveštaja. Objavljene veštine rade sa okvirima
               za agente kao što su OpenClaw, Codex i Claude Code. Alfred, ugrađeni AI trener (beta),
               pregleda vaše ciljeve i daje povratne informacije o realizaciji.
-              <a href="/sr/ai" class="text-operately-blue hover:underline">Više o AI agentima →</a>
+              <a href={sr.href("/ai")} class="text-operately-blue hover:underline">Više o AI agentima →</a>
             </p>
           </div>
         </div>
@@ -226,8 +228,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <li>Fokusiran alat umesto lavirinta korporativnih funkcija</li>
           </ul>
           <p>
-            Pogledajte i kako Operately pomaže <a href="/sr/for/small-teams" class="text-operately-blue hover:underline">malim timovima</a>
-            i <a href="/sr/for/nonprofits" class="text-operately-blue hover:underline">neprofitnim organizacijama</a>.
+            Pogledajte i kako Operately pomaže <a href={sr.href("/for/small-teams")} class="text-operately-blue hover:underline">malim timovima</a>
+            i <a href={sr.href("/for/nonprofits")} class="text-operately-blue hover:underline">neprofitnim organizacijama</a>.
           </p>
         </div>
       </div>
@@ -269,7 +271,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             Ceo kod Operately-ja je otvoren pod Apache 2.0 licencom. Možete pregledati kod,
             doprineti ili ga pokrenuti na sopstvenoj infrastrukturi. Samostalno hostovanje koristi
             Docker i podešava se za oko 5 minuta.
-            <a href="/sr/open-source" class="text-operately-blue hover:underline">Zašto otvoreni kod →</a>
+            <a href={sr.href("/open-source")} class="text-operately-blue hover:underline">Zašto otvoreni kod →</a>
           </p>
           <p>
             Izvorni kod: <a href="https://github.com/operately/operately" class="text-operately-blue hover:underline">github.com/operately/operately</a>
@@ -291,7 +293,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/sr/self-hosted"
+            href={sr.href("/self-hosted")}
             class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
           >
             Samostalno hostujte Operately

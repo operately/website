@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LanguageLink from "../../../components/LanguageLink.astro";
-import { languageAlternates } from "../../../utils/i18n.js";
+import { serbianPage } from "../../../utils/i18n.js";
 import { Image } from "astro:assets";
 import goalScreenshot from "../../_index/goal.png";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const pageTitle = "Upravljanje projektima za neprofitne organizacije";
 const pageDescription =
@@ -11,11 +13,11 @@ const pageDescription =
 
 const schema = {
   "@type": "WebPage",
-  "@id": "https://operately.com/sr/for/nonprofits/#webpage",
-  url: "https://operately.com/sr/for/nonprofits/",
+  "@id": `${sr.url("/for/nonprofits")}#webpage`,
+  url: sr.url("/for/nonprofits"),
   name: pageTitle,
   description: pageDescription,
-  inLanguage: "sr",
+  inLanguage: sr.lang,
   isPartOf: {
     "@id": "https://operately.com/#website",
   },
@@ -40,8 +42,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/for/nonprofits")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
@@ -59,7 +61,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           odgovornost, bez naplate po korisniku koja nagriza vaš budžet. Otvoreni kod i besplatno
           za početak.
         </p>
-        <LanguageLink href="/for/nonprofits" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Key differentiators */}
@@ -78,7 +80,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         <div class="mt-6 space-y-4 text-gray-600 leading-7">
           <p>
             Većina alata za upravljanje projektima naplaćuje po korisniku. Za neprofitnu
-            organizaciju od 15 ljudi to je od 50 do 00 mesečno potrošenih na softver umesto na
+            organizaciju od 15 ljudi to je od $150 do $300 mesečno potrošenih na softver umesto na
             vašu misiju. A alati koje dobijate osmišljeni su za prodajne timove i lansiranje
             proizvoda, a ne za programe i obaveze iz grantova.
           </p>
@@ -126,7 +128,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <p class="mt-2 text-sm text-gray-600">
               Bez naknade po korisniku. Dodajte zaposlene, volontere i članove upravnog odbora bez
               rasta troškova za softver. Svaki ušteđeni dinar vraća se vašoj misiji.
-              <a href="/sr/pricing" class="text-operately-blue hover:underline">Pogledajte cene →</a>
+              <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Pogledajte cene →</a>
             </p>
           </div>
           <div class="rounded-2xl border border-gray-200 p-6">
@@ -171,8 +173,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <tbody class="divide-y divide-gray-200">
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">Trošak za 15 ljudi</td>
-                <td class="px-6 py-4 text-center text-green-600">/bin/bash (besplatan plan)</td>
-                <td class="px-6 py-4 text-center">35-225 mesečno</td>
+                <td class="px-6 py-4 text-center text-green-600">$0 (besplatan plan)</td>
+                <td class="px-6 py-4 text-center">$135-225 mesečno</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">Dodavanje volontera/odbora</td>
@@ -240,7 +242,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/sr/self-hosted"
+            href={sr.href("/self-hosted")}
             class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
           >
             Samostalno hostujte Operately

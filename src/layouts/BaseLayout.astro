@@ -124,9 +124,14 @@ import Footer from "../components/Footer.astro";
       {
         /* a div to wrap the content is necessary for setting the right stacking order between menu and main content */
       }
-      <Navigation client:load />
+      {/* Navigation and footer are English on every page. lang="en" keeps them out of the Serbian Cyrillic transliteration. */}
+      <div lang="en" class="contents">
+        <Navigation client:load />
+      </div>
       <slot />
-      <Footer />
+      <div lang="en" class="contents">
+        <Footer />
+      </div>
     </div>
   </body>
 </html>

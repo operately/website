@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LanguageLink from "../../../components/LanguageLink.astro";
-import { languageAlternates } from "../../../utils/i18n.js";
+import { serbianPage } from "../../../utils/i18n.js";
 import { Image } from "astro:assets";
 import goalScreenshot from "../../_index/goal.png";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const pageTitle = "Upravljanje projektima za male timove";
 const pageDescription =
@@ -11,11 +13,11 @@ const pageDescription =
 
 const schema = {
   "@type": "WebPage",
-  "@id": "https://operately.com/sr/for/small-teams/#webpage",
-  url: "https://operately.com/sr/for/small-teams/",
+  "@id": `${sr.url("/for/small-teams")}#webpage`,
+  url: sr.url("/for/small-teams"),
   name: pageTitle,
   description: pageDescription,
-  inLanguage: "sr",
+  inLanguage: sr.lang,
   isPartOf: {
     "@id": "https://operately.com/#website",
   },
@@ -40,8 +42,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
   schema={schema}
-  lang="sr"
-  alternates={languageAlternates("/for/small-teams")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
@@ -59,7 +61,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           isporučuju rad bez utapanja u funkcije koje ne koriste. Otvoreni kod, fiksne cene,
           spremno za par minuta.
         </p>
-        <LanguageLink href="/for/small-teams" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Key differentiators */}
@@ -123,7 +125,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <h3 class="font-semibold text-gray-900">Fiksne cene</h3>
             <p class="mt-2 text-sm text-gray-600">
               Plaćate fiksni iznos bez obzira na veličinu tima. Dodajte ljude bez brige da će račun
-              za alate rasti brže od tima. <a href="/sr/pricing" class="text-operately-blue hover:underline">Pogledajte cene →</a>
+              za alate rasti brže od tima. <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Pogledajte cene →</a>
             </p>
           </div>
           <div class="rounded-2xl border border-gray-200 p-6">
@@ -167,8 +169,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             <tbody class="divide-y divide-gray-200">
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">Trošak za 20 ljudi</td>
-                <td class="px-6 py-4 text-center text-green-600">/bin/bash (besplatan plan)</td>
-                <td class="px-6 py-4 text-center">80-300 mesečno</td>
+                <td class="px-6 py-4 text-center text-green-600">$0 (besplatan plan)</td>
+                <td class="px-6 py-4 text-center">$180-300 mesečno</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 font-medium text-gray-900">Vreme podešavanja</td>
@@ -246,7 +248,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/sr/self-hosted"
+            href={sr.href("/self-hosted")}
             class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
           >
             Samostalno hostujte Operately

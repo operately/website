@@ -1,5 +1,6 @@
 ---
 import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianLinksFor } from "../../utils/i18n.js";
 ---
 
 <div class="max-w-3xl mx-auto px-6">
@@ -12,7 +13,7 @@ import LanguageLink from "../../components/LanguageLink.astro";
       ending. Future products should be sustainable, open, and transparent.
     </p>
 
-    <LanguageLink href="/sr/open-source" label="Srpski" hreflang="sr" class="not-prose -mt-2" />
+    <LanguageLink links={serbianLinksFor("/open-source")} class="not-prose -mt-2" />
 
     <h3>Open code, faster progress</h3>
     <p>

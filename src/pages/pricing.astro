@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LanguageLink from "../components/LanguageLink.astro";
-import { languageAlternates } from "../utils/i18n.js";
+import { languageAlternates, serbianLinksFor } from "../utils/i18n.js";
 
 const pageTitle = "Pricing";
 const pageDescription =
@@ -34,7 +34,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         >
           One price for your whole team. Add people without adding costs.
         </p>
-        <LanguageLink href="/sr/pricing" label="Srpski" hreflang="sr" />
+        <LanguageLink links={serbianLinksFor("/pricing")} />
       </div>
 
       {/* Annual/Monthly Toggle */}

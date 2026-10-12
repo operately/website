@@ -5,7 +5,7 @@ import goalScreenshot from "./goal.png";
 import projectScreenshot from "./project.png";
 import CompanyLogos from "./CompanyLogos.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { languageAlternates, serbianLinksFor } from "../../utils/i18n.js";
 
 const pageTitle = "Operately: Open Source OKR and Project Management Software";
 const pageDescription =
@@ -111,7 +111,7 @@ const schema = [
           </a>
         </div>
 
-        <LanguageLink href="/sr" label="Srpski" hreflang="sr" />
+        <LanguageLink links={serbianLinksFor("/")} />
       </div>
 
       {/* Hero screencast */}

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
 import { Image } from "astro:assets";
 import Screenshot from "../_index/operately-v4-screenshot.png";
 import goalScreenshot from "../_features/goal.png";
@@ -25,6 +25,8 @@ import {
   Database,
 } from "lucide-react";
 
+const sr = serbianPage(Astro.url.pathname);
+
 const pageTitle = "Funkcije";
 const pageDescription =
   "Operately spaja najbolje iz alata za upravljanje projektima, postavljanje ciljeva i upravljanje procesima kako bi vaša kompanija radila kao mašina visokih performansi.";
@@ -37,8 +39,8 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
-  lang="sr"
-  alternates={languageAlternates("/features")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8]">
     {/* ─── Header ─── */}
@@ -56,7 +58,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
             ciljevima i procesima u jednom alatu kako bi vaša organizacija radila
             punim kapacitetom.
           </p>
-          <LanguageLink href="/features" label="English" hreflang="en" />
+          <LanguageLink links={sr.languageLinks} />
         </div>
       </div>
       <div class="relative overflow-hidden pt-16">
@@ -444,7 +446,7 @@ const signUpUrl = import.meta.env.SIGN_UP_URL;
                     class="text-operately-blue hover:underline"
                     >vodiča za instalaciju</a
                   > (na engleskom) ili pročitajte <a
-                    href="/sr/self-hosted"
+                    href={sr.href("/self-hosted")}
                     class="text-operately-blue hover:underline"
                     >pregled samostalnog hostovanja</a
                   >.

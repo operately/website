@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LanguageLink from "../../components/LanguageLink.astro";
-import { languageAlternates } from "../../utils/i18n.js";
+import { serbianPage } from "../../utils/i18n.js";
 
 const pageTitle = "Cene";
 const pageDescription =
   "Jednostavne i transparentne cene za timove svih veličina. Počnite besplatno, rastite po svom tempu. Bez naknade po korisniku i bez skrivenih troškova.";
 
 import { Check } from "lucide-react";
+
+const sr = serbianPage(Astro.url.pathname);
 
 const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
 ---
@@ -17,8 +19,8 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
-  lang="sr"
-  alternates={languageAlternates("/pricing")}
+  lang={sr.lang}
+  alternates={sr.alternates}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -35,7 +37,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         >
           Jedna cena za ceo tim. Dodajte ljude bez dodatnih troškova.
         </p>
-        <LanguageLink href="/pricing" label="English" hreflang="en" />
+        <LanguageLink links={sr.languageLinks} />
       </div>
 
       {/* Annual/Monthly Toggle */}
@@ -271,7 +273,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           </p>
           <div class="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/sr/self-hosted"
+              href={sr.href("/self-hosted")}
               class="inline-block rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue transition-colors"
             >
               Saznajte više o samostalnom hostovanju
@@ -320,7 +322,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
               Da. Operately je otvorenog koda i besplatan za samostalno hostovanje,
               sa neograničenim brojem korisnika. Cene za cloud odnose se samo na našu
               hostovanu uslugu. Pogledajte <a
-                href="/sr/self-hosted"
+                href={sr.href("/self-hosted")}
                 class="text-operately-blue hover:underline"
                 >pregled samostalnog hostovanja</a
               > ili <a
