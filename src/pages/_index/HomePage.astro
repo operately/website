@@ -67,6 +67,11 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
+  alternates={[
+    { hreflang: "en", href: "/" },
+    { hreflang: "fr", href: "/fr" },
+    { hreflang: "x-default", href: "/" },
+  ]}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -107,6 +112,10 @@ const schema = [
             Self-host in 5 minutes &rarr;
           </a>
         </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+          Cette page est aussi disponible en <a href="/fr" class="font-medium text-operately-blue hover:underline">français</a>.
+        </p>
       </div>
 
       {/* Hero screencast */}
