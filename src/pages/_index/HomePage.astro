@@ -13,6 +13,12 @@ import { getLatestRelease } from "../../utils/releases";
 const latestRelease = await getLatestRelease();
 const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
 
+const alternates = [
+  { hreflang: "en", href: "https://operately.com/" },
+  { hreflang: "de", href: "https://operately.com/de/" },
+  { hreflang: "x-default", href: "https://operately.com/" },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -67,6 +73,8 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
+  lang="en"
+  alternates={alternates}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -311,6 +319,9 @@ const schema = [
             Self-host Operately
           </a>
         </div>
+        <p class="mt-6 text-sm text-gray-500">
+          <a href="/de/" class="text-operately-blue hover:underline">Diese Seite auf Deutsch lesen &rarr;</a>
+        </p>
       </div>
     </section>
 

@@ -1,10 +1,17 @@
 ---
+interface AlternateLink {
+  hreflang: string;
+  href: string;
+}
+
 interface LayoutProps {
   title: string;
   description?: string;
   image?: string;
   twitterCardType?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  lang?: string;
+  alternates?: AlternateLink[];
 }
 
 const {
@@ -13,6 +20,8 @@ const {
   image,
   twitterCardType = "summary",
   schema,
+  lang = "en",
+  alternates,
 } = Astro.props as LayoutProps;
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
@@ -72,7 +81,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -81,6 +90,11 @@ import Footer from "../components/Footer.astro";
     <title>{title} - Operately</title>
     {description ? <meta name="description" content={description} /> : null}
     {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
+    {
+      alternates?.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))
+    }
     <meta property="og:title" content={title} />
     <meta property="og:site_name" content="Operately" />
     {
