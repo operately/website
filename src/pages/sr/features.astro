@@ -1,0 +1,486 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
+import { Image } from "astro:assets";
+import Screenshot from "../_index/operately-v4-screenshot.png";
+import goalScreenshot from "../_features/goal.png";
+import milestonesScreenshot from "../_features/milestones.png";
+import checkinScreenshot from "../_features/check-in.png";
+import discussionsScreenshot from "../_features/discussions.png";
+import kanbanScreenshot from "../_features/kanban.png";
+import reviewScreenshot from "../_features/review.png";
+import {
+  Map,
+  UserCheck,
+  Users,
+  ArrowRightLeft,
+  LayoutTemplate,
+  RefreshCcw,
+  Target,
+  Brain,
+  CalendarCheck,
+  Lock,
+  Eye,
+  Database,
+} from "lucide-react";
+
+const pageTitle = "Funkcije";
+const pageDescription =
+  "Operately spaja najbolje iz alata za upravljanje projektima, postavljanje ciljeva i upravljanje procesima kako bi vaša kompanija radila kao mašina visokih performansi.";
+
+const signUpUrl = import.meta.env.SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  lang="sr"
+  alternates={languageAlternates("/features")}
+>
+  <main class="bg-[#FAFAF8]">
+    {/* ─── Header ─── */}
+    <div class="py-8 sm:py-12">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h1
+            class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
+          >
+            Sve što je vašoj kompaniji potrebno da napreduje brzo i u pravom smeru.
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Prestanite da razvlačite sebe i svoj tim na sve strane. Počnite da vidite
+            stvarni napredak kompanije. Operately objedinjuje upravljanje projektima,
+            ciljevima i procesima u jednom alatu kako bi vaša organizacija radila
+            punim kapacitetom.
+          </p>
+          <LanguageLink href="/features" label="English" hreflang="en" />
+        </div>
+      </div>
+      <div class="relative overflow-hidden pt-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <Image
+            src={Screenshot}
+            alt="Snimak ekrana Operately aplikacije, kontrolna tabla sa ciljevima i projektima."
+            class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
+          />
+          <div class="relative" aria-hidden="true">
+            <div
+              class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
+        <dl
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16"
+        >
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <Map className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Vizualizujte ciljeve i projekte.
+            </dt>
+            <dd class="inline">
+              Povežite viziju kompanije sa ciljevima timova i projektima. Vidite tačno
+              kako svakodnevni rad pomera stvari napred.
+            </dd>
+          </div>
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <UserCheck className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Jasno vlasništvo, jasan napredak.
+            </dt>
+            <dd class="inline">
+              Vidite ko šta gura napred, bez jurenja ljudi za novostima.
+            </dd>
+          </div>
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <Users className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Izgradite zajedničko razumevanje.
+            </dt>
+            <dd class="inline">
+              Pokažite svima kako se njihov rad uklapa u širu sliku.
+            </dd>
+          </div>
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <ArrowRightLeft className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Zamenite tabele tokovima rada.
+            </dt>
+            <dd class="inline">
+              Pretvorite statične dokumente u žive procese koji rastu zajedno sa vama.
+            </dd>
+          </div>
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <LayoutTemplate className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Prestanite da iznova izmišljate način rada.
+            </dt>
+            <dd class="inline">
+              Standardizujte ritam svog tima uz proverenu strukturu koja jednostavno
+              radi, bez ikakvog podešavanja.
+            </dd>
+          </div>
+          <div class="relative pl-9">
+            <dt class="inline font-semibold text-gray-900">
+              <RefreshCcw className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+              Učite i prilagođavajte se u realnom vremenu.
+            </dt>
+            <dd class="inline">
+              Ne dozvolite da vaši planovi zastare. Prilagodite strategiju kako se
+              stvarnost menja.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    {/* ─── Goals ─── */}
+    <div class="overflow-hidden bg-white py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+        >
+          <div class="lg:pr-8 lg:pt-4">
+            <div class="lg:max-w-lg">
+              <h2 class="text-base font-semibold leading-7 text-operately-blue">
+                Praćenje ciljeva
+              </h2>
+              <p
+                class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+              >
+                Pretvorite ciljeve u vidljiv napredak
+              </p>
+              <p class="mt-6 text-lg leading-8 text-gray-600">
+                Postavite ciljeve na svakom nivou (kompanije, tima ili pojedinca) i
+                pratite napredak na jedan dosledan način.
+              </p>
+              <dl
+                class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none"
+              >
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-900">
+                    <Target className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+                    Kreirajte ciljeve ili OKR-ove koji pokreću akciju.
+                  </dt>
+                  <dd class="inline">
+                    Definišite kriterijume uspeha, dodelite nosioce i izaberite vremenski
+                    okvir, kvartalni ili prilagođeni.
+                  </dd>
+                </div>
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-900">
+                    <Brain className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+                    Donosite pametnije odluke uz kontekst.
+                  </dt>
+                  <dd class="inline">
+                    Držite relevantne informacije na jednom mestu. Dodajte detaljnu
+                    dokumentaciju, povežite resurse i centralizujte timske diskusije.
+                  </dd>
+                </div>
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-900">
+                    <CalendarCheck className="absolute left-1 top-1 h-5 w-5 text-operately-blue" />
+                    Kraj principu „postavi i zaboravi”.
+                  </dt>
+                  <dd class="inline">
+                    Izgradite naviku redovnog pregledanja napretka uz ugrađene izveštaje
+                    i podsetnike.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+          <Image
+            src={goalScreenshot}
+            alt="Snimak ekrana cilja"
+            class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+          />
+        </div>
+      </div>
+    </div>
+
+    {/* ─── Projects ─── */}
+    <div class="bg-[#FAFAF8] py-24 sm:py-32">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <h2 class="text-base/7 font-semibold text-operately-blue">
+          Upravljanje projektima
+        </h2>
+        <p
+          class="mt-2 max-w-3xl text-pretty text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl"
+        >
+          Standardizujte upravljanje projektima i isporučujte na vreme
+        </p>
+        <div
+          class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
+        >
+          <div class="relative lg:col-span-3">
+            <div class="absolute inset-px rounded-lg bg-white lg:rounded-tl-[2rem]">
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tl-[calc(2rem+1px)]"
+            >
+              <Image
+                src={checkinScreenshot}
+                alt="Izveštaj o napretku"
+                class="h-80 object-cover object-left"
+              />
+              <div class="p-10 pt-4">
+                <h3 class="text-sm/4 font-semibold text-operately-blue">
+                  Razjasnite uloge i odgovornosti
+                </h3>
+                <p class="mt-2 text-lg/7 font-medium tracking-tight text-gray-950">
+                  Neka odgovornost bude jasna.
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                  Nosioci projekata pokreću napredak redovnim izveštajima, a recenzenti
+                  obezbeđuju kvalitet. Svako zna šta treba da uradi.
+                </p>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tl-[2rem]"
+            >
+            </div>
+          </div>
+          <div class="relative lg:col-span-3">
+            <div
+              class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tr-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tr-[calc(2rem+1px)]"
+            >
+              <Image
+                src={milestonesScreenshot}
+                alt="Prekretnice"
+                class="h-80 object-cover object-left"
+              />
+              <div class="p-10 pt-4">
+                <h3 class="text-sm/4 font-semibold text-operately-blue">
+                  Pratite rad od početka do kraja
+                </h3>
+                <p class="mt-2 text-lg/7 font-medium tracking-tight text-gray-950">
+                  Organizujte rad pomoću prekretnica.
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                  Dajte svima uvid u to šta sledi i podstaknite razmišljanje o
+                  efikasnim rešenjima uz jasne rokove.
+                </p>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tr-[2rem]"
+            >
+            </div>
+          </div>
+
+          <div class="relative lg:col-span-2">
+            <div class="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]">
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]"
+            >
+              <Image
+                src={kanbanScreenshot}
+                alt="Kanban tabla sa zadacima"
+                class="h-80 object-cover object-left"
+              />
+              <div class="p-10 pt-4">
+                <h3 class="text-sm/4 font-semibold text-operately-blue">
+                  Kanban table
+                </h3>
+                <p class="mt-2 text-lg/7 font-medium tracking-tight text-gray-950">
+                  Vidite zadatke u pokretu.
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                  Pratite napredak vizuelno, od planiranja do završetka, uz
+                  fleksibilne table.
+                </p>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]"
+            >
+            </div>
+          </div>
+          <div class="relative lg:col-span-2">
+            <div class="absolute inset-px rounded-lg bg-white"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
+            >
+              <Image
+                src={discussionsScreenshot}
+                alt="Poruka"
+                class="h-80 object-cover object-center"
+              />
+              <div class="p-10 pt-4">
+                <h3 class="text-sm/4 font-semibold text-operately-blue">
+                  Oglasne table za poruke
+                </h3>
+                <p class="mt-2 text-lg/7 font-medium tracking-tight text-gray-950">
+                  Neka diskusije ostanu fokusirane.
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                  Zamenite razbacane nizove imejlova organizovanim razgovorima o
+                  projektima.
+                </p>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+            >
+            </div>
+          </div>
+          <div class="relative lg:col-span-2">
+            <div
+              class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]"
+            >
+              <Image
+                src={reviewScreenshot}
+                alt="Ekran ličnog pregleda"
+                class="h-80 object-cover object-center"
+              />
+              <div class="p-10 pt-4">
+                <h3 class="text-sm/4 font-semibold text-operately-blue">
+                  Ostanite organizovani
+                </h3>
+                <p class="mt-2 text-lg/7 font-medium tracking-tight text-gray-950">
+                  Nikada ne propustite svoj deo posla.
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                  Vidite sve što čeka vašu akciju ili odobrenje na jednom ekranu.
+                </p>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* ─── Security ─── */}
+    <div class="bg-[#FAFAF8] py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <h2
+            class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Bezbednost i usklađenost sa propisima
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Zaštitite podatke svoje kompanije i sarađujte bezbedno. Upravljajte
+            pristupom radu i zadržite kontrolu dok vaša organizacija raste.
+          </p>
+        </div>
+        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl
+            class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
+          >
+            <div class="flex flex-col">
+              <dt class="text-base font-semibold leading-7 text-gray-900">
+                <div
+                  class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+                >
+                  <Lock className="h-6 w-6 text-white" />
+                </div>
+                Upravljanje pristupom i dozvolama
+              </dt>
+              <dd
+                class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+              >
+                <p class="flex-auto">
+                  Kontrolišite nivo pristupa svakom prostoru, cilju i projektu. Tako
+                  možete biti transparentni po podrazumevanim podešavanjima, a
+                  određene informacije zadržati nedostupnim.
+                </p>
+              </dd>
+            </div>
+            <div class="flex flex-col">
+              <dt class="text-base font-semibold leading-7 text-gray-900">
+                <div
+                  class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+                >
+                  <Eye className="h-6 w-6 text-white" />
+                </div>
+                Nadzor jednim klikom
+              </dt>
+              <dd
+                class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+              >
+                <p class="flex-auto">
+                  Detaljni zapisi aktivnosti i liste pristupa olakšavaju uvid u to ko
+                  šta radi i služe kao dokaz usklađenosti.
+                </p>
+              </dd>
+            </div>
+            <div class="flex flex-col">
+              <dt class="text-base font-semibold leading-7 text-gray-900">
+                <div
+                  class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-operately-blue"
+                >
+                  <Database className="h-6 w-6 text-white" />
+                </div>
+                Vaši podaci su vaši
+              </dt>
+              <dd
+                class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
+              >
+                <p class="flex-auto">
+                  Ako vam je potrebna maksimalna kontrola nad podacima, Operately
+                  možete hostovati sami uz minimalan trud. Počnite od <a
+                    href="/install"
+                    class="text-operately-blue hover:underline"
+                    >vodiča za instalaciju</a
+                  > (na engleskom) ili pročitajte <a
+                    href="/sr/self-hosted"
+                    class="text-operately-blue hover:underline"
+                    >pregled samostalnog hostovanja</a
+                  >.
+                </p>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    {/* ─── CTA ─── */}
+    <div class="bg-[#FAFAF8]">
+      <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2
+            class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Prestanite da improvizujete. Počnite da koristite sisteme koji rastu sa vama.
+          </h2>
+          <p class="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-600">
+            Pridružite se timovima koji su prestali da iznova izmišljaju procese i
+            počeli da se fokusiraju na ono što je važno: pravljenje odličnih proizvoda.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a
+              href={signUpUrl}
+              class="rounded-md bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-operately-dark-blue"
+              >Registrujte se besplatno</a
+            >
+            <a href="/install" class="text-sm font-semibold leading-6 text-gray-900"
+              >Hostujte sami već danas <span aria-hidden="true">→</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

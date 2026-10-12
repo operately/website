@@ -1,0 +1,280 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
+
+const pageTitle = "Upravljanje projektima uz AI | Operately";
+const pageDescription =
+  "Operately radi sa AI agentima kao što su OpenClaw, Codex i Claude Code. CLI, API i objavljene veštine omogućavaju agentima da upravljaju Operately-jem isto kao ljudi.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/sr/ai/#webpage",
+  url: "https://operately.com/sr/ai/",
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: "sr",
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const badges = ["Potpun API", "CLI za agente", "Objavljene veštine", "Otvoreni kod"];
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang="sr"
+  alternates={languageAlternates("/ai")}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          AI + Operately
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Vaš AI agent može da koristi Operately kao i vi
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately ima potpun <a href="/help/cli" class="text-operately-blue hover:underline">CLI</a>,
+          <a href="/help/api" class="text-operately-blue hover:underline">API</a> i
+          <a href="https://github.com/operately/skills" class="text-operately-blue hover:underline">veštine</a>
+          koje AI agentima omogućavaju da kreiraju ciljeve, ažuriraju projekte i objavljuju
+          izveštaje o napretku. Ako vaš agent može da pokreće komande u terminalu, može da koristi
+          Operately na isti način kao čovek.
+        </p>
+        <LanguageLink href="/ai" label="English" hreflang="en" />
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        {badges.map((badge) => (
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            {badge}
+          </span>
+        ))}
+      </div>
+
+      {/* The approach */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako AI agenti rade sa Operately-jem</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately izlaže svaku operaciju kroz CLI i API. Kada AI agent kao što je OpenClaw,
+            Codex ili Claude Code treba da radi sa vašim ciljevima i projektima, on se prijavljuje
+            pomoću tokena i pokreće iste komande koje bi čovek pokrenuo u terminalu.
+          </p>
+          <p>
+            Ne postoji poseban „AI režim”. Agent koji može da pokreće komande u terminalu već je
+            punopravni korisnik Operately-ja. Može da kreira ciljeve, ažurira status projekata, piše
+            izveštaje o napretku i proverava napredak. Strukturirani podaci (tipizovane mete,
+            prekretnice, statusna polja) olakšavaju agentima da čitaju i razumeju rad vašeg tima.
+          </p>
+        </div>
+      </div>
+
+      {/* How it works — cards */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Alati</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="/help/cli" class="text-operately-blue hover:underline">CLI</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Instalirajte Operately CLI (<code class="text-xs bg-gray-100 px-1 py-0.5 rounded">@operately/operately-cli</code>)
+              sa npm-a. Prijavite se tokenom. Svaka operacija je komanda: ciljevi, projekti,
+              izveštaji o napretku, ljudi, prostori.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="https://github.com/operately/skills" class="text-operately-blue hover:underline">Veštine za agente</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Operately objavljuje veštine za agente koje kompatibilne alate uče kako da rade sa
+              Operately tokovima rada. Instalirajte ih komandom
+              <code class="text-xs bg-gray-100 px-1 py-0.5 rounded">npx skills add</code> i vaš agent
+              već zna komande. Dostupne su i na
+              <a href="https://clawhub.ai/markoa/operately-cli" class="text-operately-blue hover:underline">ClawHub-u</a> za OpenClaw.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">
+              <a href="/help/api" class="text-operately-blue hover:underline">API</a>
+            </h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Kompletan eksterni API je dokumentovan i stabilan. Sve što može veb interfejs, može i
+              API. Agenti mogu programski da pretražuju ciljeve, objavljuju izveštaje i ažuriraju
+              status projekata.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Strukturirani podaci</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Ciljevi imaju merljive mete. Projekti imaju prekretnice i vlasnike. Izveštaji o napretku
+              imaju statusna polja. Sve je strukturirano, a ne slobodan tekst. Agenti mogu da čitaju,
+              razumeju i ažuriraju ove podatke bez raščlanjivanja dokumenata.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Code example */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako to izgleda u praksi</h2>
+        <div class="mt-6 rounded-xl bg-gray-900 p-6 font-mono text-sm text-gray-100 overflow-x-auto">
+          <pre class="whitespace-pre"><code><span class="text-gray-500"># Instalirajte CLI</span>
+npm install -g @operately/operately-cli
+
+<span class="text-gray-500"># Prijavite se</span>
+operately auth login --token $OPERATELY_TOKEN
+
+<span class="text-gray-500"># Agent kreira cilj</span>
+operately goals create --name "Ship v2 by March" --target "100%" --space engineering
+
+<span class="text-gray-500"># Agent objavljuje nedeljni izveštaj o napretku</span>
+operately projects check_in --project website-redesign --status on_track \
+  --description "Completed homepage, starting landing pages next week"
+
+<span class="text-gray-500"># Agent pregleda napredak ciljeva</span>
+operately goals list --space engineering</code></pre>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">
+          Svaki agent koji može da pokreće komande u terminalu može da koristi Operately. Bez
+          posebnih integracija, bez vlasničkih SDK-ova, bez API omotača koje treba održavati.
+        </p>
+      </div>
+
+      {/* Compatible agents */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Radi sa agentima koje već koristite</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately se integriše sa AI agentima koji mogu da izvršavaju komande i rade sa API-jima:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>OpenClaw</strong> — Instalirajte Operately veštinu i vaš OpenClaw agent upravlja ciljevima i projektima uz sve ostalo što radi za vaš tim.</li>
+            <li><strong>OpenAI Codex</strong> — Codex može da koristi CLI da ažurira napredak projekta nakon završenih programerskih zadataka.</li>
+            <li><strong>Claude Code</strong> — Isti pristup: instalirajte veštine, prijavite se i Claude Code postaje punopravni učesnik u Operately-ju.</li>
+            <li><strong>Bilo koji alat sa pristupom terminalu</strong> — Ako može da pokrene <code class="text-xs bg-gray-100 px-1 py-0.5 rounded">operately</code> komande, radi.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Comparison */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Poređenje spremnosti za agente</h2>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Notion</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Monday / Asana</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">CLI</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Zvanični alati za agente/MCP</td>
+                <td class="px-6 py-4 text-center text-green-600">Da (veštine)</td>
+                <td class="px-6 py-4 text-center text-green-600">Da (MCP server)</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">API</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Otvoreni kod</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Samostalno hostovanje</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Ugrađeni ciljevi/OKR</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center">Plaćeni dodatak</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Zašto ovaj pristup funkcioniše</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Većina alata dodaje AI kao funkciju unutar svog interfejsa: kopilota koji sažima ili
+            čet-bota koji odgovara na pitanja o vašim podacima. To pomaže, ali je ograničeno na ono
+            što dobavljač odluči da napravi.
+          </p>
+          <p>
+            Operately ima drugačiji pristup. CLI i API tretiraju agente isto kao ljude. Agent
+            prijavljen tokenom ima iste mogućnosti kao neko ko je prijavljen u veb interfejs. To
+            znači da svaki novi alat za agente, svaki novi AI okvir i svaka prilagođena automatizacija
+            koju napravite mogu odmah da rade sa Operately-jem, bez čekanja da mi napravimo
+            integraciju.
+          </p>
+          <p>
+            Vaš agent za programiranje završi prekretnicu? Ažurira projekat. Vaš operativni agent
+            radi nedeljni pregled? Objavljuje izveštaj o napretku. Alat se sklanja s puta i omogućava
+            agentima da prirodno učestvuju u radu vašeg tima.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Isprobajte Operately sa svojim agentima</h2>
+        <p class="mt-4 text-gray-600">
+          Besplatno za početak. Potpun pristup API-ju u svakom planu.
+          Otvoreni kod, samostalno hostovanje, spremno za par minuta.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+          >
+            Počnite besplatno na Cloud-u
+          </a>
+          <a
+            href="/help/cli"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Istražite CLI dokumentaciju
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

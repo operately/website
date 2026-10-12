@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
 import { Image } from "astro:assets";
 import goalScreenshot from "../_index/goal.png";
 
@@ -29,6 +31,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   description={pageDescription}
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/for/small-teams")}
   schema={schema}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
@@ -46,6 +49,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           teams of 5 to 50 who want to stay aligned on goals and ship work without drowning in
           features they do not use. Open source, flat pricing, ready in minutes.
         </p>
+        <LanguageLink href="/sr/for/small-teams" label="Srpski" hreflang="sr" />
       </div>
 
       {/* Key differentiators */}

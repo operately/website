@@ -1,0 +1,252 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LanguageLink from "../../../components/LanguageLink.astro";
+import { languageAlternates } from "../../../utils/i18n.js";
+import { Image } from "astro:assets";
+import goalScreenshot from "../../_index/goal.png";
+
+const pageTitle = "Upravljanje projektima za neprofitne organizacije";
+const pageDescription =
+  "Operately je alat za upravljanje projektima za neprofitne organizacije: otvoreni kod, fiksne cene, ugrađeno praćenje ciljeva. Pokažite uticaj donatorima i držite tim usklađenim.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/sr/for/nonprofits/#webpage",
+  url: "https://operately.com/sr/for/nonprofits/",
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: "sr",
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const badges = [
+  "Besplatno za početak",
+  "Bez troškova po korisniku",
+  "Otvoreni kod",
+  "Samostalno hostovanje",
+];
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang="sr"
+  alternates={languageAlternates("/for/nonprofits")}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          Za neprofitne organizacije
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Vodite programe i pokažite uticaj bez skupih alata
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Neprofitni timovi žongliraju programima, grantovima i izveštavanjem uz alate napravljene
+          za korporacije. Operately vam daje praćenje ciljeva, upravljanje projektima i ugrađenu
+          odgovornost, bez naplate po korisniku koja nagriza vaš budžet. Otvoreni kod i besplatno
+          za početak.
+        </p>
+        <LanguageLink href="/for/nonprofits" label="English" hreflang="en" />
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        {badges.map((badge) => (
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            {badge}
+          </span>
+        ))}
+      </div>
+
+      {/* Problem / Solution */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Problem sa alatima u neprofitnom sektoru</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Većina alata za upravljanje projektima naplaćuje po korisniku. Za neprofitnu
+            organizaciju od 15 ljudi to je od 50 do 00 mesečno potrošenih na softver umesto na
+            vašu misiju. A alati koje dobijate osmišljeni su za prodajne timove i lansiranje
+            proizvoda, a ne za programe i obaveze iz grantova.
+          </p>
+          <p>
+            U međuvremenu, vaš upravni odbor i donatori žele da vide napredak. Žele merljive
+            rezultate. Potreban vam je način da povežete svakodnevni rad sa ciljevima koje ste
+            obećali u predlozima za grantove, bez pravljenja sopstvenog sistema izveštavanja od
+            tabela.
+          </p>
+        </div>
+      </div>
+
+      {/* Screenshot */}
+      <div class="mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <Image
+            src={goalScreenshot}
+            alt="Praćenje ciljeva u Operately-ju sa merljivim metama i napretkom"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      {/* What you get */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Šta dobijate sa Operately-jem</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Ciljevi vezani za vašu misiju</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Postavite ciljeve organizacije sa merljivim metama. Pratite ishode programa na isti
+              način na koji ih izveštavate donatorima. Napredak je uvek vidljiv bez ručnog
+              izveštavanja.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Projekti sa ugrađenim izveštajima</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Vodite programe i kampanje uz redovna ažuriranja napretka. Vaš tim ostaje odgovoran,
+              a rukovodstvo uvek zna gde se stvari nalaze.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Fiksne cene</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Bez naknade po korisniku. Dodajte zaposlene, volontere i članove upravnog odbora bez
+              rasta troškova za softver. Svaki ušteđeni dinar vraća se vašoj misiji.
+              <a href="/sr/pricing" class="text-operately-blue hover:underline">Pogledajte cene →</a>
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Otvoreni kod i samostalno hostovanje</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Potpuna transparentnost koda. Hostujte sami radi potpune kontrole nad podacima
+              donatora i korisnika ili koristite cloud i počnite za par minuta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Podešavanje traje manje od 5 minuta</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+        >
+          Počnite besplatno, bez kreditne kartice
+        </a>
+      </div>
+
+      {/* Comparison */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Zašto ne biste jednostavno koristili Monday.com ili Asana?</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Rade, ali su njihove cene i složenost osmišljeni za finansirane kompanije, a ne za
+            organizacije vođene misijom koje paze na svaki dinar.
+          </p>
+        </div>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Korporativni alati</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Trošak za 15 ljudi</td>
+                <td class="px-6 py-4 text-center text-green-600">/bin/bash (besplatan plan)</td>
+                <td class="px-6 py-4 text-center">35-225 mesečno</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Dodavanje volontera/odbora</td>
+                <td class="px-6 py-4 text-center text-green-600">Bez dodatnih troškova</td>
+                <td class="px-6 py-4 text-center">Dodatni korisnici = dodatne naknade</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Praćenje ciljeva</td>
+                <td class="px-6 py-4 text-center text-green-600">Ugrađeno, besplatno</td>
+                <td class="px-6 py-4 text-center">Plaćeni dodatak ili skuplji plan</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Kontrola nad podacima</td>
+                <td class="px-6 py-4 text-center text-green-600">Opcija samostalnog hostovanja</td>
+                <td class="px-6 py-4 text-center text-gray-400">Samo kod dobavljača</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Otvoreni kod</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Složenost podešavanja</td>
+                <td class="px-6 py-4 text-center text-green-600">Minuti</td>
+                <td class="px-6 py-4 text-center">Zahteva obuku administratora</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Philosophy */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Napravljen za odgovornost, a ne za prazan posao</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Neprofitne organizacije postoje da bi donele promenu, a promena zahteva fokus. Morate da
+            znate da li vaši programi funkcionišu, da li je vaš tim usklađen i da li možete da
+            pokažete konkretan napredak ljudima koji finansiraju vaš rad.
+          </p>
+          <p>
+            Većina alata vam daje prazno platno i kaže „snađite se”. Operately vam daje jasnu
+            strukturu: ciljeve sa merljivim metama, projekte sa redovnim izveštajima o napretku i
+            uvid u to šta funkcioniše, a šta ne. Za podešavanje nisu potrebni konsultanti.
+          </p>
+          <p>
+            Verujemo da svaka organizacija koja radi značajan posao zaslužuje alate koji joj
+            pomažu da ostane odgovorna svojoj misiji, bez trošenja budžeta na softverske licence.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Isprobajte Operately u svojoj organizaciji</h2>
+        <p class="mt-4 text-gray-600">
+          Besplatno za početak. Bez naknade po korisniku. Spremno za par minuta.
+          Nije potrebna kreditna kartica.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+          >
+            Počnite besplatno na Cloud-u
+          </a>
+          <a
+            href="/sr/self-hosted"
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Samostalno hostujte Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

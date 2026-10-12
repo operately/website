@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
+import { GitHubIcon, YouTubeIcon } from "../../components/Icons";
+
+const pageTitle = "Zašto otvoreni kod?";
+const pageDescription =
+  "Poslovnom softveru je potreban novi početak. Operately gradi proizvod koji je održiv, otvoren i transparentan.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  lang="sr"
+  alternates={languageAlternates("/open-source")}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <article class="prose lg:prose-lg prose-a:text-operately-blue">
+        <h1>Zašto otvoreni kod?</h1>
+
+        <p class="lead">
+          Jednostavno: <strong>poslovnom softveru je potreban novi početak</strong>.
+          Era glomaznih kompanija koje naplaćuju svaku osobu kojoj treba da vidi
+          zadatak se završava. Proizvodi budućnosti treba da budu održivi,
+          otvoreni i transparentni.
+        </p>
+
+        <LanguageLink href="/open-source" label="English" hreflang="en" class="not-prose -mt-2" />
+
+        <h3>Otvoren kod, brži napredak</h3>
+        <p>
+          Operately gradimo javno jer najbolje ideje mogu doći sa bilo koje
+          strane. Ispravke grešaka, nove funkcije, poboljšanja – softver napreduje
+          kada pametni ljudi mogu da vide kako radi i da ga učine boljim.
+        </p>
+
+        <h3>Potpuna transparentnost</h3>
+        <p>
+          Vaše poslovanje zavisi od ovog softvera. Trebalo bi da možete da vidite
+          tačno šta radi. Bez iznenađenja, bez manipulativnih obrazaca, bez
+          zaključavanja. Samo čist kod koji se može proveriti i koji radi ono što
+          kaže.
+        </p>
+
+        <h3>Pokrenite ga na svoj način</h3>
+
+        <p>
+          Hostujte ga sami. Gradite na njemu. Prilagodite ga sebi. Vaši procesi su
+          previše važni da bi bili zarobljeni u tuđoj crnoj kutiji. Pogledajte
+          <a href="/sr/self-hosted">kako da hostujete Operately sami</a>.
+        </p>
+
+        <h3>Otvoren temelj za deljenje</h3>
+
+        <p>
+          Najbolje poslovne prakse treba deliti, a ne skrivati iza naplate.
+          Šabloni, tokovi rada, procesi – kada se otvoreno dele i zajednički
+          razvijaju, podižu nivo za sve.
+        </p>
+
+        <p class="border-b border-gray-200 pb-6 mb-6">
+          Da, nudimo hostovanu verziju. Da, naplaćujemo je. Ali kod je vaš,
+          zauvek. To je naše obećanje.
+        </p>
+      </article>
+    </div>
+
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mt-16 text-center text-2xl font-bold tracking-tight text-gray-900">
+        Pratite kako gradimo javno
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <a
+          href="https://github.com/operately"
+          class="flex items-center p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all group"
+        >
+          <GitHubIcon className="w-12 h-12 text-gray-700 group-hover:text-black" />
+          <div class="ml-6">
+            <h3 class="text-xl font-semibold text-gray-900 hover:text-black">
+              GitHub: @operately
+            </h3>
+            <p class="text-gray-600 mt-1">
+              Pregledajte naš kod, doprinesite i gradite sa nama.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="https://youtube.com/@operatelybackstage"
+          class="flex items-center p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all group"
+        >
+          <YouTubeIcon className="w-12 h-12 text-gray-700 group-hover:text-black" />
+          <div class="ml-6">
+            <h3 class="text-xl font-semibold text-gray-900 hover:text-black">
+              YouTube: Operately Backstage
+            </h3>
+            <p class="text-gray-600 mt-1">
+              Pratite naše putovanje dok dokumentujemo proces izgradnje Operately-ja.
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="mt-16 mb-8 mx-auto max-w-6xl border-t border-gray-200"></div>
+  </main>
+</BaseLayout>

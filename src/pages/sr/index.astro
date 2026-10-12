@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import goalScreenshot from "../_index/goal.png";
 import projectScreenshot from "../_index/project.png";
 import CompanyLogos from "../_index/CompanyLogos.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
 
 const pageTitle = "Operately: OKR i upravljanje projektima otvorenog koda";
 const pageDescription =
@@ -33,7 +35,7 @@ const schema = [
     "@type": "WebSite",
     "@id": "https://operately.com/sr/#website",
     name: "Operately",
-    url: "https://operately.com/sr",
+    url: "https://operately.com/sr/",
     description: pageDescription,
     inLanguage: "sr",
     publisher: {
@@ -47,7 +49,7 @@ const schema = [
     name: "Operately",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    url: "https://operately.com/sr",
+    url: "https://operately.com/sr/",
     description: pageDescription,
     image: "https://operately.com/images/social/card-summary-large.png",
     inLanguage: "sr",
@@ -70,12 +72,7 @@ const schema = [
   twitterCardType="summary_large_image"
   schema={schema}
   lang="sr"
-  canonicalUrl="https://operately.com/sr"
-  alternates={[
-    { hreflang: "en", href: "https://operately.com/" },
-    { hreflang: "sr", href: "https://operately.com/sr" },
-    { hreflang: "x-default", href: "https://operately.com/" },
-  ]}
+  alternates={languageAlternates("/")}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -117,11 +114,7 @@ const schema = [
           </a>
         </div>
 
-        <p class="mt-6 text-sm text-gray-500">
-          <a href="/" class="font-medium text-gray-600 hover:text-gray-900 transition-colors">
-            English
-          </a>
-        </p>
+        <LanguageLink href="/" label="English" hreflang="en" />
       </div>
 
       {/* Hero screencast */}
@@ -323,12 +316,21 @@ const schema = [
             Počnite besplatno na Cloud-u
           </a>
           <a
-            href="/self-hosted"
+            href="/sr/self-hosted"
             class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
           >
             Samostalno hostujte Operately
           </a>
         </div>
+        <p class="mt-8 text-sm text-gray-500">
+          Saznajte više:
+          <a href="/sr/what-is-operately" class="text-operately-blue hover:underline">Šta je Operately</a> ·
+          <a href="/sr/features" class="text-operately-blue hover:underline">Funkcije</a> ·
+          <a href="/sr/pricing" class="text-operately-blue hover:underline">Cene</a> ·
+          <a href="/sr/okr-software" class="text-operately-blue hover:underline">OKR softver</a> ·
+          <a href="/sr/ai" class="text-operately-blue hover:underline">AI agenti</a> ·
+          <a href="/sr/open-source" class="text-operately-blue hover:underline">Otvoreni kod</a>
+        </p>
       </div>
     </section>
 

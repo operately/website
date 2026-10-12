@@ -1,0 +1,24 @@
+---
+// Small inline link to the same page in another language. Used on pages
+// that have both an English and a Serbian version so each version is
+// reachable from body content, not only from navigation.
+interface Props {
+  href: string;
+  label: string;
+  hreflang: string;
+  class?: string;
+}
+
+const { href, label, hreflang, class: className = "mt-6" } = Astro.props;
+---
+
+<p class:list={["text-sm text-gray-500", className]}>
+  <a
+    href={href}
+    hreflang={hreflang}
+    lang={hreflang}
+    class="font-medium text-gray-600 hover:text-gray-900 transition-colors"
+  >
+    {label}
+  </a>
+</p>

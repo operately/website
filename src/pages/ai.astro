@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageLink from "../components/LanguageLink.astro";
+import { languageAlternates } from "../utils/i18n.js";
 
 const pageTitle = "AI Project Management | Operately";
 const pageDescription =
@@ -27,6 +29,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   description={pageDescription}
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/ai")}
   schema={schema}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
@@ -46,6 +49,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           that let AI agents create goals, update projects, and post check-ins. If your agent
           can run shell commands, it can operate Operately the same way a human would.
         </p>
+        <LanguageLink href="/sr/ai" label="Srpski" hreflang="sr" />
       </div>
 
       {/* Key differentiators */}

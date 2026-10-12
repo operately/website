@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import goalScreenshot from "./goal.png";
 import projectScreenshot from "./project.png";
 import CompanyLogos from "./CompanyLogos.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates } from "../../utils/i18n.js";
 
 const pageTitle = "Operately: Open Source OKR and Project Management Software";
 const pageDescription =
@@ -67,11 +69,7 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
-  alternates={[
-    { hreflang: "en", href: "https://operately.com/" },
-    { hreflang: "sr", href: "https://operately.com/sr" },
-    { hreflang: "x-default", href: "https://operately.com/" },
-  ]}
+  alternates={languageAlternates("/")}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -113,11 +111,7 @@ const schema = [
           </a>
         </div>
 
-        <p class="mt-6 text-sm text-gray-500">
-          <a href="/sr" class="font-medium text-gray-600 hover:text-gray-900 transition-colors">
-            Srpski
-          </a>
-        </p>
+        <LanguageLink href="/sr" label="Srpski" hreflang="sr" />
       </div>
 
       {/* Hero screencast */}

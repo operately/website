@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageLink from "../components/LanguageLink.astro";
+import { languageAlternates } from "../utils/i18n.js";
 
 const pageTitle = "Pricing";
 const pageDescription =
@@ -15,6 +17,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/pricing")}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -31,6 +34,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
         >
           One price for your whole team. Add people without adding costs.
         </p>
+        <LanguageLink href="/sr/pricing" label="Srpski" hreflang="sr" />
       </div>
 
       {/* Annual/Monthly Toggle */}

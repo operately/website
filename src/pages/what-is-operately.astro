@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageLink from "../components/LanguageLink.astro";
+import { languageAlternates } from "../utils/i18n.js";
 
 const pageTitle = "What is Operately? Open Source Goal and Project Management";
 const pageDescription =
@@ -96,6 +98,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
   description={pageDescription}
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/what-is-operately")}
   schema={schema}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
@@ -110,6 +113,7 @@ const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
           tracking with project execution and built-in check-ins so your team stays aligned on
           outcomes, not just tasks.
         </p>
+        <LanguageLink href="/sr/what-is-operately" label="Srpski" hreflang="sr" />
       </div>
 
       {/* Quick facts */}

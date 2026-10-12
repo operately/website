@@ -7,7 +7,6 @@ interface LayoutProps {
   schema?: Record<string, unknown> | Record<string, unknown>[];
   lang?: string;
   alternates?: { hreflang: string; href: string }[];
-  canonicalUrl?: string;
 }
 
 const {
@@ -18,15 +17,10 @@ const {
   schema,
   lang = "en",
   alternates = [],
-  canonicalUrl: canonicalUrlOverride,
 } = Astro.props as LayoutProps;
 
 const socialImageUrl = image ? new URL(image, Astro.site) : null;
-const canonicalUrl = canonicalUrlOverride
-  ? new URL(canonicalUrlOverride)
-  : Astro.site
-    ? new URL(Astro.url.pathname, Astro.site)
-    : null;
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
 const siteDescription = "Operately helps teams run goals, projects, and weekly execution with built-in workflows. Use Operately Cloud or self-host it in minutes.";
 const siteSchema = canonicalUrl
   ? [
