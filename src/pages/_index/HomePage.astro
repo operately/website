@@ -67,6 +67,11 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
+  alternates={[
+    { hreflang: "en", href: "https://operately.com/" },
+    { hreflang: "sr", href: "https://operately.com/sr" },
+    { hreflang: "x-default", href: "https://operately.com/" },
+  ]}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -107,6 +112,12 @@ const schema = [
             Self-host in 5 minutes &rarr;
           </a>
         </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+          <a href="/sr" class="font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            Srpski
+          </a>
+        </p>
       </div>
 
       {/* Hero screencast */}
