@@ -88,17 +88,17 @@ const schema = [
           >
             <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
             v{latestRelease.version} veröffentlicht
-            <span class="text-operately-blue">Was ist neu &rarr;</span>
+            <span class="text-operately-blue">Neuigkeiten &rarr;</span>
           </a>
         )}
 
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
           Ihr Team braucht keine weitere<br class="hidden sm:block" />
-          leere Fläche. Es braucht ein System.
+          leere Leinwand. Es braucht ein System.
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-700">
           Operately verbindet Ziele mit Projekten durch integrierte Check-ins und
-          Fortschrittsverfolgung. Open Source. Selbst hosten oder die Cloud nutzen. Kostenlos starten.
+          Fortschrittsverfolgung. Open Source. Selbst hosten oder in der Cloud nutzen. Kostenlos starten.
         </p>
 
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -136,7 +136,10 @@ const schema = [
       </div>
     </section>
 
-    <CompanyLogos />
+    <CompanyLogos
+      heading="Großartige Teams, die Operately nutzen"
+      regionLabel="Firmenlogos; horizontal scrollen, um alle Unternehmen zu sehen"
+    />
 
     {/* ─── Testimonial 1 ─── */}
     <section class="px-6 py-10 lg:px-8">
@@ -146,7 +149,7 @@ const schema = [
           verbunden sind. Keine Statusmeetings mehr, nur um herauszufinden, wo wir stehen."
         </p>
         <footer class="mt-4 text-sm text-gray-500">
-          <span class="font-medium text-gray-900">Sarah C.</span> · Head of Product
+          <span class="font-medium text-gray-900">Sarah C.</span> · Produktleiterin
         </footer>
       </blockquote>
     </section>
@@ -160,16 +163,16 @@ const schema = [
               Ziele, die lebendig bleiben
             </h2>
             <p class="mt-6 text-lg leading-8 text-gray-700">
-              Setzen Sie Ziele mit messbaren Vorgaben. Verbinden Sie sie mit Projekten.
-              Sehen Sie den Fortschritt automatisch, sobald die Arbeit voranschreitet. Keine
-              Ziele mehr, die in einer Tabelle bis zur Quartalsbesprechung vergessen werden.
+              Setzen Sie Ziele mit messbaren Zielwerten. Verbinden Sie sie mit Projekten.
+              Verfolgen Sie den Fortschritt automatisch, während die Arbeit voranschreitet. Keine
+              Ziele mehr, die bis zur Quartalsbesprechung in einer Tabelle in Vergessenheit geraten.
             </p>
             <dl class="mt-8 space-y-4">
               <div class="flex gap-3">
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
                   <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 </div>
-                <p class="text-gray-700"><strong class="text-gray-900">Messbare Vorgaben.</strong> Keine vagen Absichten</p>
+                <p class="text-gray-700"><strong class="text-gray-900">Messbare Zielwerte.</strong> Keine vagen Absichten</p>
               </div>
               <div class="flex gap-3">
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
@@ -181,7 +184,7 @@ const schema = [
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
                   <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 </div>
-                <p class="text-gray-700"><strong class="text-gray-900">Regelmäßige Reviews.</strong> Integrierte Erinnerungen halten sie im Zeitplan</p>
+                <p class="text-gray-700"><strong class="text-gray-900">Regelmäßige Überprüfungen.</strong> Integrierte Erinnerungen sorgen dafür, dass alles im Zeitplan bleibt</p>
               </div>
             </dl>
           </div>
@@ -222,25 +225,25 @@ const schema = [
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Projekte, die keine Betreuung brauchen
+              Projekte, die kein ständiges Nachhaken brauchen
             </h2>
             <p class="mt-6 text-lg leading-8 text-gray-700">
               Jedes Projekt hat einen Verantwortlichen, Meilensteine und regelmäßige
               Check-ins. Der Fortschritt fließt automatisch nach oben. Niemand muss
-              jemandem hinterherlaufen, um den Status zu erfahren.
+              anderen hinterherlaufen, um den aktuellen Stand zu erfahren.
             </p>
             <dl class="mt-8 space-y-4">
               <div class="flex gap-3">
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
                   <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 </div>
-                <p class="text-gray-700"><strong class="text-gray-900">Klare Verantwortlichkeit.</strong> Jedes Projekt hat einen Treiber</p>
+                <p class="text-gray-700"><strong class="text-gray-900">Klare Verantwortlichkeit.</strong> Jedes Projekt hat eine verantwortliche Person</p>
               </div>
               <div class="flex gap-3">
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
                   <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 </div>
-                <p class="text-gray-700"><strong class="text-gray-900">Integrierte Check-ins.</strong> Asynchrone Fortschrittsupdates nach Zeitplan</p>
+                <p class="text-gray-700"><strong class="text-gray-900">Integrierte Check-ins.</strong> Asynchrone Fortschrittsberichte nach festem Zeitplan</p>
               </div>
               <div class="flex gap-3">
                 <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
@@ -261,14 +264,14 @@ const schema = [
           Struktur, die für Sie arbeitet,<br class="hidden sm:block" /> nicht umgekehrt
         </h2>
         <p class="mt-6 text-lg leading-8 text-gray-300">
-          Die meisten Tools bieten unendliche Flexibilität und null Orientierung. Operately
-          gibt Ihrem Team ein klares System: Ziele mit Vorgaben, Projekte mit Verantwortlichen
-          und Check-ins, die nach Zeitplan stattfinden. Sie erhalten Abstimmung ohne Mikromanagement.
+          Die meisten Tools bieten grenzenlose Flexibilität, aber keinerlei Orientierung. Operately
+          gibt Ihrem Team ein klares System: Ziele mit Zielwerten, Projekte mit Verantwortlichen
+          und Check-ins, die nach Zeitplan stattfinden. So erreichen Sie Ausrichtung ohne Mikromanagement.
         </p>
         <div class="mt-12 grid gap-8 sm:grid-cols-3">
           <div>
             <p class="text-3xl font-bold text-white">Open Source</p>
-            <p class="mt-2 text-sm text-gray-400">Apache-2.0-Lizenz. Volle Transparenz.</p>
+            <p class="mt-2 text-sm text-gray-400">Lizenziert unter Apache 2.0. Volle Transparenz.</p>
           </div>
           <div>
             <p class="text-3xl font-bold text-white">Selbst hostbar</p>
@@ -276,7 +279,7 @@ const schema = [
           </div>
           <div>
             <p class="text-3xl font-bold text-white">Pauschalpreis</p>
-            <p class="mt-2 text-sm text-gray-400">Keine Gebühren pro Sitzplatz. Fügen Sie Personen frei hinzu.</p>
+            <p class="mt-2 text-sm text-gray-400">Keine Gebühren pro Nutzer. Fügen Sie beliebig viele Personen hinzu.</p>
           </div>
         </div>
       </div>
@@ -287,11 +290,11 @@ const schema = [
       <blockquote class="mx-auto max-w-2xl text-center">
         <p class="text-lg text-gray-700 italic leading-8">
           "Open Source war uns aus Compliance-Gründen wichtig, aber ehrlich gesagt sind wir
-          geblieben, weil die Struktur einfach funktioniert. Unser Team mit 12 Personen läuft
-          reibungsloser als damals mit 6 Personen und Notion."
+          geblieben, weil die Struktur einfach funktioniert. Unser 12-köpfiges Team arbeitet
+          reibungsloser als damals, als wir zu sechst waren und Notion genutzt haben."
         </p>
         <footer class="mt-4 text-sm text-gray-500">
-          <span class="font-medium text-gray-900">Priya S.</span> · Operations Lead
+          <span class="font-medium text-gray-900">Priya S.</span> · Leiterin Operations
         </footer>
       </blockquote>
     </section>
@@ -300,10 +303,10 @@ const schema = [
     <section class="px-6 py-20 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Testen Sie es mit Ihrem Team
+          Probieren Sie es mit Ihrem Team aus
         </h2>
         <p class="mt-4 text-lg text-gray-600">
-          Kostenlos starten. Keine Kreditkarte. In wenigen Minuten startklar.
+          Kostenlos starten. Keine Kreditkarte erforderlich. In wenigen Minuten einsatzbereit.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
