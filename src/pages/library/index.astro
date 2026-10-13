@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { ArrowRight } from "lucide-react";
+import type { CollectionEntry } from "astro:content";
+import { getLibraryArticles } from "../../utils/library/content";
+
+const categoryNames: Record<CollectionEntry<"library">["data"]["category"], string> = {
+  kpis: "KPIs",
+};
+
+const articles = await getLibraryArticles();
+const sections = Object.entries(categoryNames)
+  .map(([category, name]) => ({ category, name, articles: articles.filter((article) => article.data.category === category) }))
+  .filter((section) => section.articles.length > 0);
+---
+<BaseLayout title="Library" description="Practical guides, working examples, and templates to help your team run its work in Operately.">
+  <Fragment slot="head">{!articles.some(({ data }) => data.published) && <meta name="robots" content="noindex, nofollow" />}</Fragment>
+  <main class="bg-[#FAFAF8] px-6 pb-20 pt-12 sm:pt-16 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <header>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Library</h1>
+        <p class="mt-4 text-xl leading-8 text-gray-600">Practical guides with templates you can use in Operately.</p>
+      </header>
+      {sections.map((section) => (
+        <section aria-labelledby={`library-${section.category}`} class="mt-14">
+          <h2 id={`library-${section.category}`} class="text-sm font-semibold text-gray-500">{section.name}</h2>
+          <ul class="mt-4 space-y-3">
+            {section.articles.map((article) => (
+              <li>
+                <a href={`/library/${article.id}`} class="group flex items-start gap-6 rounded-xl border border-gray-200 bg-white p-6 transition-colors hover:border-operately-blue">
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold leading-snug text-gray-900 group-hover:text-operately-blue">{article.data.title}</h3>
+                    <p class="mt-2 leading-7 text-gray-600">{article.data.description}</p>
+                  </div>
+                  <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-operately-blue" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "target": "ES2022"
+  },
+  "include": [
+    "src/components/library-preview/**/*.ts",
+    "src/components/library-preview/**/*.tsx",
+    "src/utils/library/articles.ts",
+    "src/utils/library/website-kpis.ts"
+  ]
+}

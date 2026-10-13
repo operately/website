@@ -21,7 +21,25 @@ const releasesCollection = defineCollection({
   }),
 });
 
+const libraryCollection = defineCollection({
+  loader: glob({ pattern: "*.mdx", base: "./src/content/library" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(["kpis"]),
+    author: z.string(),
+    published: z.boolean().default(false),
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
+    order: z.number(),
+    primaryKeyword: z.string(),
+    relatedKeywords: z.array(z.string()),
+    scenario: z.enum(["website-kpis"]),
+  }).refine((entry) => !entry.published || entry.publishedAt, { message: "Published articles need a publication date" }),
+});
+
 export const collections = {
+  library: libraryCollection,
   releases: releasesCollection,
   docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
 };
