@@ -9,6 +9,10 @@ Made with:
 - [Lucide icons](https://lucide.dev/icons/) and [SimpleIcons](https://simpleicons.org/)
 - Intern-level knowledge of React
 
+## Dependency versions
+
+- Astro must be 7.3.5 or later (`"astro": "^7.3.5"` in `package.json`). Older versions have known security advisories, and the MDX and Starlight integrations need Astro 7.2.10 or later. Do not lower this minimum.
+
 ## Commands
 
 | Command                                     | Action                                           |
