@@ -7,9 +7,11 @@ const conversionSlug = "website-visitor-to-signup-conversion-rate";
 
 beforeEach(() => {
   vi.spyOn(console, "warn").mockImplementation(() => {});
+  vi.stubEnv("OPERATELY_APP_ORIGIN", "");
 });
 
 afterEach(() => {
+  vi.unstubAllEnvs();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
@@ -45,6 +47,17 @@ test("loads the configured templates and production import links", async () => {
   expect(request.mock.calls.every(([url]) => url.searchParams.get("language") === "en" && !url.searchParams.has("id"))).toBe(true);
   expect(templates?.[0]?.useUrl).toBe(
     `https://app.operately.com/templates/resolved-${visitorsSlug}/use`,
+  );
+});
+
+test("sends catalog requests to OPERATELY_APP_ORIGIN", async () => {
+  vi.stubEnv("OPERATELY_APP_ORIGIN", "http://localhost:4100/");
+  const request = vi.fn(publishedTemplate);
+  vi.stubGlobal("fetch", request);
+  const templates = await loadWebsiteKpis();
+  expect(request.mock.calls.every(([url]) => url.origin === "http://localhost:4100")).toBe(true);
+  expect(templates?.[0]?.useUrl).toBe(
+    `http://localhost:4100/templates/resolved-${visitorsSlug}/use`,
   );
 });
 
