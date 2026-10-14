@@ -1,0 +1,340 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+import projectScreenshot from "../_index/project.png";
+import CompanyLogos from "../_index/CompanyLogos.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianPage } from "../../utils/i18n.js";
+
+const pageTitle = "Operately: OKR i upravljanje projektima otvorenog koda";
+const pageDescription =
+  "Upravljanje projektima otvorenog koda sa ugrađenim praćenjem OKR ciljeva. Vodite ciljeve, projekte i izveštaje uz strukturu koja drži tim usklađenim. Besplatno za početak, samostalno hostovanje za par minuta.";
+
+import { getLatestRelease } from "../../utils/releases";
+
+const sr = serbianPage(Astro.url.pathname);
+const latestRelease = await getLatestRelease();
+const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://operately.com/#organization",
+    name: "Operately",
+    url: "https://operately.com/",
+    logo: "https://operately.com/favicon.svg",
+    sameAs: [
+      "https://github.com/operately/operately",
+      "https://www.linkedin.com/company/92810497/",
+      "https://x.com/operately",
+      "https://www.youtube.com/@operately",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${sr.url("/")}#website`,
+    name: "Operately",
+    url: sr.url("/"),
+    description: pageDescription,
+    inLanguage: sr.lang,
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${sr.url("/")}#software`,
+    name: "Operately",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: sr.url("/"),
+    description: pageDescription,
+    image: "https://operately.com/images/social/card-summary-large.png",
+    inLanguage: sr.lang,
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang={sr.lang}
+  alternates={sr.alternates}
+>
+  <main class="bg-[#FAFAF8]">
+
+    {/* ─── Hero ─── */}
+    <section class="px-6 pt-12 sm:pt-20 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        {latestRelease && (
+          <a
+            href={`/releases/${latestRelease.slug}`}
+            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-700 ring-1 ring-gray-300 hover:ring-gray-400 transition-all mb-8"
+          >
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            v{latestRelease.version} objavljena
+            <span class="text-operately-blue">Šta je novo &rarr;</span>
+          </a>
+        )}
+
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+          Vašem timu nije potrebno još jedno<br class="hidden sm:block" />
+          prazno platno. Potreban mu je sistem.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-700">
+          Operately povezuje ciljeve sa projektima uz ugrađene izveštaje i praćenje napretka.
+          Otvoreni kod. Hostujte sami ili koristite cloud. Besplatno za početak.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Počnite besplatno
+          </a>
+          <a
+            href="/install"
+            class="text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            Samostalno hostovanje za 5 minuta &rarr;
+          </a>
+        </div>
+
+        <LanguageLink links={sr.languageLinks} />
+      </div>
+
+      {/* Hero screencast */}
+      <div class="mx-auto mt-16 max-w-5xl">
+        <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full rounded-xl aspect-video"
+          >
+            <source
+              src="https://website-assets.operately.com/operately-homepage-screencast-v1.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <CompanyLogos
+      heading="Odlični timovi koji koriste Operately"
+      ariaLabel="Logotipi kompanija; pomerajte vodoravno da vidite sve kompanije"
+    />
+
+    {/* ─── Testimonial 1 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          „Konačno imamo jedno mesto gde su ciljevi i svakodnevni rad povezani. Više nema
+          sastanaka samo da bismo utvrdili gde smo stigli."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Sara Č.</span> · Rukovodilac proizvoda
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Goals section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Ciljevi koji ostaju živi
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Postavite ciljeve sa merljivim metama. Povežite ih sa projektima.
+              Pratite napredak automatski kako posao napreduje. Više nema
+              ciljeva zaboravljenih u tabeli do kvartalnog pregleda.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Merljive mete.</strong> Ne nejasne ambicije</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Automatski napredak.</strong> Iz povezanih projekata</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Redovni pregledi.</strong> Ugrađeni podsetnici ih drže po planu</p>
+              </div>
+            </dl>
+          </div>
+          <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={goalScreenshot}
+              alt="Praćenje ciljeva u Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 2 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          „Nedeljni izveštaji su promenili našu kulturu. Ljudi sada zaista znaju na čemu drugi
+          rade, bez da pitaju."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Džejms R.</span> · Tehnički direktor
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Projects section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={projectScreenshot}
+              alt="Upravljanje projektima u Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Projekti kojima nije potreban dadilja
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Svaki projekat ima vlasnika, prekretnice i redovne izveštaje.
+              Napredak se automatski prikazuje nadređenima. Niko ne mora da
+              juri nikoga za status.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Jasno vlasništvo.</strong> Svaki projekat ima nosioca</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Ugrađeni izveštaji.</strong> Asinhrone nadogradnje napretka po rasporedu</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Povezano sa ciljevima.</strong> Rad na projektu doprinosi napretku ciljeva</p>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Dark section: why Operately ─── */}
+    <section class="bg-gray-900 px-6 py-20 lg:px-8 mt-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Struktura koja radi za vas,<br class="hidden sm:block" /> a ne obrnuto
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          Većina alata vam daje beskonačnu fleksibilnost i nula smernica. Operately daje vašem
+          timu jasan sistem: ciljeve sa metama, projekte sa vlasnicima i izveštaje koji se
+          dešavaju po rasporedu. Dobijate usklađenost bez mikromenadžmenta.
+        </p>
+        <div class="mt-12 grid gap-8 sm:grid-cols-3">
+          <div>
+            <p class="text-3xl font-bold text-white">Otvoreni kod</p>
+            <p class="mt-2 text-sm text-gray-400">Apache 2.0 licenca. Potpuna transparentnost.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Samostalno hostovanje</p>
+            <p class="mt-2 text-sm text-gray-400">Postavite na sopstvenoj infrastrukturi za 5 minuta.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Fiksne cene</p>
+            <p class="mt-2 text-sm text-gray-400">Bez naknade po korisniku. Dodajte ljude slobodno.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 3 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          „Otvoreni kod nam je bio važan zbog usklađenosti, ali iskreno, ostali smo jer
+          struktura jednostavno funkcioniše. Naš tim od 12 ljudi radi glatkije nego kada smo
+          bili šestoro i koristili Notion."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Prija S.</span> · Rukovodilac operacija
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── CTA ─── */}
+    <section class="px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Isprobajte sa svojim timom
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Besplatno za početak. Bez kreditne kartice. Spremno za par minuta.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Počnite besplatno na Cloud-u
+          </a>
+          <a
+            href={sr.href("/self-hosted")}
+            class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
+          >
+            Samostalno hostujte Operately
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-gray-500">
+          Saznajte više:
+          <a href={sr.href("/what-is-operately")} class="text-operately-blue hover:underline">Šta je Operately</a> ·
+          <a href={sr.href("/features")} class="text-operately-blue hover:underline">Funkcije</a> ·
+          <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Cene</a> ·
+          <a href={sr.href("/okr-software")} class="text-operately-blue hover:underline">OKR softver</a> ·
+          <a href={sr.href("/ai")} class="text-operately-blue hover:underline">AI agenti</a> ·
+          <a href={sr.href("/open-source")} class="text-operately-blue hover:underline">Otvoreni kod</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

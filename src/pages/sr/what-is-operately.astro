@@ -1,0 +1,305 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianPage } from "../../utils/i18n.js";
+
+const sr = serbianPage(Astro.url.pathname);
+
+const pageTitle = "Šta je Operately? Upravljanje ciljevima i projektima otvorenog koda";
+const pageDescription =
+  "Operately je softver otvorenog koda za upravljanje ciljevima i projektima. Ugrađeni OKR, izveštaji o napretku projekata i usklađenost tima za timove od 5 do 100 ljudi. Besplatno za početak, uz mogućnost samostalnog hostovanja.";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: sr.lang,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Šta je Operately?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately je softver otvorenog koda za upravljanje ciljevima i projektima. Spaja praćenje OKR ciljeva sa upravljanjem projektima i ugrađenim izveštajima o napretku kako bi timovi ostali usklađeni oko rezultata. Besplatan je za početak, ima fiksne cene bez naknade po korisniku i može se koristiti kao cloud usluga ili hostovati samostalno.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Po čemu se Operately razlikuje od Monday.com ili Asana alata?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately je otvorenog koda i može se hostovati samostalno. Praćenje ciljeva i OKR-ova je osnovna funkcija, a ne plaćeni dodatak. Koristi fiksne cene umesto naplate po korisniku. Namenjen je timovima od 5 do 100 ljudi, a ne velikim korporacijama, i povezuje ciljeve direktno sa projektima uz automatsko praćenje napretka.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Da li je Operately besplatan?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. Operately ima besplatan plan bez troškova po korisniku. Ceo proizvod je otvorenog koda pod Apache 2.0 licencom. Operately Cloud možete koristiti besplatno ili ga bez troškova hostovati na sopstvenoj infrastrukturi.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Mogu li da hostujem Operately sam?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. Operately se može u potpunosti hostovati samostalno. Radi na Docker-u i može se instalirati na bilo koji Linux server za oko 5 minuta. Samostalno hostovanje vam daje potpunu kontrolu nad podacima.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Koji timovi koriste Operately?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Operately koriste tehnološke kompanije, neprofitne organizacije, konsultantske firme i organizacije fokusirane na usklađenost sa propisima. Najbolje odgovara timovima od 5 do 100 ljudi kojima su potrebni praćenje ciljeva, upravljanje projektima i redovan uvid u napredak bez korporativne složenosti.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Da li Operately podržava OKR?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. Operately ima ugrađeno praćenje OKR ciljeva kao osnovnu funkciju. Možete postaviti ciljeve sa merljivim metama, povezati ih sa projektima i automatski pratiti napredak kroz izveštaje o projektima. OKR funkcionalnost je uključena u sve planove, uključujući i besplatan.",
+        },
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Operately",
+    applicationCategory: "ProjectManagement",
+    operatingSystem: "Web, Linux (self-hosted)",
+    url: sr.url("/"),
+    description: pageDescription,
+    inLanguage: sr.lang,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Dostupan besplatan plan. Fiksne cene, bez naknade po korisniku.",
+    },
+    featureList: [
+      "Praćenje OKR ciljeva sa merljivim metama",
+      "Upravljanje projektima sa prekretnicama",
+      "Ugrađeni izveštaji o napretku",
+      "Usklađenost tima i odgovornost",
+      "Otvoreni kod (Apache 2.0)",
+      "Samostalno hostovanje na Docker-u",
+      "CLI i API za automatizaciju",
+      "Podrška za AI agente kroz objavljene veštine",
+      "Fiksne cene, bez naknade po korisniku",
+    ],
+  },
+];
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang={sr.lang}
+  alternates={sr.alternates}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Šta je Operately?
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately je softver otvorenog koda za upravljanje ciljevima i projektima. Povezuje
+          praćenje OKR ciljeva sa realizacijom projekata i ugrađenim izveštajima o napretku, tako da
+          vaš tim ostaje usklađen oko rezultata, a ne samo oko zadataka.
+        </p>
+        <LanguageLink links={sr.languageLinks} />
+      </div>
+
+      {/* Quick facts */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-2xl bg-gray-50 p-8">
+        <h2 class="text-lg font-semibold text-gray-900">Ukratko</h2>
+        <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Kategorija</dt>
+            <dd class="mt-1 text-sm text-gray-900">Softver za upravljanje ciljevima i projektima</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Licenca</dt>
+            <dd class="mt-1 text-sm text-gray-900">Otvoreni kod (Apache 2.0)</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Cene</dt>
+            <dd class="mt-1 text-sm text-gray-900">
+              Dostupan besplatan plan. Fiksne cene, bez naknade po korisniku.
+              <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">Pogledajte cene →</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Postavljanje</dt>
+            <dd class="mt-1 text-sm text-gray-900">Cloud (hostovano) ili samostalno na Docker-u</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Najbolje za</dt>
+            <dd class="mt-1 text-sm text-gray-900">Timove od 5 do 100 ljudi</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-medium text-gray-500">Vreme podešavanja</dt>
+            <dd class="mt-1 text-sm text-gray-900">Manje od 5 minuta (cloud ili samostalno hostovanje)</dd>
+          </div>
+        </dl>
+      </div>
+
+      {/* Core capabilities */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Osnovne mogućnosti</h2>
+        <div class="mt-8 space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Praćenje ciljeva (OKR)</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Postavite ciljeve kompanije i timova sa merljivim metama. Pratite napredak automatski
+              kako povezani projekti napreduju. Na prvi pogled vidite koji su ciljevi na dobrom putu,
+              a kojima je potrebna pažnja. OKR funkcionalnost je ugrađena i dostupna u svim
+              planovima, uključujući besplatan.
+              <a href={sr.href("/okr-software")} class="text-operately-blue hover:underline">Više o OKR-u →</a>
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Upravljanje projektima</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Vodite projekte sa prekretnicama, vlasnicima i vremenskim okvirima. Projekti su
+              povezani sa ciljevima, pa vaš tim uvek zna kako svakodnevni rad doprinosi većim
+              ciljevima. Bez složenosti Gantovih dijagrama, samo jasno vlasništvo i napredak.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Ugrađeni izveštaji o napretku</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Redovni izveštaji o napretku pišu se u samom alatu. Vlasnici projekata ih objavljuju
+              po rasporedu. Svi vide status bez pitanja na sastancima ili u četu. Tako Operately
+              zamenjuje statusne sastanke asinhronim uvidom.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Usklađenost tima</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Svaki član tima vidi ciljeve kompanije, projekte kojima doprinosi i kako je sve
+              povezano. Kraj razbacanim dokumentima, zaboravljenim tabelama i procesima koji opstaju
+              samo zahvaljujući volji pojedinaca.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">AI i automatizacija</h3>
+            <p class="mt-2 text-gray-600 leading-7">
+              Operately ima potpun CLI i API koje AI agenti mogu da koriste za kreiranje ciljeva,
+              ažuriranje projekata i objavljivanje izveštaja. Objavljene veštine rade sa okvirima
+              za agente kao što su OpenClaw, Codex i Claude Code. Alfred, ugrađeni AI trener (beta),
+              pregleda vaše ciljeve i daje povratne informacije o realizaciji.
+              <a href={sr.href("/ai")} class="text-operately-blue hover:underline">Više o AI agentima →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Who it's for */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Ko koristi Operately</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately je napravljen za timove od 5 do 100 ljudi kojima je potrebno strukturirano
+            praćenje ciljeva i upravljanje projektima bez korporativne složenosti i naplate po
+            korisniku.
+          </p>
+          <p>
+            Koriste ga tehnološke kompanije, neprofitne organizacije, konsultantske firme, kompanije
+            za organizaciju događaja i organizacije fokusirane na usklađenost sa propisima. Timovi
+            biraju Operately kada žele:
+          </p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Ciljeve i projekte u jednom sistemu (a ne razbacane po alatima)</li>
+            <li>Ugrađeno praćenje napretka bez ručnog izveštavanja</li>
+            <li>Transparentnost otvorenog koda i mogućnost samostalnog hostovanja</li>
+            <li>Fiksne cene koje ne kažnjavaju rast tima</li>
+            <li>Fokusiran alat umesto lavirinta korporativnih funkcija</li>
+          </ul>
+          <p>
+            Pogledajte i kako Operately pomaže <a href={sr.href("/for/small-teams")} class="text-operately-blue hover:underline">malim timovima</a>
+            i <a href={sr.href("/for/nonprofits")} class="text-operately-blue hover:underline">neprofitnim organizacijama</a>.
+          </p>
+        </div>
+      </div>
+
+      {/* How it compares */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako se Operately poredi</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            <strong>U odnosu na Monday.com:</strong> Operately je otvorenog koda, može se hostovati
+            samostalno i uključuje praćenje ciljeva kao osnovnu funkciju. Monday.com je zatvorenog
+            koda, naplaćuje po korisniku i nudi ciljeve samo u skupljim planovima.
+            <a href="/vs/monday" class="text-operately-blue hover:underline">Potpuno poređenje (na engleskom) →</a>
+          </p>
+          <p>
+            <strong>U odnosu na Asana:</strong> Operately povezuje ciljeve sa projektima uz ugrađene
+            izveštaje o napretku. Asana ciljeve izdvaja u plaćeni dodatak. Operately je otvorenog
+            koda sa fiksnim cenama; Asana je zatvorenog koda i naplaćuje po korisniku.
+            <a href="/vs/asana" class="text-operately-blue hover:underline">Potpuno poređenje (na engleskom) →</a>
+          </p>
+          <p>
+            <strong>U odnosu na Notion:</strong> Notion vam daje prazno platno. Operately vam daje
+            definisan sistem: ciljeve, projekte, izveštaje o napretku i odgovornost ugrađene u
+            strukturu. Manje fleksibilnosti, više jasnoće.
+          </p>
+          <p>
+            <strong>U odnosu na Basecamp:</strong> Oba alata drže do jednostavnosti. Operately dodaje
+            strukturirano praćenje ciljeva i merljive mete, što Basecamp ne nudi. Operately je
+            otvorenog koda; Basecamp nije.
+          </p>
+        </div>
+      </div>
+
+      {/* Open source */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Otvoreni kod i samostalno hostovanje</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Ceo kod Operately-ja je otvoren pod Apache 2.0 licencom. Možete pregledati kod,
+            doprineti ili ga pokrenuti na sopstvenoj infrastrukturi. Samostalno hostovanje koristi
+            Docker i podešava se za oko 5 minuta.
+            <a href={sr.href("/open-source")} class="text-operately-blue hover:underline">Zašto otvoreni kod →</a>
+          </p>
+          <p>
+            Izvorni kod: <a href="https://github.com/operately/operately" class="text-operately-blue hover:underline">github.com/operately/operately</a>
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Isprobajte Operately</h2>
+        <p class="mt-4 text-gray-600">
+          Besplatno za početak. Bez naknade po korisniku. Spremno za par minuta.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+          >
+            Počnite besplatno na Cloud-u
+          </a>
+          <a
+            href={sr.href("/self-hosted")}
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Samostalno hostujte Operately
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

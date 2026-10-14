@@ -1,0 +1,315 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianPage } from "../../utils/i18n.js";
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+
+const sr = serbianPage(Astro.url.pathname);
+
+const pageTitle = "OKR softver";
+const pageDescription =
+  "Operately je OKR softver otvorenog koda za timove koji žele povezane ciljeve, projekte i realizaciju. Hostujte ga sami ili koristite cloud. Bez naplate po korisniku.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": `${sr.url("/okr-software")}#webpage`,
+  url: sr.url("/okr-software"),
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: sr.lang,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const badges = [
+  "Otvoreni kod",
+  "Samostalno hostovanje",
+  "Bez naplate po korisniku",
+  "Povezani ciljevi i projekti",
+];
+
+const audiences = [
+  {
+    title: "Mali operativni timovi",
+    text: "kojima je potrebna koordinacija rada 10 do 30 ljudi bez složenosti korporativnih alata",
+  },
+  {
+    title: "Organizacije vođene misijom",
+    text: "kao što su neprofitne organizacije, obrazovne ustanove i društvena preduzeća, kojima je potrebna strukturirana realizacija uz ograničen budžet",
+  },
+  {
+    title: "Timovi kojima je važna usklađenost sa propisima",
+    text: "u regulisanim industrijama, koji cene transparentnost, samostalno hostovanje i kontrolu nad podacima",
+  },
+  {
+    title: "Tehnološke kompanije i startapi",
+    text: "koji žele CLI i API pristup, otvoreni kod i nikakav „porez na rast” kroz naplatu po korisniku",
+  },
+  {
+    title: "Uslužne i konsultantske firme",
+    text: "kojima je potrebno jednostavno praćenje ciljeva bez tereta velikih paketa za upravljanje projektima",
+  },
+];
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang={sr.lang}
+  alternates={sr.alternates}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Hero */}
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          OKR softver
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          OKR softver otvorenog koda za timove u rastu
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Postavite ciljeve, pratite napredak kroz strukturirane izveštaje i povežite ciljeve sa
+          projektima koji ih ostvaruju. Operately je otvorenog koda, može se hostovati samostalno i
+          napravljen je za timove koji više vole transparentnost nego SaaS crnu kutiju.
+        </p>
+        <LanguageLink links={sr.languageLinks} />
+      </div>
+
+      {/* Key differentiators */}
+      <div class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4">
+        {badges.map((badge) => (
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-operately-blue-tint-1 px-4 py-1.5 text-sm font-medium text-operately-dark-blue">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            {badge}
+          </span>
+        ))}
+      </div>
+
+      {/* How Operately handles OKRs */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako Operately radi sa OKR-ovima</h2>
+        <div class="mt-8 grid gap-8 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Ciljevi sa merljivim metama</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Definišite ciljeve sa jasnim kriterijumima uspeha. Postavite mete kao procente, brojeve
+              ili prekretnice. Pratite napredak tokom vremena bez akrobacija u tabelama.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Strukturirani izveštaji o napretku</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Redovna ažuriranja napretka u doslednom formatu. Više nema jurenja ljudi za statusom.
+              Izveštaji automatski čine napredak vidljivim celom timu.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Projekti vezani za ciljeve</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Povežite projekte direktno sa ciljevima kojima služe. Vidite koji ciljevi imaju aktivan
+              rad iza sebe, a koji su samo reči na papiru.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900">Uvid na nivou cele kompanije</h3>
+            <p class="mt-2 text-sm text-gray-600">
+              Vidite sve ciljeve u organizaciji na jednom mestu. Razumite kako se ciljevi timova
+              povezuju sa prioritetima kompanije, bez pravljenja posebnih kontrolnih tabli.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Screenshot */}
+      <div class="mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <Image
+            src={goalScreenshot}
+            alt="Praćenje ciljeva u Operately-ju sa merljivim metama i napretkom"
+            class="w-full"
+          />
+        </div>
+      </div>
+
+      {/* Flexibility note */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl border border-operately-blue-tint-1 bg-operately-blue-tint-1 p-6">
+        <p class="text-sm font-medium text-operately-dark-blue">
+          Ne želite da se striktno držite OKR metodologije? U redu je.
+        </p>
+        <p class="mt-2 text-sm text-gray-700">
+          Operately podržava OKR, ali ne nameće određeni okvir. Ciljeve možete strukturirati kao
+          OKR-ove, jednostavne mete, prekretnice ili kako god odgovara vašem timu. Fokus je na
+          strukturiranoj realizaciji i vidljivom napretku, a ne na ideološkoj doslednosti.
+          <a href="/blueprint" class="text-operately-blue hover:underline">Pročitajte naš pristup strukturiranju rada (na engleskom) →</a>
+        </p>
+      </div>
+
+      {/* How it compares */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako se Operately poredi sa drugim OKR alatima</h2>
+        <div class="mt-8 overflow-hidden rounded-xl border border-gray-200">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 bg-gray-50">
+                <th class="px-6 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Perdoo</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Weekdone</th>
+                <th class="px-6 py-3 text-center font-medium text-gray-900">Quantive</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Otvoreni kod</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Samostalno hostovanje</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Cene</td>
+                <td class="px-6 py-4 text-center">Fiksna cena</td>
+                <td class="px-6 py-4 text-center">Po korisniku</td>
+                <td class="px-6 py-4 text-center">Po korisniku</td>
+                <td class="px-6 py-4 text-center">Po korisniku</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Upravljanje projektima</td>
+                <td class="px-6 py-4 text-center text-green-600">Ugrađeno</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center">Ograničeno</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">CLI i API</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center">Samo API</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center">Samo API</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Integracija sa AI agentima</td>
+                <td class="px-6 py-4 text-center text-green-600">Izvorna</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center text-gray-400">Ne</td>
+                <td class="px-6 py-4 text-center">Ograničena</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Tokovi izveštavanja o napretku</td>
+                <td class="px-6 py-4 text-center text-green-600">Ugrađeni</td>
+                <td class="px-6 py-4 text-center text-green-600">Ugrađeni</td>
+                <td class="px-6 py-4 text-center text-green-600">Nedeljni puls</td>
+                <td class="px-6 py-4 text-center text-green-600">Ugrađeni</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-900">Mapiranje strategije</td>
+                <td class="px-6 py-4 text-center">Hijerarhija ciljeva</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+                <td class="px-6 py-4 text-center">Osnovno</td>
+                <td class="px-6 py-4 text-center text-green-600">Da</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Mid-page CTA */}
+      <div class="mx-auto mt-12 max-w-4xl rounded-xl bg-gray-50 p-6 text-center">
+        <p class="text-sm font-medium text-gray-900">Spremni da isprobate drugačiji pristup OKR-u?</p>
+        <a
+          href={signUpUrl}
+          class="mt-3 inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+        >
+          Počnite besplatno, bez kreditne kartice
+        </a>
+      </div>
+
+      {/* Who it's for */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Za koga je Operately</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            Operately najbolje odgovara timovima od 5 do 100 ljudi koji rade na osnovu ciljeva i žele
+            da postavljanje ciljeva bude povezano sa stvarnom realizacijom projekata. Posebno je
+            dobar za:
+          </p>
+        </div>
+        <ul class="mt-6 space-y-3 text-gray-600">
+          {audiences.map((audience) => (
+            <li class="flex items-start gap-3">
+              <svg class="mt-1 h-5 w-5 flex-shrink-0 text-operately-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>{audience.title}</strong> {audience.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* What are OKRs */}
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Šta su OKR-ovi?</h2>
+        <div class="mt-6 space-y-4 text-gray-600 leading-7">
+          <p>
+            OKR (Objectives and Key Results, odnosno ciljevi i ključni rezultati) je okvir za
+            postavljanje ciljeva koji timovi koriste da definišu šta žele da postignu i izmere da li u
+            tome uspevaju. <strong>Cilj</strong> (objective) je jasan, kvalitativan cilj.
+            <strong>Ključni rezultati</strong> (key results) su merljivi ishodi koji pokazuju da li se
+            cilj ostvaruje.
+          </p>
+          <p>
+            OKR softver pomaže timovima da na strukturiran način postavljaju, prate i pregledaju ove
+            ciljeve. Najbolji OKR alati povezuju ciljeve sa stvarnim radom, pa je napredak vidljiv bez
+            ručnog izveštavanja. Operately to radi tako što povezuje ciljeve direktno sa projektima i
+            prati napredak kroz redovne izveštaje.
+          </p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Isprobajte Operately za OKR</h2>
+        <p class="mt-4 text-gray-600">
+          Počnite besplatno sa Operately Cloud-om ili ga hostujte na sopstvenoj infrastrukturi.
+          Nije potrebna kreditna kartica.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a
+            href={signUpUrl}
+            class="inline-flex items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+          >
+            Počnite besplatno na Cloud-u
+          </a>
+          <a
+            href={sr.href("/self-hosted")}
+            class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+          >
+            Samostalno hostujte Operately
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+          Pogledajte i: <a href={sr.href("/what-is-operately")} class="text-operately-blue hover:underline">Šta je Operately</a> ·
+          <a href="/vs/monday" class="text-operately-blue hover:underline">Operately vs Monday.com</a> ·
+          <a href="/vs/asana" class="text-operately-blue hover:underline">Operately vs Asana</a> (na engleskom)
+        </p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

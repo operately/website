@@ -1,0 +1,405 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianPage } from "../../utils/i18n.js";
+
+const pageTitle = "Cene";
+const pageDescription =
+  "Jednostavne i transparentne cene za timove svih veličina. Počnite besplatno, rastite po svom tempu. Bez naknade po korisniku i bez skrivenih troškova.";
+
+import { Check } from "lucide-react";
+
+const sr = serbianPage(Astro.url.pathname);
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  lang={sr.lang}
+  alternates={sr.alternates}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Header */}
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="text-base/7 font-semibold text-operately-blue">Cene</h1>
+        <p
+          class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
+        >
+          Fiksne cene, bez naknade po korisniku
+        </p>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
+        >
+          Jedna cena za ceo tim. Dodajte ljude bez dodatnih troškova.
+        </p>
+        <LanguageLink links={sr.languageLinks} />
+      </div>
+
+      {/* Annual/Monthly Toggle */}
+      <div class="mt-12 flex justify-center">
+        <div class="flex items-center justify-between gap-3">
+          <div
+            id="toggle-container"
+            class="group relative inline-flex w-11 shrink-0 rounded-full bg-gray-200 p-0.5 transition-colors duration-200 ease-in-out"
+          >
+            <span
+              id="toggle-slider"
+              class="size-5 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out"
+            ></span>
+            <input
+              id="annual-billing"
+              type="checkbox"
+              name="annual-billing"
+              aria-labelledby="annual-billing-label"
+              aria-describedby="annual-billing-description"
+              class="absolute inset-0 appearance-none focus:outline-none"
+              onchange="togglePricing(this.checked ? 'annual' : 'monthly')"
+            />
+          </div>
+
+          <div class="text-sm">
+            <label id="annual-billing-label" class="font-medium text-gray-900"
+              >Godišnje plaćanje</label
+            >
+            <span id="annual-billing-description" class="text-gray-500"
+              >(dva meseca besplatno)</span
+            >
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing Tiers */}
+      <div
+        class="isolate mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+      >
+        {/* Free Plan */}
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Free</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            Za male timove koji tek počinju
+          </p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span class="text-4xl font-semibold tracking-tight text-gray-900"
+              >$0</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/mesečno</span>
+          </p>
+
+          <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-800">
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Do 10 korisnika
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              10 GB prostora
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Sve osnovne funkcije
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Podrška zajednice
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=free"}
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
+          >
+            Započnite
+          </a>
+        </div>
+
+        {/* Pro Plan */}
+        <div class="rounded-3xl p-8 ring-2 ring-operately-blue shadow-2xl">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-operately-blue">Pro</h3>
+            <p
+              class="rounded-full bg-operately-blue/10 px-2.5 py-1 text-xs/5 font-semibold text-operately-blue"
+            >
+              Najpopularnije
+            </p>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">Za timove u rastu</p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="pro-price">$49</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/mesečno</span>
+          </p>
+
+          <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-800">
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Do 30 korisnika
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              100 GB prostora
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Sve osnovne funkcije
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Prioritetna podrška
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=pro"}
+            class="mt-8 block rounded-md bg-gray-900 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-operately-blue transition-colors"
+          >
+            Započnite
+          </a>
+        </div>
+
+        {/* Business Plan */}
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Business</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            Za etablirane organizacije
+          </p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="business-price">$149</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/mesečno</span>
+          </p>
+
+          <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-800">
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Do 100 korisnika
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              500 GB prostora
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Sve osnovne funkcije
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Posvećena podrška
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=business"}
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
+          >
+            Započnite
+          </a>
+        </div>
+
+        {/* Unlimited Plan */}
+        <div class="rounded-3xl p-8 ring-1 ring-gray-200 shadow-md">
+          <div class="flex items-center justify-between gap-x-4">
+            <h3 class="text-lg/8 font-semibold text-gray-900">Unlimited</h3>
+          </div>
+          <p class="mt-4 text-sm/6 text-gray-800">
+            Za velike timove, bez ograničenja
+          </p>
+          <p class="mt-6 flex items-baseline gap-x-1">
+            <span
+              class="text-4xl font-semibold tracking-tight text-gray-900"
+              id="unlimited-price">$249</span
+            >
+            <span class="text-sm/6 font-semibold text-gray-600">/mesečno</span>
+          </p>
+
+          <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-800">
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Neograničen broj korisnika
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              1 TB prostora
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Sve osnovne funkcije
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Posvećena podrška
+            </li>
+            <li class="flex gap-x-3">
+              <Check className="h-6 w-5 flex-none text-operately-blue" />
+              Prilagođeno uvođenje
+            </li>
+          </ul>
+          <a
+            href={signUpUrl + "?plan=unlimited"}
+            class="mt-8 block rounded-md border border-gray-300 px-3 py-2 text-center text-sm/6 font-semibold text-gray-900 hover:border-gray-900 transition-colors"
+          >
+            Započnite
+          </a>
+        </div>
+      </div>
+
+      {/* Storage add-on */}
+      <div class="mx-auto mt-10 max-w-6xl text-center">
+        <p class="text-sm text-gray-600">
+          Treba vam više prostora? Dodajte 1 TB za $49 mesečno na bilo koji plan.
+        </p>
+      </div>
+
+      {/* Self-hosted CTA */}
+      <div class="mx-auto mt-16 max-w-2xl">
+        <div
+          class="rounded-3xl bg-[#F5F5F0] p-8 text-center shadow-lg ring-1 ring-gray-200"
+        >
+          <h3 class="text-lg font-semibold text-gray-900">
+            Više volite da hostujete sami?
+          </h3>
+          <p class="mt-2 text-sm text-gray-800">
+            Pokrenite Operately na sopstvenoj infrastrukturi. Besplatno i otvorenog
+            koda, uz opcionu komercijalnu podršku.
+          </p>
+          <div class="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={sr.href("/self-hosted")}
+              class="inline-block rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue transition-colors"
+            >
+              Saznajte više o samostalnom hostovanju
+            </a>
+            <a
+              href="/contact?help-type=commercial-license"
+              class="inline-block rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+            >
+              Kontaktirajte nas
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div class="mx-auto mt-24 max-w-4xl">
+        <h2 class="text-3xl font-bold text-center text-gray-900">
+          Česta pitanja
+        </h2>
+        <div class="mt-12 space-y-0 divide-y divide-gray-200">
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Da li zaista nema naplate po korisniku?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Tačno. Svaki plan pokriva fiksan broj korisnika po jednoj fiksnoj ceni.
+              Slobodno dodajte članove tima u okviru svog plana bez brige o rastućim
+              troškovima.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Šta ako pređem ograničenje broja korisnika?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Na sledeći plan možete preći u bilo kom trenutku. Cenu obračunavamo
+              srazmerno, tako da plaćate samo razliku za preostali deo obračunskog
+              perioda.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Mogu li besplatno da hostujem Operately sam?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Da. Operately je otvorenog koda i besplatan za samostalno hostovanje,
+              sa neograničenim brojem korisnika. Cene za cloud odnose se samo na našu
+              hostovanu uslugu. Pogledajte <a
+                href={sr.href("/self-hosted")}
+                class="text-operately-blue hover:underline"
+                >pregled samostalnog hostovanja</a
+              > ili <a
+                href="/install"
+                class="text-operately-blue hover:underline"
+                >vodič za instalaciju</a
+              > (na engleskom) da biste počeli.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Da li mi je potrebna kreditna kartica za početak?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Za Free plan nije potrebna kreditna kartica. Počnite odmah da koristite
+              Operately i pređite na viši plan kada budete spremni.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Koliko se uštedi godišnjim plaćanjem?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Uz godišnje plaćanje dobijate dva meseca besplatno u odnosu na mesečno
+              plaćanje. Plaćate 10 meseci, a dobijate 12.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Mogu li da otkažem u bilo kom trenutku?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Da. Otkažite kad god želite, bez naknade. Pretplata ostaje aktivna do
+              kraja obračunskog perioda.
+            </p>
+          </div>
+          <div class="py-8">
+            <h3 class="text-lg font-semibold text-gray-900">
+              Šta ako mi treba više prostora?
+            </h3>
+            <p class="mt-2 text-gray-600">
+              Prostor možete dodavati u blokovima od 1 TB po ceni od $49 mesečno po
+              bloku. Većina timova nikada ne premaši uključeni prostor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.togglePricing = function (period) {
+      const proPrice = document.getElementById("pro-price");
+      const businessPrice = document.getElementById("business-price");
+      const unlimitedPrice = document.getElementById("unlimited-price");
+      const toggleContainer = document.getElementById("toggle-container");
+      const toggleSlider = document.getElementById("toggle-slider");
+
+      if (period === "monthly") {
+        proPrice.textContent = "$49";
+        businessPrice.textContent = "$149";
+        unlimitedPrice.textContent = "$249";
+        toggleContainer.classList.remove("bg-operately-blue");
+        toggleContainer.classList.add("bg-slate-200");
+        toggleSlider.classList.remove("translate-x-5");
+      } else {
+        proPrice.textContent = "$41";
+        businessPrice.textContent = "$125";
+        unlimitedPrice.textContent = "$199";
+        toggleContainer.classList.remove("bg-slate-200");
+        toggleContainer.classList.add("bg-operately-blue");
+        toggleSlider.classList.add("translate-x-5");
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      window.togglePricing("monthly");
+    });
+  </script>
+</BaseLayout>

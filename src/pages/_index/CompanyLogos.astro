@@ -1,4 +1,14 @@
 ---
+interface Props {
+  heading?: string;
+  ariaLabel?: string;
+}
+
+const {
+  heading = "Awesome teams using Operately",
+  ariaLabel = "Company logos; scroll horizontally to see all companies",
+} = Astro.props;
+
 const companies = [
   { name: "Instawork", logo: "instawork", width: 128 },
   { name: "Moonshot AI", logo: "moonshot-ai", width: 140 },
@@ -17,16 +27,17 @@ const companies = [
       id="company-logos-heading"
       class="text-sm font-medium text-balance text-gray-400"
     >
-      Awesome teams using Operately
+      {heading}
     </h2>
     <div
       class="mt-8 overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-500"
       tabindex="0"
       role="region"
-      aria-label="Company logos; scroll horizontally to see all companies"
+      aria-label={ariaLabel}
     >
       <ul
         role="list"
+        translate="no"
         class="flex min-w-max items-center justify-between gap-6 py-2"
       >
         {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { languageAlternates } from "../utils/i18n.js";
 
 import Header from "./_features/Header.astro";
 import Goals from "./_features/Goals.astro";
@@ -17,6 +18,7 @@ const pageDescription =
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/features")}
 >
   <main class="bg-[#FAFAF8]">
     <Header />

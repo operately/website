@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import goalScreenshot from "./goal.png";
 import projectScreenshot from "./project.png";
 import CompanyLogos from "./CompanyLogos.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { languageAlternates, serbianLinksFor } from "../../utils/i18n.js";
 
 const pageTitle = "Operately: Open Source OKR and Project Management Software";
 const pageDescription =
@@ -67,6 +69,7 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
+  alternates={languageAlternates("/")}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -107,6 +110,8 @@ const schema = [
             Self-host in 5 minutes &rarr;
           </a>
         </div>
+
+        <LanguageLink links={serbianLinksFor("/")} />
       </div>
 
       {/* Hero screencast */}
