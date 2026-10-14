@@ -31,7 +31,7 @@ function publishedTemplate(url: URL) {
   });
 }
 
-test("loads the configured templates and local import links", async () => {
+test("loads the configured templates and production import links", async () => {
   const request = vi.fn(publishedTemplate);
   vi.stubGlobal("fetch", request);
   const templates = await loadWebsiteKpis();
@@ -41,10 +41,10 @@ test("loads the configured templates and local import links", async () => {
   expect(request.mock.calls.map(([url]) => url.searchParams.get("slug"))).toEqual([
     visitorsSlug, signupsSlug, conversionSlug,
   ]);
-  expect(request.mock.calls.every(([url]) => url.origin === "http://localhost:4100")).toBe(true);
+  expect(request.mock.calls.every(([url]) => url.origin === "https://app.operately.com")).toBe(true);
   expect(request.mock.calls.every(([url]) => url.searchParams.get("language") === "en" && !url.searchParams.has("id"))).toBe(true);
   expect(templates?.[0]?.useUrl).toBe(
-    `http://localhost:4100/templates/resolved-${visitorsSlug}/use`,
+    `https://app.operately.com/templates/resolved-${visitorsSlug}/use`,
   );
 });
 

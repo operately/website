@@ -1,7 +1,7 @@
 import { loadKpiTemplate } from "./catalog.mjs";
 import type { WebsiteKpiTemplate } from "../../components/library-preview/kpis/website/types";
 
-const appOrigin = "http://localhost:4100";
+const appOrigin = "https://app.operately.com";
 const language = "en";
 const references = [
   {
