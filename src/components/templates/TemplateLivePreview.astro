@@ -1,0 +1,29 @@
+---
+import type { PreviewMode } from "../library-preview/shell/PreviewViewport";
+import type { PublicTemplate } from "../../utils/templates/types";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+interface Props { template: PublicTemplate; mode?: PreviewMode }
+const { template, mode = "embedded" } = Astro.props;
+---
+<operately-template-preview data-template={JSON.stringify(template)} data-mode={mode}>
+  <div data-live-preview><p class="preview-loading" role="status">Loading preview…</p></div>
+  <noscript>Enable JavaScript to view the live preview.</noscript>
+</operately-template-preview>
+
+<script>
+  import { TemplatePreviewElement } from "../library-preview/templates/element";
+  if (!customElements.get("operately-template-preview")) {
+    customElements.define("operately-template-preview", TemplatePreviewElement);
+  }
+</script>
+
+<style>
+  operately-template-preview { position: relative; display: block; overflow: hidden; border: 1px solid #e5e7eb; border-radius: 12px; background: white; }
+  operately-template-preview[data-mode="fullscreen"] { height: 100%; border: 0; border-radius: 0; }
+  [data-mode="fullscreen"] [data-live-preview] { height: 100%; }
+  .preview-loading { display: grid; place-items: center; aspect-ratio: 8 / 5; margin: 0; color: #6b7280; font-size: 14px; }
+  [data-mode="fullscreen"] .preview-loading { height: 100%; aspect-ratio: auto; }
+</style>

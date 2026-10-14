@@ -52,8 +52,8 @@ function useContainerDimensions(sheet) {
 
   sheet.walkDecls((declaration) => {
     declaration.value = declaration.value
-      .replace(/([\d.]+)vh\b/g, "$1cqh")
-      .replace(/([\d.]+)vw\b/g, "$1cqw");
+      .replace(/([\d.]+)[sld]?vh\b/g, "$1cqh")
+      .replace(/([\d.]+)[sld]?vw\b/g, "$1cqw");
   });
 }
 

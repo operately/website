@@ -3,7 +3,7 @@ import "./shell.css";
 import { dismissOpenDialog, focusableElements, focusedElement, previewRoot } from "./focus";
 import { EmbeddedDemo } from "./EmbeddedDemo";
 
-const desktop = { width: 1440, height: 900 };
+import { desktopPreviewSize as desktop } from "./PreviewViewport";
 
 export function PreviewShell({
   title,

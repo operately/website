@@ -1,0 +1,67 @@
+---
+import { Search } from "lucide-react";
+import TemplateCard from "./TemplateCard.astro";
+import TemplatePreviewDialog from "./TemplatePreviewDialog.astro";
+import Select from "../Select/index.astro";
+import { templateCount, templateTypes } from "../../utils/templates/presentation";
+import type { PublicTemplate } from "../../utils/templates/types";
+interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
+const { templates, selectedTemplate } = Astro.props;
+const types = Object.entries(templateTypes).filter(([type]) => templates.some((template) => template.type === type));
+const showFilters = templates.length > 0;
+---
+<section data-template-gallery data-template-browser>
+  <div class="gallery-toolbar">
+    {showFilters && <form action="/library" method="get" role="search" aria-label="Templates" hidden>
+      <label class="gallery-search"><span class="sr-only">Search templates</span><Search size={18} aria-hidden="true" /><input name="q" type="search" placeholder="Search templates" autocomplete="off" /></label>
+      <div class:list={["gallery-select", { "filter-absent": types.length < 2 }]}>
+        <Select name="type" label="Template type" options={[{ value: "", label: "All types" }, ...types.map(([value, { plural }]) => ({ value, label: plural }))]} />
+      </div>
+      <button type="reset" hidden>Clear filters</button>
+    </form>}
+    <p data-template-count role="status" aria-live="polite" aria-atomic="true">{templateCount(templates.length)}</p>
+  </div>
+
+  <ul class="template-grid">
+    {templates.map((template) => <li
+      data-template-card
+      data-type={template.type}
+      data-search={[template.title, template.summary, templateTypes[template.type].name].filter(Boolean).join(" ").toLocaleLowerCase("en")}
+    ><TemplateCard template={template} /></li>)}
+  </ul>
+
+  <p data-template-empty hidden={templates.length > 0} class="gallery-empty">{templates.length ? "No matching templates. Try another search or clear your filters." : "No templates published yet."}</p>
+  <TemplatePreviewDialog templates={templates} selectedTemplate={selectedTemplate} />
+</section>
+
+<script>
+  import { initializeTemplateGallery } from "../../utils/templates/gallery";
+  document.querySelectorAll<HTMLElement>("[data-template-gallery]").forEach(initializeTemplateGallery);
+</script>
+
+<style>
+  [hidden] { display: none !important; }
+  .gallery-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+  form { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .gallery-search { display: flex; align-items: center; gap: 10px; border: 1px solid #d9dddf; background: white; border-radius: 7px; padding: 0 12px; color: #9ca3af; }
+  input { width: 220px; padding: 10px 0; outline: none; font-size: 14px; color: #111827; background: transparent; }
+  .gallery-search:focus-within { outline: 2px solid #3185ff; outline-offset: 2px; }
+  input::placeholder { color: #6b7280; }
+  .gallery-select { max-width: 240px; }
+  .filter-absent { display: none; }
+  button { font-size: 13px; color: #4b5563; padding: 10px; cursor: pointer; }
+  button:hover { text-decoration: underline; }
+  [data-template-count] { color: #6b7280; font-size: 13px; white-space: nowrap; }
+  .template-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 24px; }
+  .gallery-empty { color: #6b7280; padding-block: 36px; font-size: 15px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #3185ff; outline-offset: 4px; }
+  @media (max-width: 900px) { .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .template-grid { grid-template-columns: 1fr; gap: 28px; }
+    form { width: 100%; }
+    .gallery-search { width: 100%; }
+    input { width: 100%; min-width: 0; }
+    .gallery-search :global(svg) { flex-shrink: 0; }
+    .gallery-select { flex: 1; min-width: 0; max-width: 100%; }
+  }
+</style>

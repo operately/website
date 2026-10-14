@@ -1,0 +1,8 @@
+---
+import { ChartNoAxesCombined, Target, ListChecks } from "lucide-react";
+import type { TemplateType } from "@operately/turboui";
+interface Props { type: TemplateType; size?: number }
+const { type, size = 24 } = Astro.props;
+const Icon = { kpi: ChartNoAxesCombined, goal: Target, project: ListChecks }[type];
+---
+<Icon size={size} strokeWidth={1.7} aria-hidden="true" />

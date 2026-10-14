@@ -9,6 +9,8 @@ export default defineConfig({
     include: [
       "src/components/library-preview/**/*.spec.tsx",
       "src/utils/library/*.spec.ts",
+      "src/utils/templates/*.spec.ts",
+      "src/components/Select/*.spec.tsx",
     ],
     setupFiles: ["./src/components/library-preview/shell/test-setup.ts"],
   },

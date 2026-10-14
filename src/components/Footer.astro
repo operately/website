@@ -55,31 +55,11 @@ const navigation = {
     { name: "Self-host", href: "/self-hosted" },
   ],
   social: [
-    {
-      name: "Discord",
-      href: discordUrl,
-      icon: (props) => DiscordIcon(props),
-    },
-    {
-      name: "GitHub",
-      href: githubUrl,
-      icon: (props) => GitHubIcon(props),
-    },
-    {
-      name: "LinkedIn",
-      href: linkedinUrl,
-      icon: (props) => LinkedInIcon(props),
-    },
-    {
-      name: "X",
-      href: xUrl,
-      icon: (props) => XIcon(props),
-    },
-    {
-      name: "YouTube",
-      href: youtubeUrl,
-      icon: (props) => YouTubeIcon(props),
-    },
+    { name: "Discord", href: discordUrl, icon: DiscordIcon },
+    { name: "GitHub", href: githubUrl, icon: GitHubIcon },
+    { name: "LinkedIn", href: linkedinUrl, icon: LinkedInIcon },
+    { name: "X", href: xUrl, icon: XIcon },
+    { name: "YouTube", href: youtubeUrl, icon: YouTubeIcon },
   ],
   legal: [
     { name: "Terms of service", href: "/legal/terms" },

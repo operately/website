@@ -7,7 +7,7 @@ test("shadow styles adapt roots and responsive rules while preserving local anim
     `html, :host { line-height: 1.5 } body { margin: 0 }
     .light { --surface: white } *, ::before { box-sizing: border-box }
     @keyframes spin { to { transform: rotate(360deg) } }
-    @media (min-width: 640px) { .sm\\:flex { display: flex; animation: spin 1s; max-height: 90vh; width: 100vw } }`,
+    @media (min-width: 640px) { .sm\\:flex { display: flex; animation: spin 1s; max-height: 90vh; width: 100vw; height: 100dvh } }`,
   );
   assert.match(css, /\.demo-root \{ margin: 0 \}/);
   assert.match(css, /\.demo-root\.light/);
@@ -17,6 +17,7 @@ test("shadow styles adapt roots and responsive rules while preserving local anim
   assert.match(css, /animation: spin 1s/);
   assert.match(css, /max-height: 90cqh/);
   assert.match(css, /width: 100cqw/);
+  assert.match(css, /height: 100cqh/);
   assert.doesNotMatch(css, /\.demo-root to/);
 });
 

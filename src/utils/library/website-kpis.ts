@@ -2,7 +2,7 @@ import { loadKpiTemplate } from "../operately/client.mjs";
 import type { WebsiteKpiTemplate } from "../../components/library-preview/kpis/website/types";
 
 const language = "en";
-const references = [
+export const websiteKpiReferences = [
   {
     key: "visitors",
     slug: "monthly-website-visitors",
@@ -23,7 +23,7 @@ const references = [
 export async function loadWebsiteKpis(): Promise<WebsiteKpiTemplate[] | null> {
   try {
     return await Promise.all(
-      references.map(async ({ key, slug, unit }) => {
+      websiteKpiReferences.map(async ({ key, slug, unit }) => {
         const template = await loadKpiTemplate({ slug, language });
         if (
           template.definition.cadence !== "monthly" ||

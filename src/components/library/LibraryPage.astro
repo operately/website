@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TemplateGallery from "../templates/TemplateGallery.astro";
+import ArticleList from "./ArticleList.astro";
+import { getLibraryArticles } from "../../utils/library/content";
+import type { PublicTemplate } from "../../utils/templates/types";
+interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
+const { templates, selectedTemplate } = Astro.props;
+
+const articles = await getLibraryArticles();
+---
+<BaseLayout title={selectedTemplate ? `${selectedTemplate.title} template` : "Library"} description={selectedTemplate?.summary || "Templates and practical guides for your team's KPIs, goals, and projects."}>
+  <Fragment slot="head">{!templates.length && !articles.some(({ data }) => data.published) && <meta name="robots" content="noindex, nofollow" />}</Fragment>
+  <main class="bg-[#FAFAF8] px-6 pb-20 pt-12 sm:pt-16 lg:px-8">
+    <div class="mx-auto max-w-6xl">
+      <header class="mb-12 sm:mb-16">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Library</h1>
+        <p class="mt-4 text-lg leading-7 text-gray-600">Templates and guides for your team's work.</p>
+      </header>
+      <section aria-labelledby="library-templates">
+        <h2 id="library-templates" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">
+          Templates
+        </h2>
+        <TemplateGallery templates={templates} selectedTemplate={selectedTemplate} />
+      </section>
+      {articles.length > 0 && <section aria-labelledby="library-guides" class="mt-20">
+        <h2 id="library-guides" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">Guides</h2>
+        <ArticleList articles={articles} />
+      </section>}
+    </div>
+  </main>
+</BaseLayout>

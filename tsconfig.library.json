@@ -8,9 +8,11 @@
     "target": "ES2022"
   },
   "include": [
+    "src/components/Select/**/*.tsx",
     "src/components/library-preview/**/*.ts",
     "src/components/library-preview/**/*.tsx",
     "src/utils/library/articles.ts",
-    "src/utils/library/website-kpis.ts"
+    "src/utils/library/website-kpis.ts",
+    "src/utils/templates/**/*.ts"
   ]
 }
