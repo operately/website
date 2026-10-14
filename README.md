@@ -23,7 +23,8 @@ Made with:
 
 ## Contributing
 
-See [development and contribution guide](docs/README.md).
+See the [contributing guide](CONTRIBUTING.md) for how to propose changes,
+and the [development guide](docs/README.md) for setup details.
 
 ## Want to learn more?
 
