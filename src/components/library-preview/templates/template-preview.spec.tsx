@@ -51,3 +51,18 @@ test("renders goal targets from the published template", async () => {
   expect(root.textContent).toContain("Grow adoption");
   expect(root.textContent).toContain("Active teams");
 });
+
+ test("renders published relative KPI examples", async () => {
+  const { root } = await preview({
+    ...template,
+    type: "kpi",
+    definition: { name: "Website visits", unit: "visits", cadence: "monthly" },
+    preview_data: JSON.stringify({
+      entries: [{ period_offset: -2, value: 345 }, { period_offset: -1, value: 416 }],
+      annotations: [{ period_offset: -1, title: "Campaign" }],
+    }),
+  });
+  expect(root.querySelectorAll('[data-test-id^="entry-row-"]')).toHaveLength(2);
+  expect(root.querySelector('[data-test-id^="kpi-chart-annotation-hit-"]')).not.toBeNull();
+  expect(root.querySelector('[data-test-id="chart-log-update"]')).toBeNull();
+});

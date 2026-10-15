@@ -16,11 +16,13 @@ export function TemplateLivePreview({ template, mode = "embedded" }: { template:
   const [referenceDate] = useState(() => getTemplatePreviewReferenceDate(new Date(), defaultFormattedTimePreferences.timezone));
   const preview: CuratedTemplate = {
     id: template.id,
+    slug: template.slug,
     type: template.type,
     state: "published",
     title: template.definition.name || template.title,
     contentLanguage: template.content_language,
     definition: JSON.stringify(template.definition),
+    previewData: template.preview_data,
     insertedAt: `${referenceDate}T00:00:00Z`,
     updatedAt: template.updated_at,
   };

@@ -10,5 +10,6 @@ export interface PublicTemplate {
   content_language: string;
   updated_at: string;
   definition: TemplateDefinition;
+  preview_data?: string;
   useUrl: string;
 }
