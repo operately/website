@@ -34,7 +34,7 @@ const libraryCollection = defineCollection({
     order: z.number(),
     primaryKeyword: z.string(),
     relatedKeywords: z.array(z.string()),
-    scenario: z.enum(["website-kpis", "project-management-kpis"]),
+    scenario: z.enum(["website-kpis", "project-management-kpis", "sales-kpis"]),
   }).refine((entry) => !entry.published || entry.publishedAt, { message: "Published articles need a publication date" }),
 });
 

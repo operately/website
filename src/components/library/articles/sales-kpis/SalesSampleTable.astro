@@ -1,0 +1,10 @@
+---
+import { salesSamples } from "../../../../utils/library/sales-samples.mjs";
+const numbers = new Intl.NumberFormat("en");
+---
+<div class="overflow-x-auto">
+  <table>
+    <thead><tr><th scope="col">Month</th><th scope="col">Pipeline created (USD)</th><th scope="col">Deals won</th><th scope="col">Sales revenue (USD)</th></tr></thead>
+    <tbody>{salesSamples.map((row) => <tr><th scope="row">{row.month}</th><td>{numbers.format(row.pipeline)}</td><td>{numbers.format(row.wins)}</td><td>{numbers.format(row.revenue)}</td></tr>)}</tbody>
+  </table>
+</div>
