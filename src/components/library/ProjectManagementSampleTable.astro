@@ -1,0 +1,11 @@
+---
+import { projectManagementSamples } from "../../utils/library/project-management-samples.mjs";
+const numbers = new Intl.NumberFormat("en");
+const dates = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" });
+---
+<div class="overflow-x-auto">
+  <table>
+    <thead><tr><th scope="col">Week ending</th><th scope="col">On-time milestones</th><th scope="col">Overdue milestones</th><th scope="col">Blocked tasks</th></tr></thead>
+    <tbody>{projectManagementSamples.map((row) => <tr><th scope="row">{dates.format(new Date(`${row.period}T12:00:00Z`))}</th><td>{numbers.format(row.onTime)}%</td><td>{numbers.format(row.overdue)}</td><td>{numbers.format(row.blocked)}</td></tr>)}</tbody>
+  </table>
+</div>

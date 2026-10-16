@@ -13,6 +13,7 @@
     "src/components/library-preview/**/*.tsx",
     "src/utils/library/articles.ts",
     "src/utils/library/website-kpis.ts",
+    "src/utils/library/project-management-kpis.ts",
     "src/utils/templates/**/*.ts"
   ]
 }

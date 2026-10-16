@@ -1,0 +1,27 @@
+---
+import { ProjectManagementKpiPreview } from "../library-preview/kpis/project-management/ProjectManagementKpiPreview";
+import { loadProjectManagementKpis } from "../../utils/library/project-management-kpis";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+
+const templates = await loadProjectManagementKpis();
+---
+
+{templates && <section aria-labelledby="try-the-project-management-kpi-example" data-library-example="project-management-kpis">
+  <h2 id="try-the-project-management-kpi-example">Try it in Operately</h2>
+  <p>Here's what the same data looks like in Operately:</p>
+  <div class="not-prose">
+    <ProjectManagementKpiPreview templates={templates} client:only="react">
+      <p slot="fallback" class="rounded-lg border border-gray-200 bg-white p-6">Turn on JavaScript to try the interactive example.</p>
+    </ProjectManagementKpiPreview>
+  </div>
+  <h3 id="use-project-management-kpis">Track your own numbers</h3>
+  <p>Add any of these KPIs to Operately and start logging your own data:</p>
+  <ul>
+    {templates.map((template) => (
+      <li><a href={template.useUrl} data-template-id={template.id}>{template.definition.name}</a></li>
+    ))}
+  </ul>
+</section>}
