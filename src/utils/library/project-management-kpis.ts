@@ -1,5 +1,5 @@
 import { loadKpiTemplate } from "../operately/client.mjs";
-import type { ProjectManagementKpiTemplate } from "../../components/library-preview/kpis/project-management/types";
+import type { ProjectManagementKpiTemplate } from "../../components/library-preview/articles/project-management-kpis/types";
 
 const language = "en";
 export const projectManagementKpiReferences = [

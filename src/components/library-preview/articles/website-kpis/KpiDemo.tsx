@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { KpiDemo as SharedKpiDemo } from "../KpiDemo";
+import { KpiDemo as SharedKpiDemo } from "../../kpis/KpiDemo";
 import { createWebsiteFixtures } from "./fixtures";
 import type { WebsiteKpiTemplate } from "./types";
 

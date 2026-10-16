@@ -1,5 +1,5 @@
 import { loadKpiTemplate } from "../operately/client.mjs";
-import type { WebsiteKpiTemplate } from "../../components/library-preview/kpis/website/types";
+import type { WebsiteKpiTemplate } from "../../components/library-preview/articles/website-kpis/types";
 
 const language = "en";
 export const websiteKpiReferences = [

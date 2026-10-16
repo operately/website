@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { KpiDemo as SharedKpiDemo } from "../KpiDemo";
+import { KpiDemo as SharedKpiDemo } from "../../kpis/KpiDemo";
 import { createProjectManagementFixtures } from "./fixtures";
 import type { ProjectManagementKpiTemplate } from "./types";
 
