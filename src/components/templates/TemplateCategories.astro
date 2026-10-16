@@ -7,19 +7,18 @@ import type { PublicTemplate } from "../../utils/templates/types";
 interface Props { templates: PublicTemplate[] }
 const { templates } = Astro.props;
 const categories = [
-  { type: "project", title: "Project templates", description: "Plan milestones and organize tasks." },
-  { type: "goal", title: "Goal templates", description: "Set clear goals and measurable targets." },
-  { type: "kpi", title: "KPI templates", description: "Track the numbers that matter to your team." },
+  { type: "project", title: "Project templates" },
+  { type: "goal", title: "Goal templates" },
+  { type: "kpi", title: "KPI templates" },
 ] as const;
 ---
 <section aria-labelledby="template-categories" class="mt-12">
   <h2 id="template-categories" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">Template types</h2>
   <ul class="category-grid">
-    {categories.map(({ type, title, description }) => <li>
+    {categories.map(({ type, title }) => <li>
       <a href={catalogPath({ type })} class="category-card" data-type={type}>
         <div class="category-icon"><TemplateIcon type={type} size={28} /></div>
         <h3>{title}</h3>
-        <p>{description}</p>
         <div class="category-footer"><span>{templateCount(templates.filter((template) => template.type === type).length)}</span><ArrowRight size={18} aria-hidden="true" /></div>
       </a>
     </li>)}
@@ -33,7 +32,6 @@ const categories = [
   .category-card[data-type="kpi"] { background: #edf4f3; --accent: #287d78; }
   .category-icon { color: var(--accent); margin-bottom: 16px; }
   h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-  p { margin-top: 8px; font-size: 14px; line-height: 1.6; color: #4b5563; }
   .category-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; margin-top: auto; font-size: 13px; color: #4b5563; }
   .category-card:hover { box-shadow: inset 0 0 0 1px var(--accent); }
   .category-card:hover h3 { color: var(--accent); }
