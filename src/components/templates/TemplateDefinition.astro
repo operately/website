@@ -1,0 +1,107 @@
+---
+import TemplateIcon from "./TemplateIcon.astro";
+import { daysAfterStart, templateTypes } from "../../utils/templates/presentation";
+import { renderTemplateDescription } from "../../utils/templates/rich-text.mjs";
+import type { PublicTemplate } from "../../utils/templates/types";
+
+interface Props { template: PublicTemplate; compact?: boolean }
+
+const { template, compact = false } = Astro.props;
+const { definition, type } = template;
+const milestones = definition.milestones ?? [];
+const tasks = definition.tasks ?? [];
+const targets = definition.targets ?? [];
+const description = compact ? "" : renderTemplateDescription(definition.description);
+const groups = [
+  ...milestones.map((milestone) => ({
+    title: milestone.title, due: daysAfterStart(milestone.due_offset_days),
+    tasks: tasks.filter((task) => task.milestone_key === milestone.key),
+  })),
+  ...(tasks.some((task) => !task.milestone_key) ? [{ title: "Tasks", due: null, tasks: tasks.filter((task) => !task.milestone_key) }] : []),
+];
+const formatNumber = (value: number | string | null | undefined) =>
+  value == null || value === "" ? "—" : new Intl.NumberFormat("en", { maximumFractionDigits: 4 }).format(Number(value));
+---
+<div class:list={["template-definition", { compact }]} data-type={type}>
+  <div class="definition-document">
+    <div class="definition-icon"><TemplateIcon type={type} size={compact ? 24 : 30} /></div>
+    <p class="definition-name">{definition.name || template.title}</p>
+    <p class="definition-type">{templateTypes[type].name}</p>
+    {description && <div class="definition-description" set:html={description} />}
+    {type === "kpi" && <>
+      <dl class="kpi-fields">
+        <div><dt>Unit</dt><dd>{definition.unit}</dd></div>
+        <div><dt>Frequency</dt><dd>{definition.cadence === "weekly" ? "Weekly" : "Monthly"}</dd></div>
+      </dl>
+      {!compact && <div class="definition-empty">Values will appear here when you start logging updates.</div>}
+    </>}
+    {type !== "kpi" && definition.duration_days != null && <p class="definition-duration">Due {daysAfterStart(definition.duration_days)?.toLowerCase()}</p>}
+    {type === "goal" && targets.length > 0 && <div class="definition-targets">
+      <p class="definition-label">Targets</p>
+      {targets.slice(0, compact ? 3 : undefined).map((target) => <div class="definition-target">
+        <p>{target.name}</p>
+        <span>{formatNumber(target.from)} → {formatNumber(target.to)} {target.unit}</span>
+      </div>)}
+    </div>}
+    {type === "project" && <div class="definition-groups">
+      {groups.slice(0, compact ? 1 : undefined).map((group) => <section>
+        <div class="definition-group-heading"><h3>{group.title}</h3>{!compact && group.due && <span>{group.due}</span>}</div>
+        <ul>{group.tasks.slice(0, compact ? 3 : undefined).map((task) => <li>
+          <span class="task-circle" aria-hidden="true"></span>
+          <div><p>{task.name}</p>{!compact && task.description && <div class="definition-description" set:html={renderTemplateDescription(task.description)} />}</div>
+          {!compact && task.due_offset_days != null && <span class="task-due">{daysAfterStart(task.due_offset_days)}</span>}
+        </li>)}</ul>
+      </section>)}
+    </div>}
+  </div>
+</div>
+
+<style>
+  .template-definition { background: #f0f3f5; padding: 32px; min-height: 430px; border-radius: 12px; --accent: #287d78; }
+  .template-definition[data-type="goal"] { background: #f1f0f6; --accent: #7662a3; }
+  .template-definition[data-type="project"] { background: #edf2f8; --accent: #3c73aa; }
+  .definition-document { background: white; padding: 40px; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 3px 12px #11182705; min-height: 370px; }
+  .definition-icon { color: var(--accent); margin-bottom: 22px; }
+  .definition-name { font-size: 26px; font-weight: 650; line-height: 1.3; letter-spacing: -.025em; color: #111827; overflow-wrap: anywhere; }
+  .definition-type { font-size: 12px; color: #9ca3af; margin-top: 8px; }
+  .kpi-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid #eceef0; margin-top: 28px; padding-top: 20px; }
+  dt { font-size: 12px; color: #6b7280; }
+  dd { font-size: 15px; color: #374151; margin-top: 6px; overflow-wrap: anywhere; }
+  .definition-empty { margin-top: 32px; border: 1px dashed #dce1e6; border-radius: 6px; padding: 26px 20px; font-size: 13px; line-height: 1.6; color: #6b7280; text-align: center; }
+  .definition-duration { font-size: 13px; color: #6b7280; margin-top: 20px; }
+  .definition-label { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+  .definition-targets, .definition-groups { margin-top: 24px; }
+  .definition-target { padding: 12px 0; border-top: 1px solid #eee; font-size: 14px; }
+  .definition-target span { display: block; color: #6b7280; margin-top: 6px; font-size: 12px; }
+  .definition-group-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 0; font-size: 14px; font-weight: 600; }
+  .definition-group-heading span, .task-due { font-size: 12px; font-weight: 400; color: #6b7280; }
+  .definition-groups section + section { margin-top: 20px; }
+  li { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid #eee; padding: 12px 0; font-size: 13px; }
+  li > div { flex: 1; min-width: 0; }
+  .task-circle { flex-shrink: 0; width: 11px; height: 11px; border: 1.5px solid #b4bbc3; border-radius: 50%; }
+  .definition-description { font-size: 14px; line-height: 1.7; color: #4b5563; margin-top: 20px; overflow-wrap: anywhere; overflow-x: auto; }
+  .definition-description :global(p + p) { margin-top: 12px; }
+  .definition-description :global(ul), .definition-description :global(ol) { padding-left: 22px; margin-block: 12px; }
+  .definition-description :global(ul) { list-style: disc; }
+  .definition-description :global(ol) { list-style: decimal; }
+  .definition-description :global(h3), .definition-description :global(h4) { font-weight: 600; margin-block: 16px 8px; }
+  .definition-description :global(a) { color: #024fac; text-decoration: underline; }
+  .definition-description :global(pre) { white-space: pre-wrap; background: #f5f5f5; padding: 12px; }
+  .definition-description :global(blockquote) { border-left: 3px solid #d1d5db; padding-left: 12px; }
+  .definition-description :global(td), .definition-description :global(th) { border: 1px solid #e5e7eb; padding: 8px; }
+  .compact { padding: 22px 22px 0; border-radius: 0; min-height: 100%; height: 100%; overflow: hidden; }
+  .compact .definition-document { padding: 24px; border-radius: 6px 6px 0 0; min-height: 280px; }
+  .compact .definition-icon { margin-bottom: 16px; }
+  .compact .definition-name { font-size: 18px; line-height: 1.3; }
+  .compact .definition-type { display: none; }
+  .compact .kpi-fields { margin-top: 20px; padding-top: 14px; gap: 12px; }
+  .compact dd { font-size: 13px; }
+  .compact .definition-targets, .compact .definition-groups { margin-top: 16px; }
+  @media (max-width: 640px) {
+    .template-definition:not(.compact) { padding: 14px; min-height: 0; }
+    .template-definition:not(.compact) .definition-document { padding: 24px; min-height: 0; }
+    .definition-name { font-size: 22px; }
+    li { flex-wrap: wrap; }
+    .task-due { flex-basis: 100%; padding-left: 21px; }
+  }
+</style>

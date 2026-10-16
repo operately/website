@@ -1,0 +1,27 @@
+---
+import { WebsiteKpiPreview } from "../../../library-preview/articles/website-kpis/WebsiteKpiPreview";
+import { loadWebsiteKpis } from "../../../../utils/library/website-kpis";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+
+const templates = await loadWebsiteKpis();
+---
+
+{templates && <section aria-labelledby="try-the-website-kpi-example" data-library-example="website-kpis">
+  <h2 id="try-the-website-kpi-example">Try it in Operately</h2>
+  <slot><p>Here's what the same data looks like in Operately:</p></slot>
+  <div class="not-prose">
+    <WebsiteKpiPreview templates={templates} client:only="react">
+      <p slot="fallback" class="rounded-lg border border-gray-200 bg-white p-6">Turn on JavaScript to try the interactive example.</p>
+    </WebsiteKpiPreview>
+  </div>
+  <h3 id="use-website-kpis">Track your own numbers</h3>
+  <p>Add any of these KPIs to Operately and start logging your own data:</p>
+  <ul>
+    {templates.map((template) => (
+      <li><a href={template.useUrl} data-template-id={template.id}>{template.definition.name}</a></li>
+    ))}
+  </ul>
+</section>}

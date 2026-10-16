@@ -1,0 +1,6 @@
+---
+import { getLibraryArticles } from "../../utils/library/content";
+interface Props { slug: string }
+const article = (await getLibraryArticles()).find(({ id }) => id === Astro.props.slug);
+---
+{article && <p>Related guide: <a href={`/library/${article.id}`}>{article.data.title}</a>.</p>}

@@ -103,7 +103,7 @@ import Footer from "../components/Footer.astro";
           type="application/ld+json"
           set:html={JSON.stringify(
             schemaGraph.length === 1 ? schemaGraph[0] : { "@context": "https://schema.org", "@graph": schemaGraph },
-          )}
+          ).replaceAll("<", "\\u003c")}
         />
       ) : null
     }

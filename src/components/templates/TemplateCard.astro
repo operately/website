@@ -1,0 +1,25 @@
+---
+import TemplateDefinition from "./TemplateDefinition.astro";
+import { templatePath, templateTypes } from "../../utils/templates/presentation";
+import type { PublicTemplate } from "../../utils/templates/types";
+interface Props { template: PublicTemplate }
+const { template } = Astro.props;
+---
+<a href={templatePath(template.slug)} data-template-open={template.slug} class="template-card" aria-label={template.title}>
+  <div class="template-card-preview" aria-hidden="true"><TemplateDefinition template={template} compact /></div>
+  <div class="template-card-heading">
+    <h3>{template.title}</h3>
+    <span>{templateTypes[template.type].name}</span>
+  </div>
+</a>
+
+<style>
+  .template-card { display: block; color: #111827; border-radius: 12px; }
+  .template-card-preview { aspect-ratio: 1.6; overflow: hidden; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; transition: border-color 150ms, box-shadow 150ms; }
+  .template-card:hover .template-card-preview { border-color: #9ca3af; box-shadow: 0 6px 20px #11182708; }
+  .template-card:focus-visible { outline: 2px solid #3185ff; outline-offset: 6px; }
+  .template-card-heading { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; margin-top: 12px; padding-inline: 12px; }
+  h3 { font-size: 16px; line-height: 1.5; font-weight: 600; }
+  .template-card:hover h3 { color: #024fac; }
+  span { font-size: 12px; color: #6b7280; flex-shrink: 0; }
+</style>

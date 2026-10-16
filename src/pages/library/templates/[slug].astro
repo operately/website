@@ -1,0 +1,13 @@
+---
+import TemplateCatalogPage from "../../../components/templates/TemplateCatalogPage.astro";
+import { getTemplateCatalog } from "../../../utils/templates/catalog";
+import type { PublicTemplate } from "../../../utils/templates/types";
+
+export async function getStaticPaths() {
+  const templates = await getTemplateCatalog();
+  return templates.map((template) => ({ params: { slug: template.slug }, props: { template, templates } }));
+}
+interface Props { template: PublicTemplate; templates: PublicTemplate[] }
+const { template, templates } = Astro.props;
+---
+<TemplateCatalogPage templates={templates} selectedTemplate={template} />

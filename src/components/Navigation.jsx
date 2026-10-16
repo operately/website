@@ -65,6 +65,12 @@ const products = [
     href: bookaDemoUrl,
     icon: CalendarDays,
   },
+  {
+    name: "Library",
+    description: "Practical guides and interactive examples",
+    href: "/library",
+    icon: BookOpen,
+  },
 ];
 
 const about = [

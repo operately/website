@@ -1,0 +1,10 @@
+---
+import { websiteSamples } from "../../../../utils/library/website-samples.mjs";
+const numbers = new Intl.NumberFormat("en");
+---
+<div class="overflow-x-auto">
+  <table>
+    <thead><tr><th scope="col">Month</th><th scope="col">Visitors</th><th scope="col">Signups</th><th scope="col">Conversion rate</th></tr></thead>
+    <tbody>{websiteSamples.map((row) => <tr><th scope="row">{row.month}</th><td>{numbers.format(row.visitors)}</td><td>{numbers.format(row.signups)}</td><td>{numbers.format(row.conversion)}%</td></tr>)}</tbody>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+---
+import { TemplateLivePreview } from "../../../../components/library-preview/templates/TemplateLivePreview";
+import { getTemplateCatalog } from "../../../../utils/templates/catalog";
+import { templatePath } from "../../../../utils/templates/presentation";
+import type { PublicTemplate } from "../../../../utils/templates/types";
+import "../../../../styles/global.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+
+export async function getStaticPaths() {
+  return (await getTemplateCatalog()).map((template) => ({ params: { slug: template.slug }, props: { template } }));
+}
+interface Props { template: PublicTemplate }
+const { template } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{template.title} — Preview | Operately</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header>
+      <a href={templatePath(template.slug)}>← Back to template</a>
+      <a class="use-template" href={template.useUrl} data-template-id={template.id}>Use template ↗</a>
+    </header>
+    <main aria-label={`${template.title} preview`}>
+      <TemplateLivePreview template={template} mode="fullscreen" client:only="react">
+        <p slot="fallback" class="preview-loading" role="status">Loading preview…</p>
+      </TemplateLivePreview>
+      <noscript>Enable JavaScript to view the live preview.</noscript>
+    </main>
+  </body>
+</html>
+<style>
+  body { margin: 0; height: 100dvh; display: flex; flex-direction: column; background: white; font-family: Inter, sans-serif; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-shrink: 0; padding: 12px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #374151; }
+  .use-template { padding: 8px 12px; border-radius: 6px; background: #3185ff; color: white; font-weight: 600; }
+  .use-template:hover { background: #024fac; }
+  a:focus-visible { outline: 2px solid #3185ff; outline-offset: 3px; }
+  main { flex: 1; min-height: 0; }
+  .preview-loading { display: grid; place-items: center; height: 100%; margin: 0; color: #6b7280; font-size: 14px; }
+</style>
