@@ -11,7 +11,7 @@ const templates = await loadWebsiteKpis();
 
 {templates && <section aria-labelledby="try-the-website-kpi-example" data-library-example="website-kpis">
   <h2 id="try-the-website-kpi-example">Try it in Operately</h2>
-  <p>Here's what the same data looks like in Operately:</p>
+  <slot><p>Here's what the same data looks like in Operately:</p></slot>
   <div class="not-prose">
     <WebsiteKpiPreview templates={templates} client:only="react">
       <p slot="fallback" class="rounded-lg border border-gray-200 bg-white p-6">Turn on JavaScript to try the interactive example.</p>
