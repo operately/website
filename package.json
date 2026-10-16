@@ -21,7 +21,7 @@
     "@emotion/react": "11.14.0",
     "@fontsource/inter": "^5.2.8",
     "@headlessui/react": "^2.2.0",
-    "@operately/turboui": "0.4.0",
+    "@operately/turboui": "0.5.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^18.2.79",
