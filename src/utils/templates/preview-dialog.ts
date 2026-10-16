@@ -1,3 +1,5 @@
+import { catalogPath } from "./presentation";
+
 export function initializeTemplatePreviewDialog(root: HTMLElement) {
   const dialog = root.querySelector<HTMLDialogElement>("dialog[data-template-dialog]");
   const content = dialog?.querySelector<HTMLElement>("[data-preview-content]");
@@ -14,7 +16,7 @@ export function initializeTemplatePreviewDialog(root: HTMLElement) {
   let opener: HTMLAnchorElement | null = null;
   let previousOverflow = "";
   let modalOpen = false;
-  let returnUrl = `/library${window.location.search}`;
+  let returnUrl = `${catalogPath()}${window.location.search}`;
 
   const locationCard = () => allCards.find((card) =>
     card.pathname.replace(/\/$/, "") === window.location.pathname.replace(/\/$/, ""));
@@ -94,7 +96,7 @@ export function initializeTemplatePreviewDialog(root: HTMLElement) {
   const restore = () => {
     const card = locationCard();
     if (!card) { hide(); return; }
-    returnUrl = window.history.state?.templatePreviewReturn ?? `/library${window.location.search}`;
+    returnUrl = window.history.state?.templatePreviewReturn ?? `${catalogPath()}${window.location.search}`;
     opener ??= card;
     show(card);
   };

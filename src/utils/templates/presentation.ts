@@ -17,7 +17,7 @@ export function catalogPath(filters: { type?: string; q?: string } = {}) {
   for (const [key, value] of Object.entries(filters)) {
     if (value) query.set(key, value);
   }
-  return `/library${query.size ? `?${query}` : ""}`;
+  return `/library/templates${query.size ? `?${query}` : ""}`;
 }
 
 export function templateCount(count: number) {
@@ -30,4 +30,3 @@ export function daysAfterStart(days: number | string | null | undefined) {
   if (count === 0) return "Start day";
   return `${new Intl.NumberFormat("en").format(count)} ${count === 1 ? "day" : "days"} after start`;
 }
-

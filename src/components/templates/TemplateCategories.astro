@@ -1,0 +1,43 @@
+---
+import { ArrowRight } from "lucide-react";
+import TemplateIcon from "./TemplateIcon.astro";
+import { catalogPath, templateCount } from "../../utils/templates/presentation";
+import type { PublicTemplate } from "../../utils/templates/types";
+
+interface Props { templates: PublicTemplate[] }
+const { templates } = Astro.props;
+const categories = [
+  { type: "project", title: "Project templates", description: "Plan milestones and organize tasks." },
+  { type: "goal", title: "Goal templates", description: "Set clear goals and measurable targets." },
+  { type: "kpi", title: "KPI templates", description: "Track the numbers that matter to your team." },
+] as const;
+---
+<section aria-labelledby="template-categories" class="mt-12">
+  <h2 id="template-categories" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">Template types</h2>
+  <ul class="category-grid">
+    {categories.map(({ type, title, description }) => <li>
+      <a href={catalogPath({ type })} class="category-card" data-type={type}>
+        <div class="category-icon"><TemplateIcon type={type} size={28} /></div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <div class="category-footer"><span>{templateCount(templates.filter((template) => template.type === type).length)}</span><ArrowRight size={18} aria-hidden="true" /></div>
+      </a>
+    </li>)}
+  </ul>
+</section>
+
+<style>
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .category-card { display: flex; flex-direction: column; height: 100%; padding: 24px; border-radius: 12px; background: #edf2f8; color: #111827; --accent: #3c73aa; transition: box-shadow 150ms; }
+  .category-card[data-type="goal"] { background: #f1f0f6; --accent: #7662a3; }
+  .category-card[data-type="kpi"] { background: #edf4f3; --accent: #287d78; }
+  .category-icon { color: var(--accent); margin-bottom: 16px; }
+  h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+  p { margin-top: 8px; font-size: 14px; line-height: 1.6; color: #4b5563; }
+  .category-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; margin-top: auto; font-size: 13px; color: #4b5563; }
+  .category-card:hover { box-shadow: inset 0 0 0 1px var(--accent); }
+  .category-card:hover h3 { color: var(--accent); }
+  .category-card:focus-visible { outline: 2px solid #3185ff; outline-offset: 4px; }
+  @media (max-width: 700px) { .category-grid { grid-template-columns: 1fr; gap: 16px; } }
+  @media (prefers-reduced-motion: reduce) { .category-card { transition: none; } }
+</style>

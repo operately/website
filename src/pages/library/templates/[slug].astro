@@ -1,5 +1,5 @@
 ---
-import LibraryPage from "../../../components/library/LibraryPage.astro";
+import TemplateCatalogPage from "../../../components/templates/TemplateCatalogPage.astro";
 import { getTemplateCatalog } from "../../../utils/templates/catalog";
 import type { PublicTemplate } from "../../../utils/templates/types";
 
@@ -10,4 +10,4 @@ export async function getStaticPaths() {
 interface Props { template: PublicTemplate; templates: PublicTemplate[] }
 const { template, templates } = Astro.props;
 ---
-<LibraryPage templates={templates} selectedTemplate={template} />
+<TemplateCatalogPage templates={templates} selectedTemplate={template} />

@@ -10,7 +10,7 @@ beforeEach(() => {
     <div hidden><a href="/library/templates/hidden" data-template-open="hidden">Hidden</a></div>
     <a href="/library/templates/last" data-template-open="last">Last</a>
     <dialog data-template-dialog aria-labelledby="template-preview-title">
-      <a href="/library" data-preview-close autofocus>Close</a>
+      <a href="/library/templates" data-preview-close autofocus>Close</a>
       <div data-preview-content></div>
     </dialog>
     <template data-template-preview="first"><h2 id="template-preview-title">First</h2><a href="https://app.operately.com/templates/first/use">Use template</a></template>
@@ -84,7 +84,16 @@ test("a direct URL opens its prerendered content without replacing it and closes
   expect(dialog().showModal).toHaveBeenCalledOnce();
   expect(content.firstElementChild).toBe(heading);
   click("[data-preview-close]");
-  expect(window.location.pathname).toBe("/library");
+  expect(window.location.pathname).toBe("/library/templates");
+  expect(dialog().open).toBe(false);
+});
+
+test("closing a preview returns to the full catalog with its type filter", async () => {
+  window.history.replaceState(null, "", "/library/templates?type=project");
+  initialize();
+  click('[data-template-open="first"]');
+  click("[data-preview-close]");
+  await waitFor(() => expect(window.location.pathname + window.location.search).toBe("/library/templates?type=project"));
   expect(dialog().open).toBe(false);
 });
 

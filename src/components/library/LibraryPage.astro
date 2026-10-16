@@ -1,15 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TemplateGallery from "../templates/TemplateGallery.astro";
+import TemplateCategories from "../templates/TemplateCategories.astro";
+import { ArrowRight } from "lucide-react";
+import { catalogPath, templateCount } from "../../utils/templates/presentation";
 import ArticleList from "./ArticleList.astro";
 import { getLibraryArticles } from "../../utils/library/content";
 import type { PublicTemplate } from "../../utils/templates/types";
-interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
-const { templates, selectedTemplate } = Astro.props;
+interface Props { templates: PublicTemplate[] }
+const { templates } = Astro.props;
 
 const articles = await getLibraryArticles();
 ---
-<BaseLayout title={selectedTemplate ? `${selectedTemplate.title} template` : "Library"} description={selectedTemplate?.summary || "Templates and practical guides for your team's KPIs, goals, and projects."}>
+<BaseLayout title="Library" description="Templates and practical guides for your team's KPIs, goals, and projects.">
   <Fragment slot="head">{!templates.length && !articles.some(({ data }) => data.published) && <meta name="robots" content="noindex, nofollow" />}</Fragment>
   <main class="bg-[#FAFAF8] px-6 pb-20 pt-12 sm:pt-16 lg:px-8">
     <div class="mx-auto max-w-6xl">
@@ -18,15 +21,23 @@ const articles = await getLibraryArticles();
         <p class="mt-4 text-lg leading-7 text-gray-600">Templates and guides for your team's work.</p>
       </header>
       <section aria-labelledby="library-templates">
-        <h2 id="library-templates" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">
-          Templates
-        </h2>
-        <TemplateGallery templates={templates} selectedTemplate={selectedTemplate} />
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h2 id="library-templates" class="text-2xl font-semibold tracking-tight text-gray-900">Templates</h2>
+          {templates.length > 0 && <a class="library-link" href={catalogPath()}>View all {templateCount(templates.length)} <ArrowRight size={18} aria-hidden="true" /></a>}
+        </div>
+        <TemplateGallery templates={templates} mode="overview" />
       </section>
-      {articles.length > 0 && <section aria-labelledby="library-guides" class="mt-20">
-        <h2 id="library-guides" class="mb-6 text-2xl font-semibold tracking-tight text-gray-900">Guides</h2>
+      {templates.length > 0 && <TemplateCategories templates={templates} />}
+      {articles.length > 0 && <section aria-labelledby="library-guides" class="mt-16">
+        <h2 id="library-guides" class="mb-6 scroll-mt-24 text-2xl font-semibold tracking-tight text-gray-900">Guides</h2>
         <ArticleList articles={articles} />
       </section>}
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .library-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #024fac; }
+  .library-link:hover { text-decoration: underline; }
+  .library-link:focus-visible { outline: 2px solid #3185ff; outline-offset: 4px; border-radius: 3px; }
+</style>

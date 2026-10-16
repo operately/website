@@ -1,6 +1,7 @@
 ---
 import { X } from "lucide-react";
 import TemplateDetails from "./TemplateDetails.astro";
+import { catalogPath } from "../../utils/templates/presentation";
 import type { PublicTemplate } from "../../utils/templates/types";
 interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
 const { templates, selectedTemplate } = Astro.props;
@@ -8,7 +9,7 @@ const { templates, selectedTemplate } = Astro.props;
 {templates.length > 0 && <>
   <dialog open={!!selectedTemplate} data-template-dialog aria-labelledby="template-preview-title" class="template-dialog">
     <div class="preview-toolbar">
-      <a href="/library" data-preview-close aria-label="Close template preview" title="Close" autofocus><X size={23} strokeWidth={1.7} aria-hidden="true" /></a>
+      <a href={catalogPath()} data-preview-close aria-label="Close template preview" title="Close" autofocus><X size={23} strokeWidth={1.7} aria-hidden="true" /></a>
     </div>
     <div data-preview-content data-preview-slug={selectedTemplate?.slug} class="preview-content">
       {selectedTemplate && <TemplateDetails template={selectedTemplate} headingLevel="h2" headingId="template-preview-title" />}

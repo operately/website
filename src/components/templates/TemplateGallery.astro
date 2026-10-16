@@ -3,27 +3,28 @@ import { Search } from "lucide-react";
 import TemplateCard from "./TemplateCard.astro";
 import TemplatePreviewDialog from "./TemplatePreviewDialog.astro";
 import Select from "../Select/index.astro";
-import { templateCount, templateTypes } from "../../utils/templates/presentation";
+import { catalogPath, templateCount, templateTypes } from "../../utils/templates/presentation";
 import type { PublicTemplate } from "../../utils/templates/types";
-interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
-const { templates, selectedTemplate } = Astro.props;
-const types = Object.entries(templateTypes).filter(([type]) => templates.some((template) => template.type === type));
+interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate; mode?: "overview" | "catalog" }
+const { templates, selectedTemplate, mode = "catalog" } = Astro.props;
+const visibleTemplates = mode === "overview" ? templates.slice(0, 6) : templates;
+const types = Object.entries(templateTypes);
 const showFilters = templates.length > 0;
 ---
 <section data-template-gallery data-template-browser>
-  <div class="gallery-toolbar">
-    {showFilters && <form action="/library" method="get" role="search" aria-label="Templates" hidden>
+  {mode === "catalog" && <div class="gallery-toolbar">
+    {showFilters && <form action={catalogPath()} method="get" role="search" aria-label="Templates" hidden>
       <label class="gallery-search"><span class="sr-only">Search templates</span><Search size={18} aria-hidden="true" /><input name="q" type="search" placeholder="Search templates" autocomplete="off" /></label>
-      <div class:list={["gallery-select", { "filter-absent": types.length < 2 }]}>
+      <div class="gallery-select">
         <Select name="type" label="Template type" options={[{ value: "", label: "All types" }, ...types.map(([value, { plural }]) => ({ value, label: plural }))]} />
       </div>
       <button type="reset" hidden>Clear filters</button>
     </form>}
     <p data-template-count role="status" aria-live="polite" aria-atomic="true">{templateCount(templates.length)}</p>
-  </div>
+  </div>}
 
   <ul class="template-grid">
-    {templates.map((template) => <li
+    {visibleTemplates.map((template) => <li
       data-template-card
       data-type={template.type}
       data-search={[template.title, template.summary, templateTypes[template.type].name].filter(Boolean).join(" ").toLocaleLowerCase("en")}
@@ -31,7 +32,7 @@ const showFilters = templates.length > 0;
   </ul>
 
   <p data-template-empty hidden={templates.length > 0} class="gallery-empty">{templates.length ? "No matching templates. Try another search or clear your filters." : "No templates published yet."}</p>
-  <TemplatePreviewDialog templates={templates} selectedTemplate={selectedTemplate} />
+  <TemplatePreviewDialog templates={visibleTemplates} selectedTemplate={selectedTemplate} />
 </section>
 
 <script>
@@ -48,7 +49,6 @@ const showFilters = templates.length > 0;
   .gallery-search:focus-within { outline: 2px solid #3185ff; outline-offset: 2px; }
   input::placeholder { color: #6b7280; }
   .gallery-select { max-width: 240px; }
-  .filter-absent { display: none; }
   button { font-size: 13px; color: #4b5563; padding: 10px; cursor: pointer; }
   button:hover { text-decoration: underline; }
   [data-template-count] { color: #6b7280; font-size: 13px; white-space: nowrap; }

@@ -2,10 +2,10 @@ import { beforeEach, expect, test } from "vitest";
 import { initializeTemplateGallery } from "./gallery";
 
 beforeEach(() => {
-  window.history.replaceState(null, "", "/library");
+  window.history.replaceState(null, "", "/library/templates");
   document.body.innerHTML = `<section>
     <form hidden><input name="q">
-    <select name="type"><option value="">All</option><option value="kpi">KPIs</option><option value="project">Projects</option></select><button type="reset">Clear</button></form>
+    <select name="type"><option value="">All</option><option value="kpi">KPIs</option><option value="project">Projects</option><option value="goal">Goals</option></select><button type="reset">Clear</button></form>
     <span data-template-count></span><p data-template-empty hidden></p>
     <ul>${[
       ["visitors", "kpi", "website visitors traffic"],
@@ -47,7 +47,7 @@ test("combines type and individual search words", () => {
 });
 
 test("restores filters from type links and handles zero results and reset", () => {
-  window.history.replaceState(null, "", "/library?type=project");
+  window.history.replaceState(null, "", "/library/templates?type=project");
   initialize();
   expect(visibleCards()).toEqual(["launch"]);
   field("q", "missing");
@@ -56,4 +56,11 @@ test("restores filters from type links and handles zero results and reset", () =
   document.querySelector("form")?.dispatchEvent(new Event("reset", { bubbles: true, cancelable: true }));
   expect(visibleCards()).toEqual(["visitors", "launch", "revenue"]);
   expect(window.location.search).toBe("");
+});
+
+test("a category without templates shows an empty result instead of the full catalog", () => {
+  window.history.replaceState(null, "", "/library/templates?type=goal");
+  initialize();
+  expect(visibleCards()).toEqual([]);
+  expect(document.querySelector<HTMLElement>("[data-template-empty]")?.hidden).toBe(false);
 });
