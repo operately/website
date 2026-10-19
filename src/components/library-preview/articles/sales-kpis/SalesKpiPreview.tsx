@@ -1,8 +1,7 @@
-import React, { lazy } from "react";
+import React from "react";
 import { PreviewShell } from "../../shell/PreviewShell";
+import { KpiDemo } from "./KpiDemo";
 import type { SalesKpiTemplate } from "./types";
-
-const KpiDemo = lazy(() => import("./KpiDemo").then(({ KpiDemo }) => ({ default: KpiDemo })));
 
 export function SalesKpiPreview({ templates }: { templates: SalesKpiTemplate[] }) {
   return (
