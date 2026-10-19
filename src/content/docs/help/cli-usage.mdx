@@ -84,6 +84,19 @@ Print compact JSON:
 operately spaces list --compact
 ```
 
+## Write content from a file
+
+Use `--content-file` to create a document from a Markdown file:
+
+```bash
+operately documents create_document \
+  --space-id YOUR_SPACE_ID \
+  --name "Launch plan" \
+  --content-file ./guide.md
+```
+
+For inline input, other file flags, and supported formatting, see [Write Markdown content with the CLI](/help/cli-markdown).
+
 ## Keep the reference in the API docs
 
 The CLI is a thin interface over the Operately external API. Use these docs for onboarding and discovery, then use the [API docs](/help/api) when you need the full endpoint reference.

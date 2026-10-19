@@ -8,14 +8,13 @@ import { Steps } from '@astrojs/starlight/components';
 
 <ImageEnhancer />
 
-![Screenshot: Formatting text in a document](./format-text.png)
+{/* Screenshot placeholder: ![Screenshot: Editor toolbar with H2, H3, H4, Task list, and Table controls](./format-text-updated.png) */}
 
-When writing a document, you have several formatting options to make your content 
-clear and engaging.
+Use the shared text editor to format documents, descriptions, discussions, and comments.
 
 - Make text bold (**example**), italic (*example*), or strikethrough (~~example~~).
-- Add numbered or bulleted lists.
-- Add headings (H1, H2) to organize your content.
+- Add numbered lists, bulleted lists, or task lists.
+- Add headings using the H2, H3, and H4 toolbar buttons.
 - Quote text to highlight important information.
 
 Tips for writing clear documents: Use headings to break up long content. 
@@ -24,13 +23,13 @@ overwhelming readers.
 
 ## Markdown shortcuts
 
-While you type, the editor turns Markdown-style shortcuts into formatting (paste stays literal, except `==highlight==`):
+While you type, the editor turns Markdown-style shortcuts into formatting:
 
 - **Bold**: `**text**` or `__text__`
 - **Italic**: `*text*` or `_text_`
 - **Strikethrough**: `~~text~~`
 - **Highlight**: `==text==`
-- **Headings**: `# ` for H1 and `## ` for H2
+- **Headings**: `# ` for H1, `## ` for H2, `### ` for H3, and `#### ` for H4
 - **Bulleted list**: `- `, `* `, or `+ `
 - **Numbered list**: `1. `
 - **Quote**: `> `
@@ -40,9 +39,30 @@ While you type, the editor turns Markdown-style shortcuts into formatting (paste
 - **Inline code**: backticks `` `code` ``
 - **Mention**: type `@` then choose a person
 
-#### Add links to other documents or external websites
+The H2–H4 keyboard shortcuts are **Cmd/Ctrl + Alt + 2**, **3**, or **4**.
 
-You can link to other documents or external websites to provide additional context.
+Pasted Markdown generally stays literal, except `==highlight==`.
+
+## Tables
+
+Click **Table** in the toolbar to insert a 3×3 table with a header row. Select a cell to open **Table settings** or **Cell actions**:
+
+- Insert rows with **Add row above** or **Add row below**.
+- Insert columns with **Add column left** or **Add column right**.
+- Use **Delete row**, **Delete column**, or **Delete table** to remove them.
+- Use **Add header row** or **Remove header row** to change the first row.
+
+Column widths adapt to the content. You can also paste a table copied from another page. Merged cells are split into regular cells, and only a complete first header row is kept as a header.
+
+## Task lists
+
+Click **Task list**, enter your items, and save the content. In supported saved-content views, you can check or uncheck items without reopening the editor if you have permission to edit that content.
+
+These checkboxes belong to the text. They do not create board tasks or [goal checklist items](/help/add-checklist-items).
+
+## Add links to other documents or external websites
+
+Paste a URL to make it clickable. Supported Operately links display the resource title when you have access. To set your own link text:
 
 <Steps>
 1. Click the link icon in the toolbar.

@@ -79,6 +79,7 @@ export default function helpCenterSidebar() {
           },
           { label: "Reset password", link: "/help/reset-password" },
           { label: "Change your password", link: "/help/change-password" },
+          { label: "Change your email", link: "/help/change-email" },
           {
             label: "Connect an AI client with MCP",
             link: "/help/mcp-connections",
@@ -431,6 +432,7 @@ export default function helpCenterSidebar() {
           { label: "Copy a document", link: "/help/copy-document" },
           { label: "Move a document", link: "/help/move-document" },
           { label: "Edit a document", link: "/help/edit-document" },
+          { label: "Share a document publicly", link: "/help/share-document-publicly" },
           {
             label: "View document version history",
             link: "/help/document-version-history",
@@ -573,6 +575,10 @@ export default function helpCenterSidebar() {
             link: "/help/self-hosted-beacon",
           },
           {
+            label: "Manage experimental features",
+            link: "/help/self-hosted-feature-flags",
+          },
+          {
             label: "Email Delivery",
             link: "/help/self-hosted-email-delivery",
           },
@@ -633,6 +639,10 @@ export default function helpCenterSidebar() {
           {
             label: "Use the CLI",
             link: "/help/cli-usage",
+          },
+          {
+            label: "Write Markdown content with the CLI",
+            link: "/help/cli-markdown",
           },
           {
             label: "Connect an AI client with MCP",
