@@ -69,6 +69,7 @@ export default function helpCenterSidebar() {
             label: "Update profile picture",
             link: "/help/update-profile-picture",
           },
+          { label: "Personal settings", link: "/help/personal-settings" },
           {
             label: "Set appearance to light or dark mode",
             link: "/help/set-light-dark-mode",
