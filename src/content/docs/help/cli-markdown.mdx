@@ -1,0 +1,64 @@
+---
+title: Write Markdown content with the CLI
+description: Use inline Markdown or files to write documents and descriptions with the Operately CLI.
+---
+
+CLI fields shown as `<markdown>` in command help accept formatted text. You can pass short content directly or load longer content from a file.
+
+## Pass Markdown directly
+
+Use the field's flag, such as `--content`:
+
+```bash
+operately documents create_document \
+  --space-id YOUR_SPACE_ID \
+  --name "Launch plan" \
+  --content 'The launch is **ready for review**.'
+```
+
+## Read from a file
+
+Save your Markdown in `guide.md`, then pass its path with `--content-file`:
+
+```bash
+operately documents create_document \
+  --space-id YOUR_SPACE_ID \
+  --name "Launch plan" \
+  --content-file ./guide.md
+```
+
+Other Markdown fields use their corresponding file flag. For example, update a project description with:
+
+```bash
+operately projects update_description \
+  --project-id YOUR_PROJECT_ID \
+  --description-file ./guide.md
+```
+
+Use [command-specific help](/help/cli-usage#use-help-to-discover-commands) to find the flags a command accepts.
+
+## Supported formatting
+
+Use headings, bold, italic, strikethrough, links, bulleted and numbered lists, blockquotes, inline code, and fenced code blocks. Task lists and pipe tables are also supported:
+
+```markdown
+## Launch checklist
+
+- [x] Review the plan
+- [ ] Publish the guide
+
+| Milestone | Status |
+| --- | --- |
+| **Launch** | Ready |
+| Review | In progress |
+```
+
+Task-list checkboxes stay in the document's text; they do not create project tasks.
+
+## Table formatting
+
+Inside cells, you can use inline formatting, links, escaped pipes (`\|`), and `<br>` line breaks. Short rows are padded with empty cells; rows with more cells than the header cause an error.
+
+Table widths and alignment are not preserved. Images inside cells become labeled links, and mentions retain their text without linking to a person. See [Export document as Markdown](/help/export-document-markdown) for export behavior.
+
+Table input requires a CLI newer than 1.9.0 and a server version with table support. See [Install and update the CLI](/help/cli-installation).
