@@ -1,0 +1,6 @@
+---
+import TemplateCatalogPage from "../../../components/templates/TemplateCatalogPage.astro";
+import { getTemplateCatalog } from "../../../utils/templates/catalog";
+const templates = await getTemplateCatalog();
+---
+<TemplateCatalogPage templates={templates} />

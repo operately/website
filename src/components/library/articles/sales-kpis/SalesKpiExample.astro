@@ -1,0 +1,27 @@
+---
+import { SalesKpiPreview } from "../../../library-preview/articles/sales-kpis/SalesKpiPreview";
+import { loadSalesKpis } from "../../../../utils/library/sales-kpis";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+
+const templates = await loadSalesKpis();
+---
+
+{templates && <section aria-labelledby="try-the-sales-kpi-example" data-library-example="sales-kpis">
+  <h2 id="try-the-sales-kpi-example">Try it in Operately</h2>
+  <slot><p>Here's what the same data looks like in Operately:</p></slot>
+  <div class="not-prose">
+    <SalesKpiPreview templates={templates} client:only="react">
+      <p slot="fallback" class="rounded-lg border border-gray-200 bg-white p-6">Turn on JavaScript to try the interactive example.</p>
+    </SalesKpiPreview>
+  </div>
+  <h3 id="use-sales-kpis">Track your own numbers</h3>
+  <p>Add any of these KPIs to Operately and start logging your own data:</p>
+  <ul>
+    {templates.map((template) => (
+      <li><a href={template.useUrl} data-template-id={template.id}>{template.definition.name}</a></li>
+    ))}
+  </ul>
+</section>}

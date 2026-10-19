@@ -1,0 +1,57 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { LucideIcon } from "lucide-react";
+
+type Props = {
+  variant?: "primary" | "secondary" | "link";
+  icon?: LucideIcon;
+  iconPosition?: "start" | "end";
+} & (
+  | (HTMLAttributes<"a"> & { href: string })
+  | (HTMLAttributes<"button"> & { href?: never })
+);
+
+const props = Astro.props;
+const {
+  variant = "primary",
+  icon: Icon,
+  iconPosition = "end",
+  class: className,
+} = props;
+const classes = ["website-button", `website-button-${variant}`, className];
+
+function isLink(value: Props): value is Extract<Props, { href: string }> {
+  return typeof value.href === "string";
+}
+
+function domProps<T extends Props>(value: T) {
+  const { variant: _variant, icon: _icon, iconPosition: _iconPosition, class: _class, ...attributes } = value;
+  return attributes;
+}
+---
+{isLink(props) ? (
+  <a {...domProps(props)} class:list={classes}>
+    {Icon && iconPosition === "start" && <Icon size={18} strokeWidth={1.7} aria-hidden="true" />}
+    <slot />
+    {Icon && iconPosition === "end" && <Icon size={18} strokeWidth={1.7} aria-hidden="true" />}
+  </a>
+) : (
+  <button {...domProps(props)} type={props.type ?? "button"} class:list={classes}>
+    {Icon && iconPosition === "start" && <Icon size={18} strokeWidth={1.7} aria-hidden="true" />}
+    <slot />
+    {Icon && iconPosition === "end" && <Icon size={18} strokeWidth={1.7} aria-hidden="true" />}
+  </button>
+)}
+
+<style>
+  .website-button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 13px 20px; border: 0; border-radius: 8px; font: inherit; font-weight: 600; font-size: 15px; line-height: 1.5; white-space: nowrap; text-decoration: none; cursor: pointer; }
+  .website-button-primary { background: #3185ff; color: white; }
+  .website-button-primary:hover:not(:disabled) { background: #024fac; }
+  .website-button-secondary { background: #e7f1ff; color: #024fac; }
+  .website-button-secondary:hover:not(:disabled) { background: #d8e8ff; }
+  .website-button-link { padding: 0; background: transparent; color: #024fac; }
+  .website-button-link:hover:not(:disabled) { text-decoration: underline; }
+  .website-button:focus-visible { outline: 2px solid #3185ff; outline-offset: 4px; }
+  .website-button:disabled { opacity: .5; cursor: not-allowed; }
+  .website-button :global(svg) { flex-shrink: 0; }
+</style>

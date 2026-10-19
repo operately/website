@@ -1,0 +1,25 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import type { CollectionEntry } from "astro:content";
+interface Props { articles: CollectionEntry<"library">[] }
+const { articles } = Astro.props;
+---
+<ul class="guide-list">
+  {articles.map((article) => <li>
+    <a href={`/library/${article.id}`}>
+      <div><h3>{article.data.title}</h3><p>{article.data.description}</p></div>
+      <ArrowUpRight size={20} strokeWidth={1.5} aria-hidden="true" />
+    </a>
+  </li>)}
+</ul>
+
+<style>
+  .guide-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
+  a { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; border-top: 1px solid #e0e3df; padding: 24px 0; }
+  h3 { font-size: 18px; line-height: 1.5; font-weight: 600; color: #111827; }
+  p { margin-top: 8px; color: #6b7280; font-size: 14px; line-height: 1.7; }
+  a :global(svg) { flex-shrink: 0; color: #9ca3af; margin-top: 4px; }
+  a:hover h3 { color: #024fac; }
+  a:focus-visible { outline: 2px solid #3185ff; outline-offset: 6px; }
+  @media (max-width: 700px) { .guide-list { grid-template-columns: 1fr; gap: 0; } }
+</style>

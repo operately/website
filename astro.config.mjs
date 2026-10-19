@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { previewStyles } from "./scripts/library-preview/styles.mjs";
 import react from "@astrojs/react";
 import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
@@ -52,7 +53,7 @@ export default defineConfig({
     mdx(),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), previewStyles()],
     resolve: {
       alias: {
         "@": "/src",

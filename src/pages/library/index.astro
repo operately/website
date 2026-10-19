@@ -1,0 +1,6 @@
+---
+import LibraryPage from "../../components/library/LibraryPage.astro";
+import { getTemplateCatalog } from "../../utils/templates/catalog";
+const templates = await getTemplateCatalog();
+---
+<LibraryPage templates={templates} />

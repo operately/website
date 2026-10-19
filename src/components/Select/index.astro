@@ -1,0 +1,19 @@
+---
+import { CustomSelect, type SelectOption } from "./CustomSelect";
+import "./select.css";
+
+interface Props {
+  name: string;
+  label: string;
+  options: SelectOption[];
+  defaultValue?: string;
+  disabled?: boolean;
+}
+const { name, label, options, defaultValue = "", disabled = false } = Astro.props;
+---
+<div data-website-select class="website-select">
+  <select name={name} aria-label={label} disabled={disabled} class="website-select-native">
+    {options.map((option) => <option value={option.value} selected={option.value === defaultValue} disabled={option.disabled}>{option.label}</option>)}
+  </select>
+  <CustomSelect label={label} options={options} client:load />
+</div>

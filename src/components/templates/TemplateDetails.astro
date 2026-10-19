@@ -1,0 +1,68 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import Button from "../Button.astro";
+import TemplateLivePreview from "./TemplateLivePreview.astro";
+import TemplateIcon from "./TemplateIcon.astro";
+import { catalogPath, templatePreviewPath, templateTypes } from "../../utils/templates/presentation";
+import { getTemplateGuides } from "../../utils/library/content";
+import type { PublicTemplate } from "../../utils/templates/types";
+
+interface Props {
+  template: PublicTemplate;
+  headingLevel?: "h1" | "h2";
+  headingId?: string;
+}
+const { template, headingLevel: Heading = "h1", headingId } = Astro.props;
+const type = templateTypes[template.type];
+const guides = await getTemplateGuides(template.slug);
+---
+<header class="template-header">
+  <div><Heading id={headingId} class="template-title">{template.title}</Heading><p class="template-byline"><TemplateIcon type={template.type} size={18} />{type.name} template <span aria-hidden="true">·</span> Operately</p></div>
+  <div class="template-actions">
+    <Button variant="secondary" href={templatePreviewPath(template.slug)} target="_blank" rel="noopener" aria-label="Preview (opens in a new tab)" icon={ArrowUpRight}>Preview</Button>
+    <Button variant="primary" href={template.useUrl} data-template-id={template.id}>Use template</Button>
+  </div>
+</header>
+<div class="template-layout">
+  <section aria-label="Template preview" class="min-w-0"><TemplateLivePreview template={template} /></section>
+  <aside>
+    {template.summary && <section><h2>About this template</h2><p>{template.summary}</p></section>}
+    <section><h2>Included</h2>
+      {template.type === "kpi" && <p>A KPI with its unit and reporting frequency. Start with an empty history and log your own values.</p>}
+      {template.type === "goal" && <p>A goal with its description{template.definition.targets?.length ? " and targets" : ""}. Choose your start date and team in Operately.</p>}
+      {template.type === "project" && <p>A project with its description{template.definition.milestones?.length ? ", milestones" : ""}{template.definition.tasks?.length ? " and tasks" : ""}. Choose your start date and team in Operately.</p>}
+    </section>
+    <section><h2>Browse more</h2><div class="template-tags">
+      <a href={catalogPath({ type: template.type })}>{type.plural}</a>
+    </div></section>
+    {guides.length > 0 && <section><h2>Guides</h2><ul class="template-guides">
+      {guides.map((guide) => <li><a href={`/library/${guide.id}`}>{guide.data.title} →</a></li>)}
+    </ul></section>}
+  </aside>
+</div>
+
+<style>
+  .template-header { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin: 0 0 40px; }
+  .template-title { font-size: clamp(30px, 4vw, 44px); font-weight: 700; line-height: 1.15; letter-spacing: -.035em; color: #111827; max-width: 800px; overflow-wrap: anywhere; }
+  .template-byline { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #6b7280; margin-top: 18px; }
+  .template-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  a:focus-visible { outline: 2px solid #3185ff; outline-offset: 4px; }
+  .template-layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 2fr); gap: 32px; align-items: start; }
+  aside { padding-top: 12px; }
+  aside section + section { margin-top: 32px; }
+  aside h2 { font-size: 16px; font-weight: 600; color: #111827; }
+  aside p { margin-top: 12px; font-size: 15px; line-height: 1.75; color: #6b7280; white-space: pre-line; overflow-wrap: anywhere; }
+  .template-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .template-tags a { border: 1px solid #dedfdd; border-radius: 6px; padding: 7px 12px; font-size: 13px; color: #4b5563; }
+  .template-tags a:hover { border-color: #9ca3af; }
+  .template-guides { margin-top: 12px; font-size: 14px; line-height: 1.7; color: #024fac; }
+  .template-guides a:hover { text-decoration: underline; }
+  @media (max-width: 800px) {
+    .template-header { align-items: flex-start; flex-direction: column; gap: 24px; }
+    .template-layout { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 600px) {
+    .template-actions { width: 100%; gap: 8px; flex-wrap: wrap; }
+    .template-actions :global(.website-button) { flex: 1; padding-inline: 14px; gap: 8px; }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import { X } from "lucide-react";
+import TemplateDetails from "./TemplateDetails.astro";
+import { catalogPath } from "../../utils/templates/presentation";
+import type { PublicTemplate } from "../../utils/templates/types";
+interface Props { templates: PublicTemplate[]; selectedTemplate?: PublicTemplate }
+const { templates, selectedTemplate } = Astro.props;
+---
+{templates.length > 0 && <>
+  <dialog open={!!selectedTemplate} data-template-dialog aria-labelledby="template-preview-title" class="template-dialog">
+    <div class="preview-toolbar">
+      <a href={catalogPath()} data-preview-close aria-label="Close template preview" title="Close" autofocus><X size={23} strokeWidth={1.7} aria-hidden="true" /></a>
+    </div>
+    <div data-preview-content data-preview-slug={selectedTemplate?.slug} class="preview-content">
+      {selectedTemplate && <TemplateDetails template={selectedTemplate} headingLevel="h2" headingId="template-preview-title" />}
+    </div>
+  </dialog>
+  {templates.map((template) => <template data-template-preview={template.slug}>
+    <TemplateDetails template={template} headingLevel="h2" headingId="template-preview-title" />
+  </template>)}
+</>}
+
+<script>
+  import { initializeTemplatePreviewDialog } from "../../utils/templates/preview-dialog";
+  document.querySelectorAll<HTMLElement>("[data-template-browser]").forEach(initializeTemplatePreviewDialog);
+</script>
+
+<style>
+  :global(html:has(dialog[data-template-dialog][open])) { overflow: hidden; }
+  .template-dialog { width: calc(100% - 64px); max-width: 1280px; max-height: calc(100dvh - 64px); margin: auto; padding: 0; border: 0; border-radius: 16px; background: #fff; color: #111827; box-shadow: 0 24px 80px #0003; overflow: auto; overscroll-behavior: contain; }
+  .template-dialog[open]:not(:modal) { position: fixed; inset: 0; z-index: 100; box-shadow: 0 0 0 100vmax rgb(17 24 39 / 45%); }
+  .template-dialog::backdrop { background: rgb(17 24 39 / 45%); backdrop-filter: blur(2px); }
+  .template-dialog[open] { animation: template-preview-in 160ms ease-out; }
+  .preview-toolbar { position: sticky; top: 0; z-index: 1; height: 0; }
+  [data-preview-close] { position: absolute; top: 12px; right: 16px; background: #fff; }
+  a { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; color: #6b7280; border-radius: 6px; cursor: pointer; }
+  a:hover { background: #f3f4f6; color: #111827; }
+  a:focus-visible { outline: 2px solid #3185ff; outline-offset: 2px; }
+  .preview-content { padding: 48px; }
+  @keyframes template-preview-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .template-dialog[open] { animation: none; } }
+  @media (max-width: 700px) {
+    .template-dialog { width: 100%; max-width: none; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+    [data-preview-close] { top: 10px; right: 12px; }
+    .preview-content { padding: 56px 24px 32px; }
+  }
+</style>

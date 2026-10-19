@@ -1,0 +1,12 @@
+---
+import { render } from "astro:content";
+import { getLibraryArticles } from "../../utils/library/content";
+import LibraryArticle from "../../layouts/LibraryArticle.astro";
+
+export async function getStaticPaths() {
+  return (await getLibraryArticles()).map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+<LibraryArticle article={article}><Content /></LibraryArticle>
