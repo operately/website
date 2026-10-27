@@ -608,6 +608,10 @@ export default function helpCenterSidebar() {
             label: "Review or revoke a connection",
             link: "/help/mcp-revoke-connection",
           },
+          {
+            label: "Troubleshoot an MCP connection",
+            link: "/help/troubleshoot-mcp-connection",
+          },
         ],
       },
       {
