@@ -1,0 +1,48 @@
+---
+title: "Troubleshoot an MCP connection"
+description: "Recover from MCP authorization errors and reconnect your AI client to Operately."
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+If an AI client can no longer use Operately, use this guide to identify the error and restore access. For first-time setup, see [Connect an AI client with MCP](/help/mcp-connections).
+
+<Aside type="note">
+An active authorization in Operately does not prove that your AI client has current credentials. A connection can remain listed after the client's credentials expire. **Last Used** shows past use, not whether the connection works now.
+</Aside>
+
+## Find your error
+
+Check which server the error names. An authentication error alone does not mean Operately is down.
+
+| What you see | What to do in your AI client |
+| ------------ | --------------------------- |
+| `401`, `unauthorized`, or `invalid_token` when using Operately | Check the server URL, then sign in to the Operately connection again. |
+| `invalid_grant` | Start authorization again from the client. Its authorization code or refresh credential was rejected. |
+| Login succeeds, but the same chat still fails | Restart the connection or app, then start a new chat. The existing chat may still hold old credentials. |
+| “Unauthenticated at startup” | Sign in to the named server again. |
+| You revoked the connection in Operately | Start authorization again from the client if you want to restore access. The old credentials no longer work. |
+
+## In Operately: inspect the connection
+
+Open the intended company, then select **Avatar menu → MCP Connections**. Compare **Server URL** with your client's configured URL.
+
+You do not need to revoke an active connection before signing in again. [Revoke a connection](/help/mcp-revoke-connection) only when you want to stop its access.
+
+## In your AI client: reconnect
+
+<Steps>
+1. Open your client's connection settings and sign in to Operately again. Complete authorization for the intended company.
+2. If it still fails, restart the MCP connection if your client offers that option. Otherwise, quit and reopen the app.
+3. Start a new chat if the existing one still fails.
+</Steps>
+
+Restarting alone cannot renew expired or revoked credentials. Signing in again also ends previous MCP sessions for the same connection, so other open sessions may need to reconnect.
+
+If a startup warning names a server you do not use, disable it in your client's settings.
+
+## Check that recovery worked
+
+Ask the client to read a project or another item you already have access to. A successful login message alone does not confirm that the connection works.
+
+If it still fails, share the client name and version, server URL, exact error, and recovery steps you tried with support.
