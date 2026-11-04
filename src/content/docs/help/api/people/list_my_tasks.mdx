@@ -1,0 +1,79 @@
+---
+title: "People API: List my tasks"
+description: "List my tasks with the Operately People API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/people/list_my_tasks` |
+| Handler | `OperatelyWeb.Api.People.ListMyTasks` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+This endpoint has no input fields.
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `tasks` | array of `task` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/people/list_my_tasks\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "tasks": [
+    {
+      "__typename": "value",
+      "archived_at": "2026-01-01T09:30:00Z",
+      "assignees": [
+        "<person>"
+      ],
+      "available_statuses": [
+        "<task_status>"
+      ],
+      "closed_at": "2026-01-01T09:30:00Z",
+      "comments_count": 123,
+      "creator": "<person>",
+      "description": "value",
+      "due_date": "<contextual_date>",
+      "id": "value",
+      "inserted_at": "2026-01-01",
+      "milestone": "<milestone>",
+      "name": "value",
+      "permissions": "<project_permissions>",
+      "priority": "value",
+      "project": "<project>",
+      "project_space": "<space>",
+      "reminders": [
+        "<task_reminder>"
+      ],
+      "size": "value",
+      "space": "<space>",
+      "status": "<task_status>",
+      "subscription_list": "<subscription_list>",
+      "type": "space",
+      "updated_at": "2026-01-01",
+      "url": "value"
+    }
+  ]
+}
+```
+
