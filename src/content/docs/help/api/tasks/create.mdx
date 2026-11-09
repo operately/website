@@ -52,6 +52,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>board_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>milestone_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
@@ -123,7 +131,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"assignee_ids\":[\"value\"], \"description\":\"value\", \"due_date\":{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/create\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"assignee_id\":\"value\", \"assignee_ids\":[\"value\"], \"board_id\":\"value\", \"description\":\"value\", \"due_date\":{\"__typename\":\"value\", \"date\":\"2026-01-01\", \"date_type\":\"day\", \"value\":\"value\"}, \"id\":\"value\", \"milestone_id\":\"value\", \"name\":\"value\", \"status\":{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}, \"type\":\"space\"}'"} />
 
 ## Response Example
 
@@ -138,6 +146,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "available_statuses": [
       "<task_status>"
     ],
+    "board_id": "value",
     "closed_at": "2026-01-01T09:30:00Z",
     "comments_count": 123,
     "creator": "<person>",
@@ -193,6 +202,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "__typename": "value",
     "access_levels": "<access_levels>",
     "color": "value",
+    "default_task_board_id": "value",
     "icon": "value",
     "id": "value",
     "is_company_space": true,

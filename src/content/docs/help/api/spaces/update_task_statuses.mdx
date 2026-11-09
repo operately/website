@@ -44,6 +44,14 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 </tr>
 
 <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>board_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
   <td style={{ whiteSpace: "nowrap" }}><code>task_statuses</code></td>
   <td style={{ whiteSpace: "normal" }}>array of <code>task_status</code> object</td>
   <td style={{ whiteSpace: "nowrap" }}>Yes</td>
@@ -68,17 +76,19 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
+| `board_id` | `id` primitive (encoded as `string`) | Yes | No |
 | `success` | `boolean` | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_task_statuses\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"deleted_status_replacements\":[{\"deleted_status_id\":\"value\", \"replacement_status_id\":\"value\"}], \"space_id\":\"value\", \"task_statuses\":[{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}]}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/spaces/update_task_statuses\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"board_id\":\"value\", \"deleted_status_replacements\":[{\"deleted_status_id\":\"value\", \"replacement_status_id\":\"value\"}], \"space_id\":\"value\", \"task_statuses\":[{\"__typename\":\"value\", \"closed\":true, \"color\":\"gray\", \"id\":\"value\", \"index\":123, \"label\":\"value\", \"value\":\"value\"}]}'"} />
 
 ## Response Example
 
 ```json
 {
+  "board_id": "value",
   "success": true
 }
 ```

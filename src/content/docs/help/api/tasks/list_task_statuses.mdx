@@ -37,8 +37,16 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
       <tr>
   <td style={{ whiteSpace: "nowrap" }}><code>task_id</code></td>
   <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
-  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>board_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
@@ -51,17 +59,19 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
+| `board_id` | `id` primitive (encoded as `string`) | Yes | Yes |
 | `task_statuses` | array of `task_status` object | Yes | No |
 
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/tasks/list_task_statuses?task_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/tasks/list_task_statuses?board_id=value&task_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
 
 ## Response Example
 
 ```json
 {
+  "board_id": "value",
   "task_statuses": [
     {
       "__typename": "value",

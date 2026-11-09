@@ -1,0 +1,85 @@
+---
+title: "Tasks API: List boards"
+description: "List boards with the Operately Tasks API."
+---
+
+import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
+
+## Endpoint
+
+| Property | Value |
+| --- | --- |
+| Type | `query` |
+| Method | `GET` |
+| Path | `/api/external/v1/tasks/list_boards` |
+| Handler | `OperatelyWeb.Api.Tasks.ListBoards` |
+
+## Authentication
+
+- Requires a valid API token.
+- Read-only and full-access tokens can execute this query.
+
+
+## Inputs
+
+<div style={{ overflowX: "auto" }}>
+  <table style={{ minWidth: "56rem" }}>
+    <thead>
+      <tr>
+        <th style={{ whiteSpace: "nowrap" }}>Field</th>
+        <th style={{ whiteSpace: "normal" }}>Type</th>
+        <th style={{ whiteSpace: "nowrap" }}>Required</th>
+        <th style={{ whiteSpace: "nowrap" }}>Nullable</th>
+        <th style={{ whiteSpace: "nowrap" }}>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>space_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>archive_status</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>task_board_archive_status</code> enum (<code>active</code>, <code>archived</code>, <code>all</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+## Outputs
+
+| Field | Type | Required | Nullable |
+| --- | --- | --- | --- |
+| `boards` | array of `task_board_summary` object | Yes | No |
+
+
+## cURL Example
+
+<CurlExampleBlock client:load command={"curl --request GET \\\n  --url \"https://app.operately.com/api/external/v1/tasks/list_boards?archive_status=active&space_id=value\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\""} />
+
+## Response Example
+
+```json
+{
+  "boards": [
+    {
+      "__typename": "value",
+      "archived_at": "2026-01-01T09:30:00Z",
+      "id": "value",
+      "is_default": true,
+      "name": "value",
+      "position": 123
+    }
+  ]
+}
+```
+

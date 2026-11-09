@@ -59,6 +59,22 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
   <td style={{ whiteSpace: "nowrap" }}>-</td>
 </tr>
 
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>destination_board_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>id</code> primitive (encoded as <code>string</code>)</td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
+<tr>
+  <td style={{ whiteSpace: "nowrap" }}><code>destination_status_id</code></td>
+  <td style={{ whiteSpace: "normal" }}><code>string</code></td>
+  <td style={{ whiteSpace: "nowrap" }}>No</td>
+  <td style={{ whiteSpace: "nowrap" }}>Yes</td>
+  <td style={{ whiteSpace: "nowrap" }}>-</td>
+</tr>
+
     </tbody>
   </table>
 </div>
@@ -68,6 +84,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 | Field | Type | Required | Nullable |
 | --- | --- | --- | --- |
+| `board_id` | `id` primitive (encoded as `string`) | Yes | Yes |
 | `task` | `task` object | Yes | No |
 | `destination_type` | `task_type` enum (`space`, `project`) | Yes | No |
 | `destination_id` | `id` primitive (encoded as `string`) | Yes | No |
@@ -75,12 +92,13 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
 
 ## cURL Example
 
-<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/move\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"destination_id\":\"value\", \"destination_type\":\"space\", \"task_id\":\"value\"}'"} />
+<CurlExampleBlock client:load command={"curl --request POST \\\n  --url \"https://app.operately.com/api/external/v1/tasks/move\" \\\n  --header \"Authorization: Bearer ${OPERATELY_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\"destination_board_id\":\"value\", \"destination_id\":\"value\", \"destination_status_id\":\"value\", \"destination_type\":\"space\", \"task_id\":\"value\"}'"} />
 
 ## Response Example
 
 ```json
 {
+  "board_id": "value",
   "destination_id": "value",
   "destination_type": "space",
   "task": {
@@ -92,6 +110,7 @@ import CurlExampleBlock from "@components/CurlExampleBlock.jsx"
     "available_statuses": [
       "<task_status>"
     ],
+    "board_id": "value",
     "closed_at": "2026-01-01T09:30:00Z",
     "comments_count": 123,
     "creator": "<person>",
