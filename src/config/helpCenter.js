@@ -19,7 +19,7 @@ export default function helpCenterSidebar() {
       {
         label: "Discord",
         icon: "discord",
-        href: "https://discord.com/invite/2ngnragJYV",
+        href: "https://discord.operately.com",
       },
       {
         label: "GitHub",

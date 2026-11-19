@@ -45,4 +45,4 @@ At Operately, we are building the future of company operations and open source s
 
 - [Read our masterplan](/masterplan) to learn more about our mission
 - Review Operately’s code on [GitHub](https://github.com/operately/operately) to assess if you would be able to understand and contribute
-- Join our [Discord server](https://discord.com/invite/2ngnragJYV) to meet and talk with us
+- Join our [Discord server](https://discord.operately.com) to meet and talk with us
