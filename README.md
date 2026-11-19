@@ -27,4 +27,4 @@ See [development and contribution guide](docs/README.md).
 
 ## Want to learn more?
 
-Chat with us on [Discord](https://discord.com/invite/2ngnragJYV).
+Chat with us on [Discord](https://discord.operately.com).
