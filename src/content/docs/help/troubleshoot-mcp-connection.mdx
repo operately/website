@@ -21,11 +21,15 @@ Check which server the error names. An authentication error alone does not mean 
 | `invalid_grant` | Start authorization again from the client. Its authorization code or refresh credential was rejected. |
 | Login succeeds, but the same chat still fails | Restart the connection or app, then start a new chat. The existing chat may still hold old credentials. |
 | “Unauthenticated at startup” | Sign in to the named server again. |
+| Reads work, but writes fail | Check **Access** under **Connected Clients** and verify your workspace permissions for that resource. |
 | You revoked the connection in Operately | Start authorization again from the client if you want to restore access. The old credentials no longer work. |
 
 ## In Operately: inspect the connection
 
-Open the intended company, then select **Avatar menu → MCP Connections**. Compare **Server URL** with your client's configured URL.
+Open the intended company, then select **Avatar menu → MCP Connections**:
+
+- **Check the server URL:** Under **Connect a client**, choose **Other** → **Copy server URL** and compare it with your client's config. Self-hosted URLs must use your instance's hostname followed by `/mcp`.
+- **Check write access:** Under **Connected Clients**, verify **Access** includes editing, and confirm your account has permission to edit the resource in that company.
 
 You do not need to revoke an active connection before signing in again. [Revoke a connection](/help/mcp-revoke-connection) only when you want to stop its access.
 

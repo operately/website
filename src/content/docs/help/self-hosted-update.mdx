@@ -11,6 +11,12 @@ This guide walks you through updating a self-hosted installation of Operately to
 
 Log in to the server running Operately and navigate to the directory where Operately is running. By default this location is `~/operately`.
 
+Stop Operately and its background workers before updating so they cannot write data during the migration:
+
+```bash
+docker compose down
+```
+
 ## Updating Operately
 
 The update process depends on your current version:
@@ -22,7 +28,7 @@ The update process depends on your current version:
 
 #### Using the operately script
 
-To update to the latest official release without specifying a version:
+To install the latest official release:
 
 ```bash
 ./operately update
@@ -63,18 +69,22 @@ After generating the script, you can use the update commands above.
 
 ### If you're on a version before 1.4.0
 
-You need to manually update the Docker Compose file.
+Keep the application stopped until the migrations finish.
 
 #### Update the Docker Compose file
 
-Edit the `docker-compose.yml` file and update the Operately version tag:
+Edit `docker-compose.yml` and update both the image tag and `OPERATELY_VERSION` in the `app` service to the same version:
 
 ```yaml
 # From this:
 image: operately/operately:vOLD
+...
+- OPERATELY_VERSION=vOLD
 
 # To this:
 image: operately/operately:vNEW
+...
+- OPERATELY_VERSION=vNEW
 ```
 
 Replace `vOLD` with your current version and `vNEW` with the target version you want to upgrade to.
@@ -84,17 +94,25 @@ Examples:
 ```yaml
 # From this:
 image: operately/operately:1.2.0
+...
+- OPERATELY_VERSION=1.2.0
 
 # To this:
 image: operately/operately:1.3.0
+...
+- OPERATELY_VERSION=1.3.0
 ```
 
 ```yaml
 # From this:
 image: operately/operately:1.2.0
+...
+- OPERATELY_VERSION=1.2.0
 
 # To this:
 image: operately/operately:nightly-build-20260116-070020-49842cd04
+...
+- OPERATELY_VERSION=nightly-build-20260116-070020-49842cd04
 ```
 
 #### Run database migrations
