@@ -1,0 +1,334 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "../_index/goal.png";
+import projectScreenshot from "../_index/project.png";
+import CompanyLogos from "../_index/CompanyLogos.astro";
+
+const pageTitle = "Operately: Nyílt forráskódú OKR és projektmenedzsment szoftver";
+const pageDescription =
+  "Nyílt forráskódú projektmenedzsment beépített OKR célkövetéssel. Kezeld a célokat, a projekteket és a check-ineket olyan struktúrával, ami összhangban tartja a csapatot. Ingyenesen indulhatsz, 5 perc alatt önüzemeltetheted.";
+
+import { getLatestRelease } from "../../utils/releases";
+const latestRelease = await getLatestRelease();
+const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://operately.com/#organization",
+    name: "Operately",
+    url: "https://operately.com/",
+    logo: "https://operately.com/favicon.svg",
+    sameAs: [
+      "https://github.com/operately/operately",
+      "https://www.linkedin.com/company/92810497/",
+      "https://x.com/operately",
+      "https://www.youtube.com/@operately",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://operately.com/#website",
+    name: "Operately",
+    url: "https://operately.com/",
+    description: pageDescription,
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://operately.com/hu/#software",
+    name: "Operately",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://operately.com/hu/",
+    inLanguage: "hu",
+    description: pageDescription,
+    image: "https://operately.com/images/social/card-summary-large.png",
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  },
+];
+
+const alternates = [
+  { hreflang: "en", href: "https://operately.com/" },
+  { hreflang: "hu", href: "https://operately.com/hu/" },
+  { hreflang: "x-default", href: "https://operately.com/" },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  schema={schema}
+  alternates={alternates}
+  lang="hu"
+>
+  <main class="bg-[#FAFAF8]">
+
+    {/* ─── Hero ─── */}
+    <section class="px-6 pt-12 sm:pt-20 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        {latestRelease && (
+          <a
+            href={`/releases/${latestRelease.slug}`}
+            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-700 ring-1 ring-gray-300 hover:ring-gray-400 transition-all mb-8"
+          >
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            v{latestRelease.version} megjelent
+            <span class="text-operately-blue">Újdonságok &rarr;</span>
+          </a>
+        )}
+
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+          A csapatodnak nem egy újabb<br class="hidden sm:block" />
+          üres vászon kell. Hanem egy rendszer.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-700">
+          Az Operately összeköti a célokat a projektekkel, beépített check-inekkel
+          és haladáskövetéssel. Nyílt forráskódú. Üzemeltesd magad, vagy használd
+          a felhőt. Ingyenesen indulhatsz.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Kezdd el ingyen
+          </a>
+          <a
+            href="/install"
+            class="text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            Önüzemeltetés 5 perc alatt &rarr;
+          </a>
+        </div>
+      </div>
+
+      {/* Hero screencast */}
+      <div class="mx-auto mt-16 max-w-5xl">
+        <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full rounded-xl aspect-video"
+          >
+            <source
+              src="https://website-assets.operately.com/operately-homepage-screencast-v1.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <CompanyLogos />
+
+    {/* ─── Testimonial 1 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "Végre van egy helyünk, ahol a célok és a napi munka össze vannak kötve.
+          Nincs több státuszmegbeszélés csak azért, hogy kiderüljön, hol tartunk."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Sarah C.</span> · Termékvezető
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Goals section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Célok, amik életben maradnak
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Állíts be mérhető célokat, mérhető célértékekkel. Kösd össze őket
+              projektekkel. Nézd, ahogy a haladás automatikusan megjelenik, ahogy
+              a munka előrehalad. Nincs több cél, ami egy táblázatban porosodik a
+              negyedéves értékelésig.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Mérhető célértékek.</strong> Nem homályos vágyak</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Automatikus haladás.</strong> A kapcsolódó projektekből</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Rendszeres áttekintés.</strong> Beépített emlékeztetők tartják ütemben</p>
+              </div>
+            </dl>
+          </div>
+          <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={goalScreenshot}
+              alt="Célkövetés az Operatelyben"
+              class="w-full rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 2 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "A heti check-inek megváltoztatták a kultúránkat. Az emberek most már
+          kérdezés nélkül is tudják, ki min dolgozik."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">James R.</span> · Technológiai igazgató
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Projects section ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={projectScreenshot}
+              alt="Projektmenedzsment az Operatelyben"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Projektek, amikhez nem kell dadus
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Minden projektnek van gazdája, mérföldkövei és rendszeres
+              check-injei. A haladás automatikusan felfelé áramlik. Senkinek
+              sem kell senki után futnia egy státuszjelentésért.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Világos felelősség.</strong> Minden projektnek van gazdája</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Beépített check-inek.</strong> Aszinkron haladásjelentések ütemezve</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Célokhoz kötve.</strong> A projektmunka táplálja a célok haladását</p>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Dark section: miért az Operately ─── */}
+    <section class="bg-gray-900 px-6 py-20 lg:px-8 mt-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Struktúra, ami neked dolgozik,<br class="hidden sm:block" /> nem fordítva
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          A legtöbb eszköz végtelen rugalmasságot ad, és nulla iránymutatást.
+          Az Operately világos rendszert ad a csapatodnak: célokat célértékekkel,
+          projekteket gazdákkal, és check-ineket, amik ütemezetten történnek.
+          Összhangot kapsz mikromenedzsment nélkül.
+        </p>
+        <div class="mt-12 grid gap-8 sm:grid-cols-3">
+          <div>
+            <p class="text-3xl font-bold text-white">Nyílt forráskódú</p>
+            <p class="mt-2 text-sm text-gray-400">Apache 2.0 licenc. Teljes átláthatóság.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Önüzemeltethető</p>
+            <p class="mt-2 text-sm text-gray-400">Telepítsd a saját infrastruktúrádra 5 perc alatt.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Egyszerű árazás</p>
+            <p class="mt-2 text-sm text-gray-400">Nincs fejenkénti díj. Bővítsd szabadon a csapatot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Testimonial 3 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          "A nyílt forráskód megfelelőségi okokból volt fontos számunkra, de
+          őszintén szólva azért maradtunk, mert a struktúra egyszerűen működik.
+          A 12 fős csapatunk simábban működik, mint amikor még 6-an voltunk
+          és Notiont használtunk."
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Priya S.</span> · Operációs vezető
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── CTA ─── */}
+    <section class="px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Próbáld ki a csapatoddal
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Ingyenesen indulhatsz. Nem kell bankkártya. Percek alatt készen áll.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Kezdd el ingyen a felhőben
+          </a>
+          <a
+            href="/self-hosted"
+            class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
+          >
+            Önüzemeltesd az Operatelyt
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-gray-500">
+          <a href="/" hreflang="en" class="hover:text-operately-blue">English &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

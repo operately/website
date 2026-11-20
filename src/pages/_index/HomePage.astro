@@ -59,6 +59,12 @@ const schema = [
     },
   },
 ];
+
+const alternates = [
+  { hreflang: "en", href: "https://operately.com/" },
+  { hreflang: "hu", href: "https://operately.com/hu/" },
+  { hreflang: "x-default", href: "https://operately.com/" },
+];
 ---
 
 <BaseLayout
@@ -67,6 +73,7 @@ const schema = [
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
   schema={schema}
+  alternates={alternates}
 >
   <main class="bg-[#FAFAF8]">
 
@@ -311,6 +318,9 @@ const schema = [
             Self-host Operately
           </a>
         </div>
+        <p class="mt-8 text-sm text-gray-500">
+          <a href="/hu" hreflang="hu" class="hover:text-operately-blue">Magyarul &rarr;</a>
+        </p>
       </div>
     </section>
 
