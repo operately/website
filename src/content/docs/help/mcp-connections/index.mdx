@@ -1,6 +1,6 @@
 ---
 title: "Connect an AI client with MCP"
-description: "Copy your MCP server URL, authorize an AI client, and revoke connections from your Operately account."
+description: "Find setup instructions for your client, authorize an AI client, and revoke connections from your Operately account."
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
@@ -14,44 +14,33 @@ MCP is separate from [API tokens](/help/create-api-token) and the [CLI](/help/cl
 
 ## How to get there
 
-**Avatar menu → MCP Connections**
+Open your avatar menu → **MCP Connections** → **Connect a client**.
 
-![Screenshot: MCP Connections page with Server URL and Connected Clients](./mcp-connections-page.png)
+![Screenshot: Connect a client with ChatGPT selected and its setup instructions](./client-setup.png)
 
 ## Connect a client
 
 <Steps>
-1. Click your avatar or initials in the top-right corner of the screen.
-2. Select **MCP Connections**.
-3. Copy the **Server URL**. Use this URL to create a connection in your AI client.
-4. In your AI client, add a remote MCP server and paste that URL.
-5. Sign in to Operately if the client asks you to.
-6. If you belong to more than one company, choose which company to use for this connection, then click **Continue**.
-7. Review **Client**, **Company**, and **Permissions**, then click **Authorize**. Click **Deny** if you did not start this connection.
+1. Under **Connect a client**, select your client.
+2. Follow the setup instructions shown—copy the server URL (see [ChatGPT](/help/mcp-chatgpt) or [Claude](/help/mcp-claude)), or use the provided configuration or commands.
+3. Sign in to Operately and select the company if prompted.
+4. Check **Client**, **Company**, and **Permissions**. Select the access you want and click **Authorize**, or choose **Deny** to cancel.
 </Steps>
 
-![Screenshot: Authorization screen for an MCP client](./mcp-authorize.png)
+![Screenshot: Selected company and the View and edit and View only choices on the consent screen](./mcp-authorize.png)
 
-The **Server URL** is `https://app.operately.com/mcp` on Operately Cloud. On a self-hosted installation, it is your instance URL followed by `/mcp`.
-
-If you belong to only one company, Operately selects it automatically and skips the company step.
-
-The authorization screen says the client is requesting access to your Operately workspace through MCP.
+For a client that accepts a URL, **Other** offers **Copy server URL**. Operately Cloud uses `https://app.operately.com/mcp`; self-hosted installations use your own instance URL (e.g. `https://work.example.com/mcp`).
 
 ## Permissions
 
-The client requests access when it connects. Operately shows those permissions on the authorization screen:
+**View and edit** is preselected when a client requests both permissions or leaves them unspecified. Choose **View only** to restrict the client to reading—your workspace permissions still apply.
 
-- **View workspace data** — the client can read work you already have access to.
-- **Create, update, delete, and archive workspace content** — the client can change work in that company.
+Check **Connected Clients** to see each client's grant under **Access** (**View only**, **Edit only**, or **View and edit**).
 
-If the client asks for write access, Operately warns: *Write access lets this client create, update, delete, and archive content in your workspace.*
+## What you can ask
 
-On the **MCP Connections** page, each connected client shows an **Access** value of **View only**, **Edit only**, or **View and edit**.
-
-<Aside type="note">
-If the client does not request write access, Operately grants view access only.
-</Aside>
+- **View access:** *"Which of my tasks are open?"*
+- **Write access:** *"Log this week's KPI value as 42 for qualified leads."*
 
 ## Review connected clients
 

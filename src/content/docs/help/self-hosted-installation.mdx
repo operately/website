@@ -24,7 +24,7 @@ Minimum requirements:
 
 Point a domain to your server. You can use a subdomain (e.g. `operately.example.com`) or a
 root domain (e.g. `example.com`). Configure the DNS records to point to your server's IP
-address. Make sure it's a direct DNS pointer, not a proxy (e.g. avoid Cloudflare proxy).
+address. If a reverse proxy handles HTTPS, point the domain at the proxy.
 
 ### Install Docker and Docker Compose
 
@@ -63,15 +63,25 @@ Run the installation script to configure Operately:
 ./install.sh
 ```
 
-The script will:
+The script prompts you for:
 
-- Build the Docker images
-- Configure the environment
-- Set up a Let's encrypt certificate
-- Prompt you for the following information:
-  - _Domain_: The domain for your server (e.g. `operately.example.com`)
-  - _Admin email_: The email address for receiving Let's Encrypt notifications
-  - _Email configuration_: Either SendGrid API key or SMPT server details.
+- **Public hostname** (e.g. `operately.example.com`)
+- **Email delivery** (SendGrid, SMTP, or configure later)
+- **HTTPS certificates** — whether Operately manages certificates; if not, choose the public URL scheme (`http` or `https`)
+
+### Match the public URL to your deployment
+
+In `operately.env`, set `OPERATELY_HOST` to the external hostname alone. Generated links and local file uploads and downloads use this hostname, scheme, and public port.
+
+| Deployment | `OPERATELY_URL_SCHEME` | Default public port | `CERT_AUTO_RENEW` |
+| --- | --- | --- | --- |
+| Plain HTTP | `http` | 80 | `no` |
+| Operately-managed HTTPS | `https` | 443 | `yes` |
+| HTTPS terminated by a reverse proxy | `https` | 443 | `no` |
+
+- `OPERATELY_URL_PORT`: Set only if users connect on a custom public port.
+- `PORT`: Internal HTTP listener port (defaults to `4000`).
+- **Reverse proxy HTTPS**: Forward to `PORT` over HTTP, preserve the original `Host` header, send `X-Forwarded-Proto: https`, and handle certificates and HTTPS redirects at the proxy.
 
 ### Launch Operately
 
@@ -93,3 +103,4 @@ After installation, you may want to:
 - [Learn about the beacon system](/help/self-hosted-beacon)
 - [Manage experimental features for a company](/help/self-hosted-feature-flags)
 - [Create your first organization account](/help/create-organization)
+- [Update a self-hosted installation](/help/self-hosted-update)

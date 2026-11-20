@@ -391,6 +391,7 @@ export default function helpCenterSidebar() {
           { label: "Introduction", link: "/help/kanban-board-introduction" },
           { label: "Add tasks", link: "/help/kanban-board-add-task" },
           { label: "Edit a task", link: "/help/kanban-board-edit-task" },
+          { label: "Archive and restore tasks", link: "/help/archive-and-restore-tasks" },
           {
             label: "Configure task reminders",
             link: "/help/configure-task-reminders",
@@ -449,6 +450,7 @@ export default function helpCenterSidebar() {
           },
           { label: "Delete a document", link: "/help/delete-document" },
           { label: "Discuss a document", link: "/help/discuss-document" },
+          { label: "Inline comments", link: "/help/inline-comments" },
         ],
       },
       {
