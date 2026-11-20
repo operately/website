@@ -1,0 +1,30 @@
+---
+// Small inline links to the same page in other languages or scripts. Used
+// on pages that have translations so each version is reachable from body
+// content, not only from navigation. Each link carries its own lang so
+// the Cyrillic transliteration leaves it as written.
+interface Props {
+  links: { href: string; label: string; hreflang: string }[];
+  class?: string;
+}
+
+const { links, class: className = "mt-6" } = Astro.props;
+---
+
+<p class:list={["text-sm text-gray-500", className]}>
+  {
+    links.map((link, index) => (
+      <>
+        {index > 0 && <span aria-hidden="true"> · </span>}
+        <a
+          href={link.href}
+          hreflang={link.hreflang}
+          lang={link.hreflang}
+          class="font-medium text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          {link.label}
+        </a>
+      </>
+    ))
+  }
+</p>

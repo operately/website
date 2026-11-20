@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageLink from "../components/LanguageLink.astro";
+import { languageAlternates, serbianLinksFor } from "../utils/i18n.js";
 
 const pageTitle = "Self-Hosted Project Management Software | Operately";
 const pageDescription =
@@ -25,6 +27,7 @@ const schema = {
   description={pageDescription}
   image="/images/social/card-summary-large.png"
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/self-hosted")}
   schema={schema}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
@@ -41,6 +44,7 @@ const schema = {
           Built-in OKR goal tracking, project check-ins, and team alignment. No vendor lock-in,
           full data control, install in minutes.
         </p>
+        <LanguageLink links={serbianLinksFor("/self-hosted")} />
       </div>
 
       <div class="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:justify-center">

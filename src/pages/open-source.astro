@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { languageAlternates } from "../utils/i18n.js";
 
 import Statement from "./_open-source/Statement.astro";
 import PublicChannels from "./_open-source/PublicChannels.astro";
@@ -14,6 +15,7 @@ const pageDescription =
   description={pageDescription}
   image={"/images/social/card-summary-large.png"}
   twitterCardType="summary_large_image"
+  alternates={languageAlternates("/open-source")}
 >
   <main class="bg-[#FAFAF8] py-8 sm:py-16">
     <Statement />

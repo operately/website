@@ -1,0 +1,23 @@
+---
+// Serbian Cyrillic pages. Each route renders the Latin page component from
+// src/pages/sr for the same path; the page picks up the Cyrillic URLs, lang,
+// and links from Astro.url, and src/middleware.js transliterates the text.
+import { SERBIAN_PAGES } from "../../utils/i18n.js";
+
+export function getStaticPaths() {
+  return SERBIAN_PAGES.map((path) => ({
+    params: { slug: path === "/" ? undefined : path.slice(1) },
+  }));
+}
+
+const latinPages = import.meta.glob("../sr/**/*.astro", { eager: true });
+const { slug } = Astro.params;
+const file = slug ? `../sr/${slug}.astro` : "../sr/index.astro";
+const Page = (latinPages[file] as { default?: any } | undefined)?.default;
+
+if (!Page) {
+  throw new Error(`No Serbian Latin page found at ${file}`);
+}
+---
+
+<Page />

@@ -1,0 +1,261 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageLink from "../../components/LanguageLink.astro";
+import { serbianPage } from "../../utils/i18n.js";
+
+const sr = serbianPage(Astro.url.pathname);
+
+const pageTitle = "Softver za upravljanje projektima koji hostujete sami | Operately";
+const pageDescription =
+  "Operately je softver otvorenog koda za upravljanje projektima koji hostujete sami, sa ugrađenim praćenjem ciljeva. Uporedite ga sa OpenProject, Taiga i Plane alatima. Postavite ga na svoju infrastrukturu za par minuta.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": `${sr.url("/self-hosted")}#webpage`,
+  url: sr.url("/self-hosted"),
+  name: pageTitle,
+  description: pageDescription,
+  inLanguage: sr.lang,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const cardClass =
+  "group block rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition hover:border-operately-blue hover:bg-slate-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang={sr.lang}
+  alternates={sr.alternates}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          Opcije postavljanja
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Upravljanje projektima koje hostujete sami, sa ugrađenim ciljevima
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Operately je softver otvorenog koda za upravljanje projektima koji možete postaviti na
+          sopstvenu infrastrukturu. Ugrađeno praćenje OKR ciljeva, izveštaji o napretku projekata i
+          usklađenost tima. Bez zavisnosti od dobavljača, potpuna kontrola nad podacima,
+          instalacija za par minuta.
+        </p>
+        <LanguageLink links={sr.languageLinks} />
+      </div>
+
+      <div class="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:justify-center">
+        <a
+          href="/install"
+          class="inline-flex items-center justify-center rounded-md bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+        >
+          Idite na vodič za instalaciju
+        </a>
+        <a
+          href="/contact?help-type=commercial-license"
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-900 hover:border-operately-blue hover:text-operately-blue"
+        >
+          Pitajte o komercijalnom samostalnom hostovanju
+        </a>
+      </div>
+
+      <div class="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-2">
+        <section class="rounded-3xl border border-gray-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-semibold text-gray-900">Izaberite samostalno hostovanje ako želite</h2>
+          <ul class="mt-6 list-disc space-y-3 pl-6 text-gray-700 marker:text-operately-blue">
+            <li class="pl-1">Potpunu kontrolu nad tim gde se Operately pokreće i kako je postavljen</li>
+            <li class="pl-1">Okruženje usklađeno sa vašom infrastrukturom, mrežom ili bezbednosnim ograničenjima</li>
+            <li class="pl-1">Put koji vodi direktno do dokumentacije za instalaciju i vodiča za održavanje</li>
+            <li class="pl-1">Razgovor o komercijalnoj licenci ili podršci za samostalno hostovanje</li>
+          </ul>
+        </section>
+
+        <section class="rounded-3xl border border-gray-200 p-8 shadow-sm">
+          <h2 class="text-2xl font-semibold text-gray-900">Izaberite Operately Cloud ako želite</h2>
+          <ul class="mt-6 list-disc space-y-3 pl-6 text-gray-700 marker:text-operately-blue">
+            <li class="pl-1">Najbrži mogući početak</li>
+            <li class="pl-1">Bez održavanja infrastrukture i servera</li>
+            <li class="pl-1">Jednostavniju opciju za timove kojima nije potrebna kontrola nad postavljanjem</li>
+            <li class="pl-1">Da počnete da koristite Operately pre nego što odlučite da li vam je samostalno hostovanje potrebno</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-200">
+        <h2 class="text-2xl font-semibold text-gray-900">Kako se Operately poredi sa drugim alatima koje hostujete sami</h2>
+        <p class="mt-4 text-gray-700">
+          Ako procenjujete alate za upravljanje projektima koje hostujete sami, evo gde se Operately
+          uklapa u odnosu na alate koje verovatno takođe razmatrate.
+        </p>
+        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <table class="w-full text-sm divide-y divide-gray-100">
+            <thead class="bg-gray-50">
+              <tr class="border-b border-gray-200">
+                <th class="px-5 py-3 text-left font-medium text-gray-500"></th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Operately</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">OpenProject</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Plane</th>
+                <th class="px-5 py-3 text-center font-medium text-gray-900">Taiga</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Ugrađeni ciljevi/OKR</td>
+                <td class="px-5 py-3 text-center text-green-600">Da</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Izveštaji o napretku projekata</td>
+                <td class="px-5 py-3 text-center text-green-600">Ugrađeni</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+                <td class="px-5 py-3 text-center text-gray-400">Ne</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Vreme postavljanja</td>
+                <td class="px-5 py-3 text-center text-green-600">~5 minuta</td>
+                <td class="px-5 py-3 text-center">30-60 min</td>
+                <td class="px-5 py-3 text-center">~15 min</td>
+                <td class="px-5 py-3 text-center">~15 min</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Fokus</td>
+                <td class="px-5 py-3 text-center">Ciljevi + projekti</td>
+                <td class="px-5 py-3 text-center">Klasično upravljanje projektima</td>
+                <td class="px-5 py-3 text-center">Praćenje tiketa</td>
+                <td class="px-5 py-3 text-center">Agile/Scrum</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Složenost</td>
+                <td class="px-5 py-3 text-center text-green-600">Fokusiran</td>
+                <td class="px-5 py-3 text-center">Mnoštvo funkcija</td>
+                <td class="px-5 py-3 text-center">Umerena</td>
+                <td class="px-5 py-3 text-center">Umerena</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">Otvoreni kod</td>
+                <td class="px-5 py-3 text-center text-green-600">Da (Apache 2.0)</td>
+                <td class="px-5 py-3 text-center text-green-600">Da (GPL)</td>
+                <td class="px-5 py-3 text-center text-green-600">Da (AGPL)</td>
+                <td class="px-5 py-3 text-center text-green-600">Da (MPL)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-6 text-sm text-gray-600">
+          Većina alata za upravljanje projektima koje hostujete sami fokusira se na praćenje zadataka
+          i tiketa. Operately je drugačiji: povezuje ciljeve sa projektima uz ugrađene izveštaje o
+          napretku, tako da je vaš tim usklađen oko rezultata, a ne samo oko zadataka.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-200">
+        <h2 class="text-2xl font-semibold text-gray-900">Čemu služi ova stranica</h2>
+        <p class="mt-4 text-gray-700">
+          Ova stranica vam pomaže da odlučite između glavnog sajta i tehničke dokumentacije za
+          instalaciju. Ako već znate da želite da hostujete sami, idite direktno na vodič za
+          instalaciju. Ako još uvek poredite cloud i samostalno hostovanje, počnite ovde, pa
+          pratite sledeći korak koji odgovara vašoj situaciji.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-3xl font-semibold text-gray-900">Uobičajeni sledeći koraci</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <a href="/install" class={cardClass}>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Otvorite vodič</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Vodič za instalaciju</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Koristite vodič korak po korak (na engleskom) ako ste spremni da preuzmete i postavite
+              Operately.
+            </p>
+          </a>
+
+          <a href="/help/self-hosted-installation" class={cardClass}>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Pregledajte dokumentaciju</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Dokumentacija za samostalno hostovanje</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Dokumentacija (na engleskom) za instalaciju, ažuriranja, slanje imejlova, beacon i
+              srodna podešavanja.
+            </p>
+          </a>
+
+          <a href={sr.href("/pricing")} class={cardClass}>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Pogledajte cene</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Cene</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Pregledajte cloud planove i aktuelne informacije o cenama samostalnog hostovanja pre
+              nego što odlučite koji put vam najviše odgovara.
+            </p>
+          </a>
+
+          <a href={sr.href("/open-source")} class={cardClass}>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">Pročitajte kontekst</p>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900">Zašto otvoreni kod</h3>
+              </div>
+              <span class="text-operately-blue transition group-hover:translate-x-1">→</span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Pročitajte šire obrazloženje zašto je Operately otvorenog koda, ako želite kontekst o
+              proizvodu i kompaniji pre postavljanja.
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-3xl font-semibold text-gray-900">Pitanja koja ljudi obično prvo postave</h2>
+        <div class="mt-8 space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Mogu li već danas da hostujem Operately sam?</h3>
+            <p class="mt-2 text-gray-700">
+              Da. Ako ste spremni za postavljanje, počnite od <a href="/install" class="text-operately-blue hover:underline">vodiča za instalaciju</a>.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Gde mogu da pronađem dokumentaciju za održavanje?</h3>
+            <p class="mt-2 text-gray-700">
+              Koristite <a href="/help/self-hosted-installation" class="text-operately-blue hover:underline">dokumentaciju za instalaciju</a> i srodne stranice pomoći za samostalno hostovanje (na engleskom) za detalje o daljem podešavanju.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Šta ako mi je potrebno komercijalno samostalno hostovanje?</h3>
+            <p class="mt-2 text-gray-700">
+              Počnite od stranice sa <a href={sr.href("/pricing")} class="text-operately-blue hover:underline">cenama</a>, a zatim nas <a href="/contact?help-type=commercial-license" class="text-operately-blue hover:underline">kontaktirajte</a> ako vam je potreban razgovor o komercijalnoj licenci ili podršci.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
