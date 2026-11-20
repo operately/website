@@ -1,0 +1,331 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import goalScreenshot from "./_index/goal.png";
+import projectScreenshot from "./_index/project.png";
+import CompanyLogos from "./_index/CompanyLogos.astro";
+
+const pageTitle = "Operately : Logiciel Open Source de Gestion d'OKR et de Projets";
+const pageDescription =
+  "Gestion de projets open source avec suivi d'OKR intégré. Pilotez vos objectifs, projets et points d'avancement avec une structure qui garde votre équipe alignée. Gratuit pour démarrer, auto-hébergeable en quelques minutes.";
+
+import { getLatestRelease } from "../utils/releases";
+const latestRelease = await getLatestRelease();
+const signUpUrl = import.meta.env.SIGN_UP_URL || import.meta.env.PUBLIC_SIGN_UP_URL || "https://app.operately.com/sign_up";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://operately.com/#organization",
+    name: "Operately",
+    url: "https://operately.com/",
+    logo: "https://operately.com/favicon.svg",
+    sameAs: [
+      "https://github.com/operately/operately",
+      "https://www.linkedin.com/company/92810497/",
+      "https://x.com/operately",
+      "https://www.youtube.com/@operately",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://operately.com/#website",
+    name: "Operately",
+    url: "https://operately.com/",
+    description: pageDescription,
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://operately.com/#software",
+    name: "Operately",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://operately.com/",
+    description: pageDescription,
+    image: "https://operately.com/images/social/card-summary-large.png",
+    publisher: {
+      "@id": "https://operately.com/#organization",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image={"/images/social/card-summary-large.png"}
+  twitterCardType="summary_large_image"
+  schema={schema}
+  lang="fr"
+  alternates={[
+    { hreflang: "en", href: "/" },
+    { hreflang: "fr", href: "/fr" },
+    { hreflang: "x-default", href: "/" },
+  ]}
+>
+  <main class="bg-[#FAFAF8]">
+
+    {/* ─── Hero ─── */}
+    <section class="px-6 pt-12 sm:pt-20 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        {latestRelease && (
+          <a
+            href={`/releases/${latestRelease.slug}`}
+            class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-700 ring-1 ring-gray-300 hover:ring-gray-400 transition-all mb-8"
+          >
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+            v{latestRelease.version} publiée
+            <span class="text-operately-blue">Nouveautés &rarr;</span>
+          </a>
+        )}
+
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+          Votre équipe n'a pas besoin d'une<br class="hidden sm:block" />
+          page blanche de plus. Elle a besoin d'un système.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-700">
+          Operately relie vos objectifs à vos projets grâce à des points d'avancement et un
+          suivi de progression intégrés. Open source. Auto-hébergé ou dans le cloud. Gratuit
+          pour démarrer.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Commencer gratuitement
+          </a>
+          <a
+            href="/install"
+            class="text-sm font-semibold text-gray-700 hover:text-gray-900 transition-colors"
+          >
+            Auto-hébergement en 5 minutes &rarr;
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+          This page is also available in <a href="/" class="font-medium text-operately-blue hover:underline">English</a>.
+        </p>
+      </div>
+
+      {/* Hero screencast */}
+      <div class="mx-auto mt-16 max-w-5xl">
+        <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full rounded-xl aspect-video"
+          >
+            <source
+              src="https://website-assets.operately.com/operately-homepage-screencast-v1.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <CompanyLogos />
+
+    {/* ─── Témoignage 1 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          « Nous avons enfin un seul endroit où les objectifs et le travail quotidien sont
+          connectés. Plus besoin de réunions de statut pour savoir où en sont les choses. »
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Sarah C.</span> · Responsable Produit
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Section Objectifs ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Des objectifs qui restent vivants
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Définissez des objectifs avec des cibles mesurables. Reliez-les à des projets.
+              Visualisez la progression automatiquement à mesure que le travail avance. Plus
+              d'objectifs oubliés dans un tableur jusqu'à la revue trimestrielle.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Des cibles mesurables.</strong> Pas de vagues aspirations</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Progression automatique.</strong> Issue des projets connectés</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Des revues régulières.</strong> Des rappels intégrés les gardent à l'heure</p>
+              </div>
+            </dl>
+          </div>
+          <div class="rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={goalScreenshot}
+              alt="Suivi des objectifs dans Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Témoignage 2 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          « Les points d'avancement hebdomadaires ont changé notre culture. Les gens savent
+          enfin sur quoi travaillent les autres sans avoir à demander. »
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">James R.</span> · Directeur Technique
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Section Projets ─── */}
+    <section class="px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-2 lg:order-1 rounded-2xl bg-white p-3 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-gray-100">
+            <Image
+              src={projectScreenshot}
+              alt="Gestion de projets dans Operately"
+              class="w-full rounded-xl"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Des projets qui n'ont pas besoin d'être surveillés
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-gray-700">
+              Chaque projet a un responsable, des jalons et des points d'avancement réguliers.
+              La progression remonte automatiquement. Personne n'a besoin de courir après qui
+              que ce soit pour obtenir un statut.
+            </p>
+            <dl class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Une responsabilité claire.</strong> Chaque projet a un porteur</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Points d'avancement intégrés.</strong> Mises à jour asynchrones planifiées</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 mt-1 h-5 w-5 rounded-full bg-operately-blue flex items-center justify-center">
+                  <svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <p class="text-gray-700"><strong class="text-gray-900">Lié aux objectifs.</strong> Le travail sur les projets alimente la progression des objectifs</p>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Section sombre : pourquoi Operately ─── */}
+    <section class="bg-gray-900 px-6 py-20 lg:px-8 mt-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Une structure qui travaille pour vous,<br class="hidden sm:block" /> pas l'inverse
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-300">
+          La plupart des outils offrent une flexibilité infinie et zéro guidance. Operately
+          donne à votre équipe un système clair : des objectifs avec des cibles, des projets
+          avec des responsables, et des points d'avancement qui ont lieu selon un calendrier.
+          Vous obtenez l'alignement sans la microgestion.
+        </p>
+        <div class="mt-12 grid gap-8 sm:grid-cols-3">
+          <div>
+            <p class="text-3xl font-bold text-white">Open source</p>
+            <p class="mt-2 text-sm text-gray-400">Licence Apache 2.0. Transparence totale.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Auto-hébergeable</p>
+            <p class="mt-2 text-sm text-gray-400">Déployez sur votre infrastructure en 5 minutes.</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">Tarif unique</p>
+            <p class="mt-2 text-sm text-gray-400">Pas de frais par utilisateur. Ajoutez des membres librement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── Témoignage 3 ─── */}
+    <section class="px-6 py-10 lg:px-8">
+      <blockquote class="mx-auto max-w-2xl text-center">
+        <p class="text-lg text-gray-700 italic leading-8">
+          « L'open source comptait pour nous pour des raisons de conformité, mais honnêtement
+          nous sommes restés parce que la structure fonctionne, tout simplement. Notre équipe
+          de 12 personnes tourne plus efficacement qu'à l'époque où nous étions 6 et
+          utilisions Notion. »
+        </p>
+        <footer class="mt-4 text-sm text-gray-500">
+          <span class="font-medium text-gray-900">Priya S.</span> · Responsable des Opérations
+        </footer>
+      </blockquote>
+    </section>
+
+    {/* ─── Appel à l'action ─── */}
+    <section class="px-6 py-20 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Essayez-le avec votre équipe
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Gratuit pour démarrer. Sans carte bancaire. Prêt en quelques minutes.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={signUpUrl}
+            class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 transition-colors"
+          >
+            Démarrer gratuitement sur le Cloud
+          </a>
+          <a
+            href="/self-hosted"
+            class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 hover:border-gray-400 transition-colors"
+          >
+            Auto-héberger Operately
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
