@@ -1,0 +1,255 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "AI agents";
+const pageDescription =
+  "Connect ChatGPT, Claude, OpenClaw, Codex, or Claude Code to Operately. Use MCP or the CLI and published skills to work with goals, projects, tasks, and check-ins.";
+
+const schema = {
+  "@type": "WebPage",
+  "@id": "https://operately.com/agents/#webpage",
+  url: "https://operately.com/agents/",
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: {
+    "@id": "https://operately.com/#website",
+  },
+  about: {
+    "@id": "https://operately.com/#organization",
+  },
+};
+
+const signUpUrl = import.meta.env.PUBLIC_SIGN_UP_URL;
+
+const actionClass =
+  "inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-operately-blue focus-visible:ring-offset-2";
+const primaryActionClass = `${actionClass} bg-gray-900 text-white hover:bg-gray-800`;
+const secondaryActionClass = `${actionClass} border border-gray-300 bg-transparent text-gray-900 hover:border-operately-blue hover:text-operately-blue`;
+const textLinkClass =
+  "text-operately-blue hover:underline focus:outline-none focus-visible:underline";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/social/card-summary-large.png"
+  twitterCardType="summary_large_image"
+  schema={schema}
+>
+  <main class="bg-[#FAFAF8] py-8 sm:py-16">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-operately-blue">
+          AI agents
+        </p>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Put your agents to work in Operately
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          Connected tools can work with goals, projects, tasks, and check-ins
+          through Operately's supported MCP and CLI interfaces. Choose the setup
+          that matches your agent, then finish the connection in that client.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:justify-center">
+        <a href="#connection-options" class={primaryActionClass}>
+          Connect your agent
+        </a>
+        <a href={signUpUrl} class={secondaryActionClass}>
+          Start with Operately
+        </a>
+      </div>
+
+      <section id="connection-options" class="mx-auto mt-16 max-w-4xl scroll-mt-24">
+        <h2 class="text-2xl font-semibold text-gray-900">Connection options</h2>
+        <p class="mt-4 text-gray-600 leading-7">
+          Operately supports two ways to connect. ChatGPT and Claude use remote
+          MCP. OpenClaw, Codex, and Claude Code use the CLI and published skills.
+        </p>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">
+              Remote MCP
+            </p>
+            <h3 class="mt-2 text-lg font-semibold text-gray-900">ChatGPT and Claude</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Add Operately as a remote MCP server, then complete sign-in and
+              access approval in the client. ChatGPT connects through Developer
+              mode. Claude connects with a custom remote MCP connector.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="/help/mcp-connections" class={textLinkClass}>MCP connections</a>
+              </li>
+              <li>
+                <a href="/help/mcp-chatgpt" class={textLinkClass}>Connect ChatGPT</a>
+              </li>
+              <li>
+                <a href="/help/mcp-claude" class={textLinkClass}>Connect Claude</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-wide text-operately-blue">
+              CLI and skills
+            </p>
+            <h3 class="mt-2 text-lg font-semibold text-gray-900">
+              OpenClaw, Codex, and Claude Code
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Install the Operately CLI and published skills so agents that can
+              run commands can work with Operately. OpenClaw has a dedicated
+              setup guide. Codex and Claude Code use the same CLI and skills
+              rather than a separate native connector.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="/help/use-with-openclaw" class={textLinkClass}>Use Operately with OpenClaw</a>
+              </li>
+              <li>
+                <a href="/help/cli-skills" class={textLinkClass}>Install CLI skills</a>
+              </li>
+              <li>
+                <a href="/help/cli-installation" class={textLinkClass}>Install the CLI</a>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Example workflows</h2>
+        <p class="mt-4 text-gray-600 leading-7">
+          These are illustrative prompts, not recorded conversations or
+          guaranteed results. What an agent can do still depends on the
+          connection you set up and the permissions you grant.
+        </p>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-2xl border border-gray-200 bg-white p-6">
+            <h3 class="font-semibold text-gray-900">Review goal progress</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              “Review this quarter’s goals in Operately. Summarize which targets
+              are on track, which are behind, and what changed since the last
+              update.”
+            </p>
+          </article>
+          <article class="rounded-2xl border border-gray-200 bg-white p-6">
+            <h3 class="font-semibold text-gray-900">Organize project work</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              “Look at the Website Refresh project. Group open tasks under the
+              current milestones and suggest a next-week order.”
+            </p>
+          </article>
+          <article class="rounded-2xl border border-gray-200 bg-white p-6 sm:col-span-2 lg:col-span-1">
+            <h3 class="font-semibold text-gray-900">Post a project check-in</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              “Draft a check-in for Website Refresh. Status: on track. Note that
+              the homepage shipped and landing pages start next week.”
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">Getting started</h2>
+        <p class="mt-4 text-gray-600 leading-7">
+          Use the values below as configuration, then follow the full guide for
+          your client. Setup continues inside ChatGPT, Claude, or your CLI tool.
+        </p>
+
+        <div class="mt-8 space-y-8">
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-gray-900">MCP server address</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Add this Operately Cloud address in your client. It is a
+              configuration value, not a one-click authorization link.
+            </p>
+            <div class="mt-4 max-w-full overflow-x-auto rounded-xl bg-gray-900 p-4">
+              <pre class="whitespace-pre text-sm text-gray-100"><code>https://app.operately.com/mcp</code></pre>
+            </div>
+            <p class="mt-4 text-sm leading-6 text-gray-600">
+              Self-hosted instances use a different MCP URL. See the
+              <a href="/help/mcp-connections" class={textLinkClass}>MCP connections</a>
+              guide for that format, then follow
+              <a href="/help/mcp-chatgpt" class={textLinkClass}>ChatGPT</a>
+              or
+              <a href="/help/mcp-claude" class={textLinkClass}>Claude</a>
+              for client-specific steps.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-gray-900">CLI and skills</h3>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Install the CLI, then add the published skills. Authenticate in
+              your environment using the CLI authentication guide rather than
+              entering credentials here.
+            </p>
+            <div class="mt-4 max-w-full overflow-x-auto rounded-xl bg-gray-900 p-4">
+              <pre class="whitespace-pre text-sm text-gray-100"><code>npm install -g @operately/operately-cli
+npx skills add https://github.com/operately/skills</code></pre>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="/help/cli-installation" class={textLinkClass}>CLI install and update</a>
+              </li>
+              <li>
+                <a href="/help/cli-authentication" class={textLinkClass}>CLI authentication</a>
+              </li>
+              <li>
+                <a href="/help/cli-skills" class={textLinkClass}>CLI skills</a>
+              </li>
+              <li>
+                <a href="/help/use-with-openclaw" class={textLinkClass}>OpenClaw setup</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-900">How access works</h2>
+        <div class="mt-4 space-y-4 text-gray-600 leading-7">
+          <p>
+            Connected tools act within your Operately permissions. They can only
+            work with the companies, spaces, and records you can already access.
+          </p>
+          <p>
+            MCP access also depends on the level you approve during
+            authorization: view data, or create, update, delete, and archive
+            content. If a client does not request an access level, it receives
+            read-only access by default.
+          </p>
+          <p>
+            Each MCP connection uses one company. Operately selects it
+            automatically if you belong to one company. If you belong to several,
+            you choose during authorization. To use a different company, connect
+            the client again and select that company.
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-16 max-w-3xl text-center">
+        <h2 class="text-2xl font-semibold text-gray-900">Connect an agent</h2>
+        <p class="mt-4 text-gray-600 leading-7">
+          Start with the
+          <a href="#connection-options" class={textLinkClass}>connection options</a>
+          on this page. For the broader product view, read the
+          <a href="/ai" class={textLinkClass}>AI overview</a>.
+          Developers can also use the
+          <a href="/help/api" class={textLinkClass}>Operately API</a>.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <a href="#connection-options" class={primaryActionClass}>
+            Connect your agent
+          </a>
+          <a href="/ai" class={secondaryActionClass}>
+            Read the AI overview
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
