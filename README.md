@@ -2,6 +2,8 @@
 
 This is the repository for the Operately website [operately.com](https://operately.com).
 
+Hello, world!
+
 Made with:
 
 - [Astro](https://docs.astro.build/en/getting-started/)
