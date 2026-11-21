@@ -1,0 +1,120 @@
+---
+title: "Agents: getting started"
+description: "How an AI agent installs the Operately CLI, joins or signs up, gets an API token, and works from the terminal without opening the web app."
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+This page describes the recommended order of steps for an AI agent (or any terminal-first automation) that needs to start working in Operately.
+
+## Should an agent use the web app?
+
+Usually no. Every step below can be done from a terminal, including joining an organization from an invite and getting an API token. Use the web app only for things the CLI cannot do for you, such as completing Google sign-in in a browser or reading the verification email.
+
+## The correct order
+
+<Steps>
+1. Install the CLI.
+2. Optionally install the Operately skills.
+3. Join an organization or sign up.
+4. Get an API token (this happens as part of step 3 or step 5).
+5. Log in with `operately auth login`.
+6. Use the CLI from then on.
+</Steps>
+
+## 1. Install the CLI
+
+```bash
+npm install -g @operately/operately-cli
+operately --version
+```
+
+See [CLI install and update](/help/cli-installation) for details.
+
+## 2. Optionally install skills
+
+Skills are an optional guidance layer. They teach compatible agent tools how to work with the Operately CLI and common workflows, but the CLI works without them.
+
+```bash
+npx skills add https://github.com/operately/skills --skill operately-cli
+```
+
+See [CLI skills](/help/cli-skills) for more options.
+
+## 3. Join an organization or sign up
+
+Pick the path that matches your situation.
+
+### You were invited to an organization
+
+Take the invite token from the invite link and run:
+
+```bash
+operately auth join --invite-token <token>
+```
+
+The CLI signs you in (or creates your account), accepts the invite, creates an API token for you, and saves it to your local profile. You do not need to open the web app or visit the API Tokens page.
+
+To skip prompts, pass the sign-in details as flags, for example `--method email-password --email <email> --password <password>`. Creating a new account still requires entering the verification code that Operately emails to the address you use, so the agent needs access to that inbox.
+
+### You have no account and no invite
+
+```bash
+operately auth signup
+```
+
+After signing up you can create a company or join one with an invite. You can pass `--next-step create-company`, `--next-step join`, or `--next-step later`. Signup also creates and saves an API token. See [Sign up and create a company with the CLI](/help/cli-signup).
+
+## 4. Get an API token without the UI
+
+You do not have to click through **API Tokens** in the web app. The CLI creates the token for you:
+
+- `operately auth join` and `operately auth signup` create a full-access token and save it to your profile when they finish.
+- `operately auth login` with email and password or an email code creates a token for an account that already exists. Choose the access level with `--access-mode read-only` or `--access-mode full-access`, and pick the organization with `--company-id` or `--company-name`.
+
+```bash
+operately auth login \
+  --method email-password \
+  --email <email> \
+  --password <password> \
+  --company-name "<organization name>" \
+  --access-mode full-access
+```
+
+<Aside type="note" title="Prefer the least access you need">
+Use `read-only` if the agent only needs to fetch data. Use `full-access` when it needs to create, update, or delete data.
+</Aside>
+
+## 5. Log in with `operately auth login`
+
+If a token already exists, for example one provided to the agent by a human through [Create an API token](/help/create-api-token), log in with it directly:
+
+```bash
+operately auth login --token <token>
+```
+
+For self-hosted instances, add `--base-url https://operately.example.com`. See [CLI authentication](/help/cli-authentication) for profiles, environment variables, and the resolution order.
+
+Verify the session:
+
+```bash
+operately auth whoami
+```
+
+## 6. Use the CLI
+
+From here on, discover and run commands with the built-in help:
+
+```bash
+operately help
+operately people get_me
+```
+
+See [Use the CLI](/help/cli-usage) for the command shape, and the [API docs](/help/api) for every endpoint.
+
+## What to read next
+
+- [Operately CLI overview](/help/cli)
+- [Sign up and create a company with the CLI](/help/cli-signup)
+- [CLI authentication](/help/cli-authentication)
+- [Connect an AI client with MCP](/help/mcp-connections)
