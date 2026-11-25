@@ -428,6 +428,7 @@ export default function helpCenterSidebar() {
             label: "Format text and embed images",
             link: "/help/format-document-text",
           },
+          { label: "Add Mermaid diagrams", link: "/help/add-mermaid-diagrams" },
           { label: "Upload files", link: "/help/upload-file" },
           { label: "Add an external link", link: "/help/add-external-link" },
           { label: "Create a folder", link: "/help/create-folder" },
